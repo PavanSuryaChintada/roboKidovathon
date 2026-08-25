@@ -5,18 +5,166 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    background-color: #F7F4EC;
+    color: #111111;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    letter-spacing: -0.025em;
+    font-family: 'Barlow Condensed', 'Impact', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #111111;
   }
 
   body {
-    background-color: #F8FAFC;
-    color: #0F172A;
-    font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #F7F4EC;
+    background-image: 
+      radial-gradient(#111111 0.75px, transparent 0.75px), 
+      radial-gradient(#111111 0.75px, #F7F4EC 0.75px);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+    color: #111111;
+    font-family: 'DM Sans', sans-serif;
   }
+}
+
+/* Technical Robotics Engineering Badges */
+.tech-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background-color: #111111;
+  color: #FACC15;
+  padding: 0.15rem 0.5rem;
+  border: 1.5px solid #111111;
+  box-shadow: 2px 2px 0px #111111;
+}
+
+.tech-blue {
+  background-color: #0052FF;
+  color: #FFFFFF;
+}
+
+.tech-red {
+  background-color: #FF3B00;
+  color: #FFFFFF;
+}
+
+/* Brutalist Button & Card Compression Effect */
+.btn-brutal {
+  background-color: #111111;
+  color: #FFFFFF;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2.5px solid #111111;
+  box-shadow: 5px 5px 0px #111111;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.btn-brutal:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0px #111111;
+}
+
+.btn-brutal:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0px 0px 0px #111111;
+}
+
+.btn-brutal-yellow {
+  background-color: #FACC15;
+  color: #111111;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2.5px solid #111111;
+  box-shadow: 5px 5px 0px #111111;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-brutal-yellow:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0px #111111;
+}
+
+.btn-brutal-yellow:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0px 0px 0px #111111;
+}
+
+.btn-brutal-blue {
+  background-color: #0052FF;
+  color: #FFFFFF;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2.5px solid #111111;
+  box-shadow: 5px 5px 0px #111111;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-brutal-blue:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0px #111111;
+}
+
+.card-brutal {
+  background-color: #FFFFFF;
+  border: 2.5px solid #111111;
+  box-shadow: 5px 5px 0px #111111;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-brutal:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px #111111;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes float-delay {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-1.5deg);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 20s linear infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+.animate-float-delay {
+  animation: float-delay 5s ease-in-out infinite 1s;
 }
 
 @layer utilities {

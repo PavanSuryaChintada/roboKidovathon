@@ -1,61 +1,137 @@
 import { useState } from 'react';
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { ValueProposition } from './components/ValueProposition';
-import { CompetitionTracks } from './components/CompetitionTracks';
-import { TimelineSection } from './components/TimelineSection';
-import { PrizeSection } from './components/PrizeSection';
-import { PricingSchoolPortal } from './components/PricingSchoolPortal';
-import { FaqSection } from './components/FaqSection';
-import { Footer } from './components/Footer';
+import { BrutalistNav } from './components/BrutalistNav';
+import { RoboHero } from './components/RoboHero';
+import { HeroTickerStrip } from './components/HeroTickerStrip';
+import { BlackTransitionStrip } from './components/BlackTransitionStrip';
+import { RoboIntro } from './components/RoboIntro';
+import { RoboStats } from './components/RoboStats';
+import { WowBuildBot } from './components/WowBuildBot';
+import { WowScoreboardTimer } from './components/WowScoreboardTimer';
+import { WowArenaDiagrams } from './components/WowArenaDiagrams';
+import { RoboChallengesSection } from './components/RoboChallengesSection';
+import { RoboHowItWorks } from './components/RoboHowItWorks';
+import { RoboJourney } from './components/RoboJourney';
+import { RoboJuniorVsSenior } from './components/RoboJuniorVsSenior';
+import { RoboForSchoolsSection } from './components/RoboForSchoolsSection';
+import { RoboPrizes } from './components/RoboPrizes';
+import { RoboFinalCta } from './components/RoboFinalCta';
+import { RoboFooter } from './components/RoboFooter';
+
+import { ChallengesPage } from './pages/ChallengesPage';
+import { HowItWorksPage } from './pages/HowItWorksPage';
+import { ForSchoolsPage } from './pages/ForSchoolsPage';
+import { AboutPage } from './pages/AboutPage';
+import { JoinPage } from './pages/JoinPage';
+
 import { RegisterModal } from './components/RegisterModal';
 import { EventDeckModal } from './components/EventDeckModal';
+import { FaqSection } from './components/FaqSection';
 
 export function App() {
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-  const [isDeckOpen, setIsDeckOpen] = useState(false);
+  const [currentRoute, setCurrentRoute] = useState<string>('home');
+  const [isRegisterOpen, setIsRegisterOpen] = useState<boolean>(false);
+  const [isDeckOpen, setIsDeckOpen] = useState<boolean>(false);
+  const [isFaqOpen, setIsFaqOpen] = useState<boolean>(false);
+
+  const handleNavigate = (route: string) => {
+    setCurrentRoute(route);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
-    <div className="min-h-screen bg-brand-slate-900 font-sans text-brand-slate-900 selection:bg-brand-orange selection:text-white">
-      {/* Sticky Header */}
-      <Navbar
-        onOpenRegisterModal={() => setIsRegisterOpen(true)}
-        onOpenDeckModal={() => setIsDeckOpen(true)}
+    <div className="min-h-screen bg-[#F7F4EC] text-[#111111] font-sans selection:bg-[#FACC15] selection:text-[#111111] relative overflow-x-hidden">
+      {/* Physical Brutalist Navigation */}
+      <BrutalistNav
+        activeTab={currentRoute}
+        onNavigate={handleNavigate}
+        onOpenRegister={() => setIsRegisterOpen(true)}
+        onOpenFaq={() => setIsFaqOpen(true)}
       />
 
-      {/* Main Content Sections */}
-      <main>
-        {/* 1. Hero Section */}
-        <Hero
-          onOpenRegisterModal={() => setIsRegisterOpen(true)}
-          onOpenDeckModal={() => setIsDeckOpen(true)}
-        />
+      {/* Main Content Router */}
+      <main className="w-full">
+        {currentRoute === 'home' && (
+          <>
+            {/* 1. Hero Section */}
+            <RoboHero
+              onOpenRegister={() => setIsRegisterOpen(true)}
+              onNavigate={handleNavigate}
+            />
 
-        {/* 2. Value Proposition & Key Stats */}
-        <ValueProposition />
+            {/* 2. Moving Event Ticker Strip */}
+            <HeroTickerStrip />
 
-        {/* 3. Competition Tracks & Interactive Arena Rules */}
-        <CompetitionTracks />
+            {/* 3. Full-Width Black Transition Strip */}
+            <BlackTransitionStrip />
 
-        {/* 4. Multi-Stage Timeline */}
-        <TimelineSection />
+            {/* 4. Concept Intro */}
+            <RoboIntro />
 
-        {/* 5. Prize Pool & Stockholm Grand Finale */}
-        <PrizeSection />
+            {/* 5. Verified Impact & Stats */}
+            <RoboStats />
 
-        {/* 6. Pricing & School Portal Box */}
-        <PricingSchoolPortal
-          onOpenRegisterModal={() => setIsRegisterOpen(true)}
-        />
+            {/* WOW MOMENT 01: BUILD YOUR BOT Interactive Flow */}
+            <WowBuildBot />
 
-        {/* 7. FAQ Accordion */}
-        <FaqSection />
+            {/* WOW MOMENT 02: COMPETITION SCOREBOARD TIMER */}
+            <WowScoreboardTimer />
+
+            {/* 6. Competition Tracks (Robo-Sprint & Robo-Precision) */}
+            <RoboChallengesSection onNavigate={handleNavigate} />
+
+            {/* WOW MOMENT 03: TECHNICAL ARENA DIAGRAMS */}
+            <WowArenaDiagrams />
+
+            {/* 7. 5-Stage Game Progression */}
+            <RoboHowItWorks />
+
+            {/* 8. Multi-Stage Competition Roadmap */}
+            <RoboJourney />
+
+            {/* 9. Junior vs Senior Division Split */}
+            <RoboJuniorVsSenior />
+
+            {/* 10. Educator & School Portal Box */}
+            <RoboForSchoolsSection
+              onNavigate={handleNavigate}
+              onOpenRegister={() => setIsRegisterOpen(true)}
+            />
+
+            {/* 11. Prize Allocations Scoreboard */}
+            <RoboPrizes />
+
+            {/* 12. Final Call To Action */}
+            <RoboFinalCta
+              onOpenRegister={() => setIsRegisterOpen(true)}
+              onNavigate={handleNavigate}
+            />
+          </>
+        )}
+
+        {currentRoute === 'challenges' && (
+          <ChallengesPage onOpenRegister={() => setIsRegisterOpen(true)} />
+        )}
+
+        {currentRoute === 'how-it-works' && (
+          <HowItWorksPage onOpenRegister={() => setIsRegisterOpen(true)} />
+        )}
+
+        {currentRoute === 'for-schools' && (
+          <ForSchoolsPage
+            onOpenRegister={() => setIsRegisterOpen(true)}
+            onOpenDeckModal={() => setIsDeckOpen(true)}
+          />
+        )}
+
+        {currentRoute === 'about' && <AboutPage />}
+
+        {currentRoute === 'join' && <JoinPage />}
       </main>
 
       {/* Footer */}
-      <Footer
-        onOpenRegisterModal={() => setIsRegisterOpen(true)}
-        onOpenDeckModal={() => setIsDeckOpen(true)}
+      <RoboFooter
+        onNavigate={handleNavigate}
+        onOpenFaq={() => setIsFaqOpen(true)}
       />
 
       {/* Interactive Modals */}
@@ -68,6 +144,24 @@ export function App() {
         isOpen={isDeckOpen}
         onClose={() => setIsDeckOpen(false)}
       />
+
+      {/* FAQ Modal */}
+      {isFaqOpen && (
+        <div className="fixed inset-0 z-50 bg-[#111111]/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-[#F7F4EC] border-2.5 border-[#111111] shadow-[9px_9px_0px_#FACC15] max-w-3xl w-full p-6 sm:p-8 relative">
+            <button
+              onClick={() => setIsFaqOpen(false)}
+              className="absolute top-4 right-4 bg-[#FF3B00] text-white font-barlow font-black text-sm px-3 py-1 border-2 border-[#111111]"
+            >
+              CLOSE ✕
+            </button>
+            <h2 className="text-[#111111] text-3xl font-barlow font-black uppercase mb-4">
+              FREQUENTLY ASKED QUESTIONS
+            </h2>
+            <FaqSection />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
