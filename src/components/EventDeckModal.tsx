@@ -96,8 +96,7 @@ export const EventDeckModal: React.FC<EventDeckModalProps> = ({ isOpen, onClose 
           <a
             href="/rulebook.pdf"
             download="Blix-A-Thon_Vasteras_2026_Event_Deck.pdf"
-            onClick={(e) => {
-              // Trigger PDF mock fallback notice if file non-existent
+            onClick={() => {
               alert('Downloading official Blix-A-Thon Västerås 2026 Event Prospectus (PDF)...');
             }}
             className="w-full sm:w-auto px-6 py-3 bg-[#0062B8] hover:bg-[#00529B] text-white font-bold rounded-md transition shadow-xs flex items-center justify-center gap-2"
