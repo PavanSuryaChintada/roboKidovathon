@@ -6,7 +6,7 @@ interface RoboChallengesSectionProps {
 
 export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ onNavigate }) => {
   return (
-    <section className="w-full bg-white text-[#0B1020]">
+    <section className="w-full bg-[#F5F2EE] text-[#07111F]">
       {/* Section header */}
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 pt-20 md:pt-28 pb-10">
         <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#0052FF] uppercase block mb-4">
@@ -14,7 +14,7 @@ export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ on
         </span>
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <h2
-            className="font-extrabold uppercase leading-none tracking-tight text-[#0B1020]"
+            className="font-extrabold uppercase leading-none tracking-tight text-[#07111F]"
             style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', lineHeight: 0.95 }}
           >
             The Competition<br />Tracks.
@@ -28,46 +28,46 @@ export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ on
         </div>
       </div>
 
-      {/* ── ROBO-SPRINT Panel ── */}
-      <div className="w-full grid grid-cols-1 lg:grid-cols-12 border-t border-slate-200">
-        {/* Left — blue color block */}
-        <div className="lg:col-span-5 bg-[#0052FF] px-8 sm:px-12 py-14 md:py-20 flex flex-col justify-between">
+      {/* ── ROBO-SPRINT — yellow-led identity ── */}
+      <div className="w-full grid grid-cols-1 lg:grid-cols-12 border-t border-[#07111F]/10">
+        {/* Left — championship yellow color block */}
+        <div className="lg:col-span-5 bg-[#E2FF00] px-8 sm:px-12 py-14 md:py-20 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-8">
-              <span className="text-[9px] font-mono font-bold tracking-[0.3em] text-white/60 uppercase">
+              <span className="text-[9px] font-mono font-bold tracking-[0.3em] text-[#07111F]/60 uppercase">
                 JUNIOR DIVISION · UP TO AGE 15
               </span>
-              <span className="text-[9px] font-mono font-bold tracking-[0.2em] text-white/60 uppercase border border-white/30 px-2 py-0.5">
+              <span className="text-[9px] font-mono font-bold tracking-[0.2em] text-[#07111F]/60 uppercase border border-[#07111F]/20 px-2 py-0.5">
                 ⏱ 3 MIN
               </span>
             </div>
             <h3
-              className="font-extrabold uppercase leading-none tracking-tighter text-white"
+              className="font-extrabold uppercase leading-none tracking-tighter text-[#07111F]"
               style={{ fontSize: 'clamp(3rem, 6vw, 7rem)', lineHeight: 0.85 }}
             >
               ROBO-<br />SPRINT
             </h3>
-            <p className="text-sm text-white/70 font-light mt-4 max-w-xs leading-relaxed">
+            <p className="text-sm text-[#07111F]/65 font-light mt-4 max-w-xs leading-relaxed">
               Air-hockey ball passing arena. Pass as many balls as possible into the opponent's court within 3 minutes.
             </p>
           </div>
-          <div className="mt-10 space-y-3 text-xs font-mono text-white/60 uppercase">
-            <div className="flex justify-between border-t border-white/20 pt-3">
+          <div className="mt-10 space-y-3 text-xs font-mono text-[#07111F]/50 uppercase">
+            <div className="flex justify-between border-t border-[#07111F]/15 pt-3">
               <span>ROBOT LIMIT</span>
-              <span className="text-white font-bold">1.5 FT × 1.5 FT</span>
+              <span className="text-[#07111F] font-bold">1.5 FT × 1.5 FT</span>
             </div>
-            <div className="flex justify-between border-t border-white/20 pt-3">
+            <div className="flex justify-between border-t border-[#07111F]/15 pt-3">
               <span>SCORING</span>
-              <span className="text-white font-bold">FEWEST BALLS WINS</span>
+              <span className="text-[#07111F] font-bold">FEWEST BALLS WINS</span>
             </div>
-            <div className="flex justify-between border-t border-white/20 pt-3">
+            <div className="flex justify-between border-t border-[#07111F]/15 pt-3">
               <span>CATEGORY</span>
-              <span className="text-white font-bold">JUNIOR LEAGUE</span>
+              <span className="text-[#07111F] font-bold">JUNIOR LEAGUE</span>
             </div>
           </div>
           <button
             onClick={() => onNavigate('challenges')}
-            className="mt-10 self-start text-[10px] font-mono font-bold tracking-[0.2em] uppercase text-white border-b border-white/50 pb-0.5 hover:border-white transition-colors"
+            className="mt-10 self-start text-[10px] font-mono font-bold tracking-[0.2em] uppercase text-[#07111F] border-b border-[#07111F]/40 pb-0.5 hover:border-[#07111F] transition-colors"
           >
             EXPLORE ROBO-SPRINT →
           </button>
@@ -80,16 +80,15 @@ export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ on
             alt="Robo-Sprint competition arena"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#0052FF]/30 pointer-events-none" />
-          {/* Large background number */}
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#E2FF00]/20 pointer-events-none" />
           <div className="absolute bottom-4 right-6 text-[10px] font-mono tracking-[0.3em] text-white/30 uppercase">
             [ ARENA FORMAT 01 · JUNIOR ]
           </div>
         </div>
       </div>
 
-      {/* ── ROBO-PRECISION Panel ── */}
-      <div className="w-full grid grid-cols-1 lg:grid-cols-12 border-t border-slate-200">
+      {/* ── ROBO-PRECISION — blue-led identity ── */}
+      <div className="w-full grid grid-cols-1 lg:grid-cols-12 border-t border-[#07111F]/10">
         {/* Left — image */}
         <div className="lg:col-span-7 relative overflow-hidden min-h-[320px] lg:min-h-0 order-2 lg:order-1">
           <img
@@ -97,20 +96,20 @@ export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ on
             alt="Robo-Precision cup stacking arena"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0B1020]/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#07111F]/30 pointer-events-none" />
           <div className="absolute bottom-4 left-6 text-[10px] font-mono tracking-[0.3em] text-white/30 uppercase">
             [ ARENA FORMAT 02 · SENIOR ]
           </div>
         </div>
 
-        {/* Right — dark color block */}
-        <div className="lg:col-span-5 bg-[#0B1020] px-8 sm:px-12 py-14 md:py-20 flex flex-col justify-between order-1 lg:order-2">
+        {/* Right — deep navy block */}
+        <div className="lg:col-span-5 bg-[#07111F] px-8 sm:px-12 py-14 md:py-20 flex flex-col justify-between order-1 lg:order-2">
           <div>
             <div className="flex items-center justify-between mb-8">
-              <span className="text-[9px] font-mono font-bold tracking-[0.3em] text-white/40 uppercase">
+              <span className="text-[9px] font-mono font-bold tracking-[0.3em] text-white/35 uppercase">
                 SENIOR DIVISION · AGE 15+
               </span>
-              <span className="text-[9px] font-mono font-bold tracking-[0.2em] text-white/40 uppercase border border-white/20 px-2 py-0.5">
+              <span className="text-[9px] font-mono font-bold tracking-[0.2em] text-white/35 uppercase border border-white/15 px-2 py-0.5">
                 ⏱ 5 MIN
               </span>
             </div>
@@ -120,27 +119,27 @@ export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ on
             >
               ROBO-<br />PRECISION
             </h3>
-            <p className="text-sm text-white/50 font-light mt-4 max-w-xs leading-relaxed">
+            <p className="text-sm text-white/45 font-light mt-4 max-w-xs leading-relaxed">
               5-level cup tower stacking arena. Build the tallest, most stable tower using a robotic grabber arm. Zero manual touch.
             </p>
           </div>
-          <div className="mt-10 space-y-3 text-xs font-mono text-white/40 uppercase">
-            <div className="flex justify-between border-t border-white/10 pt-3">
+          <div className="mt-10 space-y-3 text-xs font-mono text-white/35 uppercase">
+            <div className="flex justify-between border-t border-white/8 pt-3">
               <span>ROBOT LIMIT</span>
               <span className="text-white font-bold">2.5 FT × 2.5 FT</span>
             </div>
-            <div className="flex justify-between border-t border-white/10 pt-3">
+            <div className="flex justify-between border-t border-white/8 pt-3">
               <span>SCORING</span>
               <span className="text-white font-bold">TALLEST TOWER WINS</span>
             </div>
-            <div className="flex justify-between border-t border-white/10 pt-3">
+            <div className="flex justify-between border-t border-white/8 pt-3">
               <span>CATEGORY</span>
-              <span className="text-[#E2FF00] font-bold">SENIOR LEAGUE</span>
+              <span className="text-[#0052FF] font-bold">SENIOR LEAGUE</span>
             </div>
           </div>
           <button
             onClick={() => onNavigate('challenges')}
-            className="mt-10 self-start text-[10px] font-mono font-bold tracking-[0.2em] uppercase text-white/60 border-b border-white/20 pb-0.5 hover:text-white hover:border-white transition-colors"
+            className="mt-10 self-start text-[10px] font-mono font-bold tracking-[0.2em] uppercase text-white/50 border-b border-white/20 pb-0.5 hover:text-white hover:border-white transition-colors"
           >
             EXPLORE ROBO-PRECISION →
           </button>

@@ -7,8 +7,8 @@ interface RoboFooterProps {
 
 export const RoboFooter: React.FC<RoboFooterProps> = ({ onNavigate, onOpenFaq }) => {
   return (
-    <footer className="w-full bg-[#060912] text-white border-t border-slate-800 pt-16 pb-12 px-4 sm:px-6">
-      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-12 border-b border-slate-800">
+    <footer className="w-full bg-[#07111F] text-white border-t border-white/8 pt-16 pb-12 px-4 sm:px-6">
+      <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-12 border-b border-white/8">
         {/* Brand Column */}
         <div className="space-y-2">
           <div className="flex items-center gap-2">
@@ -51,7 +51,7 @@ export const RoboFooter: React.FC<RoboFooterProps> = ({ onNavigate, onOpenFaq })
       </div>
 
       {/* Copyright & Disclaimer */}
-      <div className="max-w-[1280px] mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-inter text-[#C9CED8] gap-4 text-center sm:text-left font-normal">
+      <div className="max-w-[1440px] mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-inter text-white/30 gap-4 text-center sm:text-left font-normal">
         <span>© 2026 Robo Kido-A-Thon / Robo-Kidovation League. All rights reserved.</span>
         <span>Adapted for Nordic School Culture, Inclusion & GDPR Safety.</span>
       </div>

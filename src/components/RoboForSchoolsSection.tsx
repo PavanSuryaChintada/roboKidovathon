@@ -10,12 +10,12 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
   onOpenRegister,
 }) => {
   return (
-    <section className="w-full bg-[#0B1120] text-white">
+    <section className="w-full bg-[#07111F] text-white">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 py-20 md:py-28">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6 border-b border-white/10 pb-10">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6 border-b border-white/8 pb-10">
           <div>
-            <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-white/40 uppercase block mb-4">
+            <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-white/30 uppercase block mb-4">
               07 / EDUCATORS & PRINCIPALS PORTAL
             </span>
             <h2
@@ -29,17 +29,17 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
           </div>
           <button
             onClick={() => onNavigate('for-schools')}
-            className="self-start lg:self-end text-[10px] font-mono font-bold tracking-[0.2em] uppercase text-white/50 border-b border-white/20 pb-0.5 hover:text-white hover:border-white transition-colors whitespace-nowrap"
+            className="self-start lg:self-end text-[10px] font-mono font-bold tracking-[0.2em] uppercase text-white/40 border-b border-white/15 pb-0.5 hover:text-white hover:border-white transition-colors whitespace-nowrap"
           >
             SCHOOLS PORTAL →
           </button>
         </div>
 
         {/* 3-column thin-bordered information grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/8">
           {/* Col 1 — What we provide */}
           <div className="pr-0 md:pr-10 pb-10 md:pb-0 space-y-5">
-            <h3 className="text-[10px] font-mono font-bold tracking-[0.3em] text-white/40 uppercase pb-4 border-b border-white/10">
+            <h3 className="text-[10px] font-mono font-bold tracking-[0.3em] text-white/30 uppercase pb-4 border-b border-white/8">
               WHAT WE PROVIDE
             </h3>
             {[
@@ -50,15 +50,15 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
               'Event photography & media coverage',
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3">
-                <span className="text-[#E2FF00] font-bold mt-0.5 shrink-0">↗</span>
-                <span className="text-sm text-white/70 font-light leading-relaxed">{item}</span>
+                <span className="text-[#0052FF] font-bold mt-0.5 shrink-0">↗</span>
+                <span className="text-sm text-white/60 font-light leading-relaxed">{item}</span>
               </div>
             ))}
           </div>
 
           {/* Col 2 — School Requirements */}
           <div className="px-0 md:px-10 py-10 md:py-0 space-y-5">
-            <h3 className="text-[10px] font-mono font-bold tracking-[0.3em] text-white/40 uppercase pb-4 border-b border-white/10">
+            <h3 className="text-[10px] font-mono font-bold tracking-[0.3em] text-white/30 uppercase pb-4 border-b border-white/8">
               SCHOOL REQUIREMENTS
             </h3>
             {[
@@ -69,18 +69,17 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
               'Zero financial cost to school administration',
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3">
-                <span className="text-white/30 font-bold mt-0.5 shrink-0">—</span>
-                <span className="text-sm text-white/70 font-light leading-relaxed">{item}</span>
+                <span className="text-white/25 font-bold mt-0.5 shrink-0">—</span>
+                <span className="text-sm text-white/60 font-light leading-relaxed">{item}</span>
               </div>
             ))}
           </div>
 
-          {/* Col 3 — Cost Model */}
+          {/* Col 3 — Cost Model with oversized yellow price */}
           <div className="pl-0 md:pl-10 pt-10 md:pt-0 space-y-5">
-            <h3 className="text-[10px] font-mono font-bold tracking-[0.3em] text-white/40 uppercase pb-4 border-b border-white/10">
+            <h3 className="text-[10px] font-mono font-bold tracking-[0.3em] text-white/30 uppercase pb-4 border-b border-white/8">
               TRANSPARENT COST MODEL
             </h3>
-            {/* Oversized price */}
             <div className="py-4">
               <span
                 className="font-extrabold text-[#E2FF00] leading-none tracking-tighter block"
@@ -88,17 +87,17 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
               >
                 100
               </span>
-              <span className="text-2xl font-extrabold text-white/60 uppercase tracking-widest">SEK</span>
-              <span className="block text-[10px] font-mono text-white/30 mt-2 uppercase tracking-widest">
+              <span className="text-2xl font-extrabold text-white/40 uppercase tracking-widest">SEK</span>
+              <span className="block text-[10px] font-mono text-white/25 mt-2 uppercase tracking-widest">
                 + VAT · 125 SEK TOTAL PER STUDENT
               </span>
             </div>
-            <p className="text-sm text-white/50 font-light leading-relaxed">
+            <p className="text-sm text-white/45 font-light leading-relaxed">
               Complete turnkey event execution. Zero administrative overhead for school management.
             </p>
             <button
               onClick={onOpenRegister}
-              className="mt-4 w-full py-4 bg-[#0052FF] text-white font-bold text-xs tracking-[0.2em] uppercase hover:bg-blue-600 transition-colors"
+              className="mt-4 w-full py-4 bg-white text-[#07111F] font-bold text-xs tracking-[0.2em] uppercase hover:bg-[#F5F2EE] transition-colors"
             >
               REGISTER YOUR SCHOOL NOW →
             </button>
