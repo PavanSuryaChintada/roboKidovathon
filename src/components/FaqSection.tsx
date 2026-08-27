@@ -49,20 +49,20 @@ export const FaqSection: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4 border-b border-[#07111F]/10 pb-10">
           <div>
             <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#0052FF] uppercase block mb-3">
-              09 / FREQUENTLY ASKED QUESTIONS
+              PROGRAMME FAQ
             </span>
             <h2
               className="font-extrabold uppercase leading-none tracking-tighter text-[#07111F]"
               style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', lineHeight: 0.95 }}
             >
-              Got Questions?
+              Common<br />Questions.
             </h2>
           </div>
           <a
             href="mailto:contact@robokidoathon.se"
             className="self-start sm:self-end text-[10px] font-mono font-bold tracking-[0.2em] uppercase text-[#4A5568] border-b border-[#07111F]/20 pb-0.5 hover:text-[#0052FF] hover:border-[#0052FF] transition-colors whitespace-nowrap"
           >
-            EMAIL COORDINATORS →
+            CONTACT PROGRAMME OFFICE →
           </a>
         </div>
 
