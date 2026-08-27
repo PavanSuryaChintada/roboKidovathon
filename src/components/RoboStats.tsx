@@ -2,61 +2,58 @@ import React from 'react';
 
 export const RoboStats: React.FC = () => {
   return (
-    <section className="w-full max-w-6xl mx-auto px-4 py-8">
-      {/* Slush Dark Stats Container */}
-      <div className="card-slush-glass rounded-3xl p-6 sm:p-10 relative">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-white/10 pb-4 mb-6 gap-2">
-          <span className="font-barlow font-black text-xl md:text-2xl text-[#E2FF00] uppercase tracking-wider">
-            LEAGUE IMPACT & REACH
+    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20 border-b border-slate-200">
+      {/* Section Header */}
+      <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-4">
+        <div>
+          <span className="text-xs font-mono font-bold tracking-widest text-[#0052FF] uppercase block mb-1">
+            LEAGUE REACH & PILOT TARGETS
           </span>
-          <span className="bg-[#FF0055]/20 text-[#FF0055] font-barlow font-bold text-xs px-3 py-1 rounded-full border border-[#FF0055]/50 uppercase tracking-widest">
-            SWEDEN PILOT & PROJECTIONS
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold uppercase text-[#0F172A]">
+            PROVEN EVENT SCALE
+          </h2>
+        </div>
+        <p className="text-xs sm:text-sm font-dmsans text-slate-500 max-w-md">
+          Figures reflect the confirmed target Sweden pilot engagement across the Västerås school cluster.
+        </p>
+      </div>
+
+      {/* Grid of Enormous Clean Numbers */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="space-y-1 border-l-2 border-[#0052FF] pl-4 sm:pl-6">
+          <span className="text-6xl sm:text-7xl lg:text-8xl font-syne font-extrabold text-[#0F172A] block leading-none tracking-tight">
+            15+
+          </span>
+          <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-widest text-slate-500 block pt-2">
+            SCHOOLS ENGAGED
           </span>
         </div>
 
-        {/* Grid of Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div className="p-5 bg-white/5 border border-white/10 rounded-2xl hover:border-[#E2FF00] hover:shadow-[0_0_25px_rgba(226,255,0,0.3)] transition-all">
-            <span className="text-5xl sm:text-6xl md:text-7xl font-barlow font-black text-[#E2FF00] block leading-none drop-shadow-[0_0_15px_rgba(226,255,0,0.4)]">
-              15
-            </span>
-            <span className="text-xs sm:text-sm font-barlow font-extrabold uppercase tracking-widest text-[#A1A1AA] mt-2 block">
-              SCHOOLS ENGAGED
-            </span>
-          </div>
-
-          <div className="p-5 bg-white/5 border border-white/10 rounded-2xl hover:border-[#00F2FE] hover:shadow-[0_0_25px_rgba(0,242,254,0.3)] transition-all">
-            <span className="text-5xl sm:text-6xl md:text-7xl font-barlow font-black text-[#00F2FE] block leading-none drop-shadow-[0_0_15px_rgba(0,242,254,0.4)]">
-              600+
-            </span>
-            <span className="text-xs sm:text-sm font-barlow font-extrabold uppercase tracking-widest text-[#A1A1AA] mt-2 block">
-              STUDENT PARTICIPANTS
-            </span>
-          </div>
-
-          <div className="p-5 bg-white/5 border border-white/10 rounded-2xl hover:border-[#FF0055] hover:shadow-[0_0_25px_rgba(255,0,85,0.3)] transition-all">
-            <span className="text-5xl sm:text-6xl md:text-7xl font-barlow font-black text-[#FF0055] block leading-none drop-shadow-[0_0_15px_rgba(255,0,85,0.4)]">
-              45+
-            </span>
-            <span className="text-xs sm:text-sm font-barlow font-extrabold uppercase tracking-widest text-[#A1A1AA] mt-2 block">
-              TEACHERS INVOLVED
-            </span>
-          </div>
-
-          <div className="p-5 bg-white/5 border border-white/10 rounded-2xl hover:border-[#00E676] hover:shadow-[0_0_25px_rgba(0,230,118,0.3)] transition-all">
-            <span className="text-5xl sm:text-6xl md:text-7xl font-barlow font-black text-[#00E676] block leading-none drop-shadow-[0_0_15px_rgba(0,230,118,0.4)]">
-              600+
-            </span>
-            <span className="text-xs sm:text-sm font-barlow font-extrabold uppercase tracking-widest text-[#A1A1AA] mt-2 block">
-              PARENTS REACHED
-            </span>
-          </div>
+        <div className="space-y-1 border-l-2 border-[#0052FF] pl-4 sm:pl-6">
+          <span className="text-6xl sm:text-7xl lg:text-8xl font-syne font-extrabold text-[#0052FF] block leading-none tracking-tight">
+            600+
+          </span>
+          <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-widest text-slate-500 block pt-2">
+            STUDENTS PARTICIPATING
+          </span>
         </div>
 
-        {/* Source Note Footer */}
-        <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-[#A1A1AA] font-dmsans">
-          <span>*Figures represent target Sweden pilot engagement in Västerås cluster.</span>
-          <span className="font-semibold text-[#E2FF00] mt-1 sm:mt-0">Historical Origin Success: 1,000+ Student Participants in India Model</span>
+        <div className="space-y-1 border-l-2 border-slate-300 pl-4 sm:pl-6">
+          <span className="text-6xl sm:text-7xl lg:text-8xl font-syne font-extrabold text-[#0F172A] block leading-none tracking-tight">
+            45+
+          </span>
+          <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-widest text-slate-500 block pt-2">
+            TEACHERS INVOLVED
+          </span>
+        </div>
+
+        <div className="space-y-1 border-l-2 border-slate-300 pl-4 sm:pl-6">
+          <span className="text-6xl sm:text-7xl lg:text-8xl font-syne font-extrabold text-[#0F172A] block leading-none tracking-tight">
+            600+
+          </span>
+          <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-widest text-slate-500 block pt-2">
+            PARENTS REACHED
+          </span>
         </div>
       </div>
     </section>

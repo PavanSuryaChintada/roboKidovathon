@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { BrutalistNav } from './components/BrutalistNav';
-import { RoboHero } from './components/RoboHero';
-import { HeroTickerStrip } from './components/HeroTickerStrip';
-import { BlackTransitionStrip } from './components/BlackTransitionStrip';
+import { CinematicVideoHero } from './components/CinematicVideoHero';
 import { RoboIntro } from './components/RoboIntro';
 import { RoboStats } from './components/RoboStats';
+import { MediaStorytelling } from './components/MediaStorytelling';
 import { WowBuildBot } from './components/WowBuildBot';
 import { WowScoreboardTimer } from './components/WowScoreboardTimer';
 import { WowArenaDiagrams } from './components/WowArenaDiagrams';
@@ -14,6 +13,7 @@ import { RoboJourney } from './components/RoboJourney';
 import { RoboJuniorVsSenior } from './components/RoboJuniorVsSenior';
 import { RoboForSchoolsSection } from './components/RoboForSchoolsSection';
 import { RoboPrizes } from './components/RoboPrizes';
+import { EventInfoBlock } from './components/EventInfoBlock';
 import { RoboFinalCta } from './components/RoboFinalCta';
 import { RoboFooter } from './components/RoboFooter';
 
@@ -39,8 +39,8 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0B0E] text-white font-sans selection:bg-[#FF0055] selection:text-white relative overflow-x-hidden">
-      {/* Slush Dark Sticky Navigation */}
+    <div className="min-h-screen bg-[#FAFAFA] text-[#0F172A] font-sans selection:bg-[#0052FF] selection:text-white relative overflow-x-hidden">
+      {/* Clean Professional Event Navigation */}
       <BrutalistNav
         activeTab={currentRoute}
         onNavigate={handleNavigate}
@@ -52,53 +52,53 @@ export function App() {
       <main className="w-full">
         {currentRoute === 'home' && (
           <>
-            {/* 1. Slush Event Hero Section */}
-            <RoboHero
+            {/* 1. Full-Width Cinematic Video Hero */}
+            <CinematicVideoHero
               onOpenRegister={() => setIsRegisterOpen(true)}
               onNavigate={handleNavigate}
             />
 
-            {/* 2. Moving Event Ticker Strip */}
-            <HeroTickerStrip />
+            {/* 2. Enormous Clean Statistics Data Section */}
+            <RoboStats />
 
-            {/* 3. Slush Dark Laser Transition Strip */}
-            <BlackTransitionStrip />
-
-            {/* 4. Concept Intro */}
+            {/* 3. About / Mission Split Editorial Section */}
             <RoboIntro />
 
-            {/* 5. Verified Impact & Stats */}
-            <RoboStats />
+            {/* 4. Photo & Video Storytelling Blocks (Students Build, Code, Compete) */}
+            <MediaStorytelling />
 
             {/* WOW MOMENT 01: BUILD YOUR BOT Interactive Flow */}
             <WowBuildBot />
 
+            {/* 5. Competition Tracks (Robo-Sprint & Robo-Precision) */}
+            <RoboChallengesSection onNavigate={handleNavigate} />
+
             {/* WOW MOMENT 02: COMPETITION SCOREBOARD TIMER */}
             <WowScoreboardTimer />
-
-            {/* 6. Competition Tracks (Robo-Sprint & Robo-Precision) */}
-            <RoboChallengesSection onNavigate={handleNavigate} />
 
             {/* WOW MOMENT 03: TECHNICAL ARENA DIAGRAMS */}
             <WowArenaDiagrams />
 
-            {/* 7. 5-Stage Game Progression */}
+            {/* 6. 5-Stage Game Progression */}
             <RoboHowItWorks />
 
-            {/* 8. Multi-Stage Competition Roadmap */}
+            {/* 7. Multi-Stage Competition Roadmap */}
             <RoboJourney />
 
-            {/* 9. Junior vs Senior Division Split */}
+            {/* 8. Junior vs Senior Division Split */}
             <RoboJuniorVsSenior />
 
-            {/* 10. Educator & School Portal Box */}
+            {/* 9. Educator & School Portal Box */}
             <RoboForSchoolsSection
               onNavigate={handleNavigate}
               onOpenRegister={() => setIsRegisterOpen(true)}
             />
 
-            {/* 11. Prize Allocations Scoreboard */}
+            {/* 10. Prize Allocations Scoreboard */}
             <RoboPrizes />
+
+            {/* 11. Event Metadata Block */}
+            <EventInfoBlock />
 
             {/* 12. Final Call To Action */}
             <RoboFinalCta
@@ -128,7 +128,7 @@ export function App() {
         {currentRoute === 'join' && <JoinPage />}
       </main>
 
-      {/* Slush Footer */}
+      {/* Footer */}
       <RoboFooter
         onNavigate={handleNavigate}
         onOpenFaq={() => setIsFaqOpen(true)}
@@ -147,15 +147,15 @@ export function App() {
 
       {/* FAQ Modal */}
       {isFaqOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-          <div className="card-slush-glass rounded-3xl max-w-3xl w-full p-6 sm:p-8 relative border border-[#FF0055]/40 shadow-[0_0_40px_rgba(255,0,85,0.3)]">
+        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 relative border border-slate-200 shadow-2xl">
             <button
               onClick={() => setIsFaqOpen(false)}
-              className="absolute top-4 right-4 bg-[#FF0055] text-white font-barlow font-black text-sm px-3 py-1 rounded-lg"
+              className="absolute top-4 right-4 bg-slate-900 text-white font-jakarta font-bold text-xs px-3 py-1.5 rounded-lg"
             >
               CLOSE ✕
             </button>
-            <h2 className="text-white text-3xl font-barlow font-black uppercase mb-4">
+            <h2 className="text-[#0F172A] text-3xl font-syne font-extrabold uppercase mb-4">
               FREQUENTLY ASKED QUESTIONS
             </h2>
             <FaqSection />

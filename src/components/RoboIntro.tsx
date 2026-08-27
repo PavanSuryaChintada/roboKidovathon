@@ -2,40 +2,62 @@ import React from 'react';
 
 export const RoboIntro: React.FC = () => {
   return (
-    <section className="w-full max-w-6xl mx-auto px-4 py-12">
-      <div className="card-slush-glass rounded-3xl p-6 sm:p-12 relative overflow-hidden">
-        {/* Background Neon Accent Badge */}
-        <div className="absolute top-4 right-6 bg-[#FF0055]/15 text-[#FF0055] font-barlow font-black text-xs px-3.5 py-1.5 rounded-full border border-[#FF0055]/40 uppercase tracking-widest">
-          HANDS-ON STEM ADVENTURE
+    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+      {/* Large Split Editorial Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start mb-12">
+        {/* Left Side: Large Editorial Headline (7 cols) */}
+        <div className="lg:col-span-7">
+          <span className="text-xs font-mono font-bold tracking-widest text-[#0052FF] uppercase block mb-2">
+            01 // MISSION STATEMENT
+          </span>
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-syne font-extrabold uppercase text-[#0F172A] leading-tight">
+            THE FUTURE OF STEM STARTS HERE.
+          </h2>
         </div>
 
-        <div className="max-w-3xl space-y-4">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#00F2FE]">
-            01 // ABOUT THE LEAGUE
-          </span>
-
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-barlow font-black uppercase text-white leading-none">
-            TURNING STEM INTO AN EXCITING <span className="bg-gradient-to-r from-[#FF0055] to-[#E2FF00] bg-clip-text text-transparent">HANDS-ON</span> ARENA.
-          </h2>
-
-          <p className="text-base sm:text-lg text-[#A1A1AA] font-dmsans leading-relaxed pt-2">
-            Robo-Kidovation turns STEM learning into an exciting hands-on adventure. Students build real robots, program them, solve challenges, and compete in live stadium arenas. Suitable from elementary level through college, participants work with physical hardware, microcontrollers, and real mechanics rather than screen simulations.
+        {/* Right Side: Short Paragraph (5 cols) */}
+        <div className="lg:col-span-5 space-y-4 pt-2">
+          <p className="text-base sm:text-lg text-slate-600 font-dmsans leading-relaxed">
+            Robo-Kidovation turns STEM learning into an exciting hands-on championship. Students build real physical robots, program microcontroller logic, solve arena challenges, and compete live.
           </p>
+          <p className="text-sm text-slate-500 font-dmsans">
+            Evolved from the Techfest IIT Bombay model and adapted for Nordic school standards, participants work with physical hardware, microcontrollers, and real mechanics.
+          </p>
+        </div>
+      </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-            <div className="p-4 bg-white/5 border border-white/10 rounded-2xl hover:border-[#00F2FE]/50 transition-colors">
-              <span className="font-barlow font-black text-xl text-white block">REAL HARDWARE</span>
-              <span className="text-xs text-[#A1A1AA] font-dmsans mt-1 block">Motors, chassis, sensors & microcontrollers</span>
-            </div>
-            <div className="p-4 bg-white/5 border border-white/10 rounded-2xl hover:border-[#E2FF00]/50 transition-colors">
-              <span className="font-barlow font-black text-xl text-[#E2FF00] block">TEAMWORK & STEM</span>
-              <span className="text-xs text-[#A1A1AA] font-dmsans mt-1 block">Collaborative problem solving under time limits</span>
-            </div>
-            <div className="p-4 bg-white/5 border border-white/10 rounded-2xl hover:border-[#FF0055]/50 transition-colors">
-              <span className="font-barlow font-black text-xl text-[#FF0055] block">LIVE STADIUM</span>
-              <span className="text-xs text-[#A1A1AA] font-dmsans mt-1 block">Head-to-head match scoring & audience energy</span>
-            </div>
-          </div>
+      {/* 4 Restrained Editorial Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
+        <div className="card-event p-6 space-y-2 border border-slate-200">
+          <span className="text-xs font-mono font-bold text-[#0052FF] uppercase">[HARDWARE]</span>
+          <h3 className="text-xl font-syne font-bold text-[#0F172A] uppercase">REAL HARDWARE</h3>
+          <p className="text-xs text-slate-500 font-dmsans leading-relaxed">
+            Motors, chassis, gearboxes, sensors, and electronic microcontrollers.
+          </p>
+        </div>
+
+        <div className="card-event p-6 space-y-2 border border-slate-200">
+          <span className="text-xs font-mono font-bold text-[#0052FF] uppercase">[COLLABORATION]</span>
+          <h3 className="text-xl font-syne font-bold text-[#0F172A] uppercase">TEAMWORK</h3>
+          <p className="text-xs text-slate-500 font-dmsans leading-relaxed">
+            Collaborative strategy, hardware troubleshooting, and live match execution.
+          </p>
+        </div>
+
+        <div className="card-event p-6 space-y-2 border border-slate-200">
+          <span className="text-xs font-mono font-bold text-[#0052FF] uppercase">[LOGIC]</span>
+          <h3 className="text-xl font-syne font-bold text-[#0F172A] uppercase">AUTONOMOUS ROBOTICS</h3>
+          <p className="text-xs text-slate-500 font-dmsans leading-relaxed">
+            Programming sensor arrays, motor timing, and line-tracking algorithms.
+          </p>
+        </div>
+
+        <div className="card-event p-6 space-y-2 border border-slate-200">
+          <span className="text-xs font-mono font-bold text-[#0052FF] uppercase">[ARENA]</span>
+          <h3 className="text-xl font-syne font-bold text-[#0F172A] uppercase">LIVE COMPETITION</h3>
+          <p className="text-xs text-slate-500 font-dmsans leading-relaxed">
+            Head-to-head match scoring, referee officiating, and live spectators.
+          </p>
         </div>
       </div>
     </section>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { VictoryRobot } from './CompetitionRobots';
 
 interface RoboFinalCtaProps {
   onOpenRegister: () => void;
@@ -11,44 +10,33 @@ export const RoboFinalCta: React.FC<RoboFinalCtaProps> = ({
   onNavigate,
 }) => {
   return (
-    <section className="w-full max-w-6xl mx-auto px-4 py-16">
-      <div className="card-slush-glass rounded-3xl p-8 sm:p-14 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 border border-[#FF0055]/30 shadow-[0_0_45px_rgba(255,0,85,0.25)]">
-        {/* Left Side: Statement & Buttons */}
-        <div className="flex-1 space-y-4 text-center md:text-left z-10">
-          <span className="bg-[#FF0055]/20 text-[#FF0055] font-barlow font-black text-xs px-3.5 py-1.5 rounded-full border border-[#FF0055]/40 uppercase tracking-widest inline-block">
-            LEAGUE CALL TO ACTION 🔥
-          </span>
+    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-16">
+      <div className="card-event p-8 sm:p-16 text-center border-2 border-[#0F172A] bg-slate-900 text-white space-y-6">
+        <span className="text-xs font-mono font-bold tracking-widest text-[#E2FF00] uppercase inline-block">
+          SWEDEN CHAMPIONSHIP LEAGUE 2026
+        </span>
 
-          <h2 className="text-5xl sm:text-7xl md:text-8xl font-barlow font-black uppercase text-white leading-none">
-            READY?<br />
-            <span className="bg-gradient-to-r from-[#FF0055] via-[#E2FF00] to-[#00F2FE] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,0,85,0.4)]">
-              BUILD THE FUTURE.
-            </span>
-          </h2>
+        <h2 className="text-4xl sm:text-6xl md:text-7xl font-syne font-extrabold uppercase text-white leading-tight">
+          READY TO COMPETE IN VÄSTERÅS?
+        </h2>
 
-          <p className="text-sm sm:text-base text-[#A1A1AA] font-dmsans max-w-md">
-            Join Sweden's official student robotics league. Register your school or student team today.
-          </p>
+        <p className="text-base sm:text-lg text-slate-300 font-dmsans max-w-xl mx-auto">
+          Join Sweden's official student robotics league. Register your school or student team today.
+        </p>
 
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-4">
-            <button
-              onClick={onOpenRegister}
-              className="btn-slush-magenta text-sm md:text-base px-7 py-3.5 rounded-xl"
-            >
-              JOIN THE COMPETITION →
-            </button>
-            <button
-              onClick={() => onNavigate('for-schools')}
-              className="btn-slush-volt text-sm md:text-base px-7 py-3.5 rounded-xl"
-            >
-              FOR SCHOOLS →
-            </button>
-          </div>
-        </div>
-
-        {/* Right Side: Victorious Champion Robot */}
-        <div className="flex justify-center items-center hover:scale-105 transition-transform duration-300">
-          <VictoryRobot className="w-64 sm:w-72 md:w-80" />
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <button
+            onClick={onOpenRegister}
+            className="btn-event-blue text-sm md:text-base px-8 py-4 rounded-xl"
+          >
+            JOIN THE COMPETITION →
+          </button>
+          <button
+            onClick={() => onNavigate('for-schools')}
+            className="btn-event-secondary text-sm md:text-base px-8 py-4 rounded-xl"
+          >
+            FOR SCHOOLS →
+          </button>
         </div>
       </div>
     </section>
