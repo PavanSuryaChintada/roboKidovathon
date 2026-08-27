@@ -19,9 +19,9 @@ export const RoboStats: React.FC = () => {
           </p>
         </div>
 
-        {/* Horizontal Editorial Statistics Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 border-t border-b border-slate-200 py-10">
-          <div className="space-y-2 border-l border-slate-200 pl-6 first:border-l-0 first:pl-0">
+        {/* Horizontal Editorial Statistics Grid with Soft Pastel Tint Fills */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="bg-pastel-blue p-6 rounded-md space-y-2 border-l-4 border-l-[#0284C7]">
             <span className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#0B1020] block leading-none tracking-tight">
               15+
             </span>
@@ -30,7 +30,7 @@ export const RoboStats: React.FC = () => {
             </span>
           </div>
 
-          <div className="space-y-2 border-l border-slate-200 pl-6">
+          <div className="bg-pastel-mint p-6 rounded-md space-y-2 border-l-4 border-l-[#16A34A]">
             <span className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#0052FF] block leading-none tracking-tight">
               600+
             </span>
@@ -39,7 +39,7 @@ export const RoboStats: React.FC = () => {
             </span>
           </div>
 
-          <div className="space-y-2 border-l border-slate-200 pl-6">
+          <div className="bg-pastel-lilac p-6 rounded-md space-y-2 border-l-4 border-l-[#9333EA]">
             <span className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#0B1020] block leading-none tracking-tight">
               45+
             </span>
@@ -48,7 +48,7 @@ export const RoboStats: React.FC = () => {
             </span>
           </div>
 
-          <div className="space-y-2 border-l border-slate-200 pl-6">
+          <div className="bg-pastel-lemon p-6 rounded-md space-y-2 border-l-4 border-l-[#CA8A04]">
             <span className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#0B1020] block leading-none tracking-tight">
               600+
             </span>

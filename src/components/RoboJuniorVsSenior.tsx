@@ -13,84 +13,84 @@ export const RoboJuniorVsSenior: React.FC = () => {
           </h2>
         </div>
 
-        {/* Split Cards Container */}
+        {/* Split Pastel Cards Container */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* JUNIOR DIVISION */}
-          <div className="card-editorial p-6 sm:p-8 flex flex-col justify-between border-t-4 border-t-[#0052FF]">
+          {/* JUNIOR DIVISION (Pastel Blue Tint) */}
+          <div className="bg-pastel-blue p-6 sm:p-8 flex flex-col justify-between border-t-4 border-t-[#0284C7] rounded-md">
             <div>
-              <div className="flex items-center justify-between border-b border-slate-200 pb-4 mb-5">
+              <div className="flex items-center justify-between border-b border-sky-200 pb-4 mb-5">
                 <span className="font-bold text-2xl uppercase text-[#0B1020]">
                   JUNIOR DIVISION
                 </span>
-                <span className="bg-blue-50 text-[#0052FF] font-mono font-bold text-xs px-3 py-1 rounded-sm uppercase border border-blue-200">
+                <span className="badge-pastel-blue text-xs font-mono font-bold px-3 py-1 rounded-sm uppercase">
                   UP TO AGE 15
                 </span>
               </div>
 
               <div className="space-y-3 font-inter text-xs sm:text-sm text-[#334155]">
-                <div className="p-3.5 bg-[#F8FAFC] border border-slate-200 rounded-md flex justify-between items-center">
+                <div className="p-3.5 bg-white border border-sky-200 rounded-md flex justify-between items-center">
                   <span className="font-bold uppercase text-[#334155]">PRIMARY CHALLENGE:</span>
-                  <span className="font-bold text-[#0052FF]">ROBO-SPRINT</span>
+                  <span className="font-bold text-[#0284C7]">ROBO-SPRINT</span>
                 </div>
 
-                <div className="p-3.5 bg-[#F8FAFC] border border-slate-200 rounded-md flex justify-between items-center">
+                <div className="p-3.5 bg-white border border-sky-200 rounded-md flex justify-between items-center">
                   <span className="font-bold uppercase text-[#334155]">MATCH DURATION:</span>
                   <span className="font-bold text-[#0B1020]">3 MINUTES</span>
                 </div>
 
-                <div className="p-3.5 bg-[#F8FAFC] border border-slate-200 rounded-md flex justify-between items-center">
+                <div className="p-3.5 bg-white border border-sky-200 rounded-md flex justify-between items-center">
                   <span className="font-bold uppercase text-[#334155]">MAX ROBOT DIMENSIONS:</span>
-                  <span className="font-bold text-[#FF3B00]">1.5 FT × 1.5 FT</span>
+                  <span className="font-bold text-[#EA580C]">1.5 FT × 1.5 FT</span>
                 </div>
 
-                <div className="p-3.5 bg-[#F8FAFC] border border-slate-200 rounded-md flex justify-between items-center">
+                <div className="p-3.5 bg-white border border-sky-200 rounded-md flex justify-between items-center">
                   <span className="font-bold uppercase text-[#334155]">QUALIFICATION:</span>
-                  <span className="font-bold text-emerald-700">TOP 1 TEAM PER SCHOOL</span>
+                  <span className="font-bold text-[#16A34A]">TOP 1 TEAM PER SCHOOL</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-slate-200 text-xs font-mono text-[#475569] uppercase font-semibold">
+            <div className="mt-8 pt-4 border-t border-sky-200 text-xs font-mono text-[#0284C7] uppercase font-semibold">
               Focus: Fast reaction, ball-passing mechanics & team coordination.
             </div>
           </div>
 
-          {/* SENIOR DIVISION */}
-          <div className="card-editorial p-6 sm:p-8 flex flex-col justify-between border-t-4 border-t-[#0B1020]">
+          {/* SENIOR DIVISION (Pastel Lilac Tint) */}
+          <div className="bg-pastel-lilac p-6 sm:p-8 flex flex-col justify-between border-t-4 border-t-[#9333EA] rounded-md">
             <div>
-              <div className="flex items-center justify-between border-b border-slate-200 pb-4 mb-5">
+              <div className="flex items-center justify-between border-b border-purple-200 pb-4 mb-5">
                 <span className="font-bold text-2xl uppercase text-[#0B1020]">
                   SENIOR DIVISION
                 </span>
-                <span className="bg-slate-100 text-[#0B1020] font-mono font-bold text-xs px-3 py-1 rounded-sm uppercase border border-slate-300">
+                <span className="badge-pastel-lilac text-xs font-mono font-bold px-3 py-1 rounded-sm uppercase">
                   AGE 15 & ABOVE
                 </span>
               </div>
 
               <div className="space-y-3 font-inter text-xs sm:text-sm text-[#334155]">
-                <div className="p-3.5 bg-[#F8FAFC] border border-slate-200 rounded-md flex justify-between items-center">
+                <div className="p-3.5 bg-white border border-purple-200 rounded-md flex justify-between items-center">
                   <span className="font-bold uppercase text-[#334155]">PRIMARY CHALLENGE:</span>
-                  <span className="font-bold text-[#0052FF]">ROBO-PRECISION</span>
+                  <span className="font-bold text-[#9333EA]">ROBO-PRECISION</span>
                 </div>
 
-                <div className="p-3.5 bg-[#F8FAFC] border border-slate-200 rounded-md flex justify-between items-center">
+                <div className="p-3.5 bg-white border border-purple-200 rounded-md flex justify-between items-center">
                   <span className="font-bold uppercase text-[#334155]">MATCH DURATION:</span>
                   <span className="font-bold text-[#0B1020]">5 MINUTES</span>
                 </div>
 
-                <div className="p-3.5 bg-[#F8FAFC] border border-slate-200 rounded-md flex justify-between items-center">
+                <div className="p-3.5 bg-white border border-purple-200 rounded-md flex justify-between items-center">
                   <span className="font-bold uppercase text-[#334155]">MAX ROBOT DIMENSIONS:</span>
-                  <span className="font-bold text-[#FF3B00]">2.5 FT × 2.5 FT</span>
+                  <span className="font-bold text-[#EA580C]">2.5 FT × 2.5 FT</span>
                 </div>
 
-                <div className="p-3.5 bg-[#F8FAFC] border border-slate-200 rounded-md flex justify-between items-center">
+                <div className="p-3.5 bg-white border border-purple-200 rounded-md flex justify-between items-center">
                   <span className="font-bold uppercase text-[#334155]">QUALIFICATION:</span>
-                  <span className="font-bold text-emerald-700">TOP 1 TEAM PER SCHOOL</span>
+                  <span className="font-bold text-[#16A34A]">TOP 1 TEAM PER SCHOOL</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-slate-200 text-xs font-mono text-[#475569] uppercase font-semibold">
+            <div className="mt-8 pt-4 border-t border-purple-200 text-xs font-mono text-[#9333EA] uppercase font-semibold">
               Focus: High precision crane arm, 5-level cup stacking & zero manual touch.
             </div>
           </div>

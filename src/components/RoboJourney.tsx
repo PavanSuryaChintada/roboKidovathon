@@ -9,6 +9,8 @@ export const RoboJourney: React.FC = () => {
       dateLabel: 'PHASE 1',
       details: 'Teams build and program robots in hands-on school sessions. Top 1 Junior Team and Top 1 Senior Team from each school qualify for the City Finals.',
       badge: 'QUALIFIER STAGE',
+      pastelClass: 'bg-pastel-blue border-l-4 border-l-[#0284C7]',
+      badgeClass: 'badge-pastel-blue',
     },
     {
       stage: 'STAGE 02',
@@ -17,6 +19,8 @@ export const RoboJourney: React.FC = () => {
       dateLabel: 'PHASE 2',
       details: 'Qualified school champions compete head-to-head at a central venue in Västerås. Evaluated live by a Robotics & Technology Experts Panel.',
       badge: 'FINALS STAGE',
+      pastelClass: 'bg-pastel-mint border-l-4 border-l-[#16A34A]',
+      badgeClass: 'badge-pastel-mint',
     },
     {
       stage: 'STAGE 03',
@@ -25,6 +29,8 @@ export const RoboJourney: React.FC = () => {
       dateLabel: 'EXPANSION',
       details: 'City Finals winners advance to national-level competition, joining top innovation teams across Nordic school clusters.',
       badge: 'NATIONAL LEVEL',
+      pastelClass: 'bg-pastel-lemon border-l-4 border-l-[#CA8A04]',
+      badgeClass: 'badge-pastel-lemon',
     },
   ];
 
@@ -46,12 +52,12 @@ export const RoboJourney: React.FC = () => {
           </div>
         </div>
 
-        {/* Timeline Cards */}
+        {/* Timeline Pastel Cards */}
         <div className="space-y-5">
           {journeyStages.map((st, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-8 bg-[#F8FAFC] border border-slate-200 rounded-md flex flex-col md:flex-row md:items-center justify-between gap-6"
+              className={`p-6 sm:p-8 rounded-md flex flex-col md:flex-row md:items-center justify-between gap-6 ${st.pastelClass}`}
             >
               <div className="flex-1 space-y-2">
                 <div className="flex items-center gap-3">
@@ -75,7 +81,7 @@ export const RoboJourney: React.FC = () => {
               </div>
 
               <div className="md:w-44 text-right flex md:flex-col justify-between items-end">
-                <span className="font-bold text-xs uppercase text-[#0B1020] bg-white px-3.5 py-1.5 rounded-md border border-slate-200">
+                <span className={`font-bold text-xs uppercase px-3.5 py-1.5 rounded-md ${st.badgeClass}`}>
                   {st.badge}
                 </span>
               </div>

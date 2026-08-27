@@ -84,10 +84,10 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
               </ul>
             </div>
 
-            {/* Transparent Cost Box */}
-            <div className="bg-[#F8FAFC] text-[#0B1020] p-6 rounded-md border border-slate-200 flex flex-col justify-between space-y-4">
+            {/* Transparent Pastel Lemon Cost Box */}
+            <div className="bg-pastel-lemon text-[#0B1020] p-6 rounded-md border border-yellow-200 flex flex-col justify-between space-y-4">
               <div>
-                <h3 className="font-bold text-base uppercase text-[#0B1020] border-b border-slate-200 pb-2">
+                <h3 className="font-bold text-base uppercase text-[#0B1020] border-b border-yellow-200 pb-2">
                   TRANSPARENT COST MODEL
                 </h3>
                 <div className="my-4 text-center">
@@ -98,7 +98,7 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
                     + VAT (125 SEK TOTAL PER STUDENT)
                   </span>
                 </div>
-                <p className="text-xs font-inter text-[#334155] text-center bg-white p-3 rounded-md border border-slate-200 font-normal leading-relaxed">
+                <p className="text-xs font-inter text-[#334155] text-center bg-white p-3 rounded-md border border-yellow-200 font-normal leading-relaxed">
                   Zero administrative overhead for school administration. Complete turnkey event execution.
                 </p>
               </div>

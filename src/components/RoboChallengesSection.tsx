@@ -28,16 +28,16 @@ export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ on
           </button>
         </div>
 
-        {/* Competition Track Posters Grid */}
+        {/* Pastel Competition Track Posters Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Track 1: ROBO-SPRINT */}
-          <div className="card-editorial p-6 sm:p-8 flex flex-col justify-between border-t-4 border-t-[#0052FF]">
+          {/* Track 1: ROBO-SPRINT (Pastel Blue Tint) */}
+          <div className="bg-pastel-blue p-6 sm:p-8 flex flex-col justify-between border-t-4 border-t-[#0284C7] rounded-md">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="bg-blue-50 text-[#0052FF] border border-blue-200 text-xs font-mono font-bold px-3 py-1 rounded-sm uppercase">
+                <span className="badge-pastel-blue text-xs font-mono font-bold px-3 py-1 rounded-sm uppercase">
                   JUNIOR DIVISION (UP TO AGE 15)
                 </span>
-                <span className="text-xs font-mono font-bold text-[#334155]">
+                <span className="text-xs font-mono font-bold text-[#0284C7]">
                   ⏱ 3 MINUTES
                 </span>
               </div>
@@ -45,15 +45,15 @@ export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ on
               <h3 className="text-3xl font-bold text-[#0B1020]">
                 Robo-Sprint
               </h3>
-              <p className="text-xs font-mono font-bold text-[#0052FF] uppercase tracking-wider">
+              <p className="text-xs font-mono font-bold text-[#0284C7] uppercase tracking-wider">
                 AIR-HOCKEY BALL PASSING ARENA
               </p>
 
-              <div className="my-4 flex justify-center bg-[#F8FAFC] p-6 rounded-md border border-slate-200">
+              <div className="my-4 flex justify-center bg-white p-6 rounded-md border border-sky-200">
                 <RoboSprintBot className="w-44 sm:w-52" />
               </div>
 
-              <div className="space-y-2.5 text-xs sm:text-sm font-inter text-[#334155] font-normal border-t border-slate-200 pt-4">
+              <div className="space-y-2.5 text-xs sm:text-sm font-inter text-[#334155] font-normal border-t border-sky-200 pt-4">
                 <p>
                   <strong className="font-bold text-[#0B1020]">OBJECTIVE:</strong> Pass as many balls as possible into opponent's court area within 3 minutes.
                 </p>
@@ -61,7 +61,7 @@ export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ on
                   <strong className="font-bold text-[#0B1020]">ROBOT LIMIT:</strong> Max 1.5 ft × 1.5 ft (maximum dimensions).
                 </p>
                 <p>
-                  <strong className="font-bold text-[#0052FF]">SCORING:</strong> Team with fewest balls in court at whistle wins.
+                  <strong className="font-bold text-[#0284C7]">SCORING:</strong> Team with fewest balls in court at whistle wins.
                 </p>
               </div>
             </div>
@@ -74,14 +74,14 @@ export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ on
             </button>
           </div>
 
-          {/* Track 2: ROBO-PRECISION */}
-          <div className="card-editorial p-6 sm:p-8 flex flex-col justify-between border-t-4 border-t-[#0B1020]">
+          {/* Track 2: ROBO-PRECISION (Pastel Lilac Tint) */}
+          <div className="bg-pastel-lilac p-6 sm:p-8 flex flex-col justify-between border-t-4 border-t-[#9333EA] rounded-md">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="bg-slate-100 text-[#0B1020] border border-slate-300 text-xs font-mono font-bold px-3 py-1 rounded-sm uppercase">
+                <span className="badge-pastel-lilac text-xs font-mono font-bold px-3 py-1 rounded-sm uppercase">
                   SENIOR DIVISION (AGE 15 & ABOVE)
                 </span>
-                <span className="text-xs font-mono font-bold text-[#334155]">
+                <span className="text-xs font-mono font-bold text-[#9333EA]">
                   ⏱ 5 MINUTES
                 </span>
               </div>
@@ -89,15 +89,15 @@ export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ on
               <h3 className="text-3xl font-bold text-[#0B1020]">
                 Robo-Precision
               </h3>
-              <p className="text-xs font-mono font-bold text-[#0052FF] uppercase tracking-wider">
+              <p className="text-xs font-mono font-bold text-[#9333EA] uppercase tracking-wider">
                 5-LEVEL TOWER CUP STACKING ARENA
               </p>
 
-              <div className="my-4 flex justify-center bg-[#F8FAFC] p-6 rounded-md border border-slate-200">
+              <div className="my-4 flex justify-center bg-white p-6 rounded-md border border-purple-200">
                 <RoboPrecisionBot className="w-44 sm:w-52" />
               </div>
 
-              <div className="space-y-2.5 text-xs sm:text-sm font-inter text-[#334155] font-normal border-t border-slate-200 pt-4">
+              <div className="space-y-2.5 text-xs sm:text-sm font-inter text-[#334155] font-normal border-t border-purple-200 pt-4">
                 <p>
                   <strong className="font-bold text-[#0B1020]">OBJECTIVE:</strong> Build a 5-level cup tower using robotic grabber. Zero manual touch.
                 </p>
@@ -105,7 +105,7 @@ export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ on
                   <strong className="font-bold text-[#0B1020]">ROBOT LIMIT:</strong> Max 2.5 ft × 2.5 ft (maximum dimensions).
                 </p>
                 <p>
-                  <strong className="font-bold text-[#0052FF]">SCORING:</strong> Tallest, most stable cup tower wins.
+                  <strong className="font-bold text-[#9333EA]">SCORING:</strong> Tallest, most stable cup tower wins.
                 </p>
               </div>
             </div>

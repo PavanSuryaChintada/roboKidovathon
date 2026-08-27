@@ -76,6 +76,63 @@
   @apply card-editorial;
 }
 
+/* Scandinavian Pastel Utility Classes */
+.bg-pastel-blue {
+  background-color: #F0F7FF;
+  border: 1px solid #BAE6FD;
+}
+
+.bg-pastel-mint {
+  background-color: #F0FDF4;
+  border: 1px solid #BBF7D0;
+}
+
+.bg-pastel-lemon {
+  background-color: #FEFCE8;
+  border: 1px solid #FEF08A;
+}
+
+.bg-pastel-lilac {
+  background-color: #F5F3FF;
+  border: 1px solid #DDD6FE;
+}
+
+.bg-pastel-peach {
+  background-color: #FFF7ED;
+  border: 1px solid #FFEDD5;
+}
+
+/* High-Contrast Pastel Badge System */
+.badge-pastel-blue {
+  background-color: #E0F2FE;
+  color: #0284C7;
+  border: 1px solid #BAE6FD;
+}
+
+.badge-pastel-mint {
+  background-color: #DCFCE7;
+  color: #16A34A;
+  border: 1px solid #BBF7D0;
+}
+
+.badge-pastel-lemon {
+  background-color: #FEF9C3;
+  color: #A16207;
+  border: 1px solid #FEF08A;
+}
+
+.badge-pastel-lilac {
+  background-color: #F3E8FF;
+  color: #9333EA;
+  border: 1px solid #DDD6FE;
+}
+
+.badge-pastel-peach {
+  background-color: #FFEDD5;
+  color: #EA580C;
+  border: 1px solid #FDBA74;
+}
+
 /* Event Button System (Rectangular, 6px radius) */
 .btn-event-primary {
   background-color: #0052FF;
@@ -85,7 +142,7 @@
   font-size: 0.875rem;
   letter-spacing: 0.01em;
   padding: 0.75rem 1.5rem;
-  border-radius: 0.375rem; /* Clean 6px radius */
+  border-radius: 0.375rem;
   border: 1px solid #0052FF;
   box-shadow: none;
   transition: all 0.15s ease;
@@ -109,7 +166,7 @@
   font-size: 0.875rem;
   letter-spacing: 0.01em;
   padding: 0.75rem 1.5rem;
-  border-radius: 0.375rem; /* Clean 6px radius */
+  border-radius: 0.375rem;
   border: 1px solid #CBD5E1;
   box-shadow: none;
   transition: all 0.15s ease;
@@ -133,7 +190,7 @@
   font-size: 0.875rem;
   letter-spacing: 0.01em;
   padding: 0.75rem 1.5rem;
-  border-radius: 0.375rem; /* Clean 6px radius */
+  border-radius: 0.375rem;
   border: 1px solid #334155;
   box-shadow: none;
   transition: all 0.15s ease;

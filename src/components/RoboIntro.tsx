@@ -27,34 +27,42 @@ export const RoboIntro: React.FC = () => {
           </div>
         </div>
 
-        {/* 4 Editorial Grid Cards (Thin 1px border, clean 6px radius) */}
+        {/* 4 Soft Pastel Mission Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="card-editorial p-6 space-y-3">
-            <span className="text-[11px] font-mono font-bold text-[#0052FF] uppercase">[01 / HARDWARE]</span>
+          <div className="bg-pastel-blue p-6 rounded-md space-y-3">
+            <span className="text-[11px] font-mono font-bold badge-pastel-blue px-2.5 py-0.5 rounded-sm uppercase inline-block">
+              01 / HARDWARE
+            </span>
             <h3 className="text-lg font-bold text-[#0B1020]">Real Hardware</h3>
             <p className="text-xs text-[#334155] font-inter font-normal leading-relaxed">
               Motors, chassis, gearboxes, sensors, and electronic microcontrollers.
             </p>
           </div>
 
-          <div className="card-editorial p-6 space-y-3">
-            <span className="text-[11px] font-mono font-bold text-[#0052FF] uppercase">[02 / TEAMWORK]</span>
+          <div className="bg-pastel-mint p-6 rounded-md space-y-3">
+            <span className="text-[11px] font-mono font-bold badge-pastel-mint px-2.5 py-0.5 rounded-sm uppercase inline-block">
+              02 / TEAMWORK
+            </span>
             <h3 className="text-lg font-bold text-[#0B1020]">Team Collaboration</h3>
             <p className="text-xs text-[#334155] font-inter font-normal leading-relaxed">
               Collaborative strategy, hardware troubleshooting, and live match execution.
             </p>
           </div>
 
-          <div className="card-editorial p-6 space-y-3">
-            <span className="text-[11px] font-mono font-bold text-[#0052FF] uppercase">[03 / LOGIC]</span>
+          <div className="bg-pastel-lilac p-6 rounded-md space-y-3">
+            <span className="text-[11px] font-mono font-bold badge-pastel-lilac px-2.5 py-0.5 rounded-sm uppercase inline-block">
+              03 / LOGIC
+            </span>
             <h3 className="text-lg font-bold text-[#0B1020]">Autonomous Robotics</h3>
             <p className="text-xs text-[#334155] font-inter font-normal leading-relaxed">
               Programming sensor arrays, motor timing, and line-tracking algorithms.
             </p>
           </div>
 
-          <div className="card-editorial p-6 space-y-3">
-            <span className="text-[11px] font-mono font-bold text-[#0052FF] uppercase">[04 / ARENA]</span>
+          <div className="bg-pastel-lemon p-6 rounded-md space-y-3">
+            <span className="text-[11px] font-mono font-bold badge-pastel-lemon px-2.5 py-0.5 rounded-sm uppercase inline-block">
+              04 / ARENA
+            </span>
             <h3 className="text-lg font-bold text-[#0B1020]">Live Competition</h3>
             <p className="text-xs text-[#334155] font-inter font-normal leading-relaxed">
               Head-to-head match scoring, referee officiating, and live spectators.
