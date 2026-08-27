@@ -30,15 +30,15 @@ export const RoboHowItWorks: React.FC = () => {
   ];
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16 border-t border-slate-200">
+    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16 border-t border-white/10">
       <div className="text-center max-w-xl mx-auto mb-10">
         <span className="text-xs font-mono font-bold tracking-widest text-[#0052FF] uppercase block mb-1">
           03 // CHAMPIONSHIP JOURNEY
         </span>
-        <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0F172A]">
+        <h2 className="text-2xl sm:text-4xl font-extrabold text-white text-balance">
           How It Works
         </h2>
-        <p className="text-xs sm:text-sm text-slate-500 font-jakarta mt-1.5">
+        <p className="text-xs sm:text-sm text-slate-300 font-inter mt-1.5 text-balance">
           From hands-on school workshops to national victory in 5 structured steps.
         </p>
       </div>
@@ -47,16 +47,16 @@ export const RoboHowItWorks: React.FC = () => {
         {steps.map((step, idx) => (
           <div
             key={idx}
-            className="card-event p-5 flex flex-col justify-between space-y-3"
+            className="card-event p-5 flex flex-col justify-between space-y-3 border border-white/15"
           >
             <div>
-              <span className="font-extrabold text-3xl sm:text-4xl text-slate-300 block leading-none">
+              <span className="font-extrabold text-3xl sm:text-4xl text-[#0052FF] block leading-none">
                 {step.num}
               </span>
-              <h3 className="font-bold text-base uppercase tracking-tight text-[#0F172A] mt-2 mb-1">
+              <h3 className="font-bold text-base uppercase tracking-tight text-white mt-2 mb-1">
                 {step.title}
               </h3>
-              <p className="text-xs font-jakarta text-slate-500 leading-relaxed">
+              <p className="text-xs font-inter text-slate-300 leading-relaxed">
                 {step.desc}
               </p>
             </div>

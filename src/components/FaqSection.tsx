@@ -21,7 +21,7 @@ export const FaqSection: React.FC = () => {
     {
       question: 'Are robotics hardware kits provided on-site?',
       answer:
-        'Yes! Complete Blix mechanical and robotics hardware kits, motors, controllers, and arena mats are provided directly on-site for all workshops and competition rounds.',
+        'Yes! Complete mechanical and robotics hardware kits, motors, controllers, and arena mats are provided directly on-site for all workshops and competition rounds.',
       category: 'Hardware & Kits',
     },
     {
@@ -55,19 +55,19 @@ export const FaqSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 bg-[#F8FAFC] text-slate-900 border-b border-slate-200/80">
+    <section id="faq" className="py-16 md:py-20 bg-[#0B0F19] text-white border-t border-white/10">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-md bg-blue-50 border border-blue-200 text-xs font-bold text-[#0062B8] uppercase tracking-wider">
-            <HelpCircle className="w-4 h-4 text-[#0062B8]" />
+        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0052FF]/20 border border-[#0052FF]/40 text-xs font-mono font-bold text-[#E2FF00] uppercase tracking-wider">
+            <HelpCircle className="w-4 h-4 text-[#E2FF00]" />
             <span>Got Questions?</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-slate-900">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white text-balance">
             Frequently Asked Questions
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base font-medium">
+          <p className="text-slate-300 text-sm sm:text-base font-inter text-balance">
             Everything parents, students, and teachers need to know about the Robo-Kidovation League.
           </p>
         </div>
@@ -79,29 +79,29 @@ export const FaqSection: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="bg-white border border-slate-200 rounded-lg overflow-hidden shadow-xs hover:border-slate-300 transition-all"
+                className="bg-[#161E2E] border border-white/15 rounded-xl overflow-hidden shadow-lg transition-all"
               >
                 <button
                   onClick={() => toggleFaq(idx)}
                   className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus:outline-none"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-[11px] font-bold text-[#0062B8] bg-blue-50 px-2.5 py-0.5 rounded border border-blue-200 shrink-0">
+                    <span className="text-[11px] font-mono font-bold text-[#E2FF00] bg-white/10 px-2.5 py-0.5 rounded border border-white/15 shrink-0 uppercase">
                       {faq.category}
                     </span>
-                    <h3 className="font-bold text-base sm:text-lg text-slate-900 font-display">
+                    <h3 className="font-bold text-base sm:text-lg text-white font-inter">
                       {faq.question}
                     </h3>
                   </div>
                   <ChevronDown
                     className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                      isOpen ? 'rotate-180 text-[#0062B8]' : ''
+                      isOpen ? 'rotate-180 text-[#0052FF]' : ''
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-0 text-xs sm:text-sm text-slate-600 font-normal leading-relaxed border-t border-slate-100">
+                  <div className="px-5 sm:px-6 pb-6 pt-0 text-xs sm:text-sm text-slate-300 font-inter leading-relaxed border-t border-white/10">
                     <p className="pt-4">{faq.answer}</p>
                   </div>
                 )}
@@ -111,14 +111,14 @@ export const FaqSection: React.FC = () => {
         </div>
 
         {/* Support Box */}
-        <div className="mt-12 text-center bg-white border border-slate-200 rounded-lg p-6 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold">
+        <div className="mt-12 text-center bg-[#161E2E] border border-white/15 rounded-xl p-6 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold">
           <div className="flex items-center gap-3">
-            <MessageSquare className="w-5 h-5 text-[#0062B8]" />
-            <span className="text-slate-700">Have a specific question not answered here?</span>
+            <MessageSquare className="w-5 h-5 text-[#0052FF]" />
+            <span className="text-slate-200">Have a specific question not answered here?</span>
           </div>
           <a
             href="mailto:contact@robokidoathon.se"
-            className="bg-slate-50 hover:bg-slate-100 text-slate-800 font-bold px-4 py-2.5 rounded-md border border-slate-200 transition-colors"
+            className="btn-event-secondary px-4 py-2.5 rounded-lg whitespace-nowrap"
           >
             Email Event Coordinators →
           </a>
