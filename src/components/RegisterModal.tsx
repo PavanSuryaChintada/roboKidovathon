@@ -1,260 +1,282 @@
 import React, { useState } from 'react';
-import { X, CheckCircle2, AlertCircle, Loader2, Sparkles, User, Mail, School, MapPin, Phone, ShieldCheck } from 'lucide-react';
-import { registerStudent } from '../lib/supabase';
-import type { RegistrationFormData } from '../types';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, Sparkles, CheckCircle2, Terminal } from 'lucide-react';
+import { TRACKS_DATA } from '../data/hackathonData';
 
 interface RegisterModalProps {
   isOpen: boolean;
   onClose: () => void;
+  initialTrack?: string;
 }
 
-export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose }) => {
-  const [formData, setFormData] = useState<RegistrationFormData>({
-    studentName: '',
-    parentEmail: '',
-    parentPhone: '',
-    ageCategory: 'junior',
-    schoolName: '',
-    city: 'Västerås',
-    trackInterest: 'Robo-Sprint (Junior)',
-    agreeToRules: true,
-  });
+export const RegisterModal: React.FC<RegisterModalProps> = ({
+  isOpen,
+  onClose,
+  initialTrack
+}) => {
+  const [teamName, setTeamName] = useState('');
+  const [leadEmail, setLeadEmail] = useState('');
+  const [githubHandle, setGithubHandle] = useState('');
+  const [selectedTrack, setSelectedTrack] = useState(initialTrack || 'quantum-ai');
+  const [teamSize, setTeamSize] = useState<number>(3);
+  const [institution, setInstitution] = useState('');
+  const [pitch, setPitch] = useState('');
 
-  const [loading, setLoading] = useState(false);
-  const [statusMessage, setStatusMessage] = useState<{ success: boolean; text: string } | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [generatedInviteCode, setGeneratedInviteCode] = useState('');
 
-  if (!isOpen) return null;
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!teamName || !leadEmail || !githubHandle) return;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target;
-    if (type === 'checkbox') {
-      const checked = (e.target as HTMLInputElement).checked;
-      setFormData((prev) => ({ ...prev, [name]: checked }));
-    } else {
-      setFormData((prev) => ({ ...prev, [name]: value }));
-    }
+    setIsSubmitting(true);
+
+    // Simulate API registration delay
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setGeneratedInviteCode(`APEX-${Math.random().toString(36).substring(2, 7).toUpperCase()}-2026`);
+    }, 1200);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setStatusMessage(null);
-
-    const result = await registerStudent(formData);
-    setLoading(false);
-    setStatusMessage({ success: result.success, text: result.message });
+  const handleReset = () => {
+    setIsSubmitted(false);
+    setTeamName('');
+    setLeadEmail('');
+    setGithubHandle('');
+    setPitch('');
+    setInstitution('');
+    onClose();
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0B0F19]/80 backdrop-blur-md overflow-y-auto animate-fadeIn">
-      <div className="bg-[#0B0F19] border border-white/20 rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl text-white relative my-8">
-        
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-5 right-5 text-slate-400 hover:text-white p-1.5 rounded-md hover:bg-white/10 transition-colors"
-          aria-label="Close modal"
-        >
-          <X className="w-5 h-5" />
-        </button>
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 bg-black/85 backdrop-blur-xl -z-10"
+          />
 
-        {/* Modal Header */}
-        <div className="mb-6 space-y-1">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0052FF]/20 text-[#E2FF00] border border-[#0052FF]/40 text-xs font-mono font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Robo-Kidovation League Entry</span>
-          </div>
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-            Register Student (125 SEK)
-          </h3>
-          <p className="text-xs sm:text-sm text-slate-300 font-inter">
-            Västerås 2026 City Edition • March 21 City Finals at ABB Venue
-          </p>
-        </div>
-
-        {/* Status Toast Banner */}
-        {statusMessage && (
-          <div
-            className={`p-4 rounded-xl mb-6 flex items-start gap-3 text-xs sm:text-sm border ${
-              statusMessage.success
-                ? 'bg-emerald-950/80 border-emerald-500 text-emerald-200 font-bold'
-                : 'bg-rose-950/80 border-rose-500 text-rose-200 font-bold'
-            }`}
+          {/* Modal Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full max-w-2xl bg-gradient-to-b from-[#14141E] via-[#0E0E14] to-[#08080C] border border-white/[0.12] rounded-2xl shadow-2xl p-6 sm:p-10 my-8 overflow-hidden"
           >
-            {statusMessage.success ? (
-              <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-            ) : (
-              <AlertCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
-            )}
-            <div>
-              <p className="font-bold">{statusMessage.success ? 'Success!' : 'Error'}</p>
-              <p>{statusMessage.text}</p>
-            </div>
-          </div>
-        )}
-
-        {/* Form Body */}
-        <form onSubmit={handleSubmit} className="space-y-4 text-xs sm:text-sm font-inter">
-          
-          {/* Student Name */}
-          <div>
-            <label className="block text-slate-300 font-bold mb-1">Student Full Name *</label>
-            <div className="relative">
-              <User className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
-              <input
-                type="text"
-                name="studentName"
-                required
-                value={formData.studentName}
-                onChange={handleChange}
-                placeholder="e.g., Astrid Lindgren"
-                className="w-full bg-[#161E2E] border border-white/20 rounded-xl pl-9 pr-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-[#0052FF] transition-colors"
-              />
-            </div>
-          </div>
-
-          {/* Parent/Teacher Email & Phone */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-slate-300 font-bold mb-1">Parent / Teacher Email *</label>
-              <div className="relative">
-                <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
-                <input
-                  type="email"
-                  name="parentEmail"
-                  required
-                  value={formData.parentEmail}
-                  onChange={handleChange}
-                  placeholder="name@example.se"
-                  className="w-full bg-[#161E2E] border border-white/20 rounded-xl pl-9 pr-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-[#0052FF] transition-colors"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-slate-300 font-bold mb-1">Phone Number (Optional)</label>
-              <div className="relative">
-                <Phone className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
-                <input
-                  type="tel"
-                  name="parentPhone"
-                  value={formData.parentPhone}
-                  onChange={handleChange}
-                  placeholder="+46 70 123 4567"
-                  className="w-full bg-[#161E2E] border border-white/20 rounded-xl pl-9 pr-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-[#0052FF] transition-colors"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Age Category & Track Interest */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-slate-300 font-bold mb-1">Age Category *</label>
-              <select
-                name="ageCategory"
-                value={formData.ageCategory}
-                onChange={handleChange}
-                className="w-full bg-[#161E2E] border border-white/20 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-[#0052FF] transition-colors"
-              >
-                <option value="junior">Junior (Up to 15 Years)</option>
-                <option value="senior">Senior (15+ Years / High School)</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-slate-300 font-bold mb-1">Track Interest</label>
-              <select
-                name="trackInterest"
-                value={formData.trackInterest}
-                onChange={handleChange}
-                className="w-full bg-[#161E2E] border border-white/20 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-[#0052FF] transition-colors"
-              >
-                <option value="Robo-Sprint (Junior)">Robo-Sprint (Ball Showdown)</option>
-                <option value="Robo-Precision (Senior)">Robo-Precision (Cup Stacking)</option>
-                <option value="Both Tracks">Undecided / Both Tracks</option>
-              </select>
-            </div>
-          </div>
-
-          {/* School Name & City */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-slate-300 font-bold mb-1">School Name *</label>
-              <div className="relative">
-                <School className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
-                <input
-                  type="text"
-                  name="schoolName"
-                  required
-                  value={formData.schoolName}
-                  onChange={handleChange}
-                  placeholder="e.g., Fryxellska Skolan"
-                  className="w-full bg-[#161E2E] border border-white/20 rounded-xl pl-9 pr-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-[#0052FF] transition-colors"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-slate-300 font-bold mb-1">City *</label>
-              <div className="relative">
-                <MapPin className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
-                <input
-                  type="text"
-                  name="city"
-                  required
-                  value={formData.city}
-                  onChange={handleChange}
-                  placeholder="Västerås"
-                  className="w-full bg-[#161E2E] border border-white/20 rounded-xl pl-9 pr-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-[#0052FF] transition-colors"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Terms Checkbox */}
-          <div className="pt-2 flex items-start gap-2">
-            <input
-              type="checkbox"
-              id="agreeToRules"
-              name="agreeToRules"
-              checked={formData.agreeToRules}
-              onChange={handleChange}
-              className="mt-1 rounded bg-[#161E2E] border-white/20 text-[#0052FF] focus:ring-[#0052FF]"
-            />
-            <label htmlFor="agreeToRules" className="text-slate-300 text-xs font-normal leading-tight">
-              I agree to the official competition guidelines, safety protocol, and GDPR privacy terms. (Entry fee: 125 SEK incl. VAT).
-            </label>
-          </div>
-
-          {/* Submit Button */}
-          <div className="pt-4">
+            {/* Top Close Button */}
             <button
-              type="submit"
-              disabled={loading}
-              className="btn-event-primary w-full py-3.5 rounded-xl flex items-center justify-center gap-2 disabled:opacity-50"
+              onClick={onClose}
+              className="absolute top-6 right-6 p-2 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-slate-400 hover:text-white transition-colors"
+              aria-label="Close modal"
             >
-              {loading ? (
-                <>
-                  <Loader2 className="w-5 h-5 animate-spin" />
-                  <span>Submitting to Supabase...</span>
-                </>
-              ) : (
-                <>
-                  <ShieldCheck className="w-5 h-5" />
-                  <span>Complete Student Registration (125 SEK)</span>
-                </>
-              )}
+              <X className="w-5 h-5" />
             </button>
-          </div>
 
-        </form>
+            {!isSubmitted ? (
+              <>
+                {/* Header */}
+                <div className="mb-8">
+                  <div className="inline-flex items-center gap-2 text-[10px] font-mono-code font-bold tracking-[0.25em] text-indigo-400 uppercase mb-2">
+                    <Terminal className="w-3.5 h-3.5" />
+                    <span>COHORT APPLICATION // VETTING GATE</span>
+                  </div>
+                  <h2 className="font-display font-extrabold text-2xl sm:text-3xl uppercase tracking-tight text-white">
+                    Deploy Team Application.
+                  </h2>
+                  <p className="text-xs sm:text-sm text-slate-300 font-light mt-2 leading-relaxed">
+                    Submit your team credentials for algorithmic code vetting and immediate allocation of $5,000 in cloud sandbox compute.
+                  </p>
+                </div>
 
-        <p className="text-[10px] text-center text-slate-400 font-medium mt-4">
-          Data secured via Supabase encrypted backend • GDPR Compliant INIACO & IBK
-        </p>
+                {/* Form */}
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Team Name */}
+                    <div>
+                      <label className="block text-[10px] font-mono-code font-bold tracking-[0.15em] text-slate-300 uppercase mb-1.5">
+                        TEAM CALLSIGN / NAME *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={teamName}
+                        onChange={(e) => setTeamName(e.target.value)}
+                        placeholder="e.g. CipherForge AI"
+                        className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/[0.1] focus:border-indigo-500 focus:outline-none text-white text-xs sm:text-sm placeholder:text-slate-600 transition-colors"
+                      />
+                    </div>
 
-      </div>
-    </div>
+                    {/* Lead Email */}
+                    <div>
+                      <label className="block text-[10px] font-mono-code font-bold tracking-[0.15em] text-slate-300 uppercase mb-1.5">
+                        LEAD ENGINEER EMAIL *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={leadEmail}
+                        onChange={(e) => setLeadEmail(e.target.value)}
+                        placeholder="lead@lab.engineering"
+                        className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/[0.1] focus:border-indigo-500 focus:outline-none text-white text-xs sm:text-sm placeholder:text-slate-600 transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* GitHub Handle */}
+                    <div>
+                      <label className="block text-[10px] font-mono-code font-bold tracking-[0.15em] text-slate-300 uppercase mb-1.5">
+                        GITHUB / REPO HANDLE *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={githubHandle}
+                        onChange={(e) => setGithubHandle(e.target.value)}
+                        placeholder="github.com/team-callsign"
+                        className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/[0.1] focus:border-indigo-500 focus:outline-none text-white text-xs sm:text-sm placeholder:text-slate-600 transition-colors"
+                      />
+                    </div>
+
+                    {/* Institution / Company */}
+                    <div>
+                      <label className="block text-[10px] font-mono-code font-bold tracking-[0.15em] text-slate-300 uppercase mb-1.5">
+                        INSTITUTION / ENTERPRISE
+                      </label>
+                      <input
+                        type="text"
+                        value={institution}
+                        onChange={(e) => setInstitution(e.target.value)}
+                        placeholder="e.g. MIT CSAIL / DeepMind"
+                        className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/[0.1] focus:border-indigo-500 focus:outline-none text-white text-xs sm:text-sm placeholder:text-slate-600 transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Track Selection */}
+                  <div>
+                    <label className="block text-[10px] font-mono-code font-bold tracking-[0.15em] text-slate-300 uppercase mb-1.5">
+                      PRIMARY FRONTIER TRACK *
+                    </label>
+                    <select
+                      value={selectedTrack}
+                      onChange={(e) => setSelectedTrack(e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl bg-[#0B0B10] border border-white/[0.1] focus:border-indigo-500 focus:outline-none text-white text-xs sm:text-sm transition-colors cursor-pointer"
+                    >
+                      {TRACKS_DATA.map((t) => (
+                        <option key={t.id} value={t.id} className="bg-[#0B0B10] text-white">
+                          {t.title} ({t.poolShare})
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Team Size Selector */}
+                  <div>
+                    <label className="block text-[10px] font-mono-code font-bold tracking-[0.15em] text-slate-300 uppercase mb-2">
+                      TEAM COHORT SIZE ({teamSize} ENGINEERS)
+                    </label>
+                    <div className="grid grid-cols-4 gap-2">
+                      {[1, 2, 3, 4].map((num) => (
+                        <button
+                          key={num}
+                          type="button"
+                          onClick={() => setTeamSize(num)}
+                          className={`py-2.5 rounded-lg text-xs font-mono-code font-bold transition-all ${
+                            teamSize === num
+                              ? 'bg-indigo-600 text-white border border-indigo-400 shadow-md shadow-indigo-600/30'
+                              : 'bg-white/[0.04] text-slate-400 border border-white/[0.07] hover:bg-white/[0.08]'
+                          }`}
+                        >
+                          {num} {num === 1 ? 'SOLO' : 'ENGINEERS'}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Concept Pitch */}
+                  <div>
+                    <label className="block text-[10px] font-mono-code font-bold tracking-[0.15em] text-slate-300 uppercase mb-1.5">
+                      BRIEF ARCHITECTURAL RFC / CONCEPT PITCH
+                    </label>
+                    <textarea
+                      rows={3}
+                      value={pitch}
+                      onChange={(e) => setPitch(e.target.value)}
+                      placeholder="Outline the core technical thesis, model architecture, or hardware deployment plan (2-3 sentences)..."
+                      className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/[0.1] focus:border-indigo-500 focus:outline-none text-white text-xs sm:text-sm placeholder:text-slate-600 transition-colors resize-none"
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full py-4 rounded-xl text-xs sm:text-sm font-display font-bold tracking-[0.15em] uppercase text-white bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/40 shadow-xl shadow-indigo-500/30 transition-all flex items-center justify-center gap-2 mt-4"
+                  >
+                    {isSubmitting ? (
+                      <span className="inline-flex items-center gap-2">
+                        <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <span>PROCESSING COHORT VETTING...</span>
+                      </span>
+                    ) : (
+                      <>
+                        <Sparkles className="w-4 h-4" />
+                        <span>TRANSMIT APPLICATION</span>
+                      </>
+                    )}
+                  </button>
+                </form>
+              </>
+            ) : (
+              /* Success State */
+              <div className="py-8 text-center flex flex-col items-center">
+                <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6 shadow-[0_0_30px_rgba(16,185,129,0.3)]">
+                  <CheckCircle2 className="w-8 h-8" />
+                </div>
+
+                <div className="text-[10px] font-mono-code font-bold tracking-[0.25em] text-emerald-400 uppercase mb-2">
+                  APPLICATION PROVISIONED // STATUS: VERIFIED
+                </div>
+
+                <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-white uppercase tracking-tight">
+                  Team {teamName} Enrolled.
+                </h3>
+
+                <p className="mt-3 text-xs sm:text-sm text-slate-300 font-light max-w-md leading-relaxed">
+                  Confirmation dispatch sent to <strong className="text-white">{leadEmail}</strong>. Your sandbox credentials and GPU API keys are generated.
+                </p>
+
+                {/* Team Invite Code Box */}
+                <div className="my-6 p-4 rounded-xl bg-black/60 border border-white/[0.1] w-full max-w-md">
+                  <span className="text-[10px] font-mono-code text-slate-400 uppercase block mb-1">
+                    TEAM INVITE & REPOSITORY DISPATCH KEY:
+                  </span>
+                  <span className="font-mono-code font-bold text-lg text-cyan-300 tracking-wider">
+                    {generatedInviteCode}
+                  </span>
+                </div>
+
+                <button
+                  onClick={handleReset}
+                  className="px-8 py-3 rounded-xl text-xs font-display font-bold tracking-[0.15em] uppercase text-white bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-500/30 transition-all"
+                >
+                  ENTER COHORT PORTAL →
+                </button>
+              </div>
+            )}
+
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
   );
 };

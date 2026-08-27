@@ -1,90 +1,109 @@
 import React from 'react';
-import { Cpu, ShieldCheck, Mail, MapPin } from 'lucide-react';
+import { Terminal, Github, Twitter, Disc as Discord, Mail } from 'lucide-react';
 
 interface FooterProps {
-  onOpenRegisterModal: () => void;
-  onOpenDeckModal: () => void;
+  onOpenRegister: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenRegisterModal, onOpenDeckModal }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenRegister }) => {
   return (
-    <footer className="bg-slate-900 text-white border-t border-slate-800 pt-16 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="w-full bg-[#040406] text-white border-t border-white/[0.08] pt-20 pb-12 px-6 sm:px-10">
+      <div className="max-w-[1440px] mx-auto">
         
-        {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+        {/* Top Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-white/[0.06]">
           
-          {/* Brand Info */}
-          <div className="lg:col-span-5 space-y-4">
+          {/* Col 1 & 2 - Brand & Mission */}
+          <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded bg-[#0062B8] text-white flex items-center justify-center font-bold">
-                <Cpu className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-500 p-[1px]">
+                <div className="w-full h-full bg-black rounded-[7px] flex items-center justify-center">
+                  <Terminal className="w-4 h-4 text-indigo-400" />
+                </div>
               </div>
-              <span className="font-display font-bold text-2xl tracking-tight text-white">
-                Blix<span className="text-sky-400">-A-Thon</span>
+              <span className="font-display font-extrabold text-xl tracking-tight text-white uppercase">
+                APEX GLOBAL 2026
               </span>
             </div>
-            <p className="text-xs sm:text-sm text-slate-400 max-w-md font-medium leading-relaxed">
-              Robo-Kidovation League (Västerås Edition 2026). Hands-on STEM robotics competition empowering young minds from elementary to high school through real physical bot engineering.
+            <p className="text-xs text-slate-400 font-light leading-relaxed max-w-sm">
+              The premier international technology hackathon and non-dilutive capital accelerator. Convening 60+ nations to solve critical frontiers in AI, quantum mechanics, autonomous machines, and global finance.
             </p>
-            <div className="flex items-center gap-2 text-xs text-emerald-300 bg-emerald-950/80 border border-emerald-500/40 px-3 py-1.5 rounded w-fit font-semibold">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span>Full GDPR Data Privacy & Nordic School Compliance</span>
+            <div className="pt-2 flex items-center gap-3">
+              <a href="#" className="p-2 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-400 hover:text-white transition-colors" aria-label="GitHub">
+                <Github className="w-4 h-4" />
+              </a>
+              <a href="#" className="p-2 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-400 hover:text-white transition-colors" aria-label="Twitter">
+                <Twitter className="w-4 h-4" />
+              </a>
+              <a href="#" className="p-2 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-400 hover:text-white transition-colors" aria-label="Discord">
+                <Discord className="w-4 h-4" />
+              </a>
+              <a href="mailto:director@apexglobal.io" className="p-2 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-400 hover:text-white transition-colors" aria-label="Email">
+                <Mail className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="lg:col-span-3 space-y-3 text-xs sm:text-sm">
-            <h4 className="font-bold text-slate-200 uppercase tracking-wider text-xs">Navigation</h4>
-            <ul className="space-y-2 text-slate-400 font-medium">
-              <li><a href="#about" className="hover:text-white transition-colors">About League</a></li>
-              <li><a href="#challenges" className="hover:text-white transition-colors">Competition Tracks</a></li>
-              <li><a href="#rules" className="hover:text-white transition-colors">Arena Rules</a></li>
-              <li><a href="#timeline" className="hover:text-white transition-colors">Road to Finals</a></li>
-              <li><a href="#prizes" className="hover:text-white transition-colors">SEK Prize Pool</a></li>
-              <li><a href="#faq" className="hover:text-white transition-colors">Parent & School FAQ</a></li>
+          {/* Col 3 - Navigation */}
+          <div>
+            <div className="text-[10px] font-mono-code font-bold tracking-[0.2em] text-slate-300 uppercase mb-4">
+              CHAMPIONSHIP
+            </div>
+            <ul className="space-y-2.5 text-xs text-slate-400 font-light">
+              <li><a href="#tracks" className="hover:text-white transition-colors">Frontier Tracks</a></li>
+              <li><a href="#prizes" className="hover:text-white transition-colors">Prize Pool & Grants</a></li>
+              <li><a href="#timeline" className="hover:text-white transition-colors">Timeline & Milestones</a></li>
+              <li><a href="#criteria" className="hover:text-white transition-colors">Evaluation Rubric</a></li>
+              <li><a href="#perks" className="hover:text-white transition-colors">Developer Perks</a></li>
             </ul>
           </div>
 
-          {/* Contact & Organizers */}
-          <div className="lg:col-span-4 space-y-3 text-xs sm:text-sm">
-            <h4 className="font-bold text-slate-200 uppercase tracking-wider text-xs">Organizers & Venue</h4>
-            <div className="space-y-2 text-slate-400 font-medium">
-              <p className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-sky-400 shrink-0" />
-                <span>ABB Venue, Central City Campus, Västerås, Sweden</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-sky-400 shrink-0" />
-                <span>contact@robokidoathon.se</span>
-              </p>
+          {/* Col 4 - Governance & Security */}
+          <div>
+            <div className="text-[10px] font-mono-code font-bold tracking-[0.2em] text-slate-300 uppercase mb-4">
+              GOVERNANCE & IP
             </div>
+            <ul className="space-y-2.5 text-xs text-slate-400 font-light">
+              <li><a href="#" className="hover:text-white transition-colors">100% Team IP Defensibility</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Non-Dilutive Contract Terms</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Institutional Code of Conduct</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Security & PGP Keys</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Jury Disclosures</a></li>
+            </ul>
+          </div>
 
-            <div className="pt-2 flex items-center gap-3">
+          {/* Col 5 - Quick Action */}
+          <div>
+            <div className="text-[10px] font-mono-code font-bold tracking-[0.2em] text-slate-300 uppercase mb-4">
+              COHORT STATUS
+            </div>
+            <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.07] space-y-3">
+              <div className="flex items-center gap-2 text-xs font-mono-code text-emerald-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span>APPLICATIONS OPEN</span>
+              </div>
+              <p className="text-[11px] text-slate-400 font-light leading-relaxed">
+                Vetting closes March 15, 2026 at 23:59 UTC.
+              </p>
               <button
-                onClick={onOpenRegisterModal}
-                className="bg-[#0062B8] hover:bg-[#00529B] text-white text-xs font-bold px-4 py-2 rounded transition"
+                onClick={onOpenRegister}
+                className="w-full py-2 rounded-lg text-[11px] font-mono-code font-bold tracking-wider uppercase text-white bg-indigo-600 hover:bg-indigo-500 transition-colors"
               >
-                Register (125 SEK)
-              </button>
-              <button
-                onClick={onOpenDeckModal}
-                className="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-4 py-2 rounded border border-slate-700 transition"
-              >
-                Event Deck
+                APPLY AS TEAM →
               </button>
             </div>
           </div>
 
         </div>
 
-        {/* Bottom Copyright & Credit */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
-          <p>© 2026 Robo-Kidovation League Sweden (Blix-A-Thon Västerås). All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            <span>Organized by INIACO & IBK Västerås</span>
-            <span>•</span>
-            <span>Tech Partner: Blix-A-Thon</span>
+        {/* Bottom Metadata & Legal */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono-code text-slate-400">
+          <div>
+            © 2026 APEX GLOBAL FOUNDATION. ALL RIGHTS RESERVED.
+          </div>
+          <div className="flex items-center gap-6">
+            <span>SYNCHRONIZED WITH GLOBAL VC SYNDICATE</span>
+            <span>GDPR & ISO-27001 VERIFIED</span>
           </div>
         </div>
 
