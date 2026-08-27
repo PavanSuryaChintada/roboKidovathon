@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Sparkles } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
   activeTab: string;
@@ -47,8 +47,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 select-none ${
         isScrolled
-          ? 'bg-[#07111F]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl py-3 text-white'
-          : 'bg-gradient-to-b from-[#07111F]/90 via-[#07111F]/50 to-transparent border-b border-white/10 py-5 text-white'
+          ? 'bg-[#000000]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl py-3 text-white'
+          : 'bg-gradient-to-b from-[#000000]/90 via-[#000000]/40 to-transparent border-b border-white/10 py-5 text-white'
       }`}
     >
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 flex items-center justify-between gap-4">
@@ -65,7 +65,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span className="font-display font-black text-base sm:text-lg leading-none text-white tracking-tight uppercase group-hover:text-slate-200 transition-colors">
               KIDO-A-THON
             </span>
-            <span className="text-[9px] font-mono-code font-bold tracking-[0.22em] text-[#E2FF00] uppercase mt-0.5">
+            <span className="text-[9px] font-mono-code font-bold tracking-[0.22em] text-[#0052FF] uppercase mt-0.5">
               SWEDEN LEAGUE 2026
             </span>
           </div>
@@ -102,7 +102,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           <button
             onClick={onOpenRegister}
-            className="btn-volt-primary py-2.5 px-5 text-xs font-display font-black tracking-[0.12em] flex items-center gap-2"
+            className="btn-conference-primary py-2.5 px-5 text-xs"
           >
             <span>REGISTER NOW</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -122,14 +122,14 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#07111F]/98 backdrop-blur-2xl border-b border-white/10 px-6 py-6 space-y-4 animate-slide-up text-white">
+        <div className="lg:hidden bg-[#05070D]/98 backdrop-blur-2xl border-b border-white/10 px-6 py-6 space-y-4 animate-slide-up text-white">
           <div className="flex flex-col gap-2">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleLinkClick(item.id)}
                 className={`py-2.5 text-left text-sm font-display font-bold tracking-wider uppercase border-b border-white/5 ${
-                  activeTab === item.id ? 'text-[#E2FF00]' : 'text-slate-300'
+                  activeTab === item.id ? 'text-[#0052FF]' : 'text-slate-300'
                 }`}
               >
                 {item.label}
@@ -149,10 +149,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onOpenRegister();
               }}
-              className="w-full btn-volt-primary py-3.5 text-xs font-display font-black tracking-wider flex items-center justify-center gap-2"
+              className="w-full btn-conference-primary py-3.5 text-xs flex items-center justify-center gap-2"
             >
-              <Sparkles className="w-4 h-4" />
               <span>REGISTER NOW</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>

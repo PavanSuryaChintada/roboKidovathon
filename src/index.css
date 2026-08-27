@@ -10,13 +10,11 @@
   --navy-surface: #0E1B2D;
   --blue: #0052FF;
   --blue-hover: #0043D6;
-  --volt: #E2FF00;
-  --volt-hover: #D4F800;
   --white: #FFFFFF;
   --offwhite: #F8F9FA;
   --neutral-bg: #F4F5F7;
   --border-light: rgba(7, 17, 31, 0.08);
-  --border-dark: rgba(255, 255, 255, 0.08);
+  --border-dark: rgba(255, 255, 255, 0.12);
 }
 
 *, *::before, *::after {
@@ -25,7 +23,7 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #FFFFFF;
+  background-color: #000000;
   color: #07111F;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -54,7 +52,58 @@ body {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Editorial Buttons */
+/* Conference-Caliber Buttons (Strict: Black / White / Electric Blue) */
+.btn-conference-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #FFFFFF;
+  color: #000000;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.95rem 2rem;
+  border-radius: 2px;
+  border: 1px solid #FFFFFF;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+.btn-conference-primary:hover {
+  background-color: #0052FF;
+  color: #FFFFFF;
+  border-color: #0052FF;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(0, 82, 255, 0.4);
+}
+
+.btn-conference-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: #FFFFFF;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.85rem;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.22s ease;
+  cursor: pointer;
+}
+.btn-conference-ghost:hover {
+  border-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+}
+
 .btn-electric-primary {
   display: inline-flex;
   align-items: center;
@@ -68,7 +117,7 @@ body {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 0.875rem 1.75rem;
-  border-radius: 0.25rem;
+  border-radius: 2px;
   border: 1px solid #0052FF;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 14px rgba(0, 82, 255, 0.25);
@@ -79,32 +128,6 @@ body {
   border-color: #0043D6;
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(0, 82, 255, 0.35);
-}
-
-.btn-volt-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background-color: #E2FF00;
-  color: #07111F;
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
-  font-weight: 800;
-  font-size: 0.8125rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.875rem 1.75rem;
-  border-radius: 0.25rem;
-  border: 1px solid #E2FF00;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 16px rgba(226, 255, 0, 0.3);
-  cursor: pointer;
-}
-.btn-volt-primary:hover {
-  background-color: #D4F800;
-  border-color: #D4F800;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(226, 255, 0, 0.45);
 }
 
 .btn-editorial-dark {
@@ -120,7 +143,7 @@ body {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 0.875rem 1.75rem;
-  border-radius: 0.25rem;
+  border-radius: 2px;
   border: 1px solid #07111F;
   transition: all 0.2s ease;
   cursor: pointer;
@@ -144,7 +167,7 @@ body {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 0.875rem 1.75rem;
-  border-radius: 0.25rem;
+  border-radius: 2px;
   border: 1px solid rgba(7, 17, 31, 0.2);
   transition: all 0.2s ease;
   cursor: pointer;
@@ -154,35 +177,12 @@ body {
   background-color: rgba(7, 17, 31, 0.04);
 }
 
-.btn-editorial-ghost-dark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background-color: transparent;
-  color: #FFFFFF;
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 0.8125rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.875rem 1.75rem;
-  border-radius: 0.25rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-.btn-editorial-ghost-dark:hover {
-  border-color: #FFFFFF;
-  background-color: rgba(255, 255, 255, 0.08);
-}
-
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #07111F;
+  background: #000000;
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.2);

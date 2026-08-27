@@ -7,7 +7,7 @@ interface RoboMissionProps {
 
 export const RoboMission: React.FC<RoboMissionProps> = ({ onNavigate }) => {
   return (
-    <section className="w-full bg-white text-[#07111F] border-b border-[#07111F]/10">
+    <section id="mission" className="w-full bg-white text-[#07111F] border-b border-[#07111F]/10">
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12">
         
         {/* LEFT — Asymmetric Editorial Typography */}
@@ -67,17 +67,17 @@ export const RoboMission: React.FC<RoboMissionProps> = ({ onNavigate }) => {
         </div>
 
         {/* RIGHT — High Quality Cinematic Photography */}
-        <div className="lg:col-span-5 relative overflow-hidden min-h-[420px] lg:min-h-0 bg-[#07111F]">
+        <div className="lg:col-span-5 relative overflow-hidden min-h-[420px] lg:min-h-0 bg-[#000000]">
           <img
             src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=85"
             alt="Students building physical robotics hardware"
             className="absolute inset-0 w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07111F]/90 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/90 via-transparent to-transparent pointer-events-none" />
 
           {/* Photo Caption Overlay */}
-          <div className="absolute bottom-6 left-6 right-6 p-4 rounded-[2px] bg-black/75 backdrop-blur-md border border-white/10">
-            <span className="block text-[9px] font-mono-code font-bold tracking-[0.2em] text-[#E2FF00] uppercase mb-1">
+          <div className="absolute bottom-6 left-6 right-6 p-4 rounded-[2px] bg-black/85 backdrop-blur-md border border-white/10">
+            <span className="block text-[9px] font-mono-code font-bold tracking-[0.2em] text-[#0052FF] uppercase mb-1">
               [ WORKSHOP ENVIRONMENT · VÄSTERÅS · 2026 ]
             </span>
             <span className="block text-xs font-display font-bold text-white uppercase tracking-wider">
