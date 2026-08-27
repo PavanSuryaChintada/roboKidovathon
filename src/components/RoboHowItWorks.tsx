@@ -5,36 +5,31 @@ export const RoboHowItWorks: React.FC = () => {
     {
       num: '01',
       title: 'DISCOVER',
-      color: '#FACC15',
-      textColor: '#111111',
+      color: '#E2FF00',
       desc: 'Attend school workshops, receive official hardware kits & STEM mentor guidance.',
     },
     {
       num: '02',
       title: 'BUILD',
-      color: '#0052FF',
-      textColor: '#FFFFFF',
+      color: '#00F2FE',
       desc: 'Assemble real robot chassis, gearboxes, wheels, mechanical grabbers & electronics.',
     },
     {
       num: '03',
       title: 'CODE',
-      color: '#FF3B00',
-      textColor: '#FFFFFF',
+      color: '#FF0055',
       desc: 'Program microcontrollers & motor drivers to execute arena challenge strategies.',
     },
     {
       num: '04',
       title: 'COMPETE',
-      color: '#111111',
-      textColor: '#FACC15',
+      color: '#7928CA',
       desc: 'Fight in live school heats & qualify for the City Finals in Västerås.',
     },
     {
       num: '05',
       title: 'WIN',
-      color: '#059669',
-      textColor: '#FFFFFF',
+      color: '#00E676',
       desc: 'Win cash prizes (2000 / 1400 / 1000 SEK), trophies, and advance to national level.',
     },
   ];
@@ -42,13 +37,13 @@ export const RoboHowItWorks: React.FC = () => {
   return (
     <section className="w-full max-w-6xl mx-auto px-4 py-12">
       <div className="text-center max-w-2xl mx-auto mb-10">
-        <span className="bg-[#0052FF] text-white font-barlow font-black text-xs px-3 py-1 border-2 border-[#111111] shadow-[2px_2px_0px_#111111] uppercase inline-block mb-2">
+        <span className="bg-[#00F2FE]/20 text-[#00F2FE] font-barlow font-black text-xs px-3.5 py-1.5 rounded-full border border-[#00F2FE]/40 uppercase tracking-widest inline-block mb-2">
           GAME PROGRESSION 🚀
         </span>
-        <h2 className="text-4xl sm:text-6xl font-barlow font-black uppercase text-[#111111] leading-none">
+        <h2 className="text-4xl sm:text-6xl font-barlow font-black uppercase text-white leading-none">
           HOW IT WORKS
         </h2>
-        <p className="text-sm sm:text-base text-[#111111]/80 font-dmsans mt-2">
+        <p className="text-sm sm:text-base text-[#A1A1AA] font-dmsans mt-2">
           From hands-on school workshops to national championship victory in 5 steps.
         </p>
       </div>
@@ -58,23 +53,22 @@ export const RoboHowItWorks: React.FC = () => {
         {steps.map((step, idx) => (
           <div
             key={idx}
-            style={{ backgroundColor: step.color, color: step.textColor }}
-            className="border-2.5 border-[#111111] shadow-[5px_5px_0px_#111111] p-5 flex flex-col justify-between relative group hover:-translate-y-1 transition-transform"
+            className="card-slush-glass rounded-2xl p-5 flex flex-col justify-between relative group hover:-translate-y-1 transition-transform border border-white/10"
           >
             <div>
-              <span className="font-barlow font-black text-4xl sm:text-5xl leading-none opacity-80 block">
+              <span style={{ color: step.color }} className="font-barlow font-black text-4xl sm:text-5xl leading-none block drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
                 {step.num}
               </span>
-              <h3 className="font-barlow font-black text-2xl uppercase tracking-wider my-2">
+              <h3 className="font-barlow font-black text-2xl uppercase tracking-wider text-white my-2">
                 {step.title}
               </h3>
-              <p className="text-xs font-dmsans leading-relaxed opacity-95">
+              <p className="text-xs font-dmsans text-[#A1A1AA] leading-relaxed">
                 {step.desc}
               </p>
             </div>
 
             {idx < steps.length - 1 && (
-              <div className="hidden lg:block absolute -right-4 top-1/2 -translate-y-1/2 z-20 bg-[#111111] text-white font-barlow font-bold text-xs px-1.5 py-0.5 border border-white">
+              <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 text-white/40 font-mono text-xs">
                 →
               </div>
             )}

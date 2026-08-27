@@ -5,27 +5,80 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #F7F4EC;
-    color: #111111;
+    background-color: #0B0B0E;
+    color: #FFFFFF;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Barlow Condensed', 'Impact', sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    color: #111111;
+    color: #FFFFFF;
   }
 
   body {
-    background-color: #F7F4EC;
+    background-color: #0B0B0E;
     background-image: 
-      radial-gradient(#111111 0.75px, transparent 0.75px), 
-      radial-gradient(#111111 0.75px, #F7F4EC 0.75px);
-    background-size: 30px 30px;
-    background-position: 0 0, 15px 15px;
-    color: #111111;
+      radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), 
+      radial-gradient(rgba(255, 0, 85, 0.05) 1px, #0B0B0E 1px);
+    background-size: 32px 32px;
+    background-position: 0 0, 16px 16px;
+    color: #FFFFFF;
     font-family: 'DM Sans', sans-serif;
   }
+}
+
+/* Slush Dark Glassmorphism & Neon Glow Cards */
+.card-slush-glass {
+  background-color: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.25s ease;
+}
+
+.card-slush-glass:hover {
+  border-color: rgba(255, 0, 85, 0.6);
+  box-shadow: 0 0 30px rgba(255, 0, 85, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Slush Neon Buttons */
+.btn-slush-magenta {
+  background-color: #FF0055;
+  color: #FFFFFF;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1.5px solid #FF0055;
+  box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
+  transition: all 0.2s ease;
+}
+
+.btn-slush-magenta:hover {
+  background-color: #e0004b;
+  box-shadow: 0 0 35px rgba(255, 0, 85, 0.7);
+  transform: scale(1.02);
+}
+
+.btn-slush-volt {
+  background-color: #E2FF00;
+  color: #0B0B0E;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1.5px solid #E2FF00;
+  box-shadow: 0 0 20px rgba(226, 255, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.btn-slush-volt:hover {
+  background-color: #c9e400;
+  box-shadow: 0 0 35px rgba(226, 255, 0, 0.7);
+  transform: scale(1.02);
 }
 
 /* Technical Robotics Engineering Badges */

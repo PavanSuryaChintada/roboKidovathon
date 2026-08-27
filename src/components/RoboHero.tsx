@@ -11,64 +11,68 @@ export const RoboHero: React.FC<RoboHeroProps> = ({
   onNavigate,
 }) => {
   return (
-    <section className="relative w-full max-w-6xl mx-auto px-4 pt-4 pb-10 flex flex-col justify-between">
-      {/* Top Clean League Badge */}
-      <div className="w-full flex items-center justify-between mb-4">
-        <div className="inline-flex items-center gap-2 bg-[#FACC15] text-[#111111] font-barlow font-black text-xs md:text-sm px-4 py-1.5 border-2 border-[#111111] shadow-[3px_3px_0px_#111111]">
-          <span>⚡ OFFICIAL SWEDEN ROBOTICS LEAGUE</span>
-          <span className="w-2 h-2 rounded-full bg-[#FF3B00] animate-ping" />
-          <span className="font-bold">VÄSTERÅS 2026</span>
+    <section className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 pt-4 pb-12 flex flex-col justify-between overflow-visible">
+      {/* Slush Top Event Badge */}
+      <div className="w-full flex flex-wrap items-center justify-between gap-3 mb-6">
+        <div className="inline-flex items-center gap-2 bg.white/5 backdrop-blur-md border border-white/15 px-4 py-1.5 rounded-full text-xs font-mono text-[#E2FF00] shadow-[0_0_15px_rgba(226,255,0,0.2)]">
+          <span className="w-2 h-2 rounded-full bg-[#FF0055] animate-ping" />
+          <span className="font-bold tracking-widest uppercase">NOVEMBER 2026 • VÄSTERÅS, SWEDEN</span>
         </div>
 
-        <div className="hidden sm:inline-block bg-[#111111] text-white font-barlow font-black text-xs px-3 py-1.5 border-2 border-[#111111]">
-          HANDS-ON COMPETITION
+        <div className="bg-[#FF0055]/15 border border-[#FF0055]/50 text-[#FF0055] font-barlow font-black text-xs px-3.5 py-1.5 rounded-full uppercase tracking-widest">
+          STADIUM CHAMPIONSHIP LEAGUE
         </div>
       </div>
 
-      {/* Hero Poster Grid: Clean Headlines + Hero Robot */}
-      <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 items-center my-auto py-4 select-none">
-        {/* Left Side: Bold Display Typography (7 cols) */}
-        <div className="md:col-span-7 space-y-1 sm:space-y-2">
+      {/* Slush Main Hero Display Grid */}
+      <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto py-4 select-none">
+        {/* Left Side: Slush Gradient Display Typography (7 cols) */}
+        <div className="lg:col-span-7 space-y-2 text-center lg:text-left">
           {/* Word 1: BUILD. */}
-          <div className="text-6xl sm:text-8xl md:text-9xl lg:text-[9.5rem] font-barlow font-black tracking-tighter leading-none text-[#111111]">
+          <div className="text-6xl sm:text-8xl md:text-9xl lg:text-[9.5rem] font-barlow font-black tracking-tighter leading-none text-white drop-shadow-lg">
             BUILD.
           </div>
 
-          {/* Word 2: CREATE. */}
-          <div className="text-6xl sm:text-8xl md:text-9xl lg:text-[9.5rem] font-barlow font-black tracking-tighter leading-none text-[#0052FF] underline decoration-wavy decoration-[#FACC15]">
+          {/* Word 2: CREATE. (Glowing Slush Neon Gradient Fill) */}
+          <div className="text-6xl sm:text-8xl md:text-9xl lg:text-[9.5rem] font-barlow font-black tracking-tighter leading-none bg-gradient-to-r from-[#FF0055] via-[#E2FF00] to-[#00F2FE] bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(255,0,85,0.4)]">
             CREATE.
           </div>
 
           {/* Word 3: COMPETE. */}
-          <div className="text-6xl sm:text-8xl md:text-9xl lg:text-[9.5rem] font-barlow font-black tracking-tighter leading-none text-[#111111]">
+          <div className="text-6xl sm:text-8xl md:text-9xl lg:text-[9.5rem] font-barlow font-black tracking-tighter leading-none text-white drop-shadow-lg">
             COMPETE.
           </div>
         </div>
 
-        {/* Right Side: Clean Robot Visual (5 cols) */}
-        <div className="md:col-span-5 flex justify-center md:justify-end items-center">
-          <HeroRobot className="w-64 sm:w-80 md:w-full max-w-sm hover:scale-105 transition-transform duration-300" />
+        {/* Right Side: Slush Dark Glass Robot Showcase Card (5 cols) */}
+        <div className="lg:col-span-5 flex justify-center lg:justify-end items-center">
+          <div className="card-slush-glass p-6 rounded-3xl border border-[#FF0055]/40 shadow-[0_0_40px_rgba(255,0,85,0.3)] relative group hover:border-[#FF0055] transition-all">
+            <div className="absolute top-3 left-4 text-[10px] font-mono font-bold text-[#00F2FE] tracking-widest uppercase">
+              [ARENA_BOT_v2026 // LIVE ARENA]
+            </div>
+            <HeroRobot className="w-64 sm:w-80 lg:w-full max-w-sm mt-4 group-hover:scale-105 transition-transform duration-300" />
+          </div>
         </div>
       </div>
 
-      {/* Clean Bottom Baseline Rule & Actions */}
-      <div className="w-full pt-6 border-t-2 border-[#111111] mt-6 flex flex-col md:flex-row items-center justify-between gap-6">
-        {/* Left Description Copy */}
-        <p className="text-sm sm:text-base text-[#111111] font-dmsans font-medium max-w-xl text-center md:text-left">
-          From elementary school through college, students build real robots, program code logic, solve arena challenges, and compete live.
+      {/* Slush Clean Base Baseline & CTAs */}
+      <div className="w-full pt-6 border-t border-white/10 mt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Description Copy */}
+        <p className="text-sm sm:text-base text-[#A1A1AA] font-dmsans font-medium max-w-xl text-center md:text-left leading-relaxed">
+          From elementary school through college, student teams build real robots, program autonomous code logic, solve live arena challenges, and compete in stadium atmosphere.
         </p>
 
-        {/* Right Action CTAs */}
+        {/* Neon Action CTAs */}
         <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
           <button
             onClick={onOpenRegister}
-            className="w-full sm:w-auto btn-brutal text-sm px-6 py-3.5"
+            className="w-full sm:w-auto btn-slush-magenta text-sm px-7 py-3.5 rounded-xl"
           >
             JOIN THE COMPETITION →
           </button>
           <button
             onClick={() => onNavigate('for-schools')}
-            className="w-full sm:w-auto btn-brutal-yellow text-sm px-6 py-3.5"
+            className="w-full sm:w-auto btn-slush-volt text-sm px-7 py-3.5 rounded-xl"
           >
             FOR SCHOOLS →
           </button>

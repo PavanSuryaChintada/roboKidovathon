@@ -39,8 +39,8 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7F4EC] text-[#111111] font-sans selection:bg-[#FACC15] selection:text-[#111111] relative overflow-x-hidden">
-      {/* Physical Brutalist Navigation */}
+    <div className="min-h-screen bg-[#0B0B0E] text-white font-sans selection:bg-[#FF0055] selection:text-white relative overflow-x-hidden">
+      {/* Slush Dark Sticky Navigation */}
       <BrutalistNav
         activeTab={currentRoute}
         onNavigate={handleNavigate}
@@ -52,7 +52,7 @@ export function App() {
       <main className="w-full">
         {currentRoute === 'home' && (
           <>
-            {/* 1. Hero Section */}
+            {/* 1. Slush Event Hero Section */}
             <RoboHero
               onOpenRegister={() => setIsRegisterOpen(true)}
               onNavigate={handleNavigate}
@@ -61,7 +61,7 @@ export function App() {
             {/* 2. Moving Event Ticker Strip */}
             <HeroTickerStrip />
 
-            {/* 3. Full-Width Black Transition Strip */}
+            {/* 3. Slush Dark Laser Transition Strip */}
             <BlackTransitionStrip />
 
             {/* 4. Concept Intro */}
@@ -128,7 +128,7 @@ export function App() {
         {currentRoute === 'join' && <JoinPage />}
       </main>
 
-      {/* Footer */}
+      {/* Slush Footer */}
       <RoboFooter
         onNavigate={handleNavigate}
         onOpenFaq={() => setIsFaqOpen(true)}
@@ -147,15 +147,15 @@ export function App() {
 
       {/* FAQ Modal */}
       {isFaqOpen && (
-        <div className="fixed inset-0 z-50 bg-[#111111]/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-[#F7F4EC] border-2.5 border-[#111111] shadow-[9px_9px_0px_#FACC15] max-w-3xl w-full p-6 sm:p-8 relative">
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+          <div className="card-slush-glass rounded-3xl max-w-3xl w-full p-6 sm:p-8 relative border border-[#FF0055]/40 shadow-[0_0_40px_rgba(255,0,85,0.3)]">
             <button
               onClick={() => setIsFaqOpen(false)}
-              className="absolute top-4 right-4 bg-[#FF3B00] text-white font-barlow font-black text-sm px-3 py-1 border-2 border-[#111111]"
+              className="absolute top-4 right-4 bg-[#FF0055] text-white font-barlow font-black text-sm px-3 py-1 rounded-lg"
             >
               CLOSE ✕
             </button>
-            <h2 className="text-[#111111] text-3xl font-barlow font-black uppercase mb-4">
+            <h2 className="text-white text-3xl font-barlow font-black uppercase mb-4">
               FREQUENTLY ASKED QUESTIONS
             </h2>
             <FaqSection />

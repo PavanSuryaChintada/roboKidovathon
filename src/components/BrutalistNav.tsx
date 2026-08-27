@@ -25,23 +25,23 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-white border-b-2.5 border-[#111111] shadow-[0px_4px_0px_#111111] select-none mb-6">
-      {/* Full Length Navbar Inner Container */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-        {/* Brand Logo / Physical Badge */}
+    <nav className="sticky top-0 z-50 w-full bg-[#0B0B0E]/85 backdrop-blur-xl border-b border-white/10 select-none mb-6">
+      {/* Slush Dark Navbar Inner Container */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+        {/* Brand Logo / Slush Neon Badge */}
         <div
           onClick={() => handleLinkClick('home')}
-          className="flex items-center gap-2.5 cursor-pointer group"
+          className="flex items-center gap-3 cursor-pointer group"
         >
-          <div className="bg-[#FACC15] text-[#111111] font-barlow font-black text-lg sm:text-xl px-2.5 py-0.5 border-2 border-[#111111] shadow-[2px_2px_0px_#111111] group-hover:rotate-2 transition-transform">
+          <div className="bg-[#FF0055] text-white font-barlow font-black text-lg sm:text-xl px-2.5 py-0.5 border border-[#FF0055] shadow-[0_0_15px_rgba(255,0,85,0.5)] group-hover:scale-105 transition-transform">
             ROBO
           </div>
           <div className="flex flex-col">
-            <span className="font-barlow font-black text-xl sm:text-2xl leading-none text-[#111111] tracking-wider uppercase">
+            <span className="font-barlow font-black text-xl sm:text-2xl leading-none text-white tracking-wider uppercase">
               KIDO-A-THON
             </span>
-            <span className="text-[9px] font-mono font-bold tracking-widest text-[#0052FF] uppercase -mt-0.5">
-              SWEDEN LEAGUE
+            <span className="text-[9px] font-mono font-bold tracking-widest text-[#00F2FE] uppercase -mt-0.5">
+              SWEDEN LEAGUE 2026
             </span>
           </div>
         </div>
@@ -61,10 +61,10 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
               <button
                 key={item.id}
                 onClick={() => handleLinkClick(item.id)}
-                className={`px-3.5 py-1.5 border-2 transition-all ${
+                className={`px-3.5 py-1.5 rounded-lg border transition-all ${
                   isActive
-                    ? 'bg-[#111111] text-[#FACC15] border-[#111111] shadow-[2px_2px_0px_#111111]'
-                    : 'bg-transparent text-[#111111] border-transparent hover:border-[#111111] hover:bg-[#F7F4EC]'
+                    ? 'bg-[#FF0055] text-white border-[#FF0055] shadow-[0_0_15px_rgba(255,0,85,0.4)]'
+                    : 'bg-transparent text-white/80 border-transparent hover:text-white hover:bg-white/5'
                 }`}
               >
                 {item.label}
@@ -77,13 +77,13 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
         <div className="hidden md:flex items-center gap-3">
           <button
             onClick={() => handleLinkClick('for-schools')}
-            className="btn-brutal-yellow text-xs sm:text-sm px-4 py-2"
+            className="btn-slush-volt text-xs sm:text-sm px-4 py-2 rounded-lg"
           >
             FOR SCHOOLS →
           </button>
           <button
             onClick={onOpenRegister}
-            className="btn-brutal text-xs sm:text-sm px-5 py-2 bg-[#111111] text-white"
+            className="btn-slush-magenta text-xs sm:text-sm px-5 py-2 rounded-lg"
           >
             JOIN THE COMPETITION →
           </button>
@@ -92,7 +92,7 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
         {/* Mobile Hamburger Toggle */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden px-3 py-1.5 bg-[#FACC15] border-2 border-[#111111] font-barlow font-black text-sm shadow-[2px_2px_0px_#111111]"
+          className="lg:hidden px-3.5 py-1.5 bg-[#FF0055] text-white font-barlow font-black text-sm rounded-lg shadow-[0_0_15px_rgba(255,0,85,0.4)]"
         >
           {mobileMenuOpen ? 'CLOSE ✕' : 'MENU ☰'}
         </button>
@@ -100,7 +100,7 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden w-full bg-white border-t-2 border-[#111111] px-4 py-4 space-y-3 font-barlow font-bold text-lg uppercase shadow-[0px_4px_0px_#111111]">
+        <div className="lg:hidden w-full bg-[#0B0B0E] border-t border-white/10 px-4 py-4 space-y-3 font-barlow font-bold text-lg uppercase shadow-2xl">
           {[
             { id: 'home', label: 'HOME' },
             { id: 'challenges', label: 'CHALLENGES' },
@@ -112,10 +112,10 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
             <button
               key={item.id}
               onClick={() => handleLinkClick(item.id)}
-              className={`w-full text-left px-4 py-2.5 border-2 ${
+              className={`w-full text-left px-4 py-2.5 rounded-lg border ${
                 activeTab === item.id
-                  ? 'bg-[#111111] text-[#FACC15] border-[#111111]'
-                  : 'bg-[#F7F4EC] text-[#111111] border-[#111111]'
+                  ? 'bg-[#FF0055] text-white border-[#FF0055]'
+                  : 'bg-white/5 text-white/90 border-white/10'
               }`}
             >
               {item.label}
@@ -125,13 +125,13 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
           <div className="pt-2 flex flex-col gap-2">
             <button
               onClick={() => { onOpenRegister(); setMobileMenuOpen(false); }}
-              className="w-full btn-brutal py-3 text-sm text-center"
+              className="w-full btn-slush-magenta py-3 text-sm text-center rounded-lg"
             >
               JOIN THE COMPETITION →
             </button>
             <button
               onClick={() => handleLinkClick('for-schools')}
-              className="w-full btn-brutal-yellow py-3 text-sm text-center"
+              className="w-full btn-slush-volt py-3 text-sm text-center rounded-lg"
             >
               FOR SCHOOLS →
             </button>
