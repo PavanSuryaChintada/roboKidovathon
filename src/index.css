@@ -7,6 +7,10 @@
     scroll-behavior: smooth;
     background-color: #0B0F19;
     color: #FFFFFF;
+    hyphens: none;
+    -webkit-hyphens: none;
+    word-break: keep-all;
+    overflow-wrap: normal;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -14,6 +18,10 @@
     letter-spacing: -0.025em;
     color: #FFFFFF;
     font-weight: 800;
+    text-wrap: balance;
+    hyphens: none;
+    -webkit-hyphens: none;
+    word-break: keep-all;
   }
 
   body {
@@ -21,7 +29,13 @@
     color: #FFFFFF;
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
+    hyphens: none;
+    -webkit-hyphens: none;
   }
+}
+
+.text-balance {
+  text-wrap: balance;
 }
 
 /* Slush-Level Card Classes */

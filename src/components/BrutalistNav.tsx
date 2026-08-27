@@ -31,23 +31,23 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
         {/* Brand Logo / Event Title */}
         <div
           onClick={() => handleLinkClick('home')}
-          className="flex items-center gap-3 cursor-pointer group"
+          className="flex items-center gap-3 cursor-pointer group whitespace-nowrap"
         >
-          <div className="bg-[#0052FF] text-white font-inter font-extrabold text-sm sm:text-base px-2.5 py-0.5 rounded-md tracking-wider">
+          <div className="bg-[#0052FF] text-white font-inter font-extrabold text-xs sm:text-sm px-2.5 py-0.5 rounded-md tracking-wider">
             ROBO
           </div>
           <div className="flex flex-col">
-            <span className="font-inter font-extrabold text-lg sm:text-xl leading-none text-white tracking-tight uppercase">
+            <span className="font-inter font-extrabold text-base sm:text-xl leading-none text-white tracking-tight uppercase whitespace-nowrap">
               KIDO-A-THON
             </span>
-            <span className="text-[9px] font-mono font-bold tracking-widest text-[#E2FF00] uppercase -mt-0.5">
+            <span className="text-[9px] font-mono font-bold tracking-widest text-[#E2FF00] uppercase -mt-0.5 whitespace-nowrap">
               SWEDEN LEAGUE 2026
             </span>
           </div>
         </div>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden lg:flex items-center gap-1 font-inter font-semibold text-xs sm:text-sm tracking-wide text-slate-300 uppercase">
+        <div className="hidden lg:flex items-center gap-1 font-inter font-semibold text-xs sm:text-sm tracking-wide text-slate-300 uppercase whitespace-nowrap">
           {[
             { id: 'home', label: 'HOME' },
             { id: 'challenges', label: 'CHALLENGES' },
@@ -61,7 +61,7 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
               <button
                 key={item.id}
                 onClick={() => handleLinkClick(item.id)}
-                className={`px-3 py-1.5 rounded-lg transition-all ${
+                className={`px-3 py-1.5 rounded-lg transition-all whitespace-nowrap ${
                   isActive
                     ? 'bg-white/15 text-white font-bold border border-white/20'
                     : 'bg-transparent text-slate-300 hover:text-white hover:bg-white/5'
@@ -74,16 +74,16 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
         </div>
 
         {/* Action Buttons */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-3 whitespace-nowrap">
           <button
             onClick={() => handleLinkClick('for-schools')}
-            className="btn-event-secondary text-xs sm:text-sm px-4 py-2 rounded-lg"
+            className="btn-event-secondary text-xs sm:text-sm px-4 py-2 rounded-lg whitespace-nowrap"
           >
             FOR SCHOOLS →
           </button>
           <button
             onClick={onOpenRegister}
-            className="btn-event-primary text-xs sm:text-sm px-5 py-2 rounded-lg"
+            className="btn-event-primary text-xs sm:text-sm px-5 py-2 rounded-lg whitespace-nowrap"
           >
             JOIN THE COMPETITION →
           </button>
@@ -92,7 +92,7 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
         {/* Mobile Hamburger Toggle */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden px-3.5 py-1.5 bg-[#0052FF] text-white font-inter font-bold text-xs rounded-lg"
+          className="lg:hidden px-3.5 py-1.5 bg-[#0052FF] text-white font-inter font-bold text-xs rounded-lg whitespace-nowrap"
         >
           {mobileMenuOpen ? 'CLOSE ✕' : 'MENU ☰'}
         </button>

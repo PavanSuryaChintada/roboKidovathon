@@ -11,21 +11,21 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
 }) => {
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-      <div className="card-event p-6 sm:p-10 border-2 border-slate-900">
+      <div className="card-event p-6 sm:p-10 border border-white/15">
         {/* Top Header */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-200 pb-6 mb-6 gap-4">
+        <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-white/10 pb-6 mb-6 gap-4">
           <div>
             <span className="text-xs font-mono font-bold tracking-widest text-[#0052FF] uppercase block mb-1">
               EDUCATORS & PRINCIPALS PORTAL
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0F172A]">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-white text-balance">
               Bring Robotics to Your School.
             </h2>
           </div>
 
           <button
             onClick={() => onNavigate('for-schools')}
-            className="btn-event-secondary text-xs px-5 py-2.5 rounded-lg self-start md:self-auto"
+            className="btn-event-secondary text-xs px-5 py-2.5 rounded-lg self-start md:self-auto whitespace-nowrap"
           >
             FOR SCHOOLS PORTAL →
           </button>
@@ -35,10 +35,10 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Deliverables */}
           <div className="space-y-2">
-            <h3 className="font-bold text-base uppercase text-[#0F172A] border-b border-slate-200 pb-2">
+            <h3 className="font-bold text-base uppercase text-white border-b border-white/10 pb-2">
               WHAT WE PROVIDE
             </h3>
-            <ul className="space-y-2 text-xs sm:text-sm font-jakarta text-slate-600">
+            <ul className="space-y-2 text-xs sm:text-sm font-inter text-slate-300">
               <li className="flex items-start gap-2">
                 <span className="text-[#0052FF] font-bold">✓</span>
                 <span>Official Robotics Kits & Electronic Drivers</span>
@@ -60,33 +60,33 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
 
           {/* School Requirements */}
           <div className="space-y-2">
-            <h3 className="font-bold text-base uppercase text-[#0F172A] border-b border-slate-200 pb-2">
+            <h3 className="font-bold text-base uppercase text-white border-b border-white/10 pb-2">
               SCHOOL REQUIREMENTS
             </h3>
-            <ul className="space-y-2 text-xs sm:text-sm font-jakarta text-slate-600">
+            <ul className="space-y-2 text-xs sm:text-sm font-inter text-slate-300">
               <li className="flex items-start gap-2">
-                <span className="text-[#0F172A] font-bold">▶</span>
+                <span className="text-[#E2FF00] font-bold">▶</span>
                 <span>School venue for intro workshop & school qualifiers</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#0F172A] font-bold">▶</span>
+                <span className="text-[#E2FF00] font-bold">▶</span>
                 <span>4 teacher volunteers during school-level event</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#0F172A] font-bold">▶</span>
+                <span className="text-[#E2FF00] font-bold">▶</span>
                 <span>1 teacher volunteer during City Finals in Västerås</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#0F172A] font-bold">▶</span>
+                <span className="text-[#E2FF00] font-bold">▶</span>
                 <span>Student participant coordination</span>
               </li>
             </ul>
           </div>
 
           {/* Transparent Cost Box */}
-          <div className="bg-slate-900 text-white p-5 rounded-xl flex flex-col justify-between space-y-3">
+          <div className="bg-[#0B0F19] text-white p-5 rounded-xl border border-white/15 flex flex-col justify-between space-y-3">
             <div>
-              <h3 className="font-bold text-base uppercase text-white border-b border-slate-800 pb-2">
+              <h3 className="font-bold text-base uppercase text-white border-b border-white/10 pb-2">
                 TRANSPARENT COST MODEL
               </h3>
               <div className="my-3 text-center">
@@ -97,14 +97,14 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
                   + VAT (125 SEK TOTAL PER STUDENT)
                 </span>
               </div>
-              <p className="text-xs font-jakarta text-slate-300 text-center bg-slate-800/80 p-2.5 rounded-lg border border-slate-700">
+              <p className="text-xs font-inter text-slate-300 text-center bg-white/5 p-2.5 rounded-lg border border-white/10">
                 Zero administrative overhead for school administration. Complete turnkey event execution.
               </p>
             </div>
 
             <button
               onClick={onOpenRegister}
-              className="btn-event-blue w-full py-3 text-xs sm:text-sm rounded-lg text-center"
+              className="btn-event-primary w-full py-3 text-xs sm:text-sm rounded-lg text-center whitespace-nowrap"
             >
               REGISTER YOUR SCHOOL NOW →
             </button>

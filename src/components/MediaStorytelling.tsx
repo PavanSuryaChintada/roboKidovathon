@@ -29,11 +29,11 @@ export const MediaStorytelling: React.FC = () => {
           <span className="text-xs font-mono font-bold tracking-widest text-[#0052FF] uppercase block mb-1">
             EXPERIENCE THE CHAMPIONSHIP
           </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0F172A]">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white text-balance">
             Real Robotics in Action
           </h2>
         </div>
-        <p className="text-xs sm:text-sm font-jakarta text-slate-500 max-w-md">
+        <p className="text-xs sm:text-sm font-inter text-slate-400 max-w-md">
           Authentic STEM learning documented through real student participation.
         </p>
       </div>
@@ -42,7 +42,7 @@ export const MediaStorytelling: React.FC = () => {
         {blocks.map((item, idx) => (
           <div
             key={idx}
-            className="group card-event overflow-hidden flex flex-col justify-between"
+            className="group card-event overflow-hidden flex flex-col justify-between border border-white/10"
           >
             <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-900">
               <img
@@ -50,18 +50,18 @@ export const MediaStorytelling: React.FC = () => {
                 alt={item.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-              <span className="absolute bottom-3 left-3 text-[11px] font-mono font-bold text-white tracking-wider bg-slate-950/70 backdrop-blur-xs px-2.5 py-1 rounded">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent" />
+              <span className="absolute bottom-3 left-3 text-[11px] font-mono font-bold text-white tracking-wider bg-[#0B0F19]/80 backdrop-blur-xs px-2.5 py-1 rounded">
                 {item.tag}
               </span>
             </div>
 
-            <div className="p-5 space-y-1.5 bg-white flex-1 flex flex-col justify-between">
+            <div className="p-5 space-y-1.5 bg-[#161E2E] flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="text-2xl font-bold text-[#0F172A]">
+                <h3 className="text-2xl font-bold text-white text-balance">
                   {item.title}
                 </h3>
-                <p className="text-xs text-slate-600 font-jakarta mt-1 leading-relaxed">
+                <p className="text-xs text-slate-300 font-inter mt-1 leading-relaxed">
                   {item.desc}
                 </p>
               </div>
