@@ -10,7 +10,7 @@ export const CinematicVideoHero: React.FC<CinematicVideoHeroProps> = ({
   onNavigate,
 }) => {
   return (
-    <section className="relative w-full min-h-[85vh] lg:min-h-[92vh] flex flex-col justify-between overflow-hidden bg-[#0F172A] text-white select-none">
+    <section className="relative w-full min-h-[85vh] lg:min-h-[92vh] flex flex-col justify-between overflow-hidden bg-[#080D1D] text-white select-none">
       {/* 100% Width Video Background */}
       <video
         autoPlay
@@ -31,21 +31,21 @@ export const CinematicVideoHero: React.FC<CinematicVideoHeroProps> = ({
       </video>
 
       {/* Dark Left-to-Right Gradient Overlay for High Contrast */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A] via-[#0F172A]/90 to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#080D1D] via-[#080D1D]/90 to-transparent z-10 pointer-events-none" />
 
       {/* Top Metadata */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-6 flex items-center justify-between">
-        <div className="text-xs font-mono font-bold tracking-widest text-[#E2E8F0] uppercase whitespace-nowrap">
+      <div className="relative z-20 w-full max-w-[1200px] mx-auto px-4 sm:px-6 pt-6 flex items-center justify-between">
+        <div className="text-xs font-mono font-bold tracking-widest text-[#C9CED8] uppercase whitespace-nowrap">
           SWEDEN · VÄSTERÅS · 2026
         </div>
 
-        <div className="hidden sm:inline-flex items-center gap-2 bg-[#1E293B]/80 backdrop-blur-md border border-slate-700 px-3 py-1 rounded-full text-xs font-mono tracking-widest text-[#E2E8F0] uppercase whitespace-nowrap">
+        <div className="hidden sm:inline-flex items-center gap-2 bg-[#141C2E]/80 backdrop-blur-md border border-slate-700 px-3 py-1 rounded-full text-xs font-mono tracking-widest text-[#C9CED8] uppercase whitespace-nowrap">
           INTERNATIONAL YOUTH ROBOTICS LEAGUE
         </div>
       </div>
 
       {/* Hero Content Overlay */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 my-auto py-8 md:py-12">
+      <div className="relative z-20 w-full max-w-[1200px] mx-auto px-4 sm:px-6 my-auto py-8 md:py-12">
         <div className="max-w-4xl space-y-4 text-left">
           {/* Label Pill */}
           <div className="inline-block bg-[#0052FF]/20 text-[#E2FF00] border border-[#0052FF]/40 text-xs font-mono font-bold px-3.5 py-1 rounded-full uppercase tracking-wider whitespace-nowrap">
@@ -80,7 +80,7 @@ export const CinematicVideoHero: React.FC<CinematicVideoHeroProps> = ({
             </button>
             <button
               onClick={() => onNavigate('for-schools')}
-              className="w-full sm:w-auto btn-event-secondary text-sm px-7 py-3.5 rounded-xl flex items-center justify-center gap-2 whitespace-nowrap"
+              className="w-full sm:w-auto btn-event-secondary-dark text-sm px-7 py-3.5 rounded-xl flex items-center justify-center gap-2 whitespace-nowrap"
             >
               <span>FOR SCHOOLS</span>
               <span>→</span>
@@ -90,8 +90,8 @@ export const CinematicVideoHero: React.FC<CinematicVideoHeroProps> = ({
       </div>
 
       {/* Hero Bottom Information Strip */}
-      <div className="relative z-20 w-full border-t border-slate-700 bg-[#0F172A]/95 backdrop-blur-md py-3.5 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#E2E8F0] gap-3 text-center sm:text-left">
+      <div className="relative z-20 w-full border-t border-slate-800 bg-[#080D1D]/95 backdrop-blur-md py-3.5 px-4">
+        <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#C9CED8] gap-3 text-center sm:text-left">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
             <span className="whitespace-nowrap">[ LOCATION: VÄSTERÅS, SWEDEN ]</span>
             <span className="hidden sm:inline text-slate-600">|</span>

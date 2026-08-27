@@ -25,8 +25,8 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-[#0F172A]/95 backdrop-blur-md border-b border-slate-700/80 select-none">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
+    <nav className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 select-none">
+      <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
         {/* Brand Logo */}
         <div
           onClick={() => handleLinkClick('home')}
@@ -36,17 +36,17 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
             ROBO
           </div>
           <div className="flex flex-col">
-            <span className="font-inter font-extrabold text-base sm:text-lg leading-none text-white tracking-tight uppercase whitespace-nowrap">
+            <span className="font-inter font-extrabold text-base sm:text-lg leading-none text-[#0F172A] tracking-tight uppercase whitespace-nowrap">
               KIDO-A-THON
             </span>
-            <span className="text-[9px] font-mono font-bold tracking-widest text-[#E2FF00] uppercase -mt-0.5 whitespace-nowrap">
+            <span className="text-[9px] font-mono font-bold tracking-widest text-[#0052FF] uppercase -mt-0.5 whitespace-nowrap">
               SWEDEN LEAGUE 2026
             </span>
           </div>
         </div>
 
-        {/* Desktop Navigation Links (Crisp #E2E8F0 text with #FFFFFF hover) */}
-        <div className="hidden lg:flex items-center gap-1 xl:gap-2 font-inter font-semibold text-xs tracking-wide text-[#E2E8F0] uppercase whitespace-nowrap">
+        {/* Desktop Navigation Links (#334155 text with #0052FF hover) */}
+        <div className="hidden lg:flex items-center gap-1 xl:gap-2 font-inter font-semibold text-xs tracking-wide text-[#334155] uppercase whitespace-nowrap">
           {[
             { id: 'home', label: 'HOME' },
             { id: 'challenges', label: 'CHALLENGES' },
@@ -63,7 +63,7 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
                 className={`px-3 py-1.5 rounded-lg transition-all whitespace-nowrap ${
                   isActive
                     ? 'bg-[#0052FF] text-white font-bold shadow-md'
-                    : 'bg-transparent text-[#E2E8F0] hover:text-white hover:bg-slate-800'
+                    : 'bg-transparent text-[#334155] hover:text-[#0052FF] hover:bg-slate-100'
                 }`}
               >
                 {item.label}
@@ -76,7 +76,7 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
         <div className="hidden md:flex items-center gap-2.5 whitespace-nowrap shrink-0">
           <button
             onClick={() => handleLinkClick('for-schools')}
-            className="btn-event-secondary text-xs px-3.5 py-2 rounded-lg whitespace-nowrap"
+            className="btn-event-secondary-light text-xs px-3.5 py-2 rounded-lg whitespace-nowrap"
           >
             FOR SCHOOLS →
           </button>
@@ -99,7 +99,7 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden w-full bg-[#0F172A] border-t border-slate-700 px-4 py-4 space-y-2 font-inter font-semibold text-sm uppercase shadow-2xl">
+        <div className="lg:hidden w-full bg-white border-t border-slate-200 px-4 py-4 space-y-2 font-inter font-semibold text-sm uppercase shadow-2xl">
           {[
             { id: 'home', label: 'HOME' },
             { id: 'challenges', label: 'CHALLENGES' },
@@ -114,7 +114,7 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
               className={`w-full text-left px-4 py-2.5 rounded-lg ${
                 activeTab === item.id
                   ? 'bg-[#0052FF] text-white font-bold'
-                  : 'bg-slate-800 text-[#E2E8F0]'
+                  : 'bg-slate-100 text-[#334155]'
               }`}
             >
               {item.label}
@@ -130,7 +130,7 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
             </button>
             <button
               onClick={() => handleLinkClick('for-schools')}
-              className="w-full btn-event-secondary py-3 text-sm text-center rounded-lg"
+              className="w-full btn-event-secondary-light py-3 text-sm text-center rounded-lg"
             >
               FOR SCHOOLS →
             </button>

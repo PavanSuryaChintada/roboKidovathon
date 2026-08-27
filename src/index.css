@@ -5,8 +5,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #0F172A;
-    color: #FFFFFF;
+    background-color: #FFFFFF;
+    color: #0B1020;
     hyphens: none;
     -webkit-hyphens: none;
     word-break: keep-all;
@@ -16,7 +16,6 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', 'Manrope', sans-serif;
     letter-spacing: -0.025em;
-    color: #FFFFFF;
     font-weight: 800;
     text-wrap: balance;
     hyphens: none;
@@ -25,8 +24,8 @@
   }
 
   body {
-    background-color: #0F172A;
-    color: #FFFFFF;
+    background-color: #FFFFFF;
+    color: #0B1020;
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
     hyphens: none;
@@ -38,26 +37,43 @@
   text-wrap: balance;
 }
 
-/* Master 4-Tier High-Contrast Card Classes */
-.card-event {
-  background-color: #1E293B;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 1.25rem;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  color: #FFFFFF;
+/* Master Light & Dark Card System */
+.card-light {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  color: #0B1020;
+  transition: all 0.2s ease;
 }
 
-.card-event:hover {
+.card-light:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
+}
+
+.card-dark {
+  background-color: #141C2E;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  color: #FFFFFF;
+  transition: all 0.2s ease;
+}
+
+.card-dark:hover {
   border-color: rgba(0, 82, 255, 0.6);
   box-shadow: 0 0 30px rgba(0, 82, 255, 0.25);
 }
 
+.card-event {
+  @apply card-dark;
+}
+
 .card-event-dark {
-  background-color: #0F172A;
+  background-color: #080D1D;
   color: #FFFFFF;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 1.5rem;
+  border-radius: 1.25rem;
 }
 
 /* Event Buttons */
@@ -71,20 +87,44 @@
   padding: 0.875rem 1.75rem;
   border-radius: 0.75rem;
   border: 1px solid #0052FF;
-  box-shadow: 0 4px 20px rgba(0, 82, 255, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 82, 255, 0.35);
   transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  white-space: nowrap;
 }
 
 .btn-event-primary:hover {
   background-color: #0043d6;
-  box-shadow: 0 8px 30px rgba(0, 82, 255, 0.6);
+  box-shadow: 0 8px 30px rgba(0, 82, 255, 0.55);
   transform: translateY(-1px);
 }
 
-.btn-event-secondary {
+.btn-event-secondary-light {
+  background-color: #F1F5F9;
+  color: #0F172A;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid #E2E8F0;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.btn-event-secondary-light:hover {
+  background-color: #E2E8F0;
+  border-color: #CBD5E1;
+  transform: translateY(-1px);
+}
+
+.btn-event-secondary-dark {
   background-color: #1E293B;
   color: #FFFFFF;
   font-family: 'Inter', sans-serif;
@@ -98,12 +138,17 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  white-space: nowrap;
 }
 
-.btn-event-secondary:hover {
+.btn-event-secondary-dark:hover {
   background-color: #334155;
   border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-1px);
+}
+
+.btn-event-secondary {
+  @apply btn-event-secondary-light;
 }
 
 .btn-event-blue {
@@ -115,28 +160,5 @@
 }
 
 .btn-brutal-yellow {
-  @apply btn-event-secondary;
-}
-
-.tech-tag {
-  font-family: 'Inter', monospace;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.25rem 0.625rem;
-  border-radius: 0.375rem;
-  font-size: 0.75rem;
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
+  @apply btn-event-secondary-light;
 }
