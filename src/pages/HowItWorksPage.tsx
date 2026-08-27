@@ -8,17 +8,17 @@ interface HowItWorksPageProps {
 
 export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onOpenRegister }) => {
   return (
-    <div className="w-full space-y-12">
+    <div className="w-full space-y-12 py-6">
       {/* Hero Header */}
-      <div className="max-w-6xl mx-auto px-4 pt-4">
-        <div className="bg-[#111111] text-white border-2.5 border-[#111111] shadow-[7px_7px_0px_#0052FF] p-8 sm:p-12 text-center">
-          <span className="bg-[#0052FF] text-white font-barlow font-black text-xs px-3 py-1 border border-white uppercase tracking-wider inline-block mb-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="card-event p-8 sm:p-12 text-center border-t-4 border-t-[#0052FF]">
+          <span className="text-xs font-mono font-bold tracking-widest text-[#0052FF] uppercase block mb-2">
             LEAGUE BLUEPRINT 🛠️
           </span>
-          <h1 className="text-5xl sm:text-7xl font-barlow font-black uppercase text-white leading-none">
+          <h1 className="text-4xl sm:text-6xl font-syne font-extrabold uppercase text-[#0F172A] leading-none">
             HOW ROBO-KIDO WORKS
           </h1>
-          <p className="text-sm sm:text-base font-dmsans text-white/80 max-w-2xl mx-auto mt-3">
+          <p className="text-sm sm:text-base font-dmsans text-slate-600 max-w-2xl mx-auto mt-3">
             A structured hands-on robotics progression that takes students from zero experience to competing on stage at the City Finals in Västerås.
           </p>
         </div>
@@ -27,10 +27,10 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onOpenRegister }
       <RoboHowItWorks />
       <RoboJourney />
 
-      <div className="max-w-6xl mx-auto px-4 text-center pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center pb-8">
         <button
           onClick={onOpenRegister}
-          className="btn-brutal text-base px-8 py-4 bg-[#111111] text-white"
+          className="btn-event-blue text-base px-8 py-4 rounded-xl"
         >
           START YOUR SCHOOL JOURNEY NOW →
         </button>
