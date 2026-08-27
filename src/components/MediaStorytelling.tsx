@@ -33,7 +33,7 @@ export const MediaStorytelling: React.FC = () => {
             Real Robotics in Action
           </h2>
         </div>
-        <p className="text-xs sm:text-sm font-inter text-slate-400 max-w-md">
+        <p className="text-xs sm:text-sm font-inter text-[#E2E8F0] font-medium max-w-md">
           Authentic STEM learning documented through real student participation.
         </p>
       </div>
@@ -42,26 +42,26 @@ export const MediaStorytelling: React.FC = () => {
         {blocks.map((item, idx) => (
           <div
             key={idx}
-            className="group card-event overflow-hidden flex flex-col justify-between border border-white/10"
+            className="group card-event overflow-hidden flex flex-col justify-between border border-slate-700/80"
           >
-            <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-900">
+            <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-[#0F172A]">
               <img
                 src={item.image}
                 alt={item.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent" />
-              <span className="absolute bottom-3 left-3 text-[11px] font-mono font-bold text-white tracking-wider bg-[#0B0F19]/80 backdrop-blur-xs px-2.5 py-1 rounded">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1E293B] via-transparent to-transparent" />
+              <span className="absolute bottom-3 left-3 text-[11px] font-mono font-bold text-white tracking-wider bg-[#0F172A]/90 px-2.5 py-1 rounded border border-slate-700">
                 {item.tag}
               </span>
             </div>
 
-            <div className="p-5 space-y-1.5 bg-[#161E2E] flex-1 flex flex-col justify-between">
+            <div className="p-5 space-y-1.5 bg-[#1E293B] flex-1 flex flex-col justify-between">
               <div>
                 <h3 className="text-2xl font-bold text-white text-balance">
                   {item.title}
                 </h3>
-                <p className="text-xs text-slate-300 font-inter mt-1 leading-relaxed">
+                <p className="text-xs text-[#E2E8F0] font-inter mt-1 leading-relaxed font-medium">
                   {item.desc}
                 </p>
               </div>

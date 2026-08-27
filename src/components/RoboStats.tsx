@@ -13,7 +13,7 @@ export const RoboStats: React.FC = () => {
             Proven Event Scale
           </h2>
         </div>
-        <p className="text-xs sm:text-sm font-inter text-slate-400 max-w-md">
+        <p className="text-xs sm:text-sm font-inter text-[#E2E8F0] font-medium max-w-md">
           Figures reflect the confirmed target Sweden pilot engagement across the Västerås school cluster.
         </p>
       </div>
@@ -24,16 +24,16 @@ export const RoboStats: React.FC = () => {
           <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white block leading-none tracking-tight">
             15+
           </span>
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 block pt-1 break-normal">
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#E2E8F0] block pt-1 break-normal">
             SCHOOLS ENGAGED
           </span>
         </div>
 
         <div className="space-y-1 border-l-2 border-[#0052FF] pl-4">
-          <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0052FF] block leading-none tracking-tight">
+          <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#E2FF00] block leading-none tracking-tight">
             600+
           </span>
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 block pt-1 break-normal">
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#E2E8F0] block pt-1 break-normal">
             STUDENTS PARTICIPATING
           </span>
         </div>
@@ -42,7 +42,7 @@ export const RoboStats: React.FC = () => {
           <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white block leading-none tracking-tight">
             45+
           </span>
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 block pt-1 break-normal">
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#E2E8F0] block pt-1 break-normal">
             TEACHERS INVOLVED
           </span>
         </div>
@@ -51,7 +51,7 @@ export const RoboStats: React.FC = () => {
           <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white block leading-none tracking-tight">
             600+
           </span>
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 block pt-1 break-normal">
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#E2E8F0] block pt-1 break-normal">
             PARENTS REACHED
           </span>
         </div>

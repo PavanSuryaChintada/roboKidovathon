@@ -11,7 +11,7 @@ export const RoboFinalCta: React.FC<RoboFinalCtaProps> = ({
 }) => {
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-      <div className="card-event p-8 sm:p-14 text-center border border-white/20 bg-[#161E2E] text-white space-y-5">
+      <div className="card-event p-8 sm:p-14 text-center border border-slate-700 bg-[#0F172A] text-white space-y-5">
         <span className="text-xs font-mono font-bold tracking-widest text-[#E2FF00] uppercase inline-block">
           SWEDEN CHAMPIONSHIP LEAGUE 2026
         </span>
@@ -20,7 +20,7 @@ export const RoboFinalCta: React.FC<RoboFinalCtaProps> = ({
           Ready to Compete in Västerås?
         </h2>
 
-        <p className="text-sm sm:text-base text-slate-300 font-inter max-w-lg mx-auto text-balance">
+        <p className="text-sm sm:text-base text-[#E2E8F0] font-inter font-medium max-w-lg mx-auto text-balance">
           Join Sweden's official student robotics league. Register your school or student team today.
         </p>
 

@@ -30,13 +30,13 @@ export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ on
       {/* Challenge Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Track 1: ROBO-SPRINT */}
-        <div className="card-event p-6 sm:p-8 flex flex-col justify-between border-t-4 border-t-[#0052FF]">
+        <div className="card-event p-6 sm:p-8 flex flex-col justify-between border-t-4 border-t-[#0052FF] border border-slate-700/80">
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <span className="bg-blue-500/20 text-[#0052FF] border border-blue-500/40 text-xs font-mono font-bold px-3 py-1 rounded-full uppercase">
+              <span className="bg-[#0052FF]/20 text-[#0052FF] border border-[#0052FF]/40 text-xs font-mono font-bold px-3 py-1 rounded-full uppercase">
                 JUNIOR DIVISION (UP TO AGE 15)
               </span>
-              <span className="text-xs font-mono font-bold text-slate-400">
+              <span className="text-xs font-mono font-bold text-[#E2E8F0]">
                 ⏱ 3 MINUTES
               </span>
             </div>
@@ -44,15 +44,15 @@ export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ on
             <h3 className="text-3xl font-extrabold text-white">
               Robo-Sprint
             </h3>
-            <p className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
+            <p className="text-xs font-mono font-bold text-[#E2E8F0] uppercase tracking-wider">
               AIR-HOCKEY BALL PASSING ARENA
             </p>
 
-            <div className="my-4 flex justify-center bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+            <div className="my-4 flex justify-center bg-[#0F172A] p-4 rounded-xl border border-slate-700">
               <RoboSprintBot className="w-40 sm:w-48" />
             </div>
 
-            <div className="space-y-2 text-xs font-inter text-slate-300 border-t border-white/10 pt-3">
+            <div className="space-y-2 text-xs font-inter text-[#E2E8F0] font-medium border-t border-slate-700 pt-3">
               <p>
                 <strong className="font-bold text-white">OBJECTIVE:</strong> Pass as many balls as possible into opponent's court area within 3 minutes.
               </p>
@@ -74,13 +74,13 @@ export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ on
         </div>
 
         {/* Track 2: ROBO-PRECISION */}
-        <div className="card-event p-6 sm:p-8 flex flex-col justify-between border-t-4 border-t-[#E2FF00]">
+        <div className="card-event p-6 sm:p-8 flex flex-col justify-between border-t-4 border-t-[#E2FF00] border border-slate-700/80">
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <span className="bg-amber-500/20 text-[#E2FF00] border border-amber-500/40 text-xs font-mono font-bold px-3 py-1 rounded-full uppercase">
+              <span className="bg-[#E2FF00]/20 text-[#E2FF00] border border-[#E2FF00]/40 text-xs font-mono font-bold px-3 py-1 rounded-full uppercase">
                 SENIOR DIVISION (AGE 15 & ABOVE)
               </span>
-              <span className="text-xs font-mono font-bold text-slate-400">
+              <span className="text-xs font-mono font-bold text-[#E2E8F0]">
                 ⏱ 5 MINUTES
               </span>
             </div>
@@ -88,15 +88,15 @@ export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ on
             <h3 className="text-3xl font-extrabold text-white">
               Robo-Precision
             </h3>
-            <p className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
+            <p className="text-xs font-mono font-bold text-[#E2E8F0] uppercase tracking-wider">
               5-LEVEL TOWER CUP STACKING ARENA
             </p>
 
-            <div className="my-4 flex justify-center bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+            <div className="my-4 flex justify-center bg-[#0F172A] p-4 rounded-xl border border-slate-700">
               <RoboPrecisionBot className="w-40 sm:w-48" />
             </div>
 
-            <div className="space-y-2 text-xs font-inter text-slate-300 border-t border-white/10 pt-3">
+            <div className="space-y-2 text-xs font-inter text-[#E2E8F0] font-medium border-t border-slate-700 pt-3">
               <p>
                 <strong className="font-bold text-white">OBJECTIVE:</strong> Build a 5-level cup tower using robotic grabber. Zero manual touch.
               </p>

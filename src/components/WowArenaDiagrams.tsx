@@ -5,9 +5,9 @@ export const WowArenaDiagrams: React.FC = () => {
 
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-12">
-      <div className="card-event p-6 sm:p-10 border border-white/15">
+      <div className="card-event p-6 sm:p-10 border border-slate-700/80">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-4 mb-6 gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-700 pb-4 mb-6 gap-3">
           <div>
             <span className="text-xs font-mono font-bold tracking-widest text-[#0052FF] uppercase block mb-1">
               ARENA BLUEPRINTS 📐
@@ -23,8 +23,8 @@ export const WowArenaDiagrams: React.FC = () => {
               onClick={() => setActiveDiagram('sprint')}
               className={`px-4 py-2 font-bold text-xs uppercase rounded-lg border transition-all ${
                 activeDiagram === 'sprint'
-                  ? 'bg-[#0052FF] text-white border-[#0052FF]'
-                  : 'bg-white/5 text-slate-300 border-white/15 hover:border-white/30'
+                  ? 'bg-[#0052FF] text-white border-[#0052FF] shadow-md'
+                  : 'bg-[#0F172A] text-[#E2E8F0] border-slate-700 hover:border-slate-500'
               }`}
             >
               ROBO-SPRINT COURT
@@ -34,8 +34,8 @@ export const WowArenaDiagrams: React.FC = () => {
               onClick={() => setActiveDiagram('precision')}
               className={`px-4 py-2 font-bold text-xs uppercase rounded-lg border transition-all ${
                 activeDiagram === 'precision'
-                  ? 'bg-[#0052FF] text-white border-[#0052FF]'
-                  : 'bg-white/5 text-slate-300 border-white/15 hover:border-white/30'
+                  ? 'bg-[#0052FF] text-white border-[#0052FF] shadow-md'
+                  : 'bg-[#0F172A] text-[#E2E8F0] border-slate-700 hover:border-slate-500'
               }`}
             >
               ROBO-PRECISION TOWER
@@ -45,16 +45,16 @@ export const WowArenaDiagrams: React.FC = () => {
 
         {/* Diagram Display Box */}
         {activeDiagram === 'sprint' ? (
-          <div className="bg-[#0B0F19] border border-white/15 p-6 rounded-2xl space-y-4">
-            <div className="flex justify-between text-xs font-mono font-bold text-slate-400">
+          <div className="bg-[#0F172A] border border-slate-700 p-6 rounded-2xl space-y-4">
+            <div className="flex justify-between text-xs font-mono font-bold text-[#E2E8F0]">
               <span>[ROBO-SPRINT // AIR HOCKEY COURT SPECIFICATION]</span>
               <span>DIMENSIONS: 8 FT × 4 FT</span>
             </div>
 
             {/* Air Hockey Court SVG Diagram */}
-            <div className="relative w-full overflow-hidden bg-[#161E2E] border border-white/15 rounded-xl p-4 flex justify-center">
+            <div className="relative w-full overflow-hidden bg-[#1E293B] border border-slate-700 rounded-xl p-4 flex justify-center">
               <svg width="600" height="240" viewBox="0 0 600 240" fill="none" className="w-full h-auto max-w-2xl">
-                <rect x="20" y="20" width="560" height="200" rx="12" fill="#0B0F19" stroke="#0052FF" strokeWidth="2" />
+                <rect x="20" y="20" width="560" height="200" rx="12" fill="#0F172A" stroke="#0052FF" strokeWidth="2" />
                 <line x1="300" y1="20" x2="300" y2="220" stroke="#FF3B00" strokeWidth="3" strokeDasharray="6 6" />
                 <circle cx="300" cy="120" r="30" stroke="#FF3B00" strokeWidth="2" fill="none" />
 
@@ -84,26 +84,26 @@ export const WowArenaDiagrams: React.FC = () => {
               </svg>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-inter text-slate-300">
-              <div className="p-3 bg-[#161E2E] border border-white/10 rounded-lg">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-inter text-[#E2E8F0] font-medium">
+              <div className="p-3 bg-[#1E293B] border border-slate-700 rounded-lg">
                 <strong className="text-white">BALL CAPACITY:</strong> 10 total match balls (5 per side).
               </div>
-              <div className="p-3 bg-[#161E2E] border border-white/10 rounded-lg">
+              <div className="p-3 bg-[#1E293B] border border-slate-700 rounded-lg">
                 <strong className="text-white">ARENA BARRIER:</strong> Low center ridge for puck passing.
               </div>
-              <div className="p-3 bg-[#161E2E] border border-white/10 rounded-lg">
+              <div className="p-3 bg-[#1E293B] border border-slate-700 rounded-lg">
                 <strong className="text-white">WIN CONDITION:</strong> Fewest balls in your court at 03:00.
               </div>
             </div>
           </div>
         ) : (
-          <div className="bg-[#0B0F19] border border-white/15 p-6 rounded-2xl space-y-4">
-            <div className="flex justify-between text-xs font-mono font-bold text-slate-400">
+          <div className="bg-[#0F172A] border border-slate-700 p-6 rounded-2xl space-y-4">
+            <div className="flex justify-between text-xs font-mono font-bold text-[#E2E8F0]">
               <span>[ROBO-PRECISION // 5-LEVEL TOWER STACKING GRID]</span>
               <span>TARGET HEIGHT: 5 LEVELS</span>
             </div>
 
-            <div className="relative w-full overflow-hidden bg-[#161E2E] border border-white/15 rounded-xl p-4 flex justify-center">
+            <div className="relative w-full overflow-hidden bg-[#1E293B] border border-slate-700 rounded-xl p-4 flex justify-center">
               <svg width="400" height="260" viewBox="0 0 400 260" fill="none" className="w-full h-auto max-w-md">
                 <line x1="40" y1="210" x2="360" y2="210" stroke="#FFFFFF" strokeWidth="3" />
                 <line x1="40" y1="170" x2="360" y2="170" stroke="#FFFFFF" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.4" />
@@ -131,14 +131,14 @@ export const WowArenaDiagrams: React.FC = () => {
               </svg>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-inter text-slate-300">
-              <div className="p-3 bg-[#161E2E] border border-white/10 rounded-lg">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-inter text-[#E2E8F0] font-medium">
+              <div className="p-3 bg-[#1E293B] border border-slate-700 rounded-lg">
                 <strong className="text-white">STACK TARGET:</strong> Up to 5 vertical levels.
               </div>
-              <div className="p-3 bg-[#161E2E] border border-white/10 rounded-lg">
+              <div className="p-3 bg-[#1E293B] border border-slate-700 rounded-lg">
                 <strong className="text-white">TOUCH RULE:</strong> Zero manual assistance allowed.
               </div>
-              <div className="p-3 bg-[#161E2E] border border-white/10 rounded-lg">
+              <div className="p-3 bg-[#1E293B] border border-slate-700 rounded-lg">
                 <strong className="text-white">STABILITY EVALUATION:</strong> Tallest stable tower at 05:00.
               </div>
             </div>

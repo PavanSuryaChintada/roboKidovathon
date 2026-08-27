@@ -25,15 +25,14 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-[#0B0F19]/95 backdrop-blur-md border-b border-white/10 select-none">
-      {/* Slush-Level Navbar Container with Proper Padding & Spacing */}
+    <nav className="sticky top-0 z-50 w-full bg-[#0F172A]/95 backdrop-blur-md border-b border-slate-700/80 select-none">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
-        {/* Brand Logo / Event Title */}
+        {/* Brand Logo */}
         <div
           onClick={() => handleLinkClick('home')}
           className="flex items-center gap-2.5 cursor-pointer group whitespace-nowrap shrink-0"
         >
-          <div className="bg-[#0052FF] text-white font-inter font-extrabold text-xs sm:text-sm px-2 py-0.5 rounded-md tracking-wider">
+          <div className="bg-[#0052FF] text-white font-inter font-extrabold text-xs sm:text-sm px-2.5 py-0.5 rounded-md tracking-wider">
             ROBO
           </div>
           <div className="flex flex-col">
@@ -46,8 +45,8 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
           </div>
         </div>
 
-        {/* Desktop Navigation Links (Proper spacing & padding) */}
-        <div className="hidden lg:flex items-center gap-1 xl:gap-2 font-inter font-semibold text-xs tracking-wide text-slate-300 uppercase whitespace-nowrap">
+        {/* Desktop Navigation Links (Crisp #E2E8F0 text with #FFFFFF hover) */}
+        <div className="hidden lg:flex items-center gap-1 xl:gap-2 font-inter font-semibold text-xs tracking-wide text-[#E2E8F0] uppercase whitespace-nowrap">
           {[
             { id: 'home', label: 'HOME' },
             { id: 'challenges', label: 'CHALLENGES' },
@@ -61,10 +60,10 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
               <button
                 key={item.id}
                 onClick={() => handleLinkClick(item.id)}
-                className={`px-2.5 py-1.5 rounded-md transition-all whitespace-nowrap ${
+                className={`px-3 py-1.5 rounded-lg transition-all whitespace-nowrap ${
                   isActive
-                    ? 'bg-white/15 text-white font-bold border border-white/20'
-                    : 'bg-transparent text-slate-300 hover:text-white hover:bg-white/5'
+                    ? 'bg-[#0052FF] text-white font-bold shadow-md'
+                    : 'bg-transparent text-[#E2E8F0] hover:text-white hover:bg-slate-800'
                 }`}
               >
                 {item.label}
@@ -100,7 +99,7 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden w-full bg-[#0B0F19] border-t border-white/10 px-4 py-4 space-y-2 font-inter font-semibold text-sm uppercase shadow-2xl">
+        <div className="lg:hidden w-full bg-[#0F172A] border-t border-slate-700 px-4 py-4 space-y-2 font-inter font-semibold text-sm uppercase shadow-2xl">
           {[
             { id: 'home', label: 'HOME' },
             { id: 'challenges', label: 'CHALLENGES' },
@@ -114,8 +113,8 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
               onClick={() => handleLinkClick(item.id)}
               className={`w-full text-left px-4 py-2.5 rounded-lg ${
                 activeTab === item.id
-                  ? 'bg-[#0052FF] text-white'
-                  : 'bg-white/5 text-slate-200'
+                  ? 'bg-[#0052FF] text-white font-bold'
+                  : 'bg-slate-800 text-[#E2E8F0]'
               }`}
             >
               {item.label}
