@@ -44,8 +44,8 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
     <nav
       className={`fixed top-0 left-0 right-0 z-50 w-full select-none transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#0C1222]/85 backdrop-blur-md border-b border-white/15 shadow-xl text-white py-3'
-          : 'bg-transparent text-white border-b border-white/10 py-4'
+          ? 'bg-[#07111F]/90 backdrop-blur-md border-b border-white/10 shadow-xl text-white py-3'
+          : 'bg-white/30 backdrop-blur-sm text-[#07111F] border-b border-[#07111F]/10 py-4'
       }`}
     >
       <div className="w-full max-w-[1280px] mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
@@ -58,17 +58,17 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
             ROBO
           </div>
           <div className="flex flex-col">
-            <span className="font-inter font-bold text-base sm:text-lg leading-none text-white tracking-tight uppercase whitespace-nowrap">
+            <span className={`font-inter font-bold text-base sm:text-lg leading-none tracking-tight uppercase whitespace-nowrap ${isScrolled ? 'text-white' : 'text-[#07111F]'}`}>
               KIDO-A-THON
             </span>
-            <span className="text-[9px] font-mono font-bold tracking-widest text-[#E2FF00] uppercase -mt-0.5 whitespace-nowrap">
+            <span className={`text-[9px] font-mono font-bold tracking-widest uppercase -mt-0.5 whitespace-nowrap ${isScrolled ? 'text-[#E2FF00]' : 'text-[#0052FF]'}`}>
               SWEDEN LEAGUE 2026
             </span>
           </div>
         </div>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden lg:flex items-center gap-1 xl:gap-2 font-inter font-semibold text-xs tracking-wide text-white/90 uppercase whitespace-nowrap">
+        <div className={`hidden lg:flex items-center gap-1 xl:gap-2 font-inter font-semibold text-xs tracking-wide uppercase whitespace-nowrap ${isScrolled ? 'text-white/85' : 'text-[#07111F]/70'}`}>
           {[
             { id: 'home', label: 'HOME' },
             { id: 'challenges', label: 'CHALLENGES' },
@@ -84,8 +84,10 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
                 onClick={() => handleLinkClick(item.id)}
                 className={`px-3.5 py-1.5 rounded-md transition-all whitespace-nowrap ${
                   isActive
-                    ? 'bg-[#0052FF] text-white font-bold shadow-md'
-                    : 'bg-transparent text-white/90 hover:text-white hover:bg-white/10'
+                    ? 'bg-[#0052FF] text-white font-bold'
+                    : isScrolled
+                    ? 'bg-transparent text-white/85 hover:text-white hover:bg-white/10'
+                    : 'bg-transparent text-[#07111F]/70 hover:text-[#07111F] hover:bg-[#07111F]/8'
                 }`}
               >
                 {item.label}
@@ -98,19 +100,19 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
         <div className="hidden md:flex items-center gap-3 whitespace-nowrap shrink-0">
           <button
             onClick={() => handleLinkClick('for-schools')}
-            className={`text-xs px-4 py-2.5 rounded-md whitespace-nowrap font-semibold border transition-all ${
+            className={`text-xs px-4 py-2.5 whitespace-nowrap font-semibold border transition-all ${
               isScrolled
-                ? 'bg-slate-800/80 text-white border-white/20 hover:bg-slate-700'
-                : 'bg-white/10 text-white border-white/25 hover:bg-white/20'
+                ? 'bg-transparent text-white border-white/20 hover:border-white'
+                : 'bg-transparent text-[#07111F] border-[#07111F]/20 hover:border-[#07111F]'
             }`}
           >
             FOR SCHOOLS →
           </button>
           <button
             onClick={onOpenRegister}
-            className="btn-event-primary text-xs px-4 py-2.5 rounded-md whitespace-nowrap"
+            className="text-xs px-4 py-2.5 whitespace-nowrap font-bold tracking-wider uppercase transition-all bg-[#07111F] text-white hover:bg-[#0052FF]"
           >
-            JOIN THE COMPETITION →
+            REGISTER NOW
           </button>
         </div>
 
