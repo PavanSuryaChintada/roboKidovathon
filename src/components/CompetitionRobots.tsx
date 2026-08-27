@@ -5,28 +5,6 @@ import React from 'react';
  */
 export const HeroRobot: React.FC<{ className?: string }> = ({ className = '' }) => (
   <div className={`relative inline-block ${className}`}>
-    {/* Floating Graphic Annotations & Stickers */}
-    <div className="absolute -top-6 -left-6 z-20 bg-[#FACC15] text-[#111111] font-barlow font-black text-xs md:text-sm px-3 py-1 border-2 border-[#111111] shadow-[3px_3px_0px_#111111] -rotate-6 animate-pulse">
-      ROBOT READY ▲
-    </div>
-
-    <div className="absolute top-1/4 -right-8 z-20 bg-[#FF3B00] text-white font-barlow font-black text-xs md:text-sm px-3 py-1 border-2 border-[#111111] shadow-[3px_3px_0px_#111111] rotate-6">
-      BUILD MODE ★
-    </div>
-
-    <div className="absolute bottom-6 -left-10 z-20 bg-[#0052FF] text-white font-barlow font-black text-xs px-2.5 py-1 border-2 border-[#111111] shadow-[3px_3px_0px_#111111] -rotate-3">
-      LEVEL UP ⚡
-    </div>
-
-    {/* Technical Engineering Callout Tags */}
-    <div className="absolute top-0 right-10 z-20 bg-[#111111] text-[#FACC15] font-mono font-bold text-[10px] px-2 py-0.5 border border-white uppercase">
-      [MOTOR: 12V DC GEAR]
-    </div>
-
-    <div className="absolute bottom-2 right-0 z-20 bg-[#111111] text-white font-mono font-bold text-[10px] px-2 py-0.5 border border-white uppercase">
-      [SENSOR: 8-CH IR ARRAY]
-    </div>
-
     <svg width="340" height="340" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-[8px_10px_0px_#111111]">
       {/* Top Antenna */}
       <path d="M170 45V15" stroke="#111111" strokeWidth="6" strokeLinecap="round" />
