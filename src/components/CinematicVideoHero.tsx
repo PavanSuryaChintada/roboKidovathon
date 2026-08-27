@@ -34,7 +34,7 @@ export const CinematicVideoHero: React.FC<CinematicVideoHeroProps> = ({
       <div className="absolute inset-0 bg-gradient-to-r from-[#0C1222] via-[#0C1222]/85 to-transparent z-10 pointer-events-none" />
 
       {/* Top Metadata */}
-      <div className="relative z-20 w-full max-w-[1280px] mx-auto px-4 sm:px-6 pt-6 flex items-center justify-between">
+      <div className="relative z-20 w-full max-w-[1280px] mx-auto px-4 sm:px-6 pt-20 sm:pt-24 flex items-center justify-between">
         <div className="text-xs font-mono font-bold tracking-widest text-[#C9CED8] uppercase whitespace-nowrap">
           SWEDEN · VÄSTERÅS · 2026
         </div>
@@ -45,7 +45,7 @@ export const CinematicVideoHero: React.FC<CinematicVideoHeroProps> = ({
       </div>
 
       {/* Hero Content Overlay */}
-      <div className="relative z-20 w-full max-w-[1280px] mx-auto px-4 sm:px-6 my-auto py-10 md:py-16">
+      <div className="relative z-20 w-full max-w-[1280px] mx-auto px-4 sm:px-6 my-auto py-8 md:py-12">
         <div className="max-w-4xl space-y-4 text-left">
           {/* Label Badge */}
           <div className="inline-block bg-[#0052FF]/20 text-[#E2FF00] border border-[#0052FF]/40 text-xs font-mono font-bold px-3.5 py-1 rounded-sm uppercase tracking-wider whitespace-nowrap">
