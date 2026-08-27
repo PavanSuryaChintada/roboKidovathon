@@ -1,21 +1,17 @@
 import { useState } from 'react';
 import { BrutalistNav } from './components/BrutalistNav';
 import { CinematicVideoHero } from './components/CinematicVideoHero';
-import { RoboIntro } from './components/RoboIntro';
 import { RoboStats } from './components/RoboStats';
-import { MediaStorytelling } from './components/MediaStorytelling';
+import { RoboIntro } from './components/RoboIntro';
 import { WowBuildBot } from './components/WowBuildBot';
-import { WowScoreboardTimer } from './components/WowScoreboardTimer';
-import { WowArenaDiagrams } from './components/WowArenaDiagrams';
 import { RoboChallengesSection } from './components/RoboChallengesSection';
 import { RoboHowItWorks } from './components/RoboHowItWorks';
 import { RoboJourney } from './components/RoboJourney';
-import { RoboJuniorVsSenior } from './components/RoboJuniorVsSenior';
 import { RoboForSchoolsSection } from './components/RoboForSchoolsSection';
 import { RoboPrizes } from './components/RoboPrizes';
-import { EventInfoBlock } from './components/EventInfoBlock';
 import { RoboFinalCta } from './components/RoboFinalCta';
 import { RoboFooter } from './components/RoboFooter';
+import { FaqSection } from './components/FaqSection';
 
 import { ChallengesPage } from './pages/ChallengesPage';
 import { HowItWorksPage } from './pages/HowItWorksPage';
@@ -25,13 +21,11 @@ import { JoinPage } from './pages/JoinPage';
 
 import { RegisterModal } from './components/RegisterModal';
 import { EventDeckModal } from './components/EventDeckModal';
-import { FaqSection } from './components/FaqSection';
 
 export function App() {
   const [currentRoute, setCurrentRoute] = useState<string>('home');
   const [isRegisterOpen, setIsRegisterOpen] = useState<boolean>(false);
   const [isDeckOpen, setIsDeckOpen] = useState<boolean>(false);
-  const [isFaqOpen, setIsFaqOpen] = useState<boolean>(false);
 
   const handleNavigate = (route: string) => {
     setCurrentRoute(route);
@@ -39,68 +33,64 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] text-[#0F172A] font-sans selection:bg-[#0052FF] selection:text-white relative overflow-x-hidden">
-      {/* Clean Professional Event Navigation */}
+    <div className="min-h-screen bg-white text-[#0B1020] font-sans selection:bg-[#0052FF] selection:text-white relative overflow-x-hidden">
+      {/* Navigation */}
       <BrutalistNav
         activeTab={currentRoute}
         onNavigate={handleNavigate}
         onOpenRegister={() => setIsRegisterOpen(true)}
-        onOpenFaq={() => setIsFaqOpen(true)}
+        onOpenFaq={() => {
+          setCurrentRoute('home');
+          setTimeout(() => {
+            const el = document.getElementById('faq-section');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }}
       />
 
       {/* Main Content Router */}
       <main className="w-full">
         {currentRoute === 'home' && (
           <>
-            {/* 1. Full-Width Cinematic Video Hero */}
+            {/* 1 — Full-Screen Cinematic Video Hero (LOCKED — DO NOT CHANGE) */}
             <CinematicVideoHero
               onOpenRegister={() => setIsRegisterOpen(true)}
               onNavigate={handleNavigate}
             />
 
-            {/* 2. Enormous Clean Statistics Data Section */}
+            {/* 2 — Dark Editorial Statistics Strip */}
             <RoboStats />
 
-            {/* 3. About / Mission Split Editorial Section */}
+            {/* 3 — White Asymmetric Mission Split */}
             <RoboIntro />
 
-            {/* 4. Photo & Video Storytelling Blocks (Students Build, Code, Compete) */}
-            <MediaStorytelling />
-
-            {/* WOW MOMENT 01: BUILD YOUR BOT Interactive Flow */}
+            {/* 4 — Dark Real Hardware Annotated Visual */}
             <WowBuildBot />
 
-            {/* 5. Competition Tracks (Robo-Sprint & Robo-Precision) */}
+            {/* 5 — Competition Track Poster Panels (Blue + Dark) */}
             <RoboChallengesSection onNavigate={handleNavigate} />
 
-            {/* WOW MOMENT 02: COMPETITION SCOREBOARD TIMER */}
-            <WowScoreboardTimer />
-
-            {/* WOW MOMENT 03: TECHNICAL ARENA DIAGRAMS */}
-            <WowArenaDiagrams />
-
-            {/* 6. 5-Stage Game Progression */}
+            {/* 6 — Light Connected Horizontal Roadmap */}
             <RoboHowItWorks />
 
-            {/* 7. Multi-Stage Competition Roadmap */}
+            {/* 7 — White Vertical Championship Timeline */}
             <RoboJourney />
 
-            {/* 8. Junior vs Senior Division Split */}
-            <RoboJuniorVsSenior />
-
-            {/* 9. Educator & School Portal Box */}
+            {/* 8 — Dark Navy For Schools Institutional Section */}
             <RoboForSchoolsSection
               onNavigate={handleNavigate}
               onOpenRegister={() => setIsRegisterOpen(true)}
             />
 
-            {/* 10. Prize Allocations Scoreboard */}
+            {/* 9 — Full-Black Dramatic Prize Pool Reveal */}
             <RoboPrizes />
 
-            {/* 11. Event Metadata Block */}
-            <EventInfoBlock />
+            {/* 10 — White Editorial FAQ (inline, not modal) */}
+            <div id="faq-section">
+              <FaqSection />
+            </div>
 
-            {/* 12. Final Call To Action */}
+            {/* 11 — Final Call To Action */}
             <RoboFinalCta
               onOpenRegister={() => setIsRegisterOpen(true)}
               onNavigate={handleNavigate}
@@ -131,10 +121,16 @@ export function App() {
       {/* Footer */}
       <RoboFooter
         onNavigate={handleNavigate}
-        onOpenFaq={() => setIsFaqOpen(true)}
+        onOpenFaq={() => {
+          setCurrentRoute('home');
+          setTimeout(() => {
+            const el = document.getElementById('faq-section');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }}
       />
 
-      {/* Interactive Modals */}
+      {/* Modals */}
       <RegisterModal
         isOpen={isRegisterOpen}
         onClose={() => setIsRegisterOpen(false)}
@@ -144,24 +140,6 @@ export function App() {
         isOpen={isDeckOpen}
         onClose={() => setIsDeckOpen(false)}
       />
-
-      {/* FAQ Modal */}
-      {isFaqOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 relative border border-slate-200 shadow-2xl">
-            <button
-              onClick={() => setIsFaqOpen(false)}
-              className="absolute top-4 right-4 bg-slate-900 text-white font-jakarta font-bold text-xs px-3 py-1.5 rounded-lg"
-            >
-              CLOSE ✕
-            </button>
-            <h2 className="text-[#0F172A] text-3xl font-syne font-extrabold uppercase mb-4">
-              FREQUENTLY ASKED QUESTIONS
-            </h2>
-            <FaqSection />
-          </div>
-        </div>
-      )}
     </div>
   );
 }

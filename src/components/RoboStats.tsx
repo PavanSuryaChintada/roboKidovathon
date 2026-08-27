@@ -1,61 +1,57 @@
 import React from 'react';
 
 export const RoboStats: React.FC = () => {
+  const stats = [
+    { value: '15+',  label: 'SCHOOLS',  sub: 'VÄSTERÅS CLUSTER' },
+    { value: '600+', label: 'STUDENTS', sub: 'JUNIOR & SENIOR' },
+    { value: '45+',  label: 'TEACHERS', sub: 'CERTIFIED MENTORS' },
+    { value: '600+', label: 'PARENTS',  sub: 'COMMUNITY REACH' },
+  ];
+
   return (
-    <section className="w-full bg-white text-[#0B1020] py-20 md:py-24 border-b border-slate-200">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-14 gap-4">
+    <section className="w-full bg-[#0A0A0A] text-white">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 py-20 md:py-28">
+        {/* Eyebrow */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4 border-b border-white/10 pb-8">
           <div>
-            <span className="text-xs font-mono font-bold tracking-widest text-[#0052FF] uppercase block mb-2">
-              01 // LEAGUE REACH & SCALE
+            <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-white/40 uppercase block mb-3">
+              01 / LEAGUE REACH — PILOT TARGETS
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0B1020] tracking-tight text-balance">
-              Proven Event Scale
+            <h2
+              className="font-extrabold uppercase leading-none tracking-tight text-white"
+              style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
+            >
+              Built for the Next<br className="hidden sm:block" /> Generation.
             </h2>
           </div>
-          <p className="text-sm sm:text-base font-inter text-[#334155] font-normal max-w-md leading-relaxed">
-            Figures reflect the confirmed target Sweden pilot engagement across the Västerås school cluster.
+          <p className="text-sm text-white/50 font-light max-w-xs leading-relaxed">
+            Confirmed target engagement across the Västerås school cluster — Sweden pilot 2026.
           </p>
         </div>
 
-        {/* Horizontal Editorial Statistics Grid with Soft Pastel Tint Fills */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="bg-pastel-blue p-6 rounded-md space-y-2 border-l-4 border-l-[#0284C7]">
-            <span className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#0B1020] block leading-none tracking-tight">
-              15+
-            </span>
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#334155] block pt-2 break-normal">
-              SCHOOLS ENGAGED
-            </span>
-          </div>
-
-          <div className="bg-pastel-mint p-6 rounded-md space-y-2 border-l-4 border-l-[#16A34A]">
-            <span className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#0052FF] block leading-none tracking-tight">
-              600+
-            </span>
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#334155] block pt-2 break-normal">
-              STUDENTS PARTICIPATING
-            </span>
-          </div>
-
-          <div className="bg-pastel-lilac p-6 rounded-md space-y-2 border-l-4 border-l-[#9333EA]">
-            <span className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#0B1020] block leading-none tracking-tight">
-              45+
-            </span>
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#334155] block pt-2 break-normal">
-              TEACHERS INVOLVED
-            </span>
-          </div>
-
-          <div className="bg-pastel-lemon p-6 rounded-md space-y-2 border-l-4 border-l-[#CA8A04]">
-            <span className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#0B1020] block leading-none tracking-tight">
-              600+
-            </span>
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#334155] block pt-2 break-normal">
-              PARENTS REACHED
-            </span>
-          </div>
+        {/* Giant Stats Row */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-white/10">
+          {stats.map((stat, i) => (
+            <div
+              key={i}
+              className="py-10 lg:py-0 lg:px-10 first:lg:pl-0 last:lg:pr-0 flex flex-col gap-3"
+            >
+              <span
+                className="font-extrabold leading-none tracking-tighter text-white"
+                style={{ fontSize: 'clamp(3.5rem, 7vw, 7rem)', lineHeight: 1 }}
+              >
+                {stat.value}
+              </span>
+              <div>
+                <span className="block font-bold text-base uppercase tracking-widest text-white">
+                  {stat.label}
+                </span>
+                <span className="block text-[10px] font-mono tracking-[0.2em] text-white/35 uppercase mt-0.5">
+                  {stat.sub}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

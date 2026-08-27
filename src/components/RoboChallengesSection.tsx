@@ -1,5 +1,4 @@
 import React from 'react';
-import { RoboSprintBot, RoboPrecisionBot } from './CompetitionRobots';
 
 interface RoboChallengesSectionProps {
   onNavigate: (route: string) => void;
@@ -7,116 +6,144 @@ interface RoboChallengesSectionProps {
 
 export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ onNavigate }) => {
   return (
-    <section className="w-full bg-white text-[#0B1020] py-20 md:py-24 border-b border-slate-200">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-4">
-          <div>
-            <span className="text-xs font-mono font-bold tracking-widest text-[#0052FF] uppercase block mb-2">
-              04 // ARENA FORMATS
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1020] text-balance tracking-tight">
-              The Competition Tracks
-            </h2>
-          </div>
-
+    <section className="w-full bg-white text-[#0B1020]">
+      {/* Section header */}
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 pt-20 md:pt-28 pb-10">
+        <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#0052FF] uppercase block mb-4">
+          04 / ARENA FORMATS
+        </span>
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <h2
+            className="font-extrabold uppercase leading-none tracking-tight text-[#0B1020]"
+            style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', lineHeight: 0.95 }}
+          >
+            The Competition<br />Tracks.
+          </h2>
           <button
             onClick={() => onNavigate('challenges')}
-            className="btn-event-secondary-light text-xs px-5 py-2.5 rounded-md whitespace-nowrap"
+            className="text-[10px] font-mono font-bold tracking-[0.2em] uppercase text-[#0052FF] border-b border-[#0052FF] pb-0.5 hover:opacity-70 transition-opacity self-start sm:self-end shrink-0"
           >
-            VIEW RULEBOOK →
+            VIEW FULL RULEBOOK →
+          </button>
+        </div>
+      </div>
+
+      {/* ── ROBO-SPRINT Panel ── */}
+      <div className="w-full grid grid-cols-1 lg:grid-cols-12 border-t border-slate-200">
+        {/* Left — blue color block */}
+        <div className="lg:col-span-5 bg-[#0052FF] px-8 sm:px-12 py-14 md:py-20 flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between mb-8">
+              <span className="text-[9px] font-mono font-bold tracking-[0.3em] text-white/60 uppercase">
+                JUNIOR DIVISION · UP TO AGE 15
+              </span>
+              <span className="text-[9px] font-mono font-bold tracking-[0.2em] text-white/60 uppercase border border-white/30 px-2 py-0.5">
+                ⏱ 3 MIN
+              </span>
+            </div>
+            <h3
+              className="font-extrabold uppercase leading-none tracking-tighter text-white"
+              style={{ fontSize: 'clamp(3rem, 6vw, 7rem)', lineHeight: 0.85 }}
+            >
+              ROBO-<br />SPRINT
+            </h3>
+            <p className="text-sm text-white/70 font-light mt-4 max-w-xs leading-relaxed">
+              Air-hockey ball passing arena. Pass as many balls as possible into the opponent's court within 3 minutes.
+            </p>
+          </div>
+          <div className="mt-10 space-y-3 text-xs font-mono text-white/60 uppercase">
+            <div className="flex justify-between border-t border-white/20 pt-3">
+              <span>ROBOT LIMIT</span>
+              <span className="text-white font-bold">1.5 FT × 1.5 FT</span>
+            </div>
+            <div className="flex justify-between border-t border-white/20 pt-3">
+              <span>SCORING</span>
+              <span className="text-white font-bold">FEWEST BALLS WINS</span>
+            </div>
+            <div className="flex justify-between border-t border-white/20 pt-3">
+              <span>CATEGORY</span>
+              <span className="text-white font-bold">JUNIOR LEAGUE</span>
+            </div>
+          </div>
+          <button
+            onClick={() => onNavigate('challenges')}
+            className="mt-10 self-start text-[10px] font-mono font-bold tracking-[0.2em] uppercase text-white border-b border-white/50 pb-0.5 hover:border-white transition-colors"
+          >
+            EXPLORE ROBO-SPRINT →
           </button>
         </div>
 
-        {/* Pastel Competition Track Posters Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Track 1: ROBO-SPRINT (Pastel Blue Tint) */}
-          <div className="bg-pastel-blue p-6 sm:p-8 flex flex-col justify-between border-t-4 border-t-[#0284C7] rounded-md">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="badge-pastel-blue text-xs font-mono font-bold px-3 py-1 rounded-sm uppercase">
-                  JUNIOR DIVISION (UP TO AGE 15)
-                </span>
-                <span className="text-xs font-mono font-bold text-[#0284C7]">
-                  ⏱ 3 MINUTES
-                </span>
-              </div>
-
-              <h3 className="text-3xl font-bold text-[#0B1020]">
-                Robo-Sprint
-              </h3>
-              <p className="text-xs font-mono font-bold text-[#0284C7] uppercase tracking-wider">
-                AIR-HOCKEY BALL PASSING ARENA
-              </p>
-
-              <div className="my-4 flex justify-center bg-white p-6 rounded-md border border-sky-200">
-                <RoboSprintBot className="w-44 sm:w-52" />
-              </div>
-
-              <div className="space-y-2.5 text-xs sm:text-sm font-inter text-[#334155] font-normal border-t border-sky-200 pt-4">
-                <p>
-                  <strong className="font-bold text-[#0B1020]">OBJECTIVE:</strong> Pass as many balls as possible into opponent's court area within 3 minutes.
-                </p>
-                <p>
-                  <strong className="font-bold text-[#0B1020]">ROBOT LIMIT:</strong> Max 1.5 ft × 1.5 ft (maximum dimensions).
-                </p>
-                <p>
-                  <strong className="font-bold text-[#0284C7]">SCORING:</strong> Team with fewest balls in court at whistle wins.
-                </p>
-              </div>
-            </div>
-
-            <button
-              onClick={() => onNavigate('challenges')}
-              className="mt-8 w-full btn-event-primary py-3.5 text-xs sm:text-sm rounded-md text-center whitespace-nowrap"
-            >
-              SELECT ROBO-SPRINT →
-            </button>
+        {/* Right — image */}
+        <div className="lg:col-span-7 relative overflow-hidden min-h-[320px] lg:min-h-0">
+          <img
+            src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?auto=format&fit=crop&w=900&q=85"
+            alt="Robo-Sprint competition arena"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#0052FF]/30 pointer-events-none" />
+          {/* Large background number */}
+          <div className="absolute bottom-4 right-6 text-[10px] font-mono tracking-[0.3em] text-white/30 uppercase">
+            [ ARENA FORMAT 01 · JUNIOR ]
           </div>
+        </div>
+      </div>
 
-          {/* Track 2: ROBO-PRECISION (Pastel Lilac Tint) */}
-          <div className="bg-pastel-lilac p-6 sm:p-8 flex flex-col justify-between border-t-4 border-t-[#9333EA] rounded-md">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="badge-pastel-lilac text-xs font-mono font-bold px-3 py-1 rounded-sm uppercase">
-                  SENIOR DIVISION (AGE 15 & ABOVE)
-                </span>
-                <span className="text-xs font-mono font-bold text-[#9333EA]">
-                  ⏱ 5 MINUTES
-                </span>
-              </div>
-
-              <h3 className="text-3xl font-bold text-[#0B1020]">
-                Robo-Precision
-              </h3>
-              <p className="text-xs font-mono font-bold text-[#9333EA] uppercase tracking-wider">
-                5-LEVEL TOWER CUP STACKING ARENA
-              </p>
-
-              <div className="my-4 flex justify-center bg-white p-6 rounded-md border border-purple-200">
-                <RoboPrecisionBot className="w-44 sm:w-52" />
-              </div>
-
-              <div className="space-y-2.5 text-xs sm:text-sm font-inter text-[#334155] font-normal border-t border-purple-200 pt-4">
-                <p>
-                  <strong className="font-bold text-[#0B1020]">OBJECTIVE:</strong> Build a 5-level cup tower using robotic grabber. Zero manual touch.
-                </p>
-                <p>
-                  <strong className="font-bold text-[#0B1020]">ROBOT LIMIT:</strong> Max 2.5 ft × 2.5 ft (maximum dimensions).
-                </p>
-                <p>
-                  <strong className="font-bold text-[#9333EA]">SCORING:</strong> Tallest, most stable cup tower wins.
-                </p>
-              </div>
-            </div>
-
-            <button
-              onClick={() => onNavigate('challenges')}
-              className="mt-8 w-full btn-event-primary py-3.5 text-xs sm:text-sm rounded-md text-center whitespace-nowrap"
-            >
-              SELECT ROBO-PRECISION →
-            </button>
+      {/* ── ROBO-PRECISION Panel ── */}
+      <div className="w-full grid grid-cols-1 lg:grid-cols-12 border-t border-slate-200">
+        {/* Left — image */}
+        <div className="lg:col-span-7 relative overflow-hidden min-h-[320px] lg:min-h-0 order-2 lg:order-1">
+          <img
+            src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=85"
+            alt="Robo-Precision cup stacking arena"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0B1020]/30 pointer-events-none" />
+          <div className="absolute bottom-4 left-6 text-[10px] font-mono tracking-[0.3em] text-white/30 uppercase">
+            [ ARENA FORMAT 02 · SENIOR ]
           </div>
+        </div>
+
+        {/* Right — dark color block */}
+        <div className="lg:col-span-5 bg-[#0B1020] px-8 sm:px-12 py-14 md:py-20 flex flex-col justify-between order-1 lg:order-2">
+          <div>
+            <div className="flex items-center justify-between mb-8">
+              <span className="text-[9px] font-mono font-bold tracking-[0.3em] text-white/40 uppercase">
+                SENIOR DIVISION · AGE 15+
+              </span>
+              <span className="text-[9px] font-mono font-bold tracking-[0.2em] text-white/40 uppercase border border-white/20 px-2 py-0.5">
+                ⏱ 5 MIN
+              </span>
+            </div>
+            <h3
+              className="font-extrabold uppercase leading-none tracking-tighter text-white"
+              style={{ fontSize: 'clamp(2.5rem, 5vw, 6.5rem)', lineHeight: 0.85 }}
+            >
+              ROBO-<br />PRECISION
+            </h3>
+            <p className="text-sm text-white/50 font-light mt-4 max-w-xs leading-relaxed">
+              5-level cup tower stacking arena. Build the tallest, most stable tower using a robotic grabber arm. Zero manual touch.
+            </p>
+          </div>
+          <div className="mt-10 space-y-3 text-xs font-mono text-white/40 uppercase">
+            <div className="flex justify-between border-t border-white/10 pt-3">
+              <span>ROBOT LIMIT</span>
+              <span className="text-white font-bold">2.5 FT × 2.5 FT</span>
+            </div>
+            <div className="flex justify-between border-t border-white/10 pt-3">
+              <span>SCORING</span>
+              <span className="text-white font-bold">TALLEST TOWER WINS</span>
+            </div>
+            <div className="flex justify-between border-t border-white/10 pt-3">
+              <span>CATEGORY</span>
+              <span className="text-[#E2FF00] font-bold">SENIOR LEAGUE</span>
+            </div>
+          </div>
+          <button
+            onClick={() => onNavigate('challenges')}
+            className="mt-10 self-start text-[10px] font-mono font-bold tracking-[0.2em] uppercase text-white/60 border-b border-white/20 pb-0.5 hover:text-white hover:border-white transition-colors"
+          >
+            EXPLORE ROBO-PRECISION →
+          </button>
         </div>
       </div>
     </section>

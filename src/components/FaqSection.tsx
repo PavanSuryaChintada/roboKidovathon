@@ -1,39 +1,38 @@
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle, MessageSquare } from 'lucide-react';
 import type { FAQItem } from '../types';
 
 export const FaqSection: React.FC = () => {
-  const [openIdx, setOpenIdx] = useState<number | null>(0);
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   const faqs: FAQItem[] = [
     {
       question: 'Who can participate in Robo-Kidovation Västerås 2026?',
       answer:
-        'All students in Västerås aged up to 18 years can join! Participants are divided into two brackets: Junior (up to 15 years old) and Senior (15+ years / high school).',
+        'All students in Västerås aged up to 18 years can join. Participants are divided into two brackets: Junior (up to 15 years old) and Senior (15+ years / high school).',
       category: 'Registration',
     },
     {
       question: 'Do students need prior coding or robotics experience?',
       answer:
-        'No prior experience is necessary! Every registered student attends a 2-hour hands-on school workshop where certified trainers guide them through building, wiring, and programming physical bots from scratch.',
+        'No prior experience is necessary. Every registered student attends a 2-hour hands-on school workshop where certified trainers guide them through building, wiring, and programming physical bots from scratch.',
       category: 'Hardware & Kits',
     },
     {
       question: 'Are robotics hardware kits provided on-site?',
       answer:
-        'Yes! Complete mechanical and robotics hardware kits, motors, controllers, and arena mats are provided directly on-site for all workshops and competition rounds.',
+        'Yes. Complete mechanical and robotics hardware kits, motors, controllers, and arena mats are provided directly on-site for all workshops and competition rounds.',
       category: 'Hardware & Kits',
     },
     {
       question: 'How does the 125 SEK entry fee work?',
       answer:
-        'The entry fee is 100 SEK + VAT (125 SEK total per student). This covers workshop participation, hardware kit usage, mentorship, arena competition entry at ABB Venue, diplomas, and event media.',
+        'The entry fee is 100 SEK + VAT (125 SEK total per student). This covers workshop participation, hardware kit usage, mentorship, arena competition entry, diplomas, and event media.',
       category: 'Registration',
     },
     {
       question: 'What is required from participating schools?',
       answer:
-        'Zero financial cost for school administration! Schools simply provide an open working space for a 2-hour workshop in February 2026 and teacher volunteers (4 for school round, 1 for City Finals).',
+        'Zero financial cost for school administration. Schools simply provide an open working space for a 2-hour workshop in February 2026 and teacher volunteers (4 for school round, 1 for City Finals).',
       category: 'Schools & Teachers',
     },
     {
@@ -50,80 +49,67 @@ export const FaqSection: React.FC = () => {
     },
   ];
 
-  const toggleFaq = (idx: number) => {
-    setOpenIdx(openIdx === idx ? null : idx);
-  };
-
   return (
-    <section id="faq" className="py-16 md:py-20 bg-[#0B0F19] text-white border-t border-white/10">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+    <section className="w-full bg-white text-[#0B1020]">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 py-20 md:py-28">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0052FF]/20 border border-[#0052FF]/40 text-xs font-mono font-bold text-[#E2FF00] uppercase tracking-wider">
-            <HelpCircle className="w-4 h-4 text-[#E2FF00]" />
-            <span>Got Questions?</span>
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4 border-b border-slate-200 pb-10">
+          <div>
+            <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#0052FF] uppercase block mb-3">
+              09 / FREQUENTLY ASKED QUESTIONS
+            </span>
+            <h2
+              className="font-extrabold uppercase leading-none tracking-tighter text-[#0B1020]"
+              style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', lineHeight: 0.95 }}
+            >
+              Got Questions?
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white text-balance">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-slate-300 text-sm sm:text-base font-inter text-balance">
-            Everything parents, students, and teachers need to know about the Robo-Kidovation League.
-          </p>
+          <a
+            href="mailto:contact@robokidoathon.se"
+            className="self-start sm:self-end text-[10px] font-mono font-bold tracking-[0.2em] uppercase text-[#64748B] border-b border-slate-300 pb-0.5 hover:text-[#0052FF] hover:border-[#0052FF] transition-colors whitespace-nowrap"
+          >
+            EMAIL COORDINATORS →
+          </a>
         </div>
 
-        {/* Accordion List */}
-        <div className="space-y-3.5">
+        {/* Editorial FAQ Rows */}
+        <div>
           {faqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
             return (
-              <div
-                key={idx}
-                className="bg-[#161E2E] border border-white/15 rounded-xl overflow-hidden shadow-lg transition-all"
-              >
+              <div key={idx} className="border-b border-slate-200 last:border-b-0">
                 <button
-                  onClick={() => toggleFaq(idx)}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus:outline-none"
+                  onClick={() => setOpenIdx(isOpen ? null : idx)}
+                  className="w-full py-6 sm:py-7 flex items-start justify-between gap-6 text-left group"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="text-[11px] font-mono font-bold text-[#E2FF00] bg-white/10 px-2.5 py-0.5 rounded border border-white/15 shrink-0 uppercase">
-                      {faq.category}
+                  <div className="flex items-start gap-5 sm:gap-8 flex-1">
+                    {/* Row number */}
+                    <span className="text-[11px] font-mono font-bold text-slate-300 shrink-0 mt-0.5 w-6">
+                      {String(idx + 1).padStart(2, '0')}
                     </span>
-                    <h3 className="font-bold text-base sm:text-lg text-white font-inter">
+                    {/* Question */}
+                    <h3 className={`text-sm sm:text-base font-bold transition-colors ${isOpen ? 'text-[#0052FF]' : 'text-[#0B1020] group-hover:text-[#0052FF]'}`}>
                       {faq.question}
                     </h3>
                   </div>
-                  <ChevronDown
-                    className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                      isOpen ? 'rotate-180 text-[#0052FF]' : ''
-                    }`}
-                  />
+                  {/* Toggle */}
+                  <span className={`text-lg font-light shrink-0 mt-0.5 transition-colors ${isOpen ? 'text-[#0052FF]' : 'text-slate-400'}`}>
+                    {isOpen ? '−' : '+'}
+                  </span>
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-0 text-xs sm:text-sm text-slate-300 font-inter leading-relaxed border-t border-white/10">
-                    <p className="pt-4">{faq.answer}</p>
+                  <div className="pb-7 pl-11 sm:pl-14 pr-8">
+                    <p className="text-sm text-[#64748B] font-light leading-relaxed max-w-3xl">
+                      {faq.answer}
+                    </p>
                   </div>
                 )}
               </div>
             );
           })}
         </div>
-
-        {/* Support Box */}
-        <div className="mt-12 text-center bg-[#161E2E] border border-white/15 rounded-xl p-6 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold">
-          <div className="flex items-center gap-3">
-            <MessageSquare className="w-5 h-5 text-[#0052FF]" />
-            <span className="text-slate-200">Have a specific question not answered here?</span>
-          </div>
-          <a
-            href="mailto:contact@robokidoathon.se"
-            className="btn-event-secondary px-4 py-2.5 rounded-lg whitespace-nowrap"
-          >
-            Email Event Coordinators →
-          </a>
-        </div>
-
       </div>
     </section>
   );

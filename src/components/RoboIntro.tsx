@@ -2,71 +2,65 @@ import React from 'react';
 
 export const RoboIntro: React.FC = () => {
   return (
-    <section className="w-full bg-[#F8FAFC] text-[#0B1020] py-20 md:py-24 border-b border-slate-200">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        {/* Split Editorial Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start mb-16 border-b border-slate-200 pb-12">
-          {/* Left Side: Editorial Title */}
-          <div className="lg:col-span-7 space-y-2">
-            <span className="text-xs font-mono font-bold tracking-widest text-[#0052FF] uppercase block mb-1">
-              02 // MISSION STATEMENT
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0B1020] leading-tight text-balance tracking-tight">
-              The Future of STEM Starts Here.
-            </h2>
+    <section className="w-full bg-white text-[#0B1020]">
+      {/* ── 60/40 Asymmetric Split ── */}
+      <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12">
+        {/* LEFT — Editorial typography */}
+        <div className="lg:col-span-7 px-6 sm:px-10 py-20 md:py-28 flex flex-col justify-center">
+          <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#0052FF] uppercase block mb-6">
+            02 / THE MISSION
+          </span>
+          <h2
+            className="font-extrabold uppercase leading-none tracking-tighter text-[#0B1020]"
+            style={{ fontSize: 'clamp(2.8rem, 6vw, 6.5rem)', lineHeight: 0.9 }}
+          >
+            The Future<br />
+            of STEM<br />
+            Starts Here.
+          </h2>
+          <div className="mt-10 max-w-lg space-y-4">
+            <p className="text-base text-[#334155] font-light leading-relaxed">
+              Robo-Kidovation turns STEM learning into an exciting hands-on championship. Students build real physical robots, program microcontroller logic, solve arena challenges, and compete live in front of judges.
+            </p>
+            <p className="text-sm text-[#64748B] font-light leading-relaxed">
+              Evolved from the Techfest IIT Bombay model and adapted for Nordic school standards — participants work with physical hardware, microcontrollers, and real mechanics.
+            </p>
           </div>
 
-          {/* Right Side: Paragraph */}
-          <div className="lg:col-span-5 space-y-4 pt-1">
-            <p className="text-sm sm:text-base text-[#334155] font-inter font-normal leading-relaxed">
-              Robo-Kidovation turns STEM learning into an exciting hands-on championship. Students build real physical robots, program microcontroller logic, solve arena challenges, and compete live.
-            </p>
-            <p className="text-xs sm:text-sm text-[#475569] font-inter font-normal leading-relaxed">
-              Evolved from the Techfest IIT Bombay model and adapted for Nordic school standards, participants work with physical hardware, microcontrollers, and real mechanics.
-            </p>
+          {/* 4-column editorial spec strip */}
+          <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 divide-x divide-slate-200 border-t border-b border-slate-200 py-5">
+            {[
+              { label: 'HARDWARE', detail: 'Real physical kits' },
+              { label: 'TEAMWORK', detail: 'Collaborative strategy' },
+              { label: 'LOGIC', detail: 'Autonomous code' },
+              { label: 'ARENA', detail: 'Live competition' },
+            ].map((item, i) => (
+              <div key={i} className="px-4 first:pl-0 last:pr-0">
+                <span className="block text-[9px] font-mono font-bold tracking-[0.2em] text-[#0052FF] uppercase mb-1">
+                  {String(i + 1).padStart(2, '0')} / {item.label}
+                </span>
+                <span className="block text-xs text-[#334155] font-light">
+                  {item.detail}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* 4 Soft Pastel Mission Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-pastel-blue p-6 rounded-md space-y-3">
-            <span className="text-[11px] font-mono font-bold badge-pastel-blue px-2.5 py-0.5 rounded-sm uppercase inline-block">
-              01 / HARDWARE
+        {/* RIGHT — Full-height real robotics photography */}
+        <div className="lg:col-span-5 relative overflow-hidden min-h-[400px] lg:min-h-0">
+          <img
+            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=85"
+            alt="Students working on robotics hardware"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* subtle dark overlay bottom */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1020]/40 via-transparent to-transparent pointer-events-none" />
+          {/* annotation label */}
+          <div className="absolute bottom-6 left-6 right-6">
+            <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-white/70 uppercase">
+              [ HANDS-ON WORKSHOP · VÄSTERÅS · 2026 ]
             </span>
-            <h3 className="text-lg font-bold text-[#0B1020]">Real Hardware</h3>
-            <p className="text-xs text-[#334155] font-inter font-normal leading-relaxed">
-              Motors, chassis, gearboxes, sensors, and electronic microcontrollers.
-            </p>
-          </div>
-
-          <div className="bg-pastel-mint p-6 rounded-md space-y-3">
-            <span className="text-[11px] font-mono font-bold badge-pastel-mint px-2.5 py-0.5 rounded-sm uppercase inline-block">
-              02 / TEAMWORK
-            </span>
-            <h3 className="text-lg font-bold text-[#0B1020]">Team Collaboration</h3>
-            <p className="text-xs text-[#334155] font-inter font-normal leading-relaxed">
-              Collaborative strategy, hardware troubleshooting, and live match execution.
-            </p>
-          </div>
-
-          <div className="bg-pastel-lilac p-6 rounded-md space-y-3">
-            <span className="text-[11px] font-mono font-bold badge-pastel-lilac px-2.5 py-0.5 rounded-sm uppercase inline-block">
-              03 / LOGIC
-            </span>
-            <h3 className="text-lg font-bold text-[#0B1020]">Autonomous Robotics</h3>
-            <p className="text-xs text-[#334155] font-inter font-normal leading-relaxed">
-              Programming sensor arrays, motor timing, and line-tracking algorithms.
-            </p>
-          </div>
-
-          <div className="bg-pastel-lemon p-6 rounded-md space-y-3">
-            <span className="text-[11px] font-mono font-bold badge-pastel-lemon px-2.5 py-0.5 rounded-sm uppercase inline-block">
-              04 / ARENA
-            </span>
-            <h3 className="text-lg font-bold text-[#0B1020]">Live Competition</h3>
-            <p className="text-xs text-[#334155] font-inter font-normal leading-relaxed">
-              Head-to-head match scoring, referee officiating, and live spectators.
-            </p>
           </div>
         </div>
       </div>

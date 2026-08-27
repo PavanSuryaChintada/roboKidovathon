@@ -1,92 +1,103 @@
 import React from 'react';
 
 export const RoboJourney: React.FC = () => {
-  const journeyStages = [
+  const stages = [
     {
-      stage: 'STAGE 01',
-      title: 'SCHOOL LEVEL WORKSHOPS & QUALIFIERS',
-      location: 'IN YOUR SCHOOL VENUE',
-      dateLabel: 'PHASE 1',
-      details: 'Teams build and program robots in hands-on school sessions. Top 1 Junior Team and Top 1 Senior Team from each school qualify for the City Finals.',
-      badge: 'QUALIFIER STAGE',
-      pastelClass: 'bg-pastel-blue border-l-4 border-l-[#0284C7]',
-      badgeClass: 'badge-pastel-blue',
+      num: '01',
+      title: 'SCHOOL LEVEL',
+      subtitle: 'QUALIFYING ROUND',
+      location: 'YOUR SCHOOL VENUE · VÄSTERÅS',
+      date: 'FEBRUARY 2026',
+      desc: 'Teams build, code, and compete within their own school. The top 1 Junior team and top 1 Senior team from each school automatically qualify for City Finals.',
+      badge: 'QUALIFIER',
     },
     {
-      stage: 'STAGE 02',
-      title: 'CITY FINALS — VÄSTERÅS',
-      location: 'CENTRAL VENUE, VÄSTERÅS, SWEDEN',
-      dateLabel: 'PHASE 2',
-      details: 'Qualified school champions compete head-to-head at a central venue in Västerås. Evaluated live by a Robotics & Technology Experts Panel.',
-      badge: 'FINALS STAGE',
-      pastelClass: 'bg-pastel-mint border-l-4 border-l-[#16A34A]',
-      badgeClass: 'badge-pastel-mint',
+      num: '02',
+      title: 'CITY FINALS',
+      subtitle: 'VÄSTERÅS CHAMPIONSHIP',
+      location: 'CENTRAL ABB VENUE · VÄSTERÅS',
+      date: 'MARCH 21, 2026',
+      desc: 'Qualified school champions compete head-to-head at the central Västerås arena. Evaluated live by a Robotics & Technology Experts Panel. Prize pool: 2000 / 1400 / 1000 SEK.',
+      badge: 'CITY FINALS',
     },
     {
-      stage: 'STAGE 03',
-      title: 'FUTURE NATIONAL PROGRESSION',
-      location: 'SWEDEN CHAMPIONSHIP ARENA',
-      dateLabel: 'EXPANSION',
-      details: 'City Finals winners advance to national-level competition, joining top innovation teams across Nordic school clusters.',
-      badge: 'NATIONAL LEVEL',
-      pastelClass: 'bg-pastel-lemon border-l-4 border-l-[#CA8A04]',
-      badgeClass: 'badge-pastel-lemon',
+      num: '03',
+      title: 'NATIONAL STAGE',
+      subtitle: 'STOCKHOLM GRAND FINALE',
+      location: 'STOCKHOLM SHOWDOWN · NORDIC CUP',
+      date: 'EXPANSION PHASE',
+      desc: 'City Finals winners advance to represent Västerås at the Stockholm Showdown — competing for the 25,000 SEK Nordic Cup Grand Finale prize.',
+      badge: 'NATIONAL',
     },
   ];
 
   return (
-    <section className="w-full bg-white text-[#0B1020] py-20 md:py-24 border-b border-slate-200">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-5 mb-10 gap-3">
-          <div>
-            <span className="text-xs font-mono font-bold tracking-widest text-[#0052FF] uppercase block mb-1">
-              09 // LEAGUE ROADMAP
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0B1020] text-balance tracking-tight">
-              Competition Journey
-            </h2>
-          </div>
-
-          <div className="bg-slate-100 text-[#0052FF] font-mono font-bold text-xs px-3.5 py-1.5 rounded-md border border-slate-200 uppercase self-start sm:self-auto">
-            SCHOOL → CITY → NATIONAL
-          </div>
+    <section className="w-full bg-white text-[#0B1020]">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 py-20 md:py-28">
+        <div className="mb-14">
+          <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-[#0052FF] uppercase block mb-3">
+            06 / LEAGUE ROADMAP
+          </span>
+          <h2
+            className="font-extrabold uppercase leading-none tracking-tighter text-[#0B1020]"
+            style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', lineHeight: 0.95 }}
+          >
+            Competition<br />Journey.
+          </h2>
         </div>
 
-        {/* Timeline Pastel Cards */}
-        <div className="space-y-5">
-          {journeyStages.map((st, idx) => (
-            <div
-              key={idx}
-              className={`p-6 sm:p-8 rounded-md flex flex-col md:flex-row md:items-center justify-between gap-6 ${st.pastelClass}`}
-            >
-              <div className="flex-1 space-y-2">
-                <div className="flex items-center gap-3">
-                  <span className="bg-[#0052FF] text-white font-mono font-bold text-xs px-2.5 py-0.5 rounded-sm uppercase">
-                    {st.stage}
+        {/* Vertical timeline */}
+        <div className="relative">
+          {/* Left spine line */}
+          <div className="absolute left-6 sm:left-10 top-4 bottom-4 w-px bg-slate-200" />
+
+          <div className="space-y-0">
+            {stages.map((stage, i) => (
+              <div key={i} className="relative grid grid-cols-1 lg:grid-cols-12 border-b border-slate-100 last:border-b-0">
+                {/* Spine dot */}
+                <div className={`absolute left-[22px] sm:left-[36px] top-10 w-3 h-3 rounded-full border-2 z-10 ${i === 1 ? 'bg-[#0052FF] border-[#0052FF]' : 'bg-white border-slate-400'}`} />
+
+                {/* Stage number + meta — left */}
+                <div className="lg:col-span-3 pl-16 sm:pl-20 pr-6 py-10 border-r border-slate-100 flex flex-col justify-center">
+                  <span
+                    className="font-extrabold text-slate-100 leading-none tracking-tighter select-none"
+                    style={{ fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 1 }}
+                  >
+                    {stage.num}
                   </span>
-                  <span className="text-xs font-mono text-[#334155] uppercase font-bold">
-                    {st.dateLabel}
-                  </span>
+                  <span className="text-[9px] font-mono font-bold tracking-[0.2em] text-[#0052FF] uppercase mt-2">{stage.badge}</span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold text-[#0B1020] text-balance">
-                  {st.title}
-                </h3>
-                <p className="text-xs font-mono font-bold text-[#0052FF]">
-                  📍 {st.location}
-                </p>
-                <p className="text-xs sm:text-sm text-[#334155] font-inter pt-0.5 font-normal leading-relaxed">
-                  {st.details}
-                </p>
-              </div>
+                {/* Main content — middle */}
+                <div className="lg:col-span-6 px-6 sm:px-10 py-10 flex flex-col justify-center">
+                  <span className="text-[9px] font-mono font-bold tracking-[0.2em] text-[#64748B] uppercase mb-2">
+                    {stage.subtitle}
+                  </span>
+                  <h3
+                    className="font-extrabold uppercase text-[#0B1020] tracking-tight mb-4"
+                    style={{ fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', lineHeight: 1 }}
+                  >
+                    {stage.title}
+                  </h3>
+                  <p className="text-sm text-[#64748B] font-light leading-relaxed max-w-md">
+                    {stage.desc}
+                  </p>
+                </div>
 
-              <div className="md:w-44 text-right flex md:flex-col justify-between items-end">
-                <span className={`font-bold text-xs uppercase px-3.5 py-1.5 rounded-md ${st.badgeClass}`}>
-                  {st.badge}
-                </span>
+                {/* Location + date — right */}
+                <div className="lg:col-span-3 px-6 sm:px-8 py-10 border-l border-slate-100 flex flex-col justify-center gap-3">
+                  <div>
+                    <span className="text-[9px] font-mono font-bold tracking-[0.2em] text-[#64748B] uppercase block mb-1">LOCATION</span>
+                    <span className="text-xs font-bold text-[#0B1020] uppercase tracking-wide">{stage.location}</span>
+                  </div>
+                  <div>
+                    <span className="text-[9px] font-mono font-bold tracking-[0.2em] text-[#64748B] uppercase block mb-1">DATE</span>
+                    <span className="text-xs font-bold text-[#0052FF] uppercase tracking-wide">{stage.date}</span>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
