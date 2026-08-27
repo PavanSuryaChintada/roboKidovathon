@@ -5,23 +5,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        canvas:  '#0A0A0C',
-        surface: '#111114',
-        indigo:  '#6366F1',
-        cyan:    '#06B6D4',
+        'robo-navy': '#07111F',
+        'robo-navy-light': '#0D1B2E',
+        'robo-blue': '#0052FF',
+        'robo-blue-hover': '#0043D6',
+        'robo-volt': '#E2FF00',
+        'robo-volt-light': '#F0FF66',
+        'robo-gray': '#F5F2EE',
+        'robo-slate': '#4A5568',
       },
       fontFamily: {
-        display: ['Space Grotesk', 'sans-serif'],
-        body:    ['Inter', 'sans-serif'],
+        display: ['Space Grotesk', 'Outfit', 'Inter', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
       animation: {
-        'float':      'float 4s ease-in-out infinite',
-        'spin-slow':  'spin-slow 20s linear infinite',
-        'slide-up':   'slide-up 0.6s ease-out forwards',
-        'fade-in':    'fade-in 0.8s ease-out forwards',
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },
   },

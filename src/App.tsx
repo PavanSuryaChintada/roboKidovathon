@@ -1,64 +1,159 @@
 import { useState } from 'react';
-import { ParticleCanvas } from './components/ParticleCanvas';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { TracksGrid } from './components/TracksGrid';
-import { PrizePool } from './components/PrizePool';
-import { Timeline } from './components/Timeline';
-import { EvaluationCriteria } from './components/EvaluationCriteria';
-import { Footer } from './components/Footer';
+import { RoboStats } from './components/RoboStats';
+import { RoboMission } from './components/RoboMission';
+import { RoboHardwareArchitecture } from './components/RoboHardwareArchitecture';
+import { RoboCompetitionTracks } from './components/RoboCompetitionTracks';
+import { RoboHowItWorks } from './components/RoboHowItWorks';
+import { RoboChampionshipJourney } from './components/RoboChampionshipJourney';
+import { RoboForSchoolsSection } from './components/RoboForSchoolsSection';
+import { RoboPrizePool } from './components/RoboPrizePool';
+import { RoboFaqSection } from './components/RoboFaqSection';
+import { RoboFinalCta } from './components/RoboFinalCta';
+import { RoboFooter } from './components/RoboFooter';
+
+import { ChallengesPage } from './pages/ChallengesPage';
+import { HowItWorksPage } from './pages/HowItWorksPage';
+import { ForSchoolsPage } from './pages/ForSchoolsPage';
+import { AboutPage } from './pages/AboutPage';
+
 import { RegisterModal } from './components/RegisterModal';
-import { TrackItem } from './data/hackathonData';
+import { EventDeckModal } from './components/EventDeckModal';
 
 export function App() {
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-  const [selectedTrackId, setSelectedTrackId] = useState<string | undefined>();
+  const [currentRoute, setCurrentRoute] = useState<string>('home');
+  const [isRegisterOpen, setIsRegisterOpen] = useState<boolean>(false);
+  const [isDeckOpen, setIsDeckOpen] = useState<boolean>(false);
 
-  const handleTrackSelect = (track: TrackItem) => {
-    setSelectedTrackId(track.id);
-    setIsRegisterOpen(true);
+  const handleNavigate = (route: string) => {
+    setCurrentRoute(route);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleOpenRegister = () => {
-    setSelectedTrackId(undefined);
-    setIsRegisterOpen(true);
+  const handleOpenFaq = () => {
+    if (currentRoute !== 'home') {
+      setCurrentRoute('home');
+      setTimeout(() => {
+        const el = document.getElementById('faq-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const el = document.getElementById('faq-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <div className="relative min-h-screen bg-black text-[#F8FAFC] font-sans selection:bg-indigo-500/40 selection:text-white overflow-x-hidden">
-      {/* 1. Dynamic Cursor-Reactive Particle Web Background */}
-      <ParticleCanvas />
+    <div className="min-h-screen bg-white text-[#07111F] font-sans selection:bg-[#0052FF] selection:text-white relative overflow-x-hidden">
+      
+      {/* 1. Sticky Event Navigation */}
+      <Navbar
+        activeTab={currentRoute}
+        onNavigate={handleNavigate}
+        onOpenRegister={() => setIsRegisterOpen(true)}
+        onOpenFaq={handleOpenFaq}
+      />
 
-      {/* 2. Fixed Luxury Glassmorphic Navigation */}
-      <Navbar onOpenRegister={handleOpenRegister} />
+      {/* 2. Page Router */}
+      <main className="w-full">
+        {currentRoute === 'home' && (
+          <>
+            {/* 01. Cinematic Video Hero */}
+            <Hero
+              onOpenRegister={() => setIsRegisterOpen(true)}
+              onNavigate={handleNavigate}
+            />
 
-      {/* 3. Main Landing Blueprint */}
-      <main className="relative z-10 w-full">
-        {/* Immersive Viewport & Live Countdown Hero */}
-        <Hero onOpenRegister={handleOpenRegister} />
+            {/* 02. Editorial Statistics Strip */}
+            <RoboStats />
 
-        {/* Interactive Bento Grid of Frontier Tracks */}
-        <TracksGrid onSelectTrack={handleTrackSelect} />
+            {/* 03. Mission Split Layout */}
+            <RoboMission onNavigate={handleNavigate} />
 
-        {/* Multi-Tiered $1.25M Prize Pool & Specialty Grants */}
-        <PrizePool onOpenRegister={handleOpenRegister} />
+            {/* 04. Engineering Architecture & Real Hardware */}
+            <RoboHardwareArchitecture />
 
-        {/* Neon Vertical Milestone Roadmap */}
-        <Timeline />
+            {/* 05. Competition Formats (Sprint & Precision) */}
+            <RoboCompetitionTracks
+              onNavigate={handleNavigate}
+              onOpenRegister={() => setIsRegisterOpen(true)}
+            />
 
-        {/* Official Jury Evaluation Rubric & Developer Perks */}
-        <EvaluationCriteria />
+            {/* 06. How It Works Roadmap Progression */}
+            <RoboHowItWorks onNavigate={handleNavigate} />
+
+            {/* 07. Championship Progression Timeline */}
+            <RoboChampionshipJourney />
+
+            {/* 08. B2B School & Educator Portal */}
+            <RoboForSchoolsSection
+              onNavigate={handleNavigate}
+              onOpenRegister={() => setIsRegisterOpen(true)}
+              onOpenDeckModal={() => setIsDeckOpen(true)}
+            />
+
+            {/* 09. Championship Prize Pool Reveal */}
+            <RoboPrizePool onOpenRegister={() => setIsRegisterOpen(true)} />
+
+            {/* 10. Numbered Editorial FAQ */}
+            <RoboFaqSection />
+
+            {/* 11. High-Energy Final CTA */}
+            <RoboFinalCta
+              onOpenRegister={() => setIsRegisterOpen(true)}
+              onNavigate={handleNavigate}
+            />
+          </>
+        )}
+
+        {currentRoute === 'challenges' && (
+          <ChallengesPage
+            onOpenRegister={() => setIsRegisterOpen(true)}
+            onNavigateHome={() => handleNavigate('home')}
+          />
+        )}
+
+        {currentRoute === 'how-it-works' && (
+          <HowItWorksPage
+            onOpenRegister={() => setIsRegisterOpen(true)}
+            onNavigateHome={() => handleNavigate('home')}
+          />
+        )}
+
+        {currentRoute === 'for-schools' && (
+          <ForSchoolsPage
+            onOpenRegister={() => setIsRegisterOpen(true)}
+            onOpenDeckModal={() => setIsDeckOpen(true)}
+            onNavigateHome={() => handleNavigate('home')}
+          />
+        )}
+
+        {currentRoute === 'about' && (
+          <AboutPage
+            onOpenRegister={() => setIsRegisterOpen(true)}
+            onNavigateHome={() => handleNavigate('home')}
+          />
+        )}
       </main>
 
-      {/* 4. Minimalist Obsidian Footer */}
-      <Footer onOpenRegister={handleOpenRegister} />
+      {/* 3. Master Footer */}
+      <RoboFooter
+        onNavigate={handleNavigate}
+        onOpenFaq={handleOpenFaq}
+      />
 
-      {/* 5. Interactive Animated Registration Modal */}
+      {/* 4. Interactive Modals */}
       <RegisterModal
         isOpen={isRegisterOpen}
         onClose={() => setIsRegisterOpen(false)}
-        initialTrack={selectedTrackId}
       />
+
+      <EventDeckModal
+        isOpen={isDeckOpen}
+        onClose={() => setIsDeckOpen(false)}
+      />
+
     </div>
   );
 }

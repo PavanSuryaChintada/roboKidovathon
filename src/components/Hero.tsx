@@ -1,176 +1,167 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useCountdown } from '../hooks/useCountdown';
-import { METRICS_DATA } from '../data/hackathonData';
-import {
-  ArrowRight,
-  Layers,
-  ChevronDown
-} from 'lucide-react';
+import { ArrowRight, Calendar, MapPin } from 'lucide-react';
 
 interface HeroProps {
   onOpenRegister: () => void;
+  onNavigate: (route: string) => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenRegister }) => {
-  // Hackathon Kickoff Date: April 3, 2026 14:00:00 UTC
-  const countdown = useCountdown('2026-04-03T14:00:00Z');
+export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onNavigate }) => {
+  const countdown = useCountdown('2026-03-21T09:00:00Z');
 
   return (
-    <section className="relative min-h-screen w-full flex flex-col justify-between pt-32 pb-16 px-6 sm:px-10 overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-gradient-to-tr from-indigo-600/20 via-indigo-500/10 to-cyan-500/15 blur-[120px] pointer-events-none -z-10 rounded-full" />
-      <div className="absolute bottom-10 left-10 w-[350px] h-[350px] bg-cyan-600/10 blur-[100px] pointer-events-none -z-10 rounded-full" />
+    <section className="relative w-full min-h-[92vh] flex flex-col justify-between pt-28 pb-12 px-6 sm:px-10 bg-[#07111F] text-white overflow-hidden select-none">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1920&q=80"
+        className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-40"
+      >
+        <source
+          src="https://assets.mixkit.co/videos/preview/mixkit-robotic-arm-working-in-a-factory-42866-large.mp4"
+          type="video/mp4"
+        />
+        <source
+          src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-person-working-on-a-circuit-board-42878-large.mp4"
+          type="video/mp4"
+        />
+      </video>
 
-      {/* Main Center Stage */}
-      <div className="max-w-[1440px] mx-auto w-full flex-1 flex flex-col items-center justify-center text-center my-auto">
+      <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-[#07111F] via-[#07111F]/70 to-[#07111F]/50" />
+      <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-[#07111F]/90 via-transparent to-[#07111F]/60" />
+
+      <div className="relative z-20 max-w-[1440px] mx-auto w-full my-auto py-8">
         
-        {/* Eyebrow Status Badge */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.09] backdrop-blur-md mb-8 shadow-inner"
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-[2px] bg-white/[0.08] border border-white/[0.15] backdrop-blur-md mb-6"
         >
-          <span className="flex h-2 w-2 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
-          </span>
-          <span className="text-[10px] sm:text-xs font-mono-code font-bold tracking-[0.25em] text-slate-300 uppercase">
-            GLOBAL INITIATIVE // APRIL 3–5, 2026
-          </span>
-          <span className="hidden sm:inline-block text-[10px] font-mono-code text-indigo-400 bg-indigo-500/15 px-2 py-0.5 rounded border border-indigo-500/30">
-            $1.25M ALLOCATION
+          <span className="w-2 h-2 rounded-full bg-[#E2FF00] shadow-[0_0_8px_#E2FF00]" />
+          <span className="text-[10px] font-mono-code font-bold tracking-[0.25em] text-white uppercase">
+            SWEDEN LEAGUE · VÄSTERÅS 2026 // NATIONAL PILOT
           </span>
         </motion.div>
 
-        {/* Hero Display Title */}
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="font-display font-extrabold tracking-tight uppercase leading-[0.88] max-w-6xl"
-          style={{ fontSize: 'clamp(2.8rem, 8.5vw, 8rem)' }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="max-w-5xl"
         >
-          <span className="block text-white">THE WORLD'S PREMIER</span>
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-200 to-indigo-500 drop-shadow-sm">
-            GLOBAL HACKATHON
+          <span className="block text-sm sm:text-base md:text-lg font-mono-code font-bold tracking-[0.2em] text-[#0052FF] uppercase mb-2">
+            OFFICIAL HANDS-ON STUDENT ROBOTICS CHAMPIONSHIP
           </span>
-        </motion.h1>
+          <h1
+            className="font-display font-extrabold uppercase leading-[0.88] tracking-tight text-white"
+            style={{ fontSize: 'clamp(2.8rem, 8vw, 7.5rem)' }}
+          >
+            ROBO-KIDO-A-THON
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-[#E2FF00] mt-1">
+              BUILD. CODE. COMPETE.
+            </span>
+          </h1>
+        </motion.div>
 
-        {/* Subtitle / Value Proposition */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-8 max-w-2xl text-base sm:text-lg text-slate-300 font-light leading-relaxed font-sans"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-6 max-w-2xl text-base sm:text-lg text-slate-300 font-light leading-relaxed font-sans"
         >
-          Where elite software engineers, frontier researchers, and visionary builders converge for a 48-hour global sprint to architect planet-scale intelligence, autonomous machines, and decentralized protocols.
+          Sweden’s premier student engineering tournament. Young innovators build physical autonomous bots, master real microcontroller code, and face off live in municipal arena heats.
         </motion.p>
 
-        {/* Live Countdown Timer Grid */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-10 p-2 sm:p-3 rounded-2xl bg-white/[0.025] border border-white/[0.08] backdrop-blur-xl shadow-2xl"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-8 flex flex-wrap items-center gap-6"
         >
-          <div className="grid grid-cols-4 gap-2 sm:gap-6 divide-x divide-white/[0.07]">
+          <div className="p-3 sm:p-4 rounded-[2px] bg-black/60 border border-white/[0.12] backdrop-blur-md flex items-center gap-4 sm:gap-6 divide-x divide-white/10">
+            <div className="flex items-center gap-2 pr-2">
+              <Calendar className="w-4 h-4 text-[#E2FF00]" />
+              <span className="text-[10px] font-mono-code font-bold tracking-wider text-slate-300 uppercase hidden sm:inline">
+                CITY FINALS IN:
+              </span>
+            </div>
             {[
               { val: countdown.days, label: 'DAYS' },
-              { val: countdown.hours, label: 'HOURS' },
-              { val: countdown.minutes, label: 'MINUTES' },
-              { val: countdown.seconds, label: 'SECONDS' },
+              { val: countdown.hours, label: 'HRS' },
+              { val: countdown.minutes, label: 'MIN' },
+              { val: countdown.seconds, label: 'SEC' },
             ].map((unit, idx) => (
-              <div key={unit.label} className={`flex flex-col items-center px-3 sm:px-6 py-2 ${idx !== 0 ? 'pl-3 sm:pl-6' : ''}`}>
-                <span
-                  className="font-display font-bold text-2xl sm:text-4xl md:text-5xl text-white tracking-tight leading-none"
-                  style={{ fontVariantNumeric: 'tabular-nums' }}
-                >
+              <div key={unit.label} className={`flex flex-col items-center ${idx !== 0 ? 'pl-4 sm:pl-6' : ''}`}>
+                <span className="font-display font-extrabold text-xl sm:text-2xl text-white leading-none">
                   {unit.val}
                 </span>
-                <span className="text-[9px] sm:text-[10px] font-mono-code font-bold tracking-[0.25em] text-slate-400 uppercase mt-1.5">
+                <span className="text-[8px] font-mono-code font-bold tracking-widest text-slate-400 uppercase mt-0.5">
                   {unit.label}
                 </span>
               </div>
             ))}
           </div>
+
+          <div className="flex items-center gap-2 text-xs font-mono-code text-slate-300 bg-white/[0.04] border border-white/[0.08] px-4 py-3 rounded-[2px]">
+            <MapPin className="w-4 h-4 text-[#0052FF]" />
+            <span>CENTRAL ABB VENUE · VÄSTERÅS</span>
+          </div>
         </motion.div>
 
-        {/* Dual High-Contrast Action Triggers */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto"
         >
           <button
             onClick={onOpenRegister}
-            className="w-full sm:w-auto px-8 py-4 rounded-xl text-xs sm:text-sm font-display font-bold tracking-[0.15em] uppercase text-white bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 border border-indigo-400/40 shadow-xl shadow-indigo-500/30 hover:shadow-indigo-500/50 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-3 group"
+            className="btn-electric-primary py-4 px-8 text-xs sm:text-sm font-display font-bold tracking-[0.14em]"
           >
-            <span>DEPLOY APPLICATION</span>
-            <ArrowRight className="w-4 h-4 text-indigo-200 group-hover:translate-x-1 transition-transform" />
+            <span>JOIN THE COMPETITION</span>
+            <ArrowRight className="w-4 h-4" />
           </button>
 
-          <a
-            href="#tracks"
-            className="w-full sm:w-auto px-8 py-4 rounded-xl text-xs sm:text-sm font-display font-semibold tracking-[0.15em] uppercase text-slate-200 bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.1] hover:border-white/[0.25] transition-all duration-200 flex items-center justify-center gap-2.5 backdrop-blur-md"
+          <button
+            onClick={() => onNavigate('for-schools')}
+            className="btn-editorial-ghost-dark py-4 px-8 text-xs sm:text-sm font-display font-bold tracking-[0.14em]"
           >
-            <Layers className="w-4 h-4 text-slate-400" />
-            <span>EXPLORE TRACKS</span>
-          </a>
+            <span>FOR SCHOOLS PORTAL →</span>
+          </button>
         </motion.div>
 
       </div>
 
-      {/* Floating Glass Metrics Row */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        className="max-w-[1440px] mx-auto w-full mt-16 pt-10 border-t border-white/[0.08]"
-      >
+      <div className="relative z-20 max-w-[1440px] mx-auto w-full pt-8 border-t border-white/[0.1]">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {METRICS_DATA.map((item, idx) => (
-            <div
-              key={item.label}
-              className="relative p-5 sm:p-6 rounded-xl bg-white/[0.02] border border-white/[0.06] backdrop-blur-md hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300 group"
-            >
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-mono-code font-bold tracking-[0.2em] text-slate-400 uppercase">
-                  METRIC 0{idx + 1}
-                </span>
-                {item.highlight && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_#6366F1]" />
-                )}
-              </div>
-              <div
-                className={`font-display font-extrabold text-3xl sm:text-4xl tracking-tight ${
-                  item.highlight ? 'text-transparent bg-clip-text bg-gradient-to-r from-white to-indigo-300' : 'text-white'
+          {[
+            { value: '15+', label: 'PARTICIPATING SCHOOLS', sub: 'Västerås Cluster' },
+            { value: '600+', label: 'STUDENT COMPETITORS', sub: 'Junior & Senior' },
+            { value: '45+', label: 'CERTIFIED EDUCATORS', sub: 'Dedicated Mentors' },
+            { value: '2,000 SEK', label: '1ST PLACE PRIZE', sub: '+ Stockholm Pass', isHighlight: true },
+          ].map((stat, i) => (
+            <div key={i} className="flex flex-col">
+              <span
+                className={`font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-none ${
+                  stat.isHighlight ? 'text-[#E2FF00]' : 'text-white'
                 }`}
               >
-                {item.value}
-              </div>
-              <div className="text-xs font-semibold text-slate-300 uppercase tracking-wide mt-1">
-                {item.label}
-              </div>
-              <div className="text-[11px] text-slate-400 font-light mt-1.5 leading-relaxed">
-                {item.subtext}
-              </div>
+                {stat.value}
+              </span>
+              <span className="text-[10px] font-mono-code font-bold tracking-[0.15em] text-slate-300 uppercase mt-1">
+                {stat.label}
+              </span>
+              <span className="text-[10px] text-slate-400 font-light mt-0.5">
+                {stat.sub}
+              </span>
             </div>
           ))}
         </div>
-      </motion.div>
-
-      {/* Down Scroll Anchor */}
-      <div className="flex justify-center mt-8">
-        <a
-          href="#tracks"
-          className="p-2 rounded-full text-slate-500 hover:text-slate-300 transition-colors animate-bounce"
-          aria-label="Scroll down to tracks"
-        >
-          <ChevronDown className="w-5 h-5" />
-        </a>
       </div>
 
     </section>
