@@ -29,33 +29,33 @@ export const RoboJourney: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-white text-[#0B1020] py-16 md:py-20 border-b border-slate-200">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-5 mb-8 gap-3">
+    <section className="w-full bg-white text-[#0B1020] py-20 md:py-24 border-b border-slate-200">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-5 mb-10 gap-3">
           <div>
-            <span className="text-xs font-mono font-bold tracking-widest text-[#0052FF] uppercase block mb-1.5">
-              LEAGUE ROADMAP
+            <span className="text-xs font-mono font-bold tracking-widest text-[#0052FF] uppercase block mb-1">
+              09 // LEAGUE ROADMAP
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B1020] text-balance tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0B1020] text-balance tracking-tight">
               Competition Journey
             </h2>
           </div>
 
-          <div className="bg-slate-100 text-[#0052FF] font-mono font-bold text-xs px-3.5 py-1.5 rounded-lg border border-slate-200 uppercase self-start sm:self-auto">
+          <div className="bg-slate-100 text-[#0052FF] font-mono font-bold text-xs px-3.5 py-1.5 rounded-md border border-slate-200 uppercase self-start sm:self-auto">
             SCHOOL → CITY → NATIONAL
           </div>
         </div>
 
         {/* Timeline Cards */}
-        <div className="space-y-4">
+        <div className="space-y-5">
           {journeyStages.map((st, idx) => (
             <div
               key={idx}
-              className="p-6 bg-[#F8FAFC] border border-slate-200 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-6"
+              className="p-6 sm:p-8 bg-[#F8FAFC] border border-slate-200 rounded-md flex flex-col md:flex-row md:items-center justify-between gap-6"
             >
               <div className="flex-1 space-y-2">
                 <div className="flex items-center gap-3">
-                  <span className="bg-[#0052FF] text-white font-mono font-bold text-xs px-2.5 py-0.5 rounded uppercase">
+                  <span className="bg-[#0052FF] text-white font-mono font-bold text-xs px-2.5 py-0.5 rounded-sm uppercase">
                     {st.stage}
                   </span>
                   <span className="text-xs font-mono text-[#334155] uppercase font-bold">
@@ -69,13 +69,13 @@ export const RoboJourney: React.FC = () => {
                 <p className="text-xs font-mono font-bold text-[#0052FF]">
                   📍 {st.location}
                 </p>
-                <p className="text-xs sm:text-sm text-[#334155] font-inter pt-0.5 font-medium leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#334155] font-inter pt-0.5 font-normal leading-relaxed">
                   {st.details}
                 </p>
               </div>
 
               <div className="md:w-44 text-right flex md:flex-col justify-between items-end">
-                <span className="font-bold text-xs uppercase text-[#0B1020] bg-white px-3.5 py-1.5 rounded-md border border-slate-200 shadow-xs">
+                <span className="font-bold text-xs uppercase text-[#0B1020] bg-white px-3.5 py-1.5 rounded-md border border-slate-200">
                   {st.badge}
                 </span>
               </div>

@@ -10,36 +10,36 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
   onOpenRegister,
 }) => {
   return (
-    <section className="w-full bg-white text-[#0B1020] py-16 md:py-20 border-b border-slate-200">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-        <div className="card-light p-6 sm:p-10 border border-slate-200">
+    <section className="w-full bg-white text-[#0B1020] py-20 md:py-24 border-b border-slate-200">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
+        <div className="card-editorial p-6 sm:p-10 border border-slate-200">
           {/* Top Header */}
           <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-200 pb-6 mb-8 gap-4">
             <div>
               <span className="text-xs font-mono font-bold tracking-widest text-[#0052FF] uppercase block mb-1.5">
-                EDUCATORS & PRINCIPALS PORTAL
+                11 // EDUCATORS & PRINCIPALS PORTAL
               </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0B1020] text-balance tracking-tight">
+              <h2 className="text-2xl sm:text-4xl font-bold text-[#0B1020] text-balance tracking-tight">
                 Bring Robotics to Your School.
               </h2>
             </div>
 
             <button
               onClick={() => onNavigate('for-schools')}
-              className="btn-event-secondary-light text-xs px-5 py-2.5 rounded-lg self-start md:self-auto whitespace-nowrap"
+              className="btn-event-secondary-light text-xs px-5 py-2.5 rounded-md self-start md:self-auto whitespace-nowrap"
             >
               FOR SCHOOLS PORTAL →
             </button>
           </div>
 
-          {/* 3-Column Grid */}
+          {/* 3-Column Institutional Editorial Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Deliverables */}
             <div className="space-y-3">
               <h3 className="font-bold text-base uppercase text-[#0B1020] border-b border-slate-200 pb-2">
                 WHAT WE PROVIDE
               </h3>
-              <ul className="space-y-2.5 text-xs sm:text-sm font-inter text-[#334155] font-medium">
+              <ul className="space-y-2.5 text-xs sm:text-sm font-inter text-[#334155] font-normal">
                 <li className="flex items-start gap-2">
                   <span className="text-[#0052FF] font-bold">✓</span>
                   <span>Official Robotics Kits & Electronic Drivers</span>
@@ -64,7 +64,7 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
               <h3 className="font-bold text-base uppercase text-[#0B1020] border-b border-slate-200 pb-2">
                 SCHOOL REQUIREMENTS
               </h3>
-              <ul className="space-y-2.5 text-xs sm:text-sm font-inter text-[#334155] font-medium">
+              <ul className="space-y-2.5 text-xs sm:text-sm font-inter text-[#334155] font-normal">
                 <li className="flex items-start gap-2">
                   <span className="text-[#0052FF] font-bold">▶</span>
                   <span>School venue for intro workshop & school qualifiers</span>
@@ -85,7 +85,7 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
             </div>
 
             {/* Transparent Cost Box */}
-            <div className="bg-[#F8FAFC] text-[#0B1020] p-6 rounded-xl border border-slate-200 flex flex-col justify-between space-y-4">
+            <div className="bg-[#F8FAFC] text-[#0B1020] p-6 rounded-md border border-slate-200 flex flex-col justify-between space-y-4">
               <div>
                 <h3 className="font-bold text-base uppercase text-[#0B1020] border-b border-slate-200 pb-2">
                   TRANSPARENT COST MODEL
@@ -98,14 +98,14 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
                     + VAT (125 SEK TOTAL PER STUDENT)
                   </span>
                 </div>
-                <p className="text-xs font-inter text-[#334155] text-center bg-white p-3 rounded-lg border border-slate-200 font-medium leading-relaxed">
+                <p className="text-xs font-inter text-[#334155] text-center bg-white p-3 rounded-md border border-slate-200 font-normal leading-relaxed">
                   Zero administrative overhead for school administration. Complete turnkey event execution.
                 </p>
               </div>
 
               <button
                 onClick={onOpenRegister}
-                className="btn-event-primary w-full py-3.5 text-xs sm:text-sm rounded-lg text-center whitespace-nowrap"
+                className="btn-event-primary w-full py-3.5 text-xs sm:text-sm rounded-md text-center whitespace-nowrap"
               >
                 REGISTER YOUR SCHOOL NOW →
               </button>

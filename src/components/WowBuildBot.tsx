@@ -36,76 +36,77 @@ export const WowBuildBot: React.FC = () => {
   ];
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-      {/* Clean Dark Event Container */}
-      <div className="card-event-dark p-6 sm:p-12 relative overflow-hidden border border-slate-700">
-        {/* Section Title */}
-        <div className="max-w-xl mb-8 space-y-2">
-          <span className="text-xs font-mono font-bold tracking-widest text-[#0052FF] uppercase block">
-            BUILD PIPELINE ⚙️
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-            Build Your Robot
-          </h2>
-          <p className="text-xs sm:text-sm font-inter text-[#E2E8F0] font-medium">
-            Click through the engineering stages below to see how physical hardware, sensors, and code combine into a live match robot.
-          </p>
-        </div>
-
-        {/* Pipeline Step Selector Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
-          {steps.map((step, idx) => {
-            const isActive = activeStep === idx;
-            return (
-              <button
-                key={step.id}
-                onClick={() => setActiveStep(idx)}
-                className={`p-4 text-left rounded-xl border transition-all ${
-                  isActive
-                    ? 'bg-[#0052FF] text-white border-[#0052FF] shadow-lg font-bold'
-                    : 'bg-[#1E293B] text-[#E2E8F0] border-slate-700 hover:border-slate-500 font-medium'
-                }`}
-              >
-                <div className="text-[11px] font-mono font-bold opacity-90">{step.subtitle}</div>
-                <div className="text-sm sm:text-base font-bold uppercase mt-1">
-                  {step.title}
-                </div>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Selected Stage Detail */}
-        <div className="bg-[#1E293B] border border-slate-700 p-6 sm:p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Left Detail Text */}
-          <div className="flex-1 space-y-2">
-            <span className="inline-block bg-[#0052FF] text-white font-mono font-bold text-xs px-3 py-1 rounded-md uppercase">
-              STAGE {activeStep + 1} OF 4
+    <section className="w-full bg-[#0C1222] text-white py-20 md:py-24 border-b border-slate-800">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
+        <div className="card-editorial-dark p-6 sm:p-12 relative overflow-hidden border border-slate-800">
+          {/* Section Title */}
+          <div className="max-w-xl mb-8 space-y-2">
+            <span className="text-xs font-mono font-bold tracking-widest text-[#0052FF] uppercase block">
+              05 // BUILD PIPELINE ⚙️
             </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-              {steps[activeStep].title}
-            </h3>
-            <p className="text-xs font-mono text-[#E2FF00] uppercase font-bold">
-              SPECIFICATION: {steps[activeStep].spec}
-            </p>
-            <p className="text-xs sm:text-sm font-inter text-[#E2E8F0] leading-relaxed pt-1 font-medium">
-              {steps[activeStep].detail}
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+              Build Your Robot
+            </h2>
+            <p className="text-xs sm:text-sm font-inter text-[#E2E8F0] font-normal">
+              Click through the engineering stages below to see how physical hardware, sensors, and code combine into a live match robot.
             </p>
           </div>
 
-          {/* Right Robot Position Feedback */}
-          <div className="flex flex-col items-center justify-center relative">
-            <div
-              style={{
-                transform: `translateX(${activeStep * 8}px)`,
-              }}
-              className="transition-transform duration-500"
-            >
-              <HeroRobot className="w-48 sm:w-56" />
+          {/* Pipeline Step Selector Bar */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+            {steps.map((step, idx) => {
+              const isActive = activeStep === idx;
+              return (
+                <button
+                  key={step.id}
+                  onClick={() => setActiveStep(idx)}
+                  className={`p-4 text-left rounded-md border transition-all ${
+                    isActive
+                      ? 'bg-[#0052FF] text-white border-[#0052FF] font-semibold'
+                      : 'bg-[#1E293B] text-[#E2E8F0] border-slate-700 hover:border-slate-500 font-normal'
+                  }`}
+                >
+                  <div className="text-[11px] font-mono font-bold opacity-90">{step.subtitle}</div>
+                  <div className="text-sm sm:text-base font-bold uppercase mt-1">
+                    {step.title}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Selected Stage Detail */}
+          <div className="bg-[#1E293B] border border-slate-700 p-6 sm:p-8 rounded-md flex flex-col md:flex-row items-center justify-between gap-8">
+            {/* Left Detail Text */}
+            <div className="flex-1 space-y-2">
+              <span className="inline-block bg-[#0052FF] text-white font-mono font-bold text-xs px-3 py-1 rounded-sm uppercase">
+                STAGE {activeStep + 1} OF 4
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                {steps[activeStep].title}
+              </h3>
+              <p className="text-xs font-mono text-[#E2FF00] uppercase font-bold">
+                SPECIFICATION: {steps[activeStep].spec}
+              </p>
+              <p className="text-xs sm:text-sm font-inter text-[#E2E8F0] leading-relaxed pt-1 font-normal">
+                {steps[activeStep].detail}
+              </p>
             </div>
 
-            <div className="mt-3 font-mono text-xs text-[#E2E8F0] uppercase font-bold tracking-wider">
-              [STATE: STAGE_{activeStep + 1}_READY]
+            {/* Right Robot Position Feedback */}
+            <div className="flex flex-col items-center justify-center relative">
+              <div
+                style={{
+                  transform: `translateX(${activeStep * 8}px)`,
+                }}
+                className="transition-transform duration-500"
+              >
+                <HeroRobot className="w-48 sm:w-56" />
+              </div>
+
+              <div className="mt-3 font-mono text-xs text-[#E2E8F0] uppercase font-bold tracking-wider">
+                [STATE: STAGE_{activeStep + 1}_READY]
+              </div>
             </div>
           </div>
         </div>
