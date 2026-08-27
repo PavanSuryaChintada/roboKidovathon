@@ -7,31 +7,31 @@ interface RoboChallengesSectionProps {
 
 export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ onNavigate }) => {
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
       {/* Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-4">
+      <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-8 gap-4">
         <div>
           <span className="text-xs font-mono font-bold tracking-widest text-[#0052FF] uppercase block mb-1">
             02 // ARENA FORMATS
           </span>
-          <h2 className="text-4xl sm:text-6xl font-syne font-extrabold uppercase text-[#0F172A] leading-none">
-            THE CHALLENGES
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0F172A]">
+            The Competition Tracks
           </h2>
         </div>
 
         <button
           onClick={() => onNavigate('challenges')}
-          className="btn-event-secondary text-xs sm:text-sm px-6 py-3 rounded-xl"
+          className="btn-event-secondary text-xs px-5 py-2.5 rounded-lg"
         >
-          VIEW DETAILED RULEBOOK →
+          VIEW RULEBOOK →
         </button>
       </div>
 
       {/* Challenge Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Track 1: ROBO-SPRINT */}
-        <div className="card-event p-8 flex flex-col justify-between border-t-4 border-t-[#0052FF]">
-          <div className="space-y-4">
+        <div className="card-event p-6 sm:p-8 flex flex-col justify-between border-t-4 border-t-[#0052FF]">
+          <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span className="bg-blue-50 text-[#0052FF] border border-blue-200 text-xs font-mono font-bold px-3 py-1 rounded-full uppercase">
                 JUNIOR DIVISION (UP TO AGE 15)
@@ -41,41 +41,41 @@ export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ on
               </span>
             </div>
 
-            <h3 className="text-4xl font-syne font-extrabold uppercase text-[#0F172A]">
-              ROBO-SPRINT
+            <h3 className="text-3xl font-extrabold text-[#0F172A]">
+              Robo-Sprint
             </h3>
-            <p className="text-xs font-mono font-bold text-slate-500 uppercase tracking-widest">
+            <p className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
               AIR-HOCKEY BALL PASSING ARENA
             </p>
 
-            <div className="my-6 flex justify-center bg-slate-50 p-6 rounded-2xl border border-slate-200">
-              <RoboSprintBot className="w-48 sm:w-56" />
+            <div className="my-4 flex justify-center bg-slate-50 p-4 rounded-xl border border-slate-200">
+              <RoboSprintBot className="w-40 sm:w-48" />
             </div>
 
-            <div className="space-y-2 text-xs sm:text-sm font-dmsans text-slate-600 border-t border-slate-100 pt-4">
+            <div className="space-y-2 text-xs font-jakarta text-slate-600 border-t border-slate-100 pt-3">
               <p>
-                <strong className="font-syne font-bold text-[#0F172A] text-sm">OBJECTIVE:</strong> Pass as many balls as possible into opponent's court area within 3 minutes.
+                <strong className="font-bold text-[#0F172A]">OBJECTIVE:</strong> Pass as many balls as possible into opponent's court area within 3 minutes.
               </p>
               <p>
-                <strong className="font-syne font-bold text-[#0F172A] text-sm">ROBOT LIMIT:</strong> Max 1.5 ft × 1.5 ft (maximum dimensions).
+                <strong className="font-bold text-[#0F172A]">ROBOT LIMIT:</strong> Max 1.5 ft × 1.5 ft (maximum dimensions).
               </p>
               <p>
-                <strong className="font-syne font-bold text-[#0052FF] text-sm">SCORING:</strong> Team with fewest balls in court at whistle wins.
+                <strong className="font-bold text-[#0052FF]">SCORING:</strong> Team with fewest balls in court at whistle wins.
               </p>
             </div>
           </div>
 
           <button
             onClick={() => onNavigate('challenges')}
-            className="mt-6 w-full btn-event-primary py-3.5 text-sm rounded-xl text-center"
+            className="mt-6 w-full btn-event-primary py-3 text-xs sm:text-sm rounded-xl text-center"
           >
             SELECT ROBO-SPRINT →
           </button>
         </div>
 
         {/* Track 2: ROBO-PRECISION */}
-        <div className="card-event p-8 flex flex-col justify-between border-t-4 border-t-[#0F172A]">
-          <div className="space-y-4">
+        <div className="card-event p-6 sm:p-8 flex flex-col justify-between border-t-4 border-t-[#0F172A]">
+          <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span className="bg-slate-100 text-slate-900 border border-slate-300 text-xs font-mono font-bold px-3 py-1 rounded-full uppercase">
                 SENIOR DIVISION (AGE 15 & ABOVE)
@@ -85,33 +85,33 @@ export const RoboChallengesSection: React.FC<RoboChallengesSectionProps> = ({ on
               </span>
             </div>
 
-            <h3 className="text-4xl font-syne font-extrabold uppercase text-[#0F172A]">
-              ROBO-PRECISION
+            <h3 className="text-3xl font-extrabold text-[#0F172A]">
+              Robo-Precision
             </h3>
-            <p className="text-xs font-mono font-bold text-slate-500 uppercase tracking-widest">
+            <p className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
               5-LEVEL TOWER CUP STACKING ARENA
             </p>
 
-            <div className="my-6 flex justify-center bg-slate-50 p-6 rounded-2xl border border-slate-200">
-              <RoboPrecisionBot className="w-48 sm:w-56" />
+            <div className="my-4 flex justify-center bg-slate-50 p-4 rounded-xl border border-slate-200">
+              <RoboPrecisionBot className="w-40 sm:w-48" />
             </div>
 
-            <div className="space-y-2 text-xs sm:text-sm font-dmsans text-slate-600 border-t border-slate-100 pt-4">
+            <div className="space-y-2 text-xs font-jakarta text-slate-600 border-t border-slate-100 pt-3">
               <p>
-                <strong className="font-syne font-bold text-[#0F172A] text-sm">OBJECTIVE:</strong> Build a 5-level cup tower using robotic grabber. Zero manual touch.
+                <strong className="font-bold text-[#0F172A]">OBJECTIVE:</strong> Build a 5-level cup tower using robotic grabber. Zero manual touch.
               </p>
               <p>
-                <strong className="font-syne font-bold text-[#0F172A] text-sm">ROBOT LIMIT:</strong> Max 2.5 ft × 2.5 ft (maximum dimensions).
+                <strong className="font-bold text-[#0F172A]">ROBOT LIMIT:</strong> Max 2.5 ft × 2.5 ft (maximum dimensions).
               </p>
               <p>
-                <strong className="font-syne font-bold text-[#0052FF] text-sm">SCORING:</strong> Tallest, most stable cup tower wins.
+                <strong className="font-bold text-[#0052FF]">SCORING:</strong> Tallest, most stable cup tower wins.
               </p>
             </div>
           </div>
 
           <button
             onClick={() => onNavigate('challenges')}
-            className="mt-6 w-full btn-event-primary py-3.5 text-sm rounded-xl text-center"
+            className="mt-6 w-full btn-event-primary py-3 text-xs sm:text-sm rounded-xl text-center"
           >
             SELECT ROBO-PRECISION →
           </button>

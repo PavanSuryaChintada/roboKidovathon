@@ -39,13 +39,14 @@ export default {
         }
       },
       fontFamily: {
-        syne: ['Syne', 'sans-serif'],
-        space: ['Space Grotesk', 'sans-serif'],
         jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
         sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
-        barlow: ['Syne', 'sans-serif'],
+        syne: ['Plus Jakarta Sans', 'sans-serif'],
+        space: ['Plus Jakarta Sans', 'sans-serif'],
+        barlow: ['Plus Jakarta Sans', 'sans-serif'],
         dmsans: ['Plus Jakarta Sans', 'sans-serif'],
-        display: ['Syne', 'sans-serif'],
+        display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
       },
       boxShadow: {
         'event-card': '0 4px 20px -2px rgba(15, 23, 42, 0.05)',
