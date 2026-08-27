@@ -45,20 +45,20 @@ export const CinematicVideoHero: React.FC<CinematicVideoHeroProps> = ({
       </div>
 
       {/* Hero Content Overlay */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 my-auto py-10">
-        <div className="max-w-2xl space-y-4 text-left">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 my-auto py-8 md:py-12">
+        <div className="max-w-4xl space-y-4 text-left">
           {/* Label Pill */}
           <div className="inline-block bg-white/10 backdrop-blur-md text-[#E2FF00] border border-white/15 text-xs font-mono font-bold px-3.5 py-1 rounded-full uppercase tracking-wider whitespace-nowrap">
             OFFICIAL 2026 CHAMPIONSHIP
           </div>
 
-          {/* Primary Title with text-balance */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white leading-none text-balance break-normal">
+          {/* Primary Title (Fits strictly on a single line without mid-word breaking) */}
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-white leading-tight whitespace-nowrap">
             Robo-Kido-A-Thon
           </h1>
 
           {/* Tagline */}
-          <div className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white uppercase flex flex-wrap items-center gap-3">
+          <div className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white uppercase flex flex-wrap items-center gap-3 whitespace-nowrap">
             <span>BUILD.</span>
             <span className="text-[#0052FF]">CODE.</span>
             <span className="text-[#E2FF00]">COMPETE.</span>

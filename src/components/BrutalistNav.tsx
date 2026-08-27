@@ -25,19 +25,19 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-[#0B0F19]/90 backdrop-blur-md border-b border-white/10 select-none">
-      {/* Slush-Level Navbar Container */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+    <nav className="sticky top-0 z-50 w-full bg-[#0B0F19]/95 backdrop-blur-md border-b border-white/10 select-none">
+      {/* Slush-Level Navbar Container with Proper Padding & Spacing */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
         {/* Brand Logo / Event Title */}
         <div
           onClick={() => handleLinkClick('home')}
-          className="flex items-center gap-3 cursor-pointer group whitespace-nowrap"
+          className="flex items-center gap-2.5 cursor-pointer group whitespace-nowrap shrink-0"
         >
-          <div className="bg-[#0052FF] text-white font-inter font-extrabold text-xs sm:text-sm px-2.5 py-0.5 rounded-md tracking-wider">
+          <div className="bg-[#0052FF] text-white font-inter font-extrabold text-xs sm:text-sm px-2 py-0.5 rounded-md tracking-wider">
             ROBO
           </div>
           <div className="flex flex-col">
-            <span className="font-inter font-extrabold text-base sm:text-xl leading-none text-white tracking-tight uppercase whitespace-nowrap">
+            <span className="font-inter font-extrabold text-base sm:text-lg leading-none text-white tracking-tight uppercase whitespace-nowrap">
               KIDO-A-THON
             </span>
             <span className="text-[9px] font-mono font-bold tracking-widest text-[#E2FF00] uppercase -mt-0.5 whitespace-nowrap">
@@ -46,8 +46,8 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
           </div>
         </div>
 
-        {/* Desktop Navigation Links */}
-        <div className="hidden lg:flex items-center gap-1 font-inter font-semibold text-xs sm:text-sm tracking-wide text-slate-300 uppercase whitespace-nowrap">
+        {/* Desktop Navigation Links (Proper spacing & padding) */}
+        <div className="hidden lg:flex items-center gap-1 xl:gap-2 font-inter font-semibold text-xs tracking-wide text-slate-300 uppercase whitespace-nowrap">
           {[
             { id: 'home', label: 'HOME' },
             { id: 'challenges', label: 'CHALLENGES' },
@@ -61,7 +61,7 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
               <button
                 key={item.id}
                 onClick={() => handleLinkClick(item.id)}
-                className={`px-3 py-1.5 rounded-lg transition-all whitespace-nowrap ${
+                className={`px-2.5 py-1.5 rounded-md transition-all whitespace-nowrap ${
                   isActive
                     ? 'bg-white/15 text-white font-bold border border-white/20'
                     : 'bg-transparent text-slate-300 hover:text-white hover:bg-white/5'
@@ -74,16 +74,16 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
         </div>
 
         {/* Action Buttons */}
-        <div className="hidden md:flex items-center gap-3 whitespace-nowrap">
+        <div className="hidden md:flex items-center gap-2.5 whitespace-nowrap shrink-0">
           <button
             onClick={() => handleLinkClick('for-schools')}
-            className="btn-event-secondary text-xs sm:text-sm px-4 py-2 rounded-lg whitespace-nowrap"
+            className="btn-event-secondary text-xs px-3.5 py-2 rounded-lg whitespace-nowrap"
           >
             FOR SCHOOLS →
           </button>
           <button
             onClick={onOpenRegister}
-            className="btn-event-primary text-xs sm:text-sm px-5 py-2 rounded-lg whitespace-nowrap"
+            className="btn-event-primary text-xs px-4 py-2 rounded-lg whitespace-nowrap"
           >
             JOIN THE COMPETITION →
           </button>
@@ -92,7 +92,7 @@ export const BrutalistNav: React.FC<BrutalistNavProps> = ({
         {/* Mobile Hamburger Toggle */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden px-3.5 py-1.5 bg-[#0052FF] text-white font-inter font-bold text-xs rounded-lg whitespace-nowrap"
+          className="lg:hidden px-3.5 py-1.5 bg-[#0052FF] text-white font-inter font-bold text-xs rounded-lg whitespace-nowrap shrink-0"
         >
           {mobileMenuOpen ? 'CLOSE ✕' : 'MENU ☰'}
         </button>
