@@ -1,14 +1,16 @@
 import React from 'react';
-import { Sparkles, ShieldCheck } from 'lucide-react';
+import { Sparkles, ShieldCheck, ArrowRight } from 'lucide-react';
 
 interface RoboPrizePoolProps {
-  onOpenRegister?: () => void;
+  onOpenRegister: () => void;
 }
 
-export const RoboPrizePool: React.FC<RoboPrizePoolProps> = () => {
+export const RoboPrizePool: React.FC<RoboPrizePoolProps> = ({ onOpenRegister }) => {
   return (
     <section className="w-full bg-[#040912] text-white border-b border-white/[0.08] overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 pt-20 md:pt-28">
+        
+        {/* Top Eyebrow */}
         <div className="border-b border-white/10 pb-6 flex items-center justify-between">
           <span className="text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#E2FF00] uppercase">
             08 / CHAMPIONSHIP ALLOCATIONS
@@ -18,6 +20,7 @@ export const RoboPrizePool: React.FC<RoboPrizePoolProps> = () => {
           </span>
         </div>
 
+        {/* Dramatic Headline */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 py-16 md:py-20 border-b border-white/10">
           <div className="lg:col-span-7">
             <h2
@@ -40,7 +43,10 @@ export const RoboPrizePool: React.FC<RoboPrizePoolProps> = () => {
           </div>
         </div>
 
+        {/* Prize Podium Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-white/10 py-16">
+          
+          {/* 2nd Place */}
           <div className="pb-10 lg:pb-0 lg:pr-12 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 mb-4">
@@ -75,6 +81,7 @@ export const RoboPrizePool: React.FC<RoboPrizePoolProps> = () => {
             </div>
           </div>
 
+          {/* 1st Place (Grand Champion - Neon Volt Yellow Dominance) */}
           <div className="py-10 lg:py-0 lg:px-12 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 mb-4">
@@ -108,8 +115,17 @@ export const RoboPrizePool: React.FC<RoboPrizePoolProps> = () => {
                 <span>FEATURED EVENT MEDIA COVERAGE</span>
               </div>
             </div>
+
+            <button
+              onClick={onOpenRegister}
+              className="mt-8 w-full btn-volt-primary py-3 text-xs flex items-center justify-center gap-2"
+            >
+              <span>COMPETE FOR CHAMPIONSHIP</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
           </div>
 
+          {/* 3rd Place */}
           <div className="pt-10 lg:pt-0 lg:pl-12 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 mb-4">
@@ -143,8 +159,10 @@ export const RoboPrizePool: React.FC<RoboPrizePoolProps> = () => {
               </div>
             </div>
           </div>
+
         </div>
 
+        {/* Bottom Participant Note */}
         <div className="border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] font-mono-code text-slate-400 uppercase tracking-widest">
           <span>ALL PARTICIPATING STUDENTS RECEIVE OFFICIALLY ENDORSED DIPLOMAS</span>
           <span>COMPETITION CATEGORIES: JUNIOR & SENIOR BRACKETS</span>

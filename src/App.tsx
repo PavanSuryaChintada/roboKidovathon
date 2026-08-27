@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { RoboStats } from './components/RoboStats';
 import { RoboMission } from './components/RoboMission';
+import { RoboStats } from './components/RoboStats';
 import { RoboHardwareArchitecture } from './components/RoboHardwareArchitecture';
 import { RoboCompetitionTracks } from './components/RoboCompetitionTracks';
 import { RoboHowItWorks } from './components/RoboHowItWorks';
@@ -47,7 +47,7 @@ export function App() {
   return (
     <div className="min-h-screen bg-white text-[#07111F] font-sans selection:bg-[#0052FF] selection:text-white relative overflow-x-hidden">
       
-      {/* 1. Sticky Event Navigation */}
+      {/* 1. Adaptive Event Navigation */}
       <Navbar
         activeTab={currentRoute}
         onNavigate={handleNavigate}
@@ -59,34 +59,34 @@ export function App() {
       <main className="w-full">
         {currentRoute === 'home' && (
           <>
-            {/* 01. Cinematic Video Hero */}
+            {/* 01. Opening Cinematic Event Hero */}
             <Hero
               onOpenRegister={() => setIsRegisterOpen(true)}
               onNavigate={handleNavigate}
             />
 
-            {/* 02. Editorial Statistics Strip */}
-            <RoboStats />
-
-            {/* 03. Mission Split Layout */}
+            {/* 02. The Manifesto (Physical vs. Screen) */}
             <RoboMission onNavigate={handleNavigate} />
 
-            {/* 04. Engineering Architecture & Real Hardware */}
+            {/* 03. Scale & Impact Metrics */}
+            <RoboStats />
+
+            {/* 04. Physical Systems & Hardware Specification */}
             <RoboHardwareArchitecture />
 
-            {/* 05. Competition Formats (Sprint & Precision) */}
+            {/* 05. Tournament Disciplines (Robo-Sprint & Robo-Precision) */}
             <RoboCompetitionTracks
               onNavigate={handleNavigate}
               onOpenRegister={() => setIsRegisterOpen(true)}
             />
 
-            {/* 06. How It Works Roadmap Progression */}
+            {/* 06. 5-Stage Tournament Pipeline */}
             <RoboHowItWorks onNavigate={handleNavigate} />
 
-            {/* 07. Championship Progression Timeline */}
+            {/* 07. Championship Roadmap Progression */}
             <RoboChampionshipJourney />
 
-            {/* 08. B2B School & Educator Portal */}
+            {/* 08. B2B Schools & Educators Portal */}
             <RoboForSchoolsSection
               onNavigate={handleNavigate}
               onOpenRegister={() => setIsRegisterOpen(true)}
@@ -99,7 +99,7 @@ export function App() {
             {/* 10. Numbered Editorial FAQ */}
             <RoboFaqSection />
 
-            {/* 11. High-Energy Final CTA */}
+            {/* 11. Final Action Trigger */}
             <RoboFinalCta
               onOpenRegister={() => setIsRegisterOpen(true)}
               onNavigate={handleNavigate}

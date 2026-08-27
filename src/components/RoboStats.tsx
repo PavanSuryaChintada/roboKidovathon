@@ -16,7 +16,7 @@ export const RoboStats: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 pb-8 border-b border-[#07111F]/10">
           <div>
             <span className="text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#0052FF] uppercase block mb-3">
-              01 / SCALE & REACH — 2026 PILOT COHORT
+              02 / SCALE & IMPACT — 2026 PILOT COHORT
             </span>
             <h2
               className="font-display font-black uppercase leading-none tracking-tight text-[#07111F]"

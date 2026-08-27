@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, FileText } from 'lucide-react';
+import { ArrowRight, FileText, ShieldCheck } from 'lucide-react';
 
 interface RoboForSchoolsSectionProps {
   onNavigate: (route: string) => void;
@@ -16,6 +16,7 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
     <section id="for-schools" className="w-full bg-[#07111F] text-white border-b border-white/[0.08]">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 py-20 md:py-28">
         
+        {/* Top Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6 pb-10 border-b border-white/10">
           <div>
             <span className="text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#E2FF00] uppercase block mb-3">
@@ -33,21 +34,24 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
           <div className="flex flex-wrap items-center gap-4">
             <button
               onClick={onOpenDeckModal}
-              className="btn-editorial-ghost-dark text-xs py-3.5 px-6"
+              className="btn-editorial-ghost-dark text-xs py-3.5 px-6 flex items-center gap-2"
             >
               <FileText className="w-4 h-4 text-[#E2FF00]" />
-              <span>DOWNLOAD EVENT DECK (PDF)</span>
+              <span>DOWNLOAD EVENT PROSPECTUS (PDF)</span>
             </button>
             <button
               onClick={() => onNavigate('for-schools')}
               className="text-xs font-display font-bold tracking-wider uppercase text-white/80 hover:text-white border-b border-white/30 pb-0.5"
             >
-              EDUCATOR PORTAL →
+              FULL EDUCATOR PORTAL →
             </button>
           </div>
         </div>
 
+        {/* 3-Column Structured Information Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10 border-t border-b border-white/10 py-10">
+          
+          {/* Column 01: What We Deliver */}
           <div className="pr-0 md:pr-10 pb-8 md:pb-0 space-y-6">
             <div className="flex items-center gap-2">
               <span className="text-[9px] font-mono-code font-bold text-[#0052FF] bg-[#0052FF]/20 px-2 py-0.5 rounded-[2px]">
@@ -78,6 +82,7 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
             </div>
           </div>
 
+          {/* Column 02: School Requirements */}
           <div className="px-0 md:px-10 py-8 md:py-0 space-y-6">
             <div className="flex items-center gap-2">
               <span className="text-[9px] font-mono-code font-bold text-[#E2FF00] bg-[#E2FF00]/10 px-2 py-0.5 rounded-[2px]">
@@ -106,6 +111,7 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
             </div>
           </div>
 
+          {/* Column 03: Transparent Cost Model */}
           <div className="pl-0 md:pl-10 pt-8 md:pt-0 flex flex-col justify-between">
             <div className="space-y-4">
               <div className="flex items-center gap-2">
@@ -146,6 +152,23 @@ export const RoboForSchoolsSection: React.FC<RoboForSchoolsSectionProps> = ({
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
+          </div>
+
+        </div>
+
+        {/* Nordic Standards & Safety Assurance Strip */}
+        <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs font-mono-code text-slate-400">
+          <div className="flex items-center gap-2.5">
+            <ShieldCheck className="w-4 h-4 text-[#E2FF00]" />
+            <span>SWEDISH LGR22 CURRICULUM MAPPED</span>
+          </div>
+          <div className="flex items-center gap-2.5">
+            <ShieldCheck className="w-4 h-4 text-[#E2FF00]" />
+            <span>12V DC LOW-VOLTAGE SAFETY LIMITS</span>
+          </div>
+          <div className="flex items-center gap-2.5">
+            <ShieldCheck className="w-4 h-4 text-[#E2FF00]" />
+            <span>FULL GDPR STUDENT DATA PROTECTION</span>
           </div>
         </div>
 

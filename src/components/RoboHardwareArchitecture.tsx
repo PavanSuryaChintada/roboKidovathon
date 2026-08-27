@@ -21,10 +21,11 @@ export const RoboHardwareArchitecture: React.FC = () => {
     <section className="w-full bg-[#07111F] text-white border-b border-white/[0.08] overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 py-20 md:py-28">
         
+        {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 pb-10 border-b border-white/[0.08]">
           <div className="lg:col-span-7">
             <span className="text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#0052FF] uppercase block mb-3">
-              03 / ENGINEERING SPECIFICATION
+              03 / PHYSICAL SYSTEMS & HARDWARE SPECIFICATION
             </span>
             <h2
               className="font-display font-black uppercase leading-[0.88] tracking-tight text-white"
@@ -42,6 +43,7 @@ export const RoboHardwareArchitecture: React.FC = () => {
           </div>
         </div>
 
+        {/* Annotated Visual Diagram Display */}
         <div className="relative w-full rounded-[2px] overflow-hidden border border-white/[0.12] bg-[#040912]" style={{ aspectRatio: '16/7', minHeight: '340px' }}>
           <img
             src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1600&q=85"
@@ -51,6 +53,7 @@ export const RoboHardwareArchitecture: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#07111F]/80 via-transparent to-[#07111F]/80 pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#07111F]/40 via-transparent to-[#07111F]/70 pointer-events-none" />
 
+          {/* Floating Callout Annotations */}
           {annotations.map((ann, i) => (
             <div
               key={i}
@@ -80,6 +83,7 @@ export const RoboHardwareArchitecture: React.FC = () => {
           </div>
         </div>
 
+        {/* Bottom 4-Column Spec Table */}
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/[0.08] border-t border-b border-white/[0.08] py-6">
           {specs.map((item) => (
             <div key={item.code} className="py-4 sm:py-0 px-0 sm:px-6 first:sm:pl-0 last:sm:pr-0">

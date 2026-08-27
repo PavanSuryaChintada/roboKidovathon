@@ -1,12 +1,13 @@
 import React from 'react';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ShieldCheck } from 'lucide-react';
 
 interface AboutPageProps {
-  onOpenRegister?: () => void;
+  onOpenRegister: () => void;
   onNavigateHome: () => void;
 }
 
 export const AboutPage: React.FC<AboutPageProps> = ({
+  onOpenRegister,
   onNavigateHome,
 }) => {
   return (
@@ -23,7 +24,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
         <div className="border-b border-[#07111F]/10 pb-12">
           <span className="text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#0052FF] uppercase block mb-3">
-            LEAGUE ORIGINS & PHILOSOPHY
+            LEAGUE ORIGINS & PHILOSOPHY // SWEDEN 2026
           </span>
           <h1
             className="font-display font-black uppercase leading-none tracking-tight text-[#07111F]"
@@ -37,6 +38,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           </p>
         </div>
 
+        {/* Narrative Grid */}
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
             <h2 className="font-display font-black uppercase text-2xl sm:text-3xl text-[#07111F] tracking-tight">
@@ -48,13 +50,26 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <p className="text-sm sm:text-base text-[#4A5568] font-light leading-relaxed">
               Rather than theoretical coding exercises on screens, we place real motors, sensors, microcontrollers, and screwdrivers directly in students' hands. They build, wire, program, iterate, and compete in refereed match arenas.
             </p>
+            
             <div className="pt-2 flex flex-wrap gap-4 text-xs font-mono-code font-bold text-[#07111F]">
-              <span className="p-3 bg-[#F8F9FA] border border-[#07111F]/10 rounded-[2px]">
-                ✓ INCLUSIVE GENDER PARITY FOCUS
+              <span className="p-3 bg-[#F8F9FA] border border-[#07111F]/10 rounded-[2px] flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-[#0052FF]" />
+                <span>INCLUSIVE GENDER PARITY FOCUS</span>
               </span>
-              <span className="p-3 bg-[#F8F9FA] border border-[#07111F]/10 rounded-[2px]">
-                ✓ SWEDISH CURRICULUM LGR22 MAPPED
+              <span className="p-3 bg-[#F8F9FA] border border-[#07111F]/10 rounded-[2px] flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-[#0052FF]" />
+                <span>SWEDISH CURRICULUM LGR22 MAPPED</span>
               </span>
+            </div>
+
+            <div className="pt-4">
+              <button
+                onClick={onOpenRegister}
+                className="btn-electric-primary py-3.5 px-6 text-xs"
+              >
+                <span>JOIN AS A PARTICIPANT OR SCHOOL</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
 
