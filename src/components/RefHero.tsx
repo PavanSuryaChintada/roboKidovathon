@@ -31,7 +31,7 @@ export const RefHero: React.FC<RefHeroProps> = ({
   ];
 
   return (
-    <section className="relative w-full h-screen min-h-[700px] flex flex-col justify-between pt-28 pb-10 px-6 sm:px-12 md:px-16 overflow-hidden select-none bg-[#070709]">
+    <section className="relative w-full h-screen min-h-[640px] flex flex-col justify-between pt-28 pb-10 px-6 sm:px-12 md:px-16 overflow-hidden select-none bg-[#070709]">
       
       {/* ── FULL VIEWPORT BACKGROUND VIDEO (z-0) ── */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
@@ -49,23 +49,23 @@ export const RefHero: React.FC<RefHeroProps> = ({
         </video>
 
         {/* Slush-style Ambient Dark Gradient Scrim (z-[1]) */}
-        <div className="absolute inset-0 bg-black/40 pointer-events-none z-[1]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-transparent to-black/60 pointer-events-none z-[1]" />
+        <div className="absolute inset-0 bg-black/35 pointer-events-none z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-transparent to-black/55 pointer-events-none z-[1]" />
       </div>
 
       {/* ── TOP SPACER ── */}
       <div className="relative z-10" />
 
-      {/* ── CENTER EDITORIAL TYPOGRAPHY IN SYNE (Exact Slush Font) (z-10) ── */}
-      <div className="max-w-[1360px] mx-auto w-full text-center relative z-10 py-6 space-y-4">
+      {/* ── CENTER SLUSH-STYLE REFINED SMALL EDITORIAL TYPOGRAPHY (z-10) ── */}
+      <div className="max-w-[1100px] mx-auto w-full text-center relative z-10 py-6 space-y-2">
         
         {/* Line 1: SWEDEN'S MOST [INNOVATION-DRIVEN STUDENT LEAGUE] */}
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="font-syne uppercase tracking-[0.03em] leading-[1.2] text-center"
-          style={{ fontSize: 'clamp(1.8rem, 3.8vw, 3.6rem)' }}
+          className="font-syne uppercase tracking-[0.03em] leading-[1.3] text-center"
+          style={{ fontSize: 'clamp(1.15rem, 2.3vw, 1.85rem)' }}
         >
           <span className="text-slate-400 font-medium">SWEDEN’S MOST </span>
           <span className="text-white font-extrabold">INNOVATION-DRIVEN STUDENT LEAGUE</span>
@@ -73,11 +73,11 @@ export const RefHero: React.FC<RefHeroProps> = ({
 
         {/* Line 2 (Indented/Stepped Slush Flow): AND [LARGEST SCHOOL ROBOTICS] TOURNAMENT */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="font-syne uppercase tracking-[0.03em] leading-[1.2] text-center"
-          style={{ fontSize: 'clamp(1.7rem, 3.6vw, 3.4rem)' }}
+          className="font-syne uppercase tracking-[0.03em] leading-[1.3] text-center"
+          style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.75rem)' }}
         >
           <span className="text-slate-400 font-medium">AND </span>
           <span className="text-white font-extrabold">LARGEST SCHOOL ROBOTICS </span>
@@ -86,17 +86,17 @@ export const RefHero: React.FC<RefHeroProps> = ({
 
       </div>
 
-      {/* ── BOTTOM METRICS BAR & CTA ── */}
+      {/* ── BOTTOM METRICS BAR & CTA (Matching Slush Layout) ── */}
       <div className="max-w-[1360px] mx-auto w-full flex flex-col md:flex-row md:items-end justify-between gap-8 relative z-10 border-t border-white/[0.08] pt-6">
         
         {/* Left Side: Stats Row */}
         <div className="flex flex-wrap items-baseline gap-6 sm:gap-10 md:gap-12">
           {stats.map((item) => (
             <div key={item.label} className="space-y-0.5">
-              <span className="font-syne font-extrabold text-lg sm:text-2xl text-white block tracking-tight">
+              <span className="font-syne font-extrabold text-base sm:text-xl text-white block tracking-tight">
                 {item.value}
               </span>
-              <span className="font-mono-code text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-widest block">
+              <span className="font-mono-code text-[10px] font-semibold text-slate-400 uppercase tracking-widest block">
                 {item.label}
               </span>
             </div>
@@ -109,17 +109,17 @@ export const RefHero: React.FC<RefHeroProps> = ({
             whileHover={{ scale: 1.03, y: -1 }}
             whileTap={{ scale: 0.98 }}
             onClick={onOpenRegister}
-            className="px-6 py-3 rounded-lg bg-[#193B28] hover:bg-[#235338] text-[#4ADE80] border border-[#22C55E]/40 font-syne font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-lg flex items-center gap-2"
+            className="px-5 py-2.5 rounded-lg bg-[#193B28] hover:bg-[#235338] text-[#4ADE80] border border-[#22C55E]/40 font-syne font-bold text-xs sm:text-xs tracking-wider uppercase transition-all shadow-lg flex items-center gap-2"
           >
             <span>REGISTER COHORT NOW</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </motion.button>
 
           <motion.button
             whileHover={{ scale: 1.03, y: -1 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => onNavigate('for-schools')}
-            className="px-5 py-3 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/15 font-syne font-semibold text-xs sm:text-sm tracking-wider uppercase transition-all"
+            className="px-4 py-2.5 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/15 font-syne font-semibold text-xs sm:text-xs tracking-wider uppercase transition-all"
           >
             <span>FOR SCHOOLS</span>
           </motion.button>
