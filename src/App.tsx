@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { RefHero } from './components/RefHero';
+import { RefSlushCountdown } from './components/RefSlushCountdown';
 import { RefManifesto } from './components/RefManifesto';
 import { RefTheExperience } from './components/RefTheExperience';
 import { RefKioskShowcase } from './components/RefKioskShowcase';
@@ -48,6 +49,9 @@ export function App() {
               onOpenRegister={() => setIsRegisterOpen(true)}
               onNavigate={handleNavigate}
             />
+
+            {/* 01.5 Slush-style Dedicated Full-Width Countdown Banner */}
+            <RefSlushCountdown />
 
             {/* 02. Manifesto: MAKE ROBOTICS [avatar] THE EXPERIENCE [avatar] + Logos + Reel */}
             <RefManifesto onNavigate={handleNavigate} />

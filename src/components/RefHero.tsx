@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import { useCountdown } from '../hooks/useCountdown';
 import { ArrowRight } from 'lucide-react';
 
 interface RefHeroProps {
@@ -12,9 +11,6 @@ export const RefHero: React.FC<RefHeroProps> = ({
   onOpenRegister,
   onNavigate,
 }) => {
-  // Target: Västerås City Finals - March 21, 2026 (or active countdown)
-  const countdown = useCountdown('2026-03-21T09:00:00Z');
-
   const collageItems = [
     {
       type: 'image',
@@ -88,10 +84,10 @@ export const RefHero: React.FC<RefHeroProps> = ({
   };
 
   return (
-    <section className="relative w-full min-h-[92vh] flex items-center pt-28 pb-16 px-6 sm:px-10 bg-[#070709] text-white overflow-hidden">
+    <section className="relative w-full min-h-[85vh] flex items-center pt-28 pb-12 px-6 sm:px-10 bg-[#070709] text-white overflow-hidden">
       <div className="max-w-[1440px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         
-        {/* ── LEFT COLUMN: HEADLINE, ACTIONS & SLEEK COUNTDOWN TICKER ── */}
+        {/* ── LEFT COLUMN: HEADLINE & ACTIONS ── */}
         <div className="lg:col-span-5 space-y-6">
           
           <motion.div
@@ -141,69 +137,6 @@ export const RefHero: React.FC<RefHeroProps> = ({
             >
               <span>SCHOOLS & EDUCATORS</span>
             </motion.button>
-          </motion.div>
-
-          {/* ── REDESIGNED SLEEK LIVE TOURNAMENT COUNTDOWN (NO GREEN DOTS, CLEAN TICKER) ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="pt-2 max-w-md"
-          >
-            <div className="border-t border-white/10 pt-4 space-y-2">
-              <div className="flex items-center justify-between text-[11px] font-mono-code tracking-widest text-slate-400 uppercase">
-                <span>FINALS COUNTDOWN</span>
-                <span className="text-white font-bold">MARCH 21, 2026</span>
-              </div>
-
-              <div className="flex items-center gap-3 sm:gap-5 pt-1">
-                <div className="flex flex-col">
-                  <span className="font-headline font-black text-3xl sm:text-4xl text-white tracking-tight leading-none">
-                    {countdown.days}
-                  </span>
-                  <span className="text-[9px] font-mono-code font-bold tracking-wider text-slate-500 uppercase mt-1">
-                    DAYS
-                  </span>
-                </div>
-
-                <span className="font-headline text-2xl text-slate-600 pb-3">:</span>
-
-                <div className="flex flex-col">
-                  <span className="font-headline font-black text-3xl sm:text-4xl text-white tracking-tight leading-none">
-                    {countdown.hours}
-                  </span>
-                  <span className="text-[9px] font-mono-code font-bold tracking-wider text-slate-500 uppercase mt-1">
-                    HOURS
-                  </span>
-                </div>
-
-                <span className="font-headline text-2xl text-slate-600 pb-3">:</span>
-
-                <div className="flex flex-col">
-                  <span className="font-headline font-black text-3xl sm:text-4xl text-white tracking-tight leading-none">
-                    {countdown.minutes}
-                  </span>
-                  <span className="text-[9px] font-mono-code font-bold tracking-wider text-slate-500 uppercase mt-1">
-                    MINS
-                  </span>
-                </div>
-
-                <span className="font-headline text-2xl text-slate-600 pb-3">:</span>
-
-                <div className="flex flex-col">
-                  <span className="font-headline font-black text-3xl sm:text-4xl text-[#22C55E] tracking-tight leading-none">
-                    {countdown.seconds}
-                  </span>
-                  <span className="text-[9px] font-mono-code font-bold tracking-wider text-slate-500 uppercase mt-1">
-                    SECS
-                  </span>
-                </div>
-              </div>
-
-              <div className="text-[10px] font-mono-code text-slate-500 uppercase tracking-wider pt-1">
-                ABB ARENA · VÄSTERÅS · LIVE MATCH HEATS
-              </div>
-            </div>
           </motion.div>
 
         </div>
