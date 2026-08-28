@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export const RefPhotoStrip: React.FC = () => {
   const photos = [
@@ -37,7 +38,12 @@ export const RefPhotoStrip: React.FC = () => {
       <div className="max-w-[1440px] mx-auto space-y-12">
         
         {/* ── SECTION TITLE: RECENT (Outline) CASE STUDIES (Solid) ── */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
           <h2
             className="font-headline font-black uppercase tracking-tight leading-[0.88]"
             style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}
@@ -45,14 +51,19 @@ export const RefPhotoStrip: React.FC = () => {
             <span className="text-stroke block">TOURNAMENT</span>
             <span className="text-white block">HIGHLIGHTS</span>
           </h2>
-        </div>
+        </motion.div>
 
-        {/* ── 7-COLUMN TALL NARROW VERTICAL PHOTO STRIP ── */}
+        {/* ── 7-COLUMN TALL NARROW VERTICAL PHOTO STRIP WITH STAGGER ── */}
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4">
           {photos.map((photo, i) => (
-            <div
+            <motion.div
               key={i}
-              className="relative overflow-hidden rounded-2xl h-[340px] sm:h-[400px] border border-white/10 bg-[#121216] group"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -10, scale: 1.03, borderColor: 'rgba(34, 197, 94, 0.4)' }}
+              className="relative overflow-hidden rounded-2xl h-[340px] sm:h-[400px] border border-white/10 bg-[#121216] group cursor-pointer shadow-xl transition-all"
             >
               <img
                 src={photo.src}
@@ -66,7 +77,7 @@ export const RefPhotoStrip: React.FC = () => {
                   {photo.title}
                 </span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

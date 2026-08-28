@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface RefKioskShowcaseProps {
   onNavigate: (route: string) => void;
@@ -14,7 +15,13 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         {/* ── LEFT COLUMN: HEADLINE & TEXT ── */}
-        <div className="lg:col-span-6 space-y-6">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-6 space-y-6"
+        >
           <h2
             className="font-headline font-black uppercase text-white leading-[0.88] tracking-tight"
             style={{ fontSize: 'clamp(3rem, 6.5vw, 5.8rem)' }}
@@ -33,19 +40,30 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
           </p>
 
           <div className="pt-4">
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => onNavigate('for-schools')}
-              className="btn-pill-white text-xs sm:text-sm font-bold py-3.5 px-8"
+              className="btn-pill-white text-xs sm:text-sm font-bold py-3.5 px-8 shadow-xl"
             >
               <span>VIEW FOR SCHOOLS →</span>
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
 
-        {/* ── RIGHT COLUMN: VERTICAL KIOSK / TABLET ARENA MOCKUP ── */}
-        <div className="lg:col-span-6 flex justify-center lg:justify-end">
-          <div className="relative w-full max-w-[380px] rounded-[36px] p-4 bg-gradient-to-b from-[#2E1065] via-[#4C1D95] to-[#1E1B4B] border-4 border-indigo-500/40 shadow-[0_0_50px_rgba(147,51,234,0.3)]">
-            
+        {/* ── RIGHT COLUMN: VERTICAL KIOSK / TABLET ARENA MOCKUP WITH MOTION ── */}
+        <motion.div
+          initial={{ opacity: 0, x: 30, scale: 0.95 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-6 flex justify-center lg:justify-end"
+        >
+          <motion.div
+            whileHover={{ y: -8, scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+            className="relative w-full max-w-[380px] rounded-[36px] p-4 bg-gradient-to-b from-[#2E1065] via-[#4C1D95] to-[#1E1B4B] border-4 border-indigo-500/40 shadow-[0_0_50px_rgba(147,51,234,0.3)] transition-all cursor-pointer"
+          >
             {/* Screen Notch / Frame */}
             <div className="w-full bg-[#0F0B1E] rounded-[28px] p-6 text-center space-y-6 border border-white/10 overflow-hidden relative" style={{ minHeight: '520px' }}>
               
@@ -81,16 +99,18 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
               </div>
 
               {/* Tap To Begin Button */}
-              <button
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={onOpenRegister}
                 className="w-full py-4 rounded-full bg-[#22C55E] hover:bg-[#4ADE80] text-black font-headline font-black text-sm tracking-wider uppercase transition-all shadow-lg mt-4 animate-pulse"
               >
                 TAP TO REGISTER
-              </button>
+              </motion.button>
 
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
       </div>
     </section>

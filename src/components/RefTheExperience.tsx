@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface RefTheExperienceProps {
   onNavigate: (route: string) => void;
@@ -34,7 +35,12 @@ export const RefTheExperience: React.FC<RefTheExperienceProps> = ({
       <div className="max-w-[1440px] mx-auto space-y-16">
         
         {/* ── SECTION TITLE: THE (Outline) EXPERIENCE (Solid) ── */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
           <h2
             className="font-headline font-black uppercase tracking-tight leading-[0.88]"
             style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}
@@ -42,20 +48,25 @@ export const RefTheExperience: React.FC<RefTheExperienceProps> = ({
             <span className="text-stroke block">THE</span>
             <span className="text-white block">EXPERIENCE</span>
           </h2>
-        </div>
+        </motion.div>
 
-        {/* ── 3 TALL POSTER CARDS WITH BOLD LABELS ── */}
+        {/* ── 3 TALL POSTER CARDS WITH BOLD LABELS & MOTION ── */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 pt-4">
           {cards.map((card, i) => (
-            <div
+            <motion.div
               key={i}
-              className={`relative overflow-hidden rounded-3xl border border-white/15 bg-[#121216] shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] ${card.tilt}`}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -10, scale: 1.03, rotate: 0 }}
+              className={`relative overflow-hidden rounded-3xl border border-white/15 bg-[#121216] shadow-2xl transition-all duration-300 cursor-pointer ${card.tilt}`}
               style={{ minHeight: '440px' }}
             >
               <img
                 src={card.image}
                 alt={card.label}
-                className="absolute inset-0 w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
+                className="absolute inset-0 w-full h-full object-cover opacity-80 hover:opacity-100 transition-transform duration-700 hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent pointer-events-none" />
 
@@ -70,18 +81,25 @@ export const RefTheExperience: React.FC<RefTheExperienceProps> = ({
                   {card.label}
                 </span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* ── VIBRANT SPLIT FEATURE BANNER (Pink/Coral Card Matching Reference) ── */}
-        <div className="rounded-3xl overflow-hidden border border-white/15 grid grid-cols-1 lg:grid-cols-12 bg-[#FF3366] text-black">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          whileHover={{ y: -4, borderColor: 'rgba(255, 255, 255, 0.3)' }}
+          className="rounded-3xl overflow-hidden border border-white/15 grid grid-cols-1 lg:grid-cols-12 bg-[#FF3366] text-black shadow-2xl transition-all"
+        >
           {/* Left Visual Photo */}
-          <div className="lg:col-span-6 relative min-h-[300px] lg:min-h-0 bg-black">
+          <div className="lg:col-span-6 relative min-h-[300px] lg:min-h-0 bg-black overflow-hidden group">
             <img
               src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?auto=format&fit=crop&w=900&q=80"
               alt="Live tournament match"
-              className="w-full h-full object-cover opacity-90"
+              className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
             />
           </div>
 
@@ -98,17 +116,25 @@ export const RefTheExperience: React.FC<RefTheExperienceProps> = ({
               From high-velocity differential ball ejectors to 5-level autonomous cup stacking cranes. Standardized match arenas, electronic buzzer systems, and certified referee scoring.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Centered Pill Trigger */}
-        <div className="flex justify-center pt-4">
-          <button
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex justify-center pt-4"
+        >
+          <motion.button
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.98 }}
             onClick={() => onNavigate('challenges')}
-            className="btn-pill-white text-xs sm:text-sm font-bold py-3.5 px-8"
+            className="btn-pill-white text-xs sm:text-sm font-bold py-3.5 px-8 shadow-xl"
           >
             <span>TOURNAMENT TRACK DETAILS</span>
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
 
       </div>
     </section>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion, Variants } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 interface RefSkillPillsProps {
@@ -20,12 +21,38 @@ export const RefSkillPills: React.FC<RefSkillPillsProps> = ({
     { label: 'Live Arena Heats', bg: 'bg-[#22C55E] text-black', border: 'border-[#22C55E]' },
   ];
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+      },
+    },
+  };
+
+  const pillVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.8, y: 20 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: 'easeOut' },
+    },
+  };
+
   return (
     <section className="w-full bg-[#070709] text-white py-24 px-6 sm:px-10 border-t border-white/10 overflow-hidden">
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         {/* ── LEFT COLUMN: HEADLINE & DESCRIPTION ── */}
-        <div className="lg:col-span-6 space-y-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="lg:col-span-6 space-y-6"
+        >
           <h2
             className="font-headline font-black uppercase text-white leading-[0.88] tracking-tight"
             style={{ fontSize: 'clamp(3rem, 6.5vw, 5.5rem)' }}
@@ -39,27 +66,38 @@ export const RefSkillPills: React.FC<RefSkillPillsProps> = ({
           </p>
 
           <div className="pt-4">
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => onNavigate('challenges')}
-              className="btn-pill-white text-xs sm:text-sm font-bold py-3.5 px-8 flex items-center gap-2"
+              className="btn-pill-white text-xs sm:text-sm font-bold py-3.5 px-8 flex items-center gap-2 shadow-xl"
             >
               <span>EXPLORE ALL DISCIPLINES</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
 
-        {/* ── RIGHT COLUMN: VIBRANT NEON CAPSULE PILL CLOUD ── */}
-        <div className="lg:col-span-6 flex flex-wrap items-center justify-start lg:justify-end gap-3 sm:gap-4 max-w-xl ml-auto">
+        {/* ── RIGHT COLUMN: VIBRANT NEON CAPSULE PILL CLOUD WITH STAGGER ── */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="lg:col-span-6 flex flex-wrap items-center justify-start lg:justify-end gap-3 sm:gap-4 max-w-xl ml-auto"
+        >
           {skillPills.map((pill, i) => (
-            <div
+            <motion.div
               key={i}
-              className={`px-6 py-3.5 rounded-full font-headline font-bold text-xs sm:text-sm uppercase tracking-wider shadow-lg transition-transform duration-300 hover:scale-105 hover:-rotate-1 cursor-default ${pill.bg}`}
+              variants={pillVariants}
+              whileHover={{ scale: 1.1, rotate: i % 2 === 0 ? 2 : -2, y: -4 }}
+              whileTap={{ scale: 0.95 }}
+              className={`px-6 py-3.5 rounded-full font-headline font-bold text-xs sm:text-sm uppercase tracking-wider shadow-lg cursor-pointer transition-all ${pill.bg}`}
             >
               {pill.label}
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

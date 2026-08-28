@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 interface RefTrendingCardsProps {
@@ -38,7 +39,12 @@ export const RefTrendingCards: React.FC<RefTrendingCardsProps> = ({
       <div className="max-w-[1440px] mx-auto space-y-12">
         
         {/* ── SECTION TITLE: WHAT'S (Solid) TRENDING (Outline) ── */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
           <h2
             className="font-headline font-black uppercase tracking-tight leading-[0.88]"
             style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}
@@ -46,21 +52,26 @@ export const RefTrendingCards: React.FC<RefTrendingCardsProps> = ({
             <span className="text-white block">WHAT'S</span>
             <span className="text-stroke block">TRENDING</span>
           </h2>
-        </div>
+        </motion.div>
 
-        {/* ── 3-COLUMN UPDATE CARDS ── */}
+        {/* ── 3-COLUMN UPDATE CARDS WITH MOTION ── */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {articles.map((item, i) => (
-            <div
+            <motion.div
               key={i}
-              className="rounded-3xl p-4 bg-[#121216] border border-white/10 space-y-4 flex flex-col justify-between hover:border-white/25 transition-all group"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -8, scale: 1.02, borderColor: 'rgba(34, 197, 94, 0.4)' }}
+              className="rounded-3xl p-4 bg-[#121216] border border-white/10 space-y-4 flex flex-col justify-between hover:border-white/25 transition-all group cursor-pointer shadow-xl"
             >
               <div className="space-y-4">
                 <div className="relative overflow-hidden rounded-2xl h-56 bg-black">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-[9px] font-mono-code font-bold text-[#22C55E] uppercase tracking-wider">
                     {item.category}
@@ -78,15 +89,17 @@ export const RefTrendingCards: React.FC<RefTrendingCardsProps> = ({
               </div>
 
               <div className="px-2 pt-2">
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   onClick={() => onNavigate(item.action)}
-                  className="btn-pill-white text-xs font-bold py-2.5 px-6 w-full flex items-center justify-center gap-2"
+                  className="btn-pill-white text-xs font-bold py-2.5 px-6 w-full flex items-center justify-center gap-2 shadow-lg"
                 >
                   <span>READ MORE</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+                </motion.button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

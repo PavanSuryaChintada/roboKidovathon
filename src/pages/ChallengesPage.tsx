@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { COMPETITION_CATEGORIES } from '../data/roboData';
 import { ArrowLeft, ArrowRight, ShieldCheck, Trophy } from 'lucide-react';
 
@@ -16,16 +17,23 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
       <div className="max-w-[1440px] mx-auto space-y-16">
         
         {/* Back Button */}
-        <button
+        <motion.button
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
           onClick={onNavigateHome}
           className="inline-flex items-center gap-2 text-xs font-mono-code font-bold tracking-wider text-[#22C55E] uppercase hover:underline"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>BACK TO HOME</span>
-        </button>
+        </motion.button>
 
         {/* ── HEADER: TOURNAMENT (Outline) RULEBOOK (Solid) ── */}
-        <div className="border-b border-white/10 pb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="border-b border-white/10 pb-12"
+        >
           <span className="text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#22C55E] uppercase block mb-3">
             OFFICIAL TECHNICAL SPECIFICATIONS // 2026 SEASON
           </span>
@@ -41,13 +49,17 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
           <p className="mt-4 text-sm sm:text-base text-slate-300 font-light max-w-2xl leading-relaxed">
             Detailed dimensions, powertrain voltage limits, arena coordinates, scoring rubrics, and referee guidelines for the 2026 Robo-Kido-A-Thon Västerås Championship.
           </p>
-        </div>
+        </motion.div>
 
-        {/* ── CHALLENGE CARDS ── */}
+        {/* ── CHALLENGE CARDS WITH MOTION ── */}
         <div className="space-y-16">
-          {COMPETITION_CATEGORIES.map((cat) => (
-            <div
+          {COMPETITION_CATEGORIES.map((cat, idx) => (
+            <motion.div
               key={cat.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="rounded-3xl border border-white/15 bg-[#121216] overflow-hidden shadow-2xl space-y-0"
             >
               {/* Category Header Banner */}
@@ -81,14 +93,18 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
               {/* Specs Grid */}
               <div className="p-8 sm:p-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 bg-[#0A0A0E] border-b border-white/10">
                 {cat.specs.map((s) => (
-                  <div key={s.label} className="p-4 rounded-2xl bg-[#121216] border border-white/10 space-y-1">
+                  <motion.div
+                    key={s.label}
+                    whileHover={{ scale: 1.03 }}
+                    className="p-4 rounded-2xl bg-[#121216] border border-white/10 space-y-1 transition-all"
+                  >
                     <span className="block text-[9px] font-mono-code font-bold text-[#22C55E] uppercase">
                       {s.label}
                     </span>
                     <span className="block text-xs font-headline font-bold text-white uppercase tracking-wider">
                       {s.value}
                     </span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
@@ -135,17 +151,19 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
                     </div>
                   </div>
 
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
                     onClick={onOpenRegister}
-                    className="btn-pill-lime text-xs font-bold py-3.5 px-8 self-start flex items-center gap-2"
+                    className="btn-pill-lime text-xs font-bold py-3.5 px-8 self-start flex items-center gap-2 shadow-xl"
                   >
                     <span>ENROL TEAM FOR {cat.title}</span>
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </motion.button>
                 </div>
               </div>
 
-            </div>
+            </motion.div>
           ))}
         </div>
 
