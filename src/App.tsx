@@ -89,8 +89,12 @@ export function App() {
               onOpenRegister={() => setIsRegisterOpen(true)}
             />
 
-            {/* 09. Full-Width Workshop Photo with Angled Caution Tapes */}
-            <RefWorkshopTapeBanner />
+            {/* 09. Clean, High-Impact Pre-Footer CTA Banner */}
+            <RefWorkshopTapeBanner
+              onOpenRegister={() => setIsRegisterOpen(true)}
+              onOpenDeckModal={() => setIsDeckOpen(true)}
+              onNavigate={handleNavigate}
+            />
           </>
         )}
 

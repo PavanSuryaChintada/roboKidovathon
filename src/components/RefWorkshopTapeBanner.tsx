@@ -1,51 +1,89 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight, Download, Calendar, ShieldCheck, MapPin } from 'lucide-react';
 
-export const RefWorkshopTapeBanner: React.FC = () => {
+interface RefWorkshopTapeBannerProps {
+  onOpenRegister?: () => void;
+  onOpenDeckModal?: () => void;
+  onNavigate?: (route: string) => void;
+}
+
+export const RefWorkshopTapeBanner: React.FC<RefWorkshopTapeBannerProps> = ({
+  onOpenRegister,
+  onOpenDeckModal,
+}) => {
   return (
-    <section className="w-full bg-[#070709] text-white py-20 px-6 sm:px-10 border-t border-white/10 overflow-hidden">
+    <section className="w-full bg-[#070709] text-white py-24 px-6 sm:px-10 border-t border-white/10 overflow-hidden">
       <div className="max-w-[1440px] mx-auto">
         
-        {/* Full-Width Visual Container with Graphic Tape Overlays & Motion */}
+        {/* Clean, High-Impact Pre-Footer CTA Card */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative rounded-3xl overflow-hidden h-[340px] sm:h-[480px] bg-[#121216] border border-white/15 shadow-2xl group"
+          className="relative rounded-3xl overflow-hidden p-8 sm:p-14 md:p-16 bg-gradient-to-b from-[#14141A] to-[#0A0A0E] border border-white/15 shadow-2xl text-center flex flex-col items-center justify-center space-y-8"
         >
-          <img
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=80"
-            alt="Robotics workshop and hardware building"
-            className="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-1000"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60 pointer-events-none" />
+          {/* Subtle Ambient Background Radial Glow */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#22C55E]/10 rounded-full blur-3xl pointer-events-none" />
 
-          {/* ── Angled Yellow Graphic Caution Tape 01 with Motion ── */}
-          <motion.div
-            animate={{ x: [-5, 5, -5] }}
-            transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
-            className="absolute top-[35%] -left-8 right-1/3 -rotate-3 bg-[#FACC15] text-black py-2.5 px-8 shadow-2xl flex items-center justify-around font-headline font-black text-xs sm:text-sm tracking-widest uppercase overflow-hidden pointer-events-none"
-          >
-            <span>OFFICIAL WORKSHOPS</span>
-            <span className="hidden sm:inline">✦</span>
-            <span>LIVE IN SCHOOLS</span>
-            <span className="hidden sm:inline">✦</span>
-            <span>VÄSTERÅS 2026</span>
-          </motion.div>
+          {/* Top Tag */}
+          <div className="relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-xs font-mono-code text-[#22C55E] uppercase tracking-wider">
+            <Calendar className="w-3.5 h-3.5" />
+            <span>SWEDEN NATIONAL CHAMPIONSHIP 2026</span>
+          </div>
 
-          {/* ── Angled Cyan Graphic Caution Tape 02 with Motion ── */}
-          <motion.div
-            animate={{ x: [5, -5, 5] }}
-            transition={{ repeat: Infinity, duration: 7, ease: 'easeInOut' }}
-            className="absolute bottom-[25%] left-1/3 -right-8 rotate-2 bg-[#06B6D4] text-black py-2.5 px-8 shadow-2xl flex items-center justify-around font-headline font-black text-xs sm:text-sm tracking-widest uppercase overflow-hidden pointer-events-none"
-          >
-            <span>CERTIFIED STEM MENTORS</span>
-            <span className="hidden sm:inline">✦</span>
-            <span>100% HANDS-ON</span>
-            <span className="hidden sm:inline">✦</span>
-            <span>ZERO TOY BLOCKS</span>
-          </motion.div>
+          {/* Main Headline */}
+          <div className="relative space-y-3 max-w-3xl">
+            <h2
+              className="font-headline font-black uppercase text-white tracking-tight leading-[1.05]"
+              style={{ fontSize: 'clamp(2.6rem, 5.5vw, 4.8rem)' }}
+            >
+              READY TO FIELD YOUR<br />
+              <span className="text-[#22C55E]">SCHOOL TEAM?</span>
+            </h2>
+            <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-xl mx-auto pt-2">
+              Turnkey 2-hour on-site workshops in February 2026. Certified STEM mentors arrive directly at your school with all physical hardware, sensors, and competition arena mats.
+            </p>
+          </div>
+
+          {/* Action CTAs */}
+          <div className="relative flex flex-wrap items-center justify-center gap-4 pt-2">
+            <motion.button
+              whileHover={{ scale: 1.04, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={onOpenRegister}
+              className="btn-pill-lime text-xs sm:text-sm font-black py-4 px-8 flex items-center gap-2 shadow-2xl"
+            >
+              <span>REGISTER SCHOOL COHORT</span>
+              <ArrowRight className="w-4 h-4" />
+            </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.04, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={onOpenDeckModal}
+              className="btn-pill-outline text-xs sm:text-sm font-bold py-4 px-7 flex items-center gap-2"
+            >
+              <Download className="w-4 h-4 text-slate-400" />
+              <span>DOWNLOAD EVENT PROSPECTUS</span>
+            </motion.button>
+          </div>
+
+          {/* Key Facts Ribbon */}
+          <div className="relative pt-6 border-t border-white/10 w-full max-w-3xl flex flex-wrap items-center justify-around gap-4 text-[11px] font-mono-code text-slate-400">
+            <span className="flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5 text-[#22C55E]" />
+              <span>ABB ARENA, VÄSTERÅS</span>
+            </span>
+            <span>•</span>
+            <span className="text-white font-semibold">100 SEK (+VAT) / STUDENT</span>
+            <span>•</span>
+            <span className="flex items-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#22C55E]" />
+              <span>SWEDISH LGR22 COMPLIANT</span>
+            </span>
+          </div>
 
         </motion.div>
 
