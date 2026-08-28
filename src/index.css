@@ -18,7 +18,9 @@
   --white: #FFFFFF;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -44,17 +46,19 @@ body {
   color: #000000;
 }
 
-/* Typography Helpers Matching Reference */
+/* Typography Helpers Matching Reference with Breathable Line Height */
 .font-headline {
   font-family: 'Anton', 'Bebas Neue', 'Space Grotesk', sans-serif;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  line-height: 1.12;
 }
 
 .font-condensed {
   font-family: 'Bebas Neue', 'Anton', sans-serif;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  line-height: 1.12;
 }
 
 .font-display {
@@ -101,6 +105,7 @@ body {
   box-shadow: 0 4px 14px rgba(34, 197, 94, 0.3);
   cursor: pointer;
 }
+
 .btn-pill-lime:hover {
   background-color: #4ADE80;
   border-color: #4ADE80;
@@ -126,6 +131,7 @@ body {
   transition: all 0.2s ease;
   cursor: pointer;
 }
+
 .btn-pill-white:hover {
   background-color: #E2E8F0;
   transform: translateY(-1px);
@@ -149,6 +155,7 @@ body {
   transition: all 0.2s ease;
   cursor: pointer;
 }
+
 .btn-pill-outline:hover {
   border-color: #FFFFFF;
   background-color: rgba(255, 255, 255, 0.08);
@@ -158,13 +165,16 @@ body {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: #070709;
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #22C55E;
 }

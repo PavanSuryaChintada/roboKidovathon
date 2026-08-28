@@ -42,7 +42,7 @@ export const RefSkillPills: React.FC<RefSkillPillsProps> = ({
   };
 
   return (
-    <section className="w-full bg-[#070709] text-white py-24 px-6 sm:px-10 border-t border-white/10 overflow-hidden">
+    <section className="w-full bg-[#070709] text-white py-28 px-6 sm:px-10 border-t border-white/10 overflow-hidden">
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         {/* ── LEFT COLUMN: HEADLINE & DESCRIPTION ── */}
@@ -54,14 +54,14 @@ export const RefSkillPills: React.FC<RefSkillPillsProps> = ({
           className="lg:col-span-6 space-y-6"
         >
           <h2
-            className="font-headline font-black uppercase text-white leading-[0.88] tracking-tight"
+            className="font-headline font-black uppercase text-white leading-[1.12] tracking-tight"
             style={{ fontSize: 'clamp(3rem, 6.5vw, 5.5rem)' }}
           >
             CHAMPIONSHIP<br />
             SKILLS & TRACKS
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-lg">
+          <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-lg pt-2">
             No simulations. Students construct genuine physical robots from circuit boards to mechanical gearboxes, gaining invaluable hardware engineering intuition and algorithmic mastery.
           </p>
 

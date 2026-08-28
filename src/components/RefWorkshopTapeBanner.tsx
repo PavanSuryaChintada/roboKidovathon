@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export const RefWorkshopTapeBanner: React.FC = () => {
   return (
-    <section className="w-full bg-[#070709] text-white py-16 px-6 sm:px-10 border-t border-white/10 overflow-hidden">
+    <section className="w-full bg-[#070709] text-white py-20 px-6 sm:px-10 border-t border-white/10 overflow-hidden">
       <div className="max-w-[1440px] mx-auto">
         
         {/* Full-Width Visual Container with Graphic Tape Overlays & Motion */}

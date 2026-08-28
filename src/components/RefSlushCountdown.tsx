@@ -13,14 +13,14 @@ export const RefSlushCountdown: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-[#070709] py-8 sm:py-12 px-4 sm:px-6 select-none">
+    <section className="w-full bg-[#070709] py-12 sm:py-16 px-4 sm:px-6 border-t border-white/10 select-none">
       <div className="max-w-[960px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="w-full bg-[#0E0E12]/90 border border-white/[0.08] rounded-2xl sm:rounded-3xl py-8 sm:py-10 px-6 sm:px-12 text-center shadow-2xl flex flex-col items-center justify-center space-y-4"
+          className="w-full bg-[#0E0E12]/90 border border-white/[0.1] rounded-2xl sm:rounded-3xl py-10 sm:py-12 px-6 sm:px-12 text-center shadow-2xl flex flex-col items-center justify-center space-y-5"
         >
           {/* Top Label */}
           <span className="text-xs sm:text-sm font-sans font-medium text-slate-400 tracking-wide">
@@ -28,9 +28,9 @@ export const RefSlushCountdown: React.FC = () => {
           </span>
 
           {/* Slush-style horizontal numbers with side labels */}
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 md:gap-16 pt-1">
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 md:gap-16 pt-2">
             {units.map((unit) => (
-              <div key={unit.label} className="flex items-baseline gap-1.5 sm:gap-2">
+              <div key={unit.label} className="flex items-baseline gap-2 sm:gap-2.5">
                 <span className="font-headline font-black text-4xl sm:text-5xl md:text-6xl text-white tracking-tight leading-none">
                   {unit.value}
                 </span>

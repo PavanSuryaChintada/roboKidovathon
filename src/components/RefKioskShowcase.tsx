@@ -11,7 +11,7 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
   onOpenRegister,
 }) => {
   return (
-    <section className="w-full bg-[#070709] text-white py-24 px-6 sm:px-10 border-t border-white/10 overflow-hidden">
+    <section className="w-full bg-[#070709] text-white py-28 px-6 sm:px-10 border-t border-white/10 overflow-hidden">
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         {/* ── LEFT COLUMN: HEADLINE & TEXT ── */}
@@ -23,7 +23,7 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
           className="lg:col-span-6 space-y-6"
         >
           <h2
-            className="font-headline font-black uppercase text-white leading-[0.88] tracking-tight"
+            className="font-headline font-black uppercase text-white leading-[1.12] tracking-tight"
             style={{ fontSize: 'clamp(3rem, 6.5vw, 5.8rem)' }}
           >
             DESIGN<br />
@@ -31,7 +31,7 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
             CONNECT.
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-lg">
+          <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-lg pt-2">
             Turnkey school delivery. Certified STEM mentors arrive directly at your school with all physical hardware kits, electronic controllers, and competition arena mats.
           </p>
 
@@ -78,7 +78,7 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
                   OFFICIAL TOURNAMENT DISCIPLINE
                 </span>
                 <h3
-                  className="font-headline font-black uppercase text-white leading-none tracking-tight"
+                  className="font-headline font-black uppercase text-white leading-[1.12] tracking-tight"
                   style={{ fontSize: 'clamp(2.5rem, 5vw, 3.8rem)' }}
                 >
                   CUSTOM<br />

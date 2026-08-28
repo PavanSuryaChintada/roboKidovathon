@@ -24,8 +24,8 @@ export const RefManifesto: React.FC<RefManifestoProps> = ({ onNavigate }) => {
   ];
 
   return (
-    <section className="w-full bg-[#070709] text-white py-24 px-6 sm:px-10 border-t border-white/10 overflow-hidden">
-      <div className="max-w-[1280px] mx-auto text-center space-y-10">
+    <section className="w-full bg-[#070709] text-white py-28 px-6 sm:px-10 border-t border-white/10 overflow-hidden">
+      <div className="max-w-[1280px] mx-auto text-center space-y-12">
         
         {/* Floating Circular Photo Avatar Head with Animation */}
         <motion.div
@@ -35,7 +35,7 @@ export const RefManifesto: React.FC<RefManifestoProps> = ({ onNavigate }) => {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="inline-block relative"
         >
-          <div className="flex items-center justify-center -space-x-2 mb-4">
+          <div className="flex items-center justify-center -space-x-2 mb-6">
             <motion.img
               animate={{ y: [-3, 3, -3] }}
               transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
@@ -53,7 +53,7 @@ export const RefManifesto: React.FC<RefManifestoProps> = ({ onNavigate }) => {
           </div>
 
           <h2
-            className="font-headline font-black uppercase tracking-tight text-white leading-[0.9] flex flex-wrap items-center justify-center gap-3 sm:gap-4"
+            className="font-headline font-black uppercase tracking-tight text-white leading-[1.18] flex flex-wrap items-center justify-center gap-3 sm:gap-5"
             style={{ fontSize: 'clamp(2.8rem, 6.5vw, 5.5rem)' }}
           >
             <span>MAKE</span>
@@ -66,7 +66,7 @@ export const RefManifesto: React.FC<RefManifestoProps> = ({ onNavigate }) => {
               className="w-10 h-10 sm:w-16 sm:h-16 rounded-full border-2 border-white/30 object-cover inline-block cursor-pointer shadow-xl"
             />
             <span>ROBOTICS</span>
-            <br />
+            <span className="w-full block h-2 sm:h-4" />
             <span>THE</span>
             <motion.img
               whileHover={{ scale: 1.15, rotate: -6 }}
@@ -86,7 +86,7 @@ export const RefManifesto: React.FC<RefManifestoProps> = ({ onNavigate }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-sm sm:text-base text-slate-400 font-light max-w-2xl mx-auto leading-relaxed"
+          className="text-sm sm:text-base text-slate-300 font-light max-w-2xl mx-auto leading-relaxed pt-2"
         >
           Robo-Kido-A-Thon is a hands-on, live-arena tournament model created to turn abstract STEM concepts into high-intensity physical robotics creations, fostering genuine teamwork and technological ambition across schools.
         </motion.p>
@@ -97,7 +97,7 @@ export const RefManifesto: React.FC<RefManifestoProps> = ({ onNavigate }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex items-center justify-center gap-3 pt-2"
+          className="flex items-center justify-center gap-3 pt-4"
         >
           <motion.button
             whileHover={{ scale: 1.05, y: -2 }}
@@ -124,7 +124,7 @@ export const RefManifesto: React.FC<RefManifestoProps> = ({ onNavigate }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="pt-16 border-t border-white/10"
+          className="pt-20 border-t border-white/10"
         >
           <span className="block text-[10px] font-mono-code font-bold tracking-[0.25em] text-slate-500 uppercase mb-8">
             OFFICIAL ADVISORY & INSTITUTIONAL PARTNERS
@@ -153,7 +153,7 @@ export const RefManifesto: React.FC<RefManifestoProps> = ({ onNavigate }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="pt-10 grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4"
+          className="pt-12 grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4"
         >
           {pillReel.map((img, i) => (
             <motion.div
