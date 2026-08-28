@@ -48,9 +48,18 @@ export const RefHero: React.FC<RefHeroProps> = ({
           <source src="/uhd_25fps.mp4" type="video/mp4" />
         </video>
 
-        {/* Slush-style Ambient Dark Gradient Scrim (z-[1]) */}
-        <div className="absolute inset-0 bg-black/35 pointer-events-none z-[1]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-transparent to-black/55 pointer-events-none z-[1]" />
+        {/* ── MULTI-LAYERED CINEMATIC BACKGROUND OVERLAY (z-[1]) ── */}
+        {/* Layer 1: Base Darkening Tint */}
+        <div className="absolute inset-0 bg-black/50 pointer-events-none z-[1]" />
+        
+        {/* Layer 2: Top & Bottom Seamless Dark Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-black/40 to-[#070709]/80 pointer-events-none z-[1]" />
+        
+        {/* Layer 3: Left & Right Horizontal Vignette */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070709]/60 via-transparent to-[#070709]/60 pointer-events-none z-[1]" />
+
+        {/* Layer 4: Radial Focus Spotlight Scrim */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(7,7,9,0.75)_100%)] pointer-events-none z-[1]" />
       </div>
 
       {/* ── TOP SPACER ── */}
