@@ -1,17 +1,15 @@
 import { useState } from 'react';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { RoboMission } from './components/RoboMission';
-import { RoboStats } from './components/RoboStats';
-import { RoboHardwareArchitecture } from './components/RoboHardwareArchitecture';
-import { RoboCompetitionTracks } from './components/RoboCompetitionTracks';
-import { RoboHowItWorks } from './components/RoboHowItWorks';
-import { RoboChampionshipJourney } from './components/RoboChampionshipJourney';
-import { RoboForSchoolsSection } from './components/RoboForSchoolsSection';
-import { RoboPrizePool } from './components/RoboPrizePool';
-import { RoboFaqSection } from './components/RoboFaqSection';
-import { RoboFinalCta } from './components/RoboFinalCta';
-import { RoboFooter } from './components/RoboFooter';
+import { RefHero } from './components/RefHero';
+import { RefManifesto } from './components/RefManifesto';
+import { RefTheExperience } from './components/RefTheExperience';
+import { RefKioskShowcase } from './components/RefKioskShowcase';
+import { RefSkillPills } from './components/RefSkillPills';
+import { RefPhotoStrip } from './components/RefPhotoStrip';
+import { RefTapeBanner } from './components/RefTapeBanner';
+import { RefTrendingCards } from './components/RefTrendingCards';
+import { RefWorkshopTapeBanner } from './components/RefWorkshopTapeBanner';
+import { RefFooter } from './components/RefFooter';
 
 import { ChallengesPage } from './pages/ChallengesPage';
 import { HowItWorksPage } from './pages/HowItWorksPage';
@@ -31,79 +29,64 @@ export function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleOpenFaq = () => {
-    if (currentRoute !== 'home') {
-      setCurrentRoute('home');
-      setTimeout(() => {
-        const el = document.getElementById('faq-section');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      const el = document.getElementById('faq-section');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-white text-[#07111F] font-sans selection:bg-[#0052FF] selection:text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#070709] text-white font-sans selection:bg-[#22C55E] selection:text-black relative overflow-x-hidden">
       
-      {/* 1. Adaptive Event Navigation */}
+      {/* ── 0. Floating Minimal Header with Neon Pill Button ── */}
       <Navbar
         activeTab={currentRoute}
         onNavigate={handleNavigate}
         onOpenRegister={() => setIsRegisterOpen(true)}
-        onOpenFaq={handleOpenFaq}
       />
 
-      {/* 2. Page Router */}
+      {/* ── Page Router ── */}
       <main className="w-full">
         {currentRoute === 'home' && (
           <>
-            {/* 01. Opening Cinematic Event Hero */}
-            <Hero
+            {/* 01. Hero: Split Headline + 3x3 Staggered Pill Bento Gallery */}
+            <RefHero
               onOpenRegister={() => setIsRegisterOpen(true)}
               onNavigate={handleNavigate}
             />
 
-            {/* 02. The Manifesto (Physical vs. Screen) */}
-            <RoboMission onNavigate={handleNavigate} />
+            {/* 02. Manifesto: MAKE ROBOTICS [avatar] THE EXPERIENCE [avatar] + Logos + Reel */}
+            <RefManifesto onNavigate={handleNavigate} />
 
-            {/* 03. Scale & Impact Metrics */}
-            <RoboStats />
-
-            {/* 04. Physical Systems & Hardware Specification */}
-            <RoboHardwareArchitecture />
-
-            {/* 05. Tournament Disciplines (Robo-Sprint & Robo-Precision) */}
-            <RoboCompetitionTracks
+            {/* 03. THE [Outline] EXPERIENCE [Solid] + 3 Angled Poster Cards + Coral Split Banner */}
+            <RefTheExperience
               onNavigate={handleNavigate}
               onOpenRegister={() => setIsRegisterOpen(true)}
             />
 
-            {/* 06. 5-Stage Tournament Pipeline */}
-            <RoboHowItWorks onNavigate={handleNavigate} />
-
-            {/* 07. Championship Roadmap Progression */}
-            <RoboChampionshipJourney />
-
-            {/* 08. B2B Schools & Educators Portal */}
-            <RoboForSchoolsSection
+            {/* 04. DESIGN, CREATE & CONNECT + Vertical Kiosk Screen Mockup */}
+            <RefKioskShowcase
               onNavigate={handleNavigate}
               onOpenRegister={() => setIsRegisterOpen(true)}
-              onOpenDeckModal={() => setIsDeckOpen(true)}
             />
 
-            {/* 09. Championship Prize Pool Reveal */}
-            <RoboPrizePool onOpenRegister={() => setIsRegisterOpen(true)} />
+            {/* 05. CHAMPIONSHIP SKILLS + Colorful Neon Pill Cloud */}
+            <RefSkillPills
+              onNavigate={handleNavigate}
+              onOpenRegister={() => setIsRegisterOpen(true)}
+            />
 
-            {/* 10. Numbered Editorial FAQ */}
-            <RoboFaqSection />
+            {/* 06. TOURNAMENT [Outline] HIGHLIGHTS [Solid] + 7-Column Tall Vertical Photo Ribbon */}
+            <RefPhotoStrip />
 
-            {/* 11. Final Action Trigger */}
-            <RoboFinalCta
+            {/* 07. SCANDINAVIAN ON-SITE ROBOTICS LEAGUE Graphic Tape Banner */}
+            <RefTapeBanner
               onOpenRegister={() => setIsRegisterOpen(true)}
               onNavigate={handleNavigate}
             />
+
+            {/* 08. WHAT'S [Solid] TRENDING [Outline] + 3-Column News/Insights Cards */}
+            <RefTrendingCards
+              onNavigate={handleNavigate}
+              onOpenRegister={() => setIsRegisterOpen(true)}
+            />
+
+            {/* 09. Full-Width Workshop Photo with Angled Caution Tapes */}
+            <RefWorkshopTapeBanner />
           </>
         )}
 
@@ -137,13 +120,13 @@ export function App() {
         )}
       </main>
 
-      {/* 3. Master Footer */}
-      <RoboFooter
+      {/* ── Master Dark Footer ── */}
+      <RefFooter
         onNavigate={handleNavigate}
-        onOpenFaq={handleOpenFaq}
+        onOpenRegister={() => setIsRegisterOpen(true)}
       />
 
-      {/* 4. Interactive Modals */}
+      {/* ── Interactive Modals ── */}
       <RegisterModal
         isOpen={isRegisterOpen}
         onClose={() => setIsRegisterOpen(false)}

@@ -1,20 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Syne:wght@700;800&family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --navy: #07111F;
-  --navy-dark: #040912;
-  --navy-surface: #0E1B2D;
+  --bg-black: #070709;
+  --bg-card: #121216;
+  --lime: #22C55E;
+  --lime-bright: #4ADE80;
+  --coral: #FF3366;
+  --coral-light: #FB7185;
   --blue: #0052FF;
-  --blue-hover: #0043D6;
+  --cyan: #06B6D4;
+  --yellow: #FACC15;
+  --purple: #A855F7;
   --white: #FFFFFF;
-  --offwhite: #F8F9FA;
-  --neutral-bg: #F4F5F7;
-  --border-light: rgba(7, 17, 31, 0.08);
-  --border-dark: rgba(255, 255, 255, 0.12);
 }
 
 *, *::before, *::after {
@@ -23,8 +24,8 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #000000;
-  color: #07111F;
+  background-color: #070709;
+  color: #FFFFFF;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -34,26 +35,80 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: #FFFFFF;
-  color: #07111F;
-}
-
-::selection {
-  background: #0052FF;
+  background-color: #070709;
   color: #FFFFFF;
 }
 
-/* Typography Helpers */
+::selection {
+  background: #22C55E;
+  color: #000000;
+}
+
+/* Typography Helpers Matching Reference */
+.font-headline {
+  font-family: 'Anton', 'Bebas Neue', 'Space Grotesk', sans-serif;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.font-condensed {
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .font-display {
-  font-family: 'Space Grotesk', 'Outfit', 'Inter', sans-serif;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
 }
 
 .font-mono-code {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Conference-Caliber Buttons (Strict: Black / White / Electric Blue) */
-.btn-conference-primary {
+/* Outlined Stroke Text Effect */
+.text-stroke {
+  -webkit-text-stroke: 1.5px #FFFFFF;
+  color: transparent;
+}
+
+.text-stroke-thick {
+  -webkit-text-stroke: 2px #FFFFFF;
+  color: transparent;
+}
+
+.text-stroke-slate {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.4);
+  color: transparent;
+}
+
+/* Capsule Pill Buttons Matching Reference */
+.btn-pill-lime {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #22C55E;
+  color: #000000;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.65rem;
+  border-radius: 9999px;
+  border: 1px solid #22C55E;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.3);
+  cursor: pointer;
+}
+.btn-pill-lime:hover {
+  background-color: #4ADE80;
+  border-color: #4ADE80;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.45);
+}
+
+.btn-pill-white {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -63,24 +118,20 @@ body {
   font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-weight: 800;
   font-size: 0.8125rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.95rem 2rem;
-  border-radius: 2px;
+  padding: 0.75rem 1.65rem;
+  border-radius: 9999px;
   border: 1px solid #FFFFFF;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s ease;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
-.btn-conference-primary:hover {
-  background-color: #0052FF;
-  color: #FFFFFF;
-  border-color: #0052FF;
+.btn-pill-white:hover {
+  background-color: #E2E8F0;
   transform: translateY(-1px);
-  box-shadow: 0 8px 25px rgba(0, 82, 255, 0.4);
 }
 
-.btn-conference-ghost {
+.btn-pill-outline {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -88,93 +139,19 @@ body {
   background-color: transparent;
   color: #FFFFFF;
   font-family: 'Space Grotesk', 'Inter', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.8125rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.95rem 1.85rem;
-  border-radius: 2px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  transition: all 0.22s ease;
+  padding: 0.75rem 1.65rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
   cursor: pointer;
 }
-.btn-conference-ghost:hover {
+.btn-pill-outline:hover {
   border-color: #FFFFFF;
   background-color: rgba(255, 255, 255, 0.08);
-  color: #FFFFFF;
-}
-
-.btn-electric-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background-color: #0052FF;
-  color: #FFFFFF;
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 0.8125rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.875rem 1.75rem;
-  border-radius: 2px;
-  border: 1px solid #0052FF;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(0, 82, 255, 0.25);
-  cursor: pointer;
-}
-.btn-electric-primary:hover {
-  background-color: #0043D6;
-  border-color: #0043D6;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 82, 255, 0.35);
-}
-
-.btn-editorial-dark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background-color: #07111F;
-  color: #FFFFFF;
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 0.8125rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.875rem 1.75rem;
-  border-radius: 2px;
-  border: 1px solid #07111F;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-.btn-editorial-dark:hover {
-  background-color: #0052FF;
-  border-color: #0052FF;
-  transform: translateY(-1px);
-}
-
-.btn-editorial-ghost-light {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background-color: transparent;
-  color: #07111F;
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 0.8125rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.875rem 1.75rem;
-  border-radius: 2px;
-  border: 1px solid rgba(7, 17, 31, 0.2);
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-.btn-editorial-ghost-light:hover {
-  border-color: #07111F;
-  background-color: rgba(7, 17, 31, 0.04);
 }
 
 /* Custom Scrollbar */
@@ -182,12 +159,12 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #070709;
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #0052FF;
+  background: #22C55E;
 }
