@@ -16,10 +16,9 @@ export const RefFooter: React.FC<RefFooterProps> = ({
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           
-          {/* Column 1: Brand (Span 2 on lg) */}
+          {/* Column 1: Brand (Span 2 on lg - No Green Dot) */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E]" />
+            <div className="flex items-center">
               <span className="font-headline font-black text-2xl tracking-tight text-white uppercase">
                 ROBO-KIDO-A-THON
               </span>

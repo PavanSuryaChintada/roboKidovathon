@@ -12,7 +12,7 @@ export const RefHero: React.FC<RefHeroProps> = ({
   onOpenRegister,
   onNavigate,
 }) => {
-  // Target: Västerås City Finals - March 21, 2026
+  // Target: Västerås City Finals - March 21, 2026 (or active countdown)
   const countdown = useCountdown('2026-03-21T09:00:00Z');
 
   const collageItems = [
@@ -88,10 +88,10 @@ export const RefHero: React.FC<RefHeroProps> = ({
   };
 
   return (
-    <section className="relative w-full min-h-[95vh] flex items-center pt-28 pb-16 px-6 sm:px-10 bg-[#070709] text-white overflow-hidden">
+    <section className="relative w-full min-h-[92vh] flex items-center pt-28 pb-16 px-6 sm:px-10 bg-[#070709] text-white overflow-hidden">
       <div className="max-w-[1440px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         
-        {/* ── LEFT COLUMN: ANIMATED HEADLINE, ACTIONS & LIVE COUNTDOWN ── */}
+        {/* ── LEFT COLUMN: HEADLINE, ACTIONS & SLEEK COUNTDOWN TICKER ── */}
         <div className="lg:col-span-5 space-y-6">
           
           <motion.div
@@ -143,60 +143,67 @@ export const RefHero: React.FC<RefHeroProps> = ({
             </motion.button>
           </motion.div>
 
-          {/* ── LIVE TOURNAMENT COUNTDOWN TIMER CARD WITH ANIMATION ── */}
+          {/* ── REDESIGNED SLEEK LIVE TOURNAMENT COUNTDOWN (NO GREEN DOTS, CLEAN TICKER) ── */}
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="pt-4 max-w-md"
+            className="pt-2 max-w-md"
           >
-            <motion.div
-              whileHover={{ borderColor: 'rgba(34, 197, 94, 0.4)' }}
-              className="p-4 sm:p-5 rounded-3xl bg-[#121216] border border-white/15 space-y-3 shadow-xl transition-all"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
-                  <span className="text-[10px] font-mono-code font-bold tracking-widest text-slate-300 uppercase">
-                    FINALS COUNTDOWN
+            <div className="border-t border-white/10 pt-4 space-y-2">
+              <div className="flex items-center justify-between text-[11px] font-mono-code tracking-widest text-slate-400 uppercase">
+                <span>FINALS COUNTDOWN</span>
+                <span className="text-white font-bold">MARCH 21, 2026</span>
+              </div>
+
+              <div className="flex items-center gap-3 sm:gap-5 pt-1">
+                <div className="flex flex-col">
+                  <span className="font-headline font-black text-3xl sm:text-4xl text-white tracking-tight leading-none">
+                    {countdown.days}
+                  </span>
+                  <span className="text-[9px] font-mono-code font-bold tracking-wider text-slate-500 uppercase mt-1">
+                    DAYS
                   </span>
                 </div>
-                <span className="text-[10px] font-mono-code text-[#22C55E] font-bold uppercase">
-                  MARCH 21, 2026
-                </span>
+
+                <span className="font-headline text-2xl text-slate-600 pb-3">:</span>
+
+                <div className="flex flex-col">
+                  <span className="font-headline font-black text-3xl sm:text-4xl text-white tracking-tight leading-none">
+                    {countdown.hours}
+                  </span>
+                  <span className="text-[9px] font-mono-code font-bold tracking-wider text-slate-500 uppercase mt-1">
+                    HOURS
+                  </span>
+                </div>
+
+                <span className="font-headline text-2xl text-slate-600 pb-3">:</span>
+
+                <div className="flex flex-col">
+                  <span className="font-headline font-black text-3xl sm:text-4xl text-white tracking-tight leading-none">
+                    {countdown.minutes}
+                  </span>
+                  <span className="text-[9px] font-mono-code font-bold tracking-wider text-slate-500 uppercase mt-1">
+                    MINS
+                  </span>
+                </div>
+
+                <span className="font-headline text-2xl text-slate-600 pb-3">:</span>
+
+                <div className="flex flex-col">
+                  <span className="font-headline font-black text-3xl sm:text-4xl text-[#22C55E] tracking-tight leading-none">
+                    {countdown.seconds}
+                  </span>
+                  <span className="text-[9px] font-mono-code font-bold tracking-wider text-slate-500 uppercase mt-1">
+                    SECS
+                  </span>
+                </div>
               </div>
 
-              {/* 4 Digit Boxes */}
-              <div className="grid grid-cols-4 gap-2 pt-1">
-                {[
-                  { value: countdown.days, label: 'DAYS' },
-                  { value: countdown.hours, label: 'HOURS' },
-                  { value: countdown.minutes, label: 'MINUTES' },
-                  { value: countdown.seconds, label: 'SECONDS', highlight: true },
-                ].map((unit, i) => (
-                  <motion.div
-                    key={i}
-                    whileHover={{ scale: 1.05 }}
-                    className="p-2.5 sm:p-3 rounded-2xl bg-[#070709] border border-white/10 text-center space-y-0.5 transition-all"
-                  >
-                    <span
-                      className={`font-headline font-black text-2xl sm:text-3xl leading-none block ${
-                        unit.highlight ? 'text-[#22C55E]' : 'text-white'
-                      }`}
-                    >
-                      {unit.value}
-                    </span>
-                    <span className="text-[9px] font-mono-code font-bold tracking-wider text-slate-400 block uppercase">
-                      {unit.label}
-                    </span>
-                  </motion.div>
-                ))}
+              <div className="text-[10px] font-mono-code text-slate-500 uppercase tracking-wider pt-1">
+                ABB ARENA · VÄSTERÅS · LIVE MATCH HEATS
               </div>
-
-              <div className="text-[10px] font-mono-code text-slate-400 text-center uppercase tracking-wider pt-1">
-                ABB ARENA · VÄSTERÅS · LIVE MATCH ARENAS
-              </div>
-            </motion.div>
+            </div>
           </motion.div>
 
         </div>

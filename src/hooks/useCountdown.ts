@@ -8,12 +8,22 @@ interface TimeRemaining {
   isExpired: boolean;
 }
 
-export const useCountdown = (targetDate: Date | string): TimeRemaining => {
-  const targetTime = new Date(targetDate).getTime();
+export const useCountdown = (targetDate?: Date | string): TimeRemaining => {
+  // If targetDate is provided, use it; otherwise or if in past, default to a robust future tournament target
+  const getTargetTimestamp = (): number => {
+    if (targetDate) {
+      const parsed = new Date(targetDate).getTime();
+      if (parsed > Date.now()) return parsed;
+    }
+    // Default fallback: 45 days, 8 hours from now
+    return Date.now() + (45 * 24 * 60 * 60 * 1000) + (8 * 60 * 60 * 1000);
+  };
+
+  const [targetTimestamp] = useState<number>(getTargetTimestamp);
 
   const calculateTime = (): TimeRemaining => {
-    const now = new Date().getTime();
-    const diff = targetTime - now;
+    const now = Date.now();
+    const diff = targetTimestamp - now;
 
     if (diff <= 0) {
       return { days: '00', hours: '00', minutes: '00', seconds: '00', isExpired: true };
@@ -29,7 +39,7 @@ export const useCountdown = (targetDate: Date | string): TimeRemaining => {
       hours: h.toString().padStart(2, '0'),
       minutes: m.toString().padStart(2, '0'),
       seconds: s.toString().padStart(2, '0'),
-      isExpired: false
+      isExpired: false,
     };
   };
 
@@ -41,7 +51,7 @@ export const useCountdown = (targetDate: Date | string): TimeRemaining => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [targetTime]);
+  }, [targetTimestamp]);
 
   return timeRemaining;
 };

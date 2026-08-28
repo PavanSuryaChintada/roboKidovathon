@@ -60,12 +60,11 @@ export const Navbar: React.FC<NavbarProps> = ({
     >
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 flex items-center justify-between gap-6">
         
-        {/* Brand Mark (Left) */}
+        {/* Brand Mark (Left - No Green Dot) */}
         <button
           onClick={() => handleLinkClick('home')}
-          className="text-left group focus:outline-none flex items-center gap-2.5"
+          className="text-left group focus:outline-none flex items-center"
         >
-          <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E]" />
           <span className="font-headline font-bold text-lg sm:text-xl tracking-tight text-white uppercase group-hover:text-slate-200 transition-colors">
             ROBO-KIDO-A-THON
           </span>
