@@ -96,8 +96,8 @@ export const RefHero: React.FC<RefHeroProps> = ({
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             <h1
-              className="font-headline font-black uppercase text-white leading-[0.88] tracking-tight"
-              style={{ fontSize: 'clamp(3.8rem, 8vw, 6.8rem)' }}
+              className="font-headline font-black uppercase text-white leading-[1.02] tracking-tight"
+              style={{ fontSize: 'clamp(3.6rem, 7.5vw, 6.4rem)' }}
             >
               ROBOTICS<br />
               REDEFINED
@@ -108,7 +108,7 @@ export const RefHero: React.FC<RefHeroProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed max-w-md"
+            className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed max-w-md pt-1"
           >
             Our on-site robotics tournament transforms young students into confident engineers, hardware creators, and tournament champions.
           </motion.p>

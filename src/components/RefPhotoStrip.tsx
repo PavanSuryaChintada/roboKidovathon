@@ -45,7 +45,7 @@ export const RefPhotoStrip: React.FC = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2
-            className="font-headline font-black uppercase tracking-tight leading-[0.88]"
+            className="font-headline font-black uppercase tracking-tight leading-[1.02]"
             style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}
           >
             <span className="text-stroke block">TOURNAMENT</span>

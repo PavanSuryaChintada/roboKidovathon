@@ -39,7 +39,7 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
           </span>
           
           <h1
-            className="font-headline font-black uppercase tracking-tight leading-[0.88]"
+            className="font-headline font-black uppercase tracking-tight leading-[1.02]"
             style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}
           >
             <span className="text-stroke block">TOURNAMENT</span>

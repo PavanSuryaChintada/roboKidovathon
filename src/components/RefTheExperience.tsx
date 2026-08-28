@@ -42,7 +42,7 @@ export const RefTheExperience: React.FC<RefTheExperienceProps> = ({
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2
-            className="font-headline font-black uppercase tracking-tight leading-[0.88]"
+            className="font-headline font-black uppercase tracking-tight leading-[1.02]"
             style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}
           >
             <span className="text-stroke block">THE</span>
@@ -106,13 +106,13 @@ export const RefTheExperience: React.FC<RefTheExperienceProps> = ({
           {/* Right Coral Content Box */}
           <div className="lg:col-span-6 p-8 sm:p-14 flex flex-col justify-center space-y-4 text-center lg:text-left">
             <h3
-              className="font-headline font-black uppercase text-black leading-[0.9] tracking-tight"
+              className="font-headline font-black uppercase text-black leading-[1.02] tracking-tight"
               style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}
             >
               ANY ROBOT,<br />
               ANY ARENA.
             </h3>
-            <p className="text-xs sm:text-sm text-black/80 font-medium leading-relaxed max-w-md">
+            <p className="text-xs sm:text-sm text-black/80 font-medium leading-relaxed max-w-md pt-1">
               From high-velocity differential ball ejectors to 5-level autonomous cup stacking cranes. Standardized match arenas, electronic buzzer systems, and certified referee scoring.
             </p>
           </div>
