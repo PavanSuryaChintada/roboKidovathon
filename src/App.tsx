@@ -101,6 +101,7 @@ export function App() {
         {currentRoute === 'challenges' && (
           <ChallengesPage
             onOpenRegister={() => setIsRegisterOpen(true)}
+            onOpenDeckModal={() => setIsDeckOpen(true)}
             onNavigateHome={() => handleNavigate('home')}
           />
         )}

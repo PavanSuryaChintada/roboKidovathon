@@ -86,7 +86,7 @@ export const RefHero: React.FC<RefHeroProps> = ({
 
       </div>
 
-      {/* ── BOTTOM METRICS BAR & CTA (Matching Slush Layout) ── */}
+      {/* ── BOTTOM METRICS BAR & CTA (Industrial Cyber Yellow Theme) ── */}
       <div className="max-w-[1360px] mx-auto w-full flex flex-col md:flex-row md:items-end justify-between gap-8 relative z-10 border-t border-white/[0.08] pt-6">
         
         {/* Left Side: Stats Row */}
@@ -103,13 +103,13 @@ export const RefHero: React.FC<RefHeroProps> = ({
           ))}
         </div>
 
-        {/* Right Side: Slush-Style Action Buttons */}
+        {/* Right Side: Cyber Yellow Action Buttons */}
         <div className="flex flex-wrap items-center gap-3">
           <motion.button
             whileHover={{ scale: 1.03, y: -1 }}
             whileTap={{ scale: 0.98 }}
             onClick={onOpenRegister}
-            className="px-5 py-2.5 rounded-lg bg-[#193B28] hover:bg-[#235338] text-[#4ADE80] border border-[#22C55E]/40 font-syne font-bold text-xs sm:text-xs tracking-wider uppercase transition-all shadow-lg flex items-center gap-2"
+            className="px-6 py-3 rounded-lg bg-[#FACC15] hover:bg-[#FDE047] text-black font-syne font-black text-xs sm:text-xs tracking-wider uppercase transition-all shadow-xl flex items-center gap-2"
           >
             <span>REGISTER COHORT NOW</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -119,7 +119,7 @@ export const RefHero: React.FC<RefHeroProps> = ({
             whileHover={{ scale: 1.03, y: -1 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => onNavigate('for-schools')}
-            className="px-4 py-2.5 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/15 font-syne font-semibold text-xs sm:text-xs tracking-wider uppercase transition-all"
+            className="px-5 py-3 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/15 font-syne font-semibold text-xs sm:text-xs tracking-wider uppercase transition-all"
           >
             <span>FOR SCHOOLS</span>
           </motion.button>

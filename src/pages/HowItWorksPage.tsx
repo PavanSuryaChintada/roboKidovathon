@@ -1,16 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ROADMAP_STEPS } from '../data/roboData';
 import { ArrowLeft, ArrowRight, Calendar } from 'lucide-react';
+import { ROADMAP_STEPS, RoadmapStep } from '../data/roboData';
 
 interface HowItWorksPageProps {
-  onOpenRegister: () => void;
   onNavigateHome: () => void;
+  onOpenRegister: () => void;
 }
 
 export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
-  onOpenRegister,
   onNavigateHome,
+  onOpenRegister,
 }) => {
   return (
     <div className="w-full min-h-screen bg-[#070709] text-white pt-28 pb-24 px-6 sm:px-10 select-none">
@@ -21,7 +21,7 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           onClick={onNavigateHome}
-          className="inline-flex items-center gap-2 text-xs font-mono-code font-bold tracking-wider text-[#22C55E] uppercase hover:underline"
+          className="inline-flex items-center gap-2 text-xs font-mono-code font-bold tracking-wider text-[#FACC15] uppercase hover:underline"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>BACK TO HOME</span>
@@ -34,7 +34,7 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="border-b border-white/10 pb-12"
         >
-          <span className="text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#22C55E] uppercase block mb-3">
+          <span className="text-[10px] font-mono-code font-medium tracking-[0.2em] text-slate-400 uppercase block mb-3">
             METHODOLOGY & SYLLABUS // VÄSTERÅS 2026
           </span>
           
@@ -51,20 +51,20 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
           </p>
         </motion.div>
 
-        {/* ── 5 STAGE ROADMAP WITH MOTION ── */}
+        {/* ── 5-STAGE PROCESS CARDS ── */}
         <div className="space-y-6">
-          {ROADMAP_STEPS.map((step, idx) => (
+          {ROADMAP_STEPS.map((step: RoadmapStep, idx: number) => (
             <motion.div
               key={step.stepNumber}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -4, borderColor: 'rgba(34, 197, 94, 0.3)' }}
+              whileHover={{ y: -4, borderColor: 'rgba(250, 204, 21, 0.4)' }}
               className="p-8 sm:p-10 rounded-3xl border border-white/10 bg-[#121216] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center transition-all shadow-xl"
             >
               <div className="lg:col-span-3 space-y-1">
-                <span className="font-headline font-black text-6xl text-[#22C55E] leading-none block">
+                <span className="font-headline font-black text-6xl text-[#FACC15] leading-none block">
                   {step.stepNumber}
                 </span>
                 <span className="text-[10px] font-mono-code font-bold text-slate-400 uppercase tracking-widest block">
@@ -82,7 +82,7 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
               </div>
 
               <div className="lg:col-span-3 flex justify-start lg:justify-end">
-                <span className="text-[10px] font-mono-code font-bold text-[#22C55E] bg-[#22C55E]/10 border border-[#22C55E]/20 px-4 py-2 rounded-full">
+                <span className="text-[10px] font-mono-code font-bold text-black bg-[#FACC15] px-4 py-2 rounded-full font-black">
                   VERIFIED STAGE
                 </span>
               </div>
@@ -99,7 +99,7 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
           className="rounded-3xl p-8 sm:p-12 bg-gradient-to-r from-[#1E293B] to-[#0F172A] border border-white/15 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl"
         >
           <div className="space-y-2">
-            <div className="flex items-center gap-2 text-xs font-mono-code text-[#22C55E]">
+            <div className="flex items-center gap-2 text-xs font-mono-code text-[#FACC15]">
               <Calendar className="w-4 h-4" />
               <span>WORKSHOPS RUN IN FEBRUARY 2026</span>
             </div>
@@ -113,9 +113,9 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
 
           <button
             onClick={onOpenRegister}
-            className="btn-pill-lime text-xs font-bold py-4 px-8 whitespace-nowrap shadow-xl"
+            className="btn-pill-lime py-4 px-8 text-xs font-black shrink-0 flex items-center gap-2 text-black"
           >
-            <span>REGISTER COHORT</span>
+            <span>START REGISTRATION</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </motion.div>

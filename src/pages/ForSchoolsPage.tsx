@@ -1,17 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Download, DollarSign, Layers, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, DollarSign, Layers, CheckCircle2, ShieldCheck, Download, ArrowRight } from 'lucide-react';
 
 interface ForSchoolsPageProps {
+  onNavigateHome: () => void;
   onOpenRegister: () => void;
   onOpenDeckModal: () => void;
-  onNavigateHome: () => void;
 }
 
 export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
+  onNavigateHome,
   onOpenRegister,
   onOpenDeckModal,
-  onNavigateHome,
 }) => {
   return (
     <div className="w-full min-h-screen bg-[#070709] text-white pt-28 pb-24 px-6 sm:px-10 select-none">
@@ -22,7 +22,7 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           onClick={onNavigateHome}
-          className="inline-flex items-center gap-2 text-xs font-mono-code font-bold tracking-wider text-[#22C55E] uppercase hover:underline"
+          className="inline-flex items-center gap-2 text-xs font-mono-code font-bold tracking-wider text-[#FACC15] uppercase hover:underline"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>BACK TO HOME</span>
@@ -35,8 +35,8 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="border-b border-white/10 pb-12"
         >
-          <span className="text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#22C55E] uppercase block mb-3">
-            PRINCIPALS & EDUCATORS PORTAL // VÄSTERÅS 2026
+          <span className="text-[10px] font-mono-code font-medium tracking-[0.2em] text-slate-400 uppercase block mb-3">
+            PRINCIPALS & EDUCATORS // VÄSTERÅS 2026
           </span>
           
           <h1
@@ -63,7 +63,7 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
             transition={{ duration: 0.6 }}
             className="p-8 rounded-3xl bg-[#121216] border border-white/10 space-y-4 shadow-xl"
           >
-            <div className="w-12 h-12 rounded-2xl bg-[#22C55E]/10 border border-[#22C55E]/20 flex items-center justify-center text-[#22C55E]">
+            <div className="w-12 h-12 rounded-2xl bg-[#FACC15]/15 border border-[#FACC15]/30 flex items-center justify-center text-[#FACC15]">
               <DollarSign className="w-6 h-6" />
             </div>
             <h3 className="font-headline font-bold text-2xl text-white uppercase">
@@ -82,7 +82,7 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
             transition={{ duration: 0.6, delay: 0.1 }}
             className="p-8 rounded-3xl bg-[#121216] border border-white/10 space-y-4 shadow-xl"
           >
-            <div className="w-12 h-12 rounded-2xl bg-[#0052FF]/10 border border-[#0052FF]/20 flex items-center justify-center text-[#0052FF]">
+            <div className="w-12 h-12 rounded-2xl bg-[#FACC15]/15 border border-[#FACC15]/30 flex items-center justify-center text-[#FACC15]">
               <Layers className="w-6 h-6" />
             </div>
             <h3 className="font-headline font-bold text-2xl text-white uppercase">
@@ -101,7 +101,7 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
             transition={{ duration: 0.6, delay: 0.2 }}
             className="p-8 rounded-3xl bg-[#121216] border border-white/10 space-y-4 shadow-xl"
           >
-            <div className="w-12 h-12 rounded-2xl bg-[#FF3366]/10 border border-[#FF3366]/20 flex items-center justify-center text-[#FF3366]">
+            <div className="w-12 h-12 rounded-2xl bg-[#FACC15]/15 border border-[#FACC15]/30 flex items-center justify-center text-[#FACC15]">
               <CheckCircle2 className="w-6 h-6" />
             </div>
             <h3 className="font-headline font-bold text-2xl text-white uppercase">
@@ -122,7 +122,7 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
           transition={{ duration: 0.7 }}
           className="p-8 sm:p-12 rounded-3xl bg-[#121216] border border-white/10 space-y-6"
         >
-          <div className="flex items-center gap-3 text-[#22C55E]">
+          <div className="flex items-center gap-3 text-[#FACC15]">
             <ShieldCheck className="w-6 h-6" />
             <span className="font-headline font-bold text-xl uppercase tracking-wider text-white">
               CERTIFIED SAFETY & COMPLIANCE
@@ -145,7 +145,7 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#22C55E] to-[#0052FF] text-black grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-2xl"
+          className="p-8 sm:p-12 rounded-3xl bg-[#FACC15] text-black grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-2xl"
         >
           <div className="lg:col-span-8 space-y-2">
             <span className="text-[10px] font-mono-code font-bold uppercase tracking-widest bg-black/15 px-3 py-1 rounded-full inline-block">
@@ -164,15 +164,16 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
               onClick={onOpenRegister}
               className="btn-pill-white text-xs font-bold py-3.5 px-6 shadow-xl"
             >
-              <span>REGISTER SCHOOL COHORT</span>
+              <span>REGISTER SCHOOL NOW</span>
               <ArrowRight className="w-4 h-4" />
             </button>
+
             <button
               onClick={onOpenDeckModal}
-              className="btn-pill-outline border-black/40 text-black hover:bg-black/10 text-xs font-bold py-3.5 px-6"
+              className="px-6 py-3.5 rounded-full border border-black/30 hover:border-black text-xs font-mono-code text-black uppercase tracking-wider transition-colors flex items-center justify-center gap-2 font-bold"
             >
               <Download className="w-4 h-4" />
-              <span>DOWNLOAD EVENT PROSPECTUS</span>
+              <span>DOWNLOAD DECK (PDF)</span>
             </button>
           </div>
         </motion.div>

@@ -18,7 +18,7 @@ export const RefSkillPills: React.FC<RefSkillPillsProps> = ({
     { label: 'Autonomous Firmware', bg: 'bg-[#FB7185] text-black', border: 'border-[#FB7185]' },
     { label: 'Differential Drive', bg: 'bg-[#0052FF] text-white', border: 'border-[#0052FF]' },
     { label: 'Tactical Servo Arm', bg: 'bg-[#F97316] text-black', border: 'border-[#F97316]' },
-    { label: 'Live Arena Heats', bg: 'bg-[#22C55E] text-black', border: 'border-[#22C55E]' },
+    { label: 'Live Arena Heats', bg: 'bg-[#0052FF] text-white', border: 'border-[#0052FF]' },
   ];
 
   const containerVariants: Variants = {
@@ -78,7 +78,7 @@ export const RefSkillPills: React.FC<RefSkillPillsProps> = ({
           </div>
         </motion.div>
 
-        {/* ── RIGHT COLUMN: VIBRANT NEON CAPSULE PILL CLOUD WITH STAGGER ── */}
+        {/* ── RIGHT COLUMN: VIBRANT CAPSULE PILL CLOUD ── */}
         <motion.div
           variants={containerVariants}
           initial="hidden"

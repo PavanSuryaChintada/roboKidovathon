@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 
 interface RefTrendingCardsProps {
   onNavigate: (route: string) => void;
-  onOpenRegister?: () => void;
+  onOpenRegister: () => void;
 }
 
 export const RefTrendingCards: React.FC<RefTrendingCardsProps> = ({
@@ -12,30 +12,30 @@ export const RefTrendingCards: React.FC<RefTrendingCardsProps> = ({
 }) => {
   const articles = [
     {
-      category: 'EVENT ANNOUNCEMENT',
-      date: 'MARCH 2026',
-      title: 'ABB Robotics Venue Confirmed for Västerås City Finals',
       image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80',
-      action: 'challenges',
+      category: 'ARENA TECH',
+      date: 'MARCH 2026',
+      title: 'MicroPython vs C++: Analyzing Real-Time PWM Firmware Optimization in Live Duels',
+      link: 'challenges',
     },
     {
-      category: 'PEDAGOGY & SYLLABUS',
-      date: 'FEBRUARY 2026',
-      title: 'How On-Site Workshops Map into Swedish Curriculum Lgr22',
       image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80',
-      action: 'how-it-works',
+      category: 'PEDAGOGY',
+      date: 'LGR22 ALIGNED',
+      title: 'How Turnkey Robotics Hardware Fulfills Swedish National Curriculum Standards in 120 Minutes',
+      link: 'for-schools',
     },
     {
-      category: 'CHAMPIONSHIP BERTH',
-      date: 'APRIL 2026',
-      title: 'Stockholm Grand Finale: National Berth for Top Teams',
-      image: 'https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=600&q=80',
-      action: 'for-schools',
+      image: 'https://images.unsplash.com/photo-1551103782-8ab07afd45c1?auto=format&fit=crop&w=600&q=80',
+      category: 'CITY FINALS',
+      date: 'ABB ARENA',
+      title: 'Västerås Regional Championship: 15 Municipal Schools Ready for Mainstage Finals',
+      link: 'about',
     },
   ];
 
   return (
-    <section id="prizes-section" className="w-full bg-[#070709] text-white py-24 px-6 sm:px-10 border-t border-white/10 overflow-hidden">
+    <section className="w-full bg-[#070709] text-white py-24 px-6 sm:px-10 border-t border-white/10 overflow-hidden">
       <div className="max-w-[1440px] mx-auto space-y-12">
         
         {/* ── SECTION TITLE: WHAT'S (Solid) TRENDING (Outline) ── */}
@@ -63,7 +63,7 @@ export const RefTrendingCards: React.FC<RefTrendingCardsProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -8, scale: 1.02, borderColor: 'rgba(34, 197, 94, 0.4)' }}
+              whileHover={{ y: -8, scale: 1.02 }}
               className="rounded-3xl p-4 bg-[#121216] border border-white/10 space-y-4 flex flex-col justify-between hover:border-white/25 transition-all group cursor-pointer shadow-xl"
             >
               <div className="space-y-4">
@@ -73,7 +73,7 @@ export const RefTrendingCards: React.FC<RefTrendingCardsProps> = ({
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-[9px] font-mono-code font-bold text-[#22C55E] uppercase tracking-wider">
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/80 text-[10px] font-mono-code font-bold text-[#FACC15] uppercase tracking-wider">
                     {item.category}
                   </div>
                 </div>
@@ -82,22 +82,20 @@ export const RefTrendingCards: React.FC<RefTrendingCardsProps> = ({
                   <span className="text-[10px] font-mono-code text-slate-400 uppercase">
                     {item.date}
                   </span>
-                  <h3 className="font-headline font-bold text-xl uppercase tracking-wide text-white group-hover:text-[#22C55E] transition-colors line-clamp-2">
+                  <h3 className="font-headline font-bold text-xl uppercase tracking-wide text-white group-hover:text-[#FACC15] transition-colors line-clamp-2">
                     {item.title}
                   </h3>
                 </div>
               </div>
 
-              <div className="px-2 pt-2">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => onNavigate(item.action)}
-                  className="btn-pill-white text-xs font-bold py-2.5 px-6 w-full flex items-center justify-center gap-2 shadow-lg"
+              <div className="px-2 pt-4 border-t border-white/10 flex items-center justify-between">
+                <span
+                  onClick={() => onNavigate(item.link)}
+                  className="font-headline font-bold text-xs uppercase tracking-wider text-slate-300 group-hover:text-white flex items-center gap-1 transition-colors"
                 >
-                  <span>READ MORE</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </motion.button>
+                  <span>READ STORY</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </span>
               </div>
             </motion.div>
           ))}

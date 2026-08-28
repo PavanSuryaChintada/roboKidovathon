@@ -7,13 +7,12 @@
 :root {
   --bg-black: #070709;
   --bg-card: #121216;
-  --lime: #22C55E;
-  --lime-bright: #4ADE80;
+  --yellow: #FACC15;
+  --yellow-bright: #FDE047;
+  --yellow-deep: #EAB308;
   --coral: #FF3366;
-  --coral-light: #FB7185;
   --blue: #0052FF;
   --cyan: #06B6D4;
-  --yellow: #FACC15;
   --purple: #A855F7;
   --white: #FFFFFF;
 }
@@ -42,11 +41,11 @@ body {
 }
 
 ::selection {
-  background: #22C55E;
+  background: #FACC15;
   color: #000000;
 }
 
-/* Typography Helpers Matching Reference with Breathable Line Height */
+/* Typography Helpers */
 .font-headline {
   font-family: 'Anton', 'Bebas Neue', 'Space Grotesk', sans-serif;
   letter-spacing: 0.02em;
@@ -90,13 +89,14 @@ body {
   color: transparent;
 }
 
-/* Capsule Pill Buttons Matching Reference */
-.btn-pill-lime {
+/* Capsule Pill Buttons - Industrial Cyber Yellow Palette */
+.btn-pill-lime,
+.btn-pill-yellow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: #22C55E;
+  background-color: #FACC15;
   color: #000000;
   font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-weight: 800;
@@ -105,14 +105,15 @@ body {
   text-transform: uppercase;
   padding: 0.75rem 1.65rem;
   border-radius: 9999px;
-  border: 1px solid #22C55E;
+  border: 1px solid #FACC15;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 
-.btn-pill-lime:hover {
-  background-color: #4ADE80;
-  border-color: #4ADE80;
+.btn-pill-lime:hover,
+.btn-pill-yellow:hover {
+  background-color: #FDE047;
+  border-color: #FDE047;
   transform: translateY(-1px);
 }
 
@@ -179,5 +180,5 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #22C55E;
+  background: #FACC15;
 }

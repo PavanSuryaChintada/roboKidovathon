@@ -39,15 +39,6 @@ export const RefManifesto: React.FC<RefManifestoProps> = ({ onNavigate }) => {
         
         {/* ── MANIFESTO HEADLINE & INTRO ── */}
         <div className="text-center max-w-3xl mx-auto space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.06] border border-white/10 text-[10px] font-mono-code font-bold tracking-[0.25em] text-slate-400 uppercase"
-          >
-            <span>LEAGUE MANIFESTO // SWEDEN 2026</span>
-          </motion.div>
 
           <motion.h2
             initial={{ opacity: 0, y: 30 }}

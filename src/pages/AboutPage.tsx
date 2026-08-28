@@ -20,7 +20,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           onClick={onNavigateHome}
-          className="inline-flex items-center gap-2 text-xs font-mono-code font-bold tracking-wider text-[#22C55E] uppercase hover:underline"
+          className="inline-flex items-center gap-2 text-xs font-mono-code font-bold tracking-wider text-[#FACC15] uppercase hover:underline"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>BACK TO HOME</span>
@@ -33,8 +33,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="border-b border-white/10 pb-12"
         >
-          <span className="text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#22C55E] uppercase block mb-3">
-            LEAGUE ORIGINS & PHILOSOPHY // SWEDEN 2026
+          <span className="text-[10px] font-mono-code font-medium tracking-[0.2em] text-slate-400 uppercase block mb-3">
+            LEAGUE ORIGINS & MISSION // 2026
           </span>
           
           <h1
@@ -75,13 +75,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <div className="p-4 rounded-2xl bg-[#121216] border border-white/10 flex items-center gap-3">
-                <Award className="w-5 h-5 text-[#22C55E] shrink-0" />
+                <Award className="w-5 h-5 text-[#FACC15] shrink-0" />
                 <span className="text-xs font-mono-code font-bold text-white uppercase">
                   Gender Parity Focus
                 </span>
               </div>
               <div className="p-4 rounded-2xl bg-[#121216] border border-white/10 flex items-center gap-3">
-                <ShieldCheck className="w-5 h-5 text-[#0052FF] shrink-0" />
+                <ShieldCheck className="w-5 h-5 text-[#FACC15] shrink-0" />
                 <span className="text-xs font-mono-code font-bold text-white uppercase">
                   Swedish Lgr22 Aligned
                 </span>
@@ -91,7 +91,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <div className="pt-4">
               <button
                 onClick={onOpenRegister}
-                className="btn-pill-lime text-xs font-bold py-3.5 px-8 flex items-center gap-2 shadow-xl"
+                className="btn-pill-lime text-xs font-black py-3.5 px-8 flex items-center gap-2 shadow-xl text-black"
               >
                 <span>JOIN AS A SCHOOL OR STUDENT</span>
                 <ArrowRight className="w-4 h-4" />
@@ -115,7 +115,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
-                <span className="text-[10px] font-mono-code font-bold text-[#22C55E] uppercase block mb-1">
+                <span className="text-[10px] font-mono-code font-bold text-[#FACC15] uppercase block mb-1">
                   VÄSTERÅS PILOT 2026
                 </span>
                 <span className="font-headline font-bold text-lg text-white uppercase">
@@ -126,7 +126,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
             <div className="p-4 rounded-2xl bg-[#121216] border border-white/10 flex items-center justify-between text-xs font-mono-code text-slate-400">
               <span className="flex items-center gap-1.5">
-                <MapPin className="w-4 h-4 text-[#22C55E]" />
+                <MapPin className="w-4 h-4 text-[#FACC15]" />
                 <span>ABB ARENA, VÄSTERÅS</span>
               </span>
               <span>21 MARCH 2026</span>

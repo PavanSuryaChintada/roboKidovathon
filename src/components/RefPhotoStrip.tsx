@@ -51,9 +51,6 @@ export const RefPhotoStrip: React.FC = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="space-y-2"
           >
-            <span className="text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#22C55E] uppercase block">
-              LIVE MATCH ARENAS // VÄSTERÅS 2026
-            </span>
             <h2
               className="font-headline font-black uppercase tracking-tight leading-[1.02]"
               style={{ fontSize: 'clamp(3.2rem, 7vw, 6.5rem)' }}
@@ -79,7 +76,7 @@ export const RefPhotoStrip: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -6, borderColor: 'rgba(255, 255, 255, 0.3)' }}
+                whileHover={{ y: -6, borderColor: 'rgba(250, 204, 21, 0.4)' }}
                 className={`relative overflow-hidden rounded-3xl border border-white/15 bg-[#121216] shadow-2xl group cursor-pointer min-h-[340px] sm:min-h-[400px] flex flex-col justify-end p-6 sm:p-8 ${item.span}`}
               >
                 {/* Background Image */}
@@ -94,12 +91,12 @@ export const RefPhotoStrip: React.FC = () => {
 
                 {/* Content */}
                 <div className="relative space-y-3">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15 text-[9px] font-mono-code font-bold text-[#22C55E] uppercase tracking-wider">
-                    <Icon className="w-3.5 h-3.5" />
+                  <div className="flex items-center gap-2 text-[10px] font-mono-code font-bold text-slate-300 uppercase tracking-wider">
+                    <Icon className="w-3.5 h-3.5 text-[#FACC15]" />
                     <span>{item.tag}</span>
                   </div>
 
-                  <h3 className="font-headline font-bold text-2xl sm:text-3xl text-white uppercase tracking-wide group-hover:text-[#22C55E] transition-colors leading-tight">
+                  <h3 className="font-headline font-bold text-2xl sm:text-3xl text-white uppercase tracking-wide group-hover:text-[#FACC15] transition-colors leading-tight">
                     {item.title}
                   </h3>
 

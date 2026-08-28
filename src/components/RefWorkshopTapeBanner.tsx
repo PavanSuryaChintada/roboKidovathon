@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Calendar, ShieldCheck, MapPin } from 'lucide-react';
+import { ArrowRight, Download, ShieldCheck, MapPin } from 'lucide-react';
 
 interface RefWorkshopTapeBannerProps {
   onOpenRegister?: () => void;
@@ -24,12 +24,6 @@ export const RefWorkshopTapeBanner: React.FC<RefWorkshopTapeBannerProps> = ({
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="relative rounded-3xl overflow-hidden p-8 sm:p-14 md:p-16 bg-[#121216] border border-white/15 shadow-2xl text-center flex flex-col items-center justify-center space-y-8"
         >
-          {/* Top Tag */}
-          <div className="relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-xs font-mono-code text-slate-300 uppercase tracking-wider">
-            <Calendar className="w-3.5 h-3.5 text-[#22C55E]" />
-            <span>SWEDEN NATIONAL CHAMPIONSHIP 2026</span>
-          </div>
-
           {/* Main Headline */}
           <div className="relative space-y-3 max-w-3xl">
             <h2
@@ -70,14 +64,14 @@ export const RefWorkshopTapeBanner: React.FC<RefWorkshopTapeBannerProps> = ({
           {/* Key Facts Ribbon */}
           <div className="relative pt-6 border-t border-white/10 w-full max-w-3xl flex flex-wrap items-center justify-around gap-4 text-[11px] font-mono-code text-slate-400">
             <span className="flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-[#22C55E]" />
+              <MapPin className="w-3.5 h-3.5 text-[#FACC15]" />
               <span>ABB ARENA, VÄSTERÅS</span>
             </span>
             <span>•</span>
             <span className="text-white font-semibold">100 SEK (+VAT) / STUDENT</span>
             <span>•</span>
             <span className="flex items-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#22C55E]" />
+              <ShieldCheck className="w-3.5 h-3.5 text-[#FACC15]" />
               <span>SWEDISH LGR22 COMPLIANT</span>
             </span>
           </div>

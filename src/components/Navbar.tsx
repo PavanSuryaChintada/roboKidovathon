@@ -66,12 +66,12 @@ export const Navbar: React.FC<NavbarProps> = ({
           onClick={() => handleLinkClick('home')}
           className="text-left group focus:outline-none flex items-center"
         >
-          <span className="font-headline font-bold text-lg sm:text-xl tracking-tight text-white uppercase group-hover:text-[#22C55E] transition-colors duration-200">
+          <span className="font-headline font-bold text-lg sm:text-xl tracking-tight text-white uppercase group-hover:text-[#FACC15] transition-colors duration-200">
             ROBO-KIDO-A-THON
           </span>
         </button>
 
-        {/* Desktop Navigation Links (Center - No Glow) */}
+        {/* Desktop Navigation Links (Center) */}
         <nav className="hidden md:flex items-center gap-1.5 lg:gap-2 p-1 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-md">
           {navLinks.map((item) => {
             const isActive = activeTab === item.id;
@@ -81,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => handleLinkClick(item.id)}
                 className={`relative px-4 py-1.5 rounded-full text-xs font-display font-medium tracking-wide transition-all duration-200 ${
                   isActive
-                    ? 'text-white bg-white/[0.12] font-semibold border border-white/15'
+                    ? 'text-[#FACC15] bg-white/[0.12] font-semibold border border-white/15'
                     : 'text-slate-300 hover:text-white hover:bg-white/[0.08]'
                 }`}
               >
@@ -91,13 +91,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           })}
         </nav>
 
-        {/* Action Button (Right - No Glow) */}
+        {/* Action Button (Right - Cyber Volt Yellow Pill) */}
         <div className="hidden md:flex items-center gap-4">
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             onClick={onOpenRegister}
-            className="btn-pill-lime text-xs font-bold py-2 px-5.5 transition-all duration-200"
+            className="btn-pill-lime text-xs font-black py-2 px-5.5 transition-all duration-200 shadow-md"
           >
             <span>JOIN LEAGUE</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -125,7 +125,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => handleLinkClick(item.id)}
                 className={`py-2.5 px-3 rounded-lg text-left text-sm font-display font-medium transition-all ${
                   activeTab === item.id
-                    ? 'text-white bg-white/[0.08] font-semibold'
+                    ? 'text-[#FACC15] bg-white/[0.08] font-semibold'
                     : 'text-slate-300 hover:text-white hover:bg-white/[0.04]'
                 }`}
               >

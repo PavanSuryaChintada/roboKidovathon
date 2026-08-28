@@ -33,7 +33,7 @@ export const EventDeckModal: React.FC<EventDeckModalProps> = ({ isOpen, onClose 
 
         {!downloaded ? (
           <div>
-            <div className="inline-flex items-center gap-2 text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#22C55E] uppercase mb-2">
+            <div className="inline-flex items-center gap-2 text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#FACC15] uppercase mb-2">
               <FileText className="w-3.5 h-3.5" />
               <span>OFFICIAL PROSPECTUS & GUIDE</span>
             </div>
@@ -55,13 +55,13 @@ export const EventDeckModal: React.FC<EventDeckModalProps> = ({ isOpen, onClose 
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="principal@skola.se"
-                  className="w-full px-4 py-3 rounded-2xl bg-[#0A0A0E] border border-white/15 focus:border-[#22C55E] focus:outline-none text-xs sm:text-sm text-white transition-colors"
+                  className="w-full px-4 py-3 rounded-2xl bg-[#0A0A0E] border border-white/15 focus:border-[#FACC15] focus:outline-none text-xs sm:text-sm text-white transition-colors"
                 />
               </div>
 
               <div className="p-3.5 bg-white/5 border border-white/10 rounded-2xl text-[11px] font-mono-code text-slate-300 space-y-1">
                 <div className="flex items-center gap-1.5 text-white font-bold">
-                  <ShieldCheck className="w-4 h-4 text-[#22C55E]" />
+                  <ShieldCheck className="w-4 h-4 text-[#FACC15]" />
                   <span>DOCUMENT DETAILS</span>
                 </div>
                 <div>Format: PDF (12 Pages) · Version: 2026.1 Official</div>
@@ -70,7 +70,7 @@ export const EventDeckModal: React.FC<EventDeckModalProps> = ({ isOpen, onClose 
 
               <button
                 type="submit"
-                className="w-full btn-pill-lime py-4 text-xs font-headline font-black tracking-[0.14em] flex items-center justify-center gap-2"
+                className="w-full btn-pill-lime py-4 text-xs font-headline font-black tracking-[0.14em] flex items-center justify-center gap-2 shadow-xl text-black"
               >
                 <Download className="w-4 h-4" />
                 <span>ACCESS OFFICIAL PROSPECTUS</span>
@@ -79,7 +79,7 @@ export const EventDeckModal: React.FC<EventDeckModalProps> = ({ isOpen, onClose 
           </div>
         ) : (
           <div className="py-8 text-center flex flex-col items-center">
-            <div className="w-14 h-14 rounded-full bg-[#22C55E]/15 border border-[#22C55E]/40 flex items-center justify-center text-[#22C55E] mb-4">
+            <div className="w-14 h-14 rounded-full bg-[#FACC15]/15 border border-[#FACC15]/40 flex items-center justify-center text-[#FACC15] mb-4">
               <CheckCircle2 className="w-7 h-7" />
             </div>
             <h3 className="font-headline font-black text-xl text-white uppercase tracking-tight">
