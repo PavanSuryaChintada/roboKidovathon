@@ -1,84 +1,115 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ShieldCheck, Cpu, Trophy, Sparkles } from 'lucide-react';
 
 export const RefPhotoStrip: React.FC = () => {
-  const photos = [
+  const highlights = [
     {
-      src: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=400&q=80',
-      title: 'CIRCUIT DESIGN',
+      span: 'lg:col-span-8',
+      image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=85',
+      tag: 'ARENA CALIBRATION // MARCH 2026',
+      icon: Cpu,
+      title: 'Autonomous Speed & Precision Duels',
+      desc: 'Students write MicroPython algorithms to process optical line feedback, adjust PWM motor torque, and navigate complex match courses under electronic laser timing.',
     },
     {
-      src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=400&q=80',
-      title: 'TEAMWORK',
+      span: 'lg:col-span-4',
+      image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=85',
+      tag: 'IN-SCHOOL WORKSHOPS',
+      icon: Sparkles,
+      title: 'Rapid Physical Prototyping',
+      desc: 'Zero plastic toy blocks. Real DC gearmotors, chassis fasteners, and optical sensor arrays assembled directly in classrooms.',
     },
     {
-      src: 'https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=400&q=80',
-      title: 'AUTONOMOUS BOTS',
+      span: 'lg:col-span-5',
+      image: 'https://images.unsplash.com/photo-1551103782-8ab07afd45c1?auto=format&fit=crop&w=800&q=85',
+      tag: 'ABB ARENA VÄSTERÅS',
+      icon: Trophy,
+      title: 'Refereed Tournament Knockouts',
+      desc: 'High-stakes buzzer-timed qualifying heats on standardized match mats under certified referee oversight.',
     },
     {
-      src: 'https://images.unsplash.com/photo-1551103782-8ab07afd45c1?auto=format&fit=crop&w=400&q=80',
-      title: 'ARENA DUELS',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80',
-      title: 'FIRMWARE CODE',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=400&q=80',
-      title: 'SERVO TESTING',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80',
-      title: 'PODIUM VICTORY',
+      span: 'lg:col-span-7',
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=85',
+      tag: 'LGR22 CURRICULUM ALIGNED',
+      icon: ShieldCheck,
+      title: 'Translating Theory into Tournament Trophies',
+      desc: 'Hands-on electrical circuits, gear ratios, and algorithmic control logic directly fulfilling Swedish national STEM criteria.',
     },
   ];
 
   return (
-    <section className="w-full bg-[#070709] text-white py-24 px-6 sm:px-10 border-t border-white/10 overflow-hidden">
+    <section className="w-full bg-[#070709] text-white py-28 px-6 sm:px-10 border-t border-white/10 overflow-hidden">
       <div className="max-w-[1440px] mx-auto space-y-12">
         
-        {/* ── SECTION TITLE: RECENT (Outline) CASE STUDIES (Solid) ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px' }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <h2
-            className="font-headline font-black uppercase tracking-tight leading-[1.02]"
-            style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}
+        {/* ── SECTION HEADER ── */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="space-y-2"
           >
-            <span className="text-stroke block">TOURNAMENT</span>
-            <span className="text-white block">HIGHLIGHTS</span>
-          </h2>
-        </motion.div>
-
-        {/* ── 7-COLUMN TALL NARROW VERTICAL PHOTO STRIP WITH STAGGER ── */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4">
-          {photos.map((photo, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -10, scale: 1.03, borderColor: 'rgba(34, 197, 94, 0.4)' }}
-              className="relative overflow-hidden rounded-2xl h-[340px] sm:h-[400px] border border-white/10 bg-[#121216] group cursor-pointer shadow-xl transition-all"
+            <span className="text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#22C55E] uppercase block">
+              LIVE MATCH ARENAS // VÄSTERÅS 2026
+            </span>
+            <h2
+              className="font-headline font-black uppercase tracking-tight leading-[1.02]"
+              style={{ fontSize: 'clamp(3.2rem, 7vw, 6.5rem)' }}
             >
-              <img
-                src={photo.src}
-                alt={photo.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-75 group-hover:opacity-100"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-              
-              <div className="absolute bottom-4 left-3 right-3 text-center">
-                <span className="font-headline font-bold text-xs uppercase tracking-wider text-white block drop-shadow-md">
-                  {photo.title}
-                </span>
-              </div>
-            </motion.div>
-          ))}
+              <span className="text-stroke block">TOURNAMENT</span>
+              <span className="text-white block">HIGHLIGHTS</span>
+            </h2>
+          </motion.div>
+
+          <p className="text-xs sm:text-sm text-slate-400 font-light max-w-md leading-relaxed pb-2">
+            Capturing the intense engineering collaboration, closed-loop firmware coding, and live referee heats across Swedish schools.
+          </p>
+        </div>
+
+        {/* ── PREMIUM EDITORIAL BENTO SHOWCASE ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {highlights.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -6, borderColor: 'rgba(255, 255, 255, 0.3)' }}
+                className={`relative overflow-hidden rounded-3xl border border-white/15 bg-[#121216] shadow-2xl group cursor-pointer min-h-[340px] sm:min-h-[400px] flex flex-col justify-end p-6 sm:p-8 ${item.span}`}
+              >
+                {/* Background Image */}
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-all duration-700 group-hover:scale-105"
+                />
+                
+                {/* Dark Gradient Overlay for Readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-[#070709]/70 to-transparent pointer-events-none" />
+
+                {/* Content */}
+                <div className="relative space-y-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/15 text-[9px] font-mono-code font-bold text-[#22C55E] uppercase tracking-wider">
+                    <Icon className="w-3.5 h-3.5" />
+                    <span>{item.tag}</span>
+                  </div>
+
+                  <h3 className="font-headline font-bold text-2xl sm:text-3xl text-white uppercase tracking-wide group-hover:text-[#22C55E] transition-colors leading-tight">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-xl">
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
       </div>
