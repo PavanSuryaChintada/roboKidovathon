@@ -48,36 +48,36 @@ export const RefHero: React.FC<RefHeroProps> = ({
           <source src="/uhd_25fps.mp4" type="video/mp4" />
         </video>
 
-        {/* ── REDUCED, LIGHTER BACKGROUND OVERLAY (z-[1]) ── */}
-        <div className="absolute inset-0 bg-black/20 pointer-events-none z-[1]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-transparent to-black/30 pointer-events-none z-[1]" />
+        {/* ── BALANCED SLIGHT BACKGROUND OVERLAY (z-[1]) ── */}
+        <div className="absolute inset-0 bg-black/35 pointer-events-none z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-black/15 to-black/45 pointer-events-none z-[1]" />
       </div>
 
       {/* ── TOP SPACER ── */}
       <div className="relative z-10" />
 
-      {/* ── CENTER SLUSH-STYLE REFINED SMALL EDITORIAL TYPOGRAPHY (z-10) ── */}
-      <div className="max-w-[1100px] mx-auto w-full text-center relative z-10 py-6 space-y-2">
+      {/* ── CENTER SLUSH-STYLE UNBROKEN EDITORIAL TYPOGRAPHY (z-10) ── */}
+      <div className="w-full text-center relative z-10 py-6 flex flex-col items-center justify-center space-y-2.5">
         
-        {/* Line 1: SWEDEN'S MOST [INNOVATION-DRIVEN STUDENT LEAGUE] */}
+        {/* Line 1: SWEDEN'S MOST [INNOVATION-DRIVEN STUDENT LEAGUE] (Unbroken) */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="font-syne uppercase tracking-[0.03em] leading-[1.3] text-center drop-shadow-lg"
-          style={{ fontSize: 'clamp(1.15rem, 2.3vw, 1.85rem)' }}
+          className="font-syne uppercase tracking-[0.03em] leading-none text-center drop-shadow-lg whitespace-normal md:whitespace-nowrap px-4"
+          style={{ fontSize: 'clamp(1rem, 1.95vw, 1.7rem)' }}
         >
           <span className="text-slate-300 font-medium">SWEDEN’S MOST </span>
           <span className="text-white font-extrabold">INNOVATION-DRIVEN STUDENT LEAGUE</span>
         </motion.h1>
 
-        {/* Line 2 (Indented/Stepped Slush Flow): AND [LARGEST SCHOOL ROBOTICS] TOURNAMENT */}
+        {/* Line 2: AND [LARGEST SCHOOL ROBOTICS] TOURNAMENT (Unbroken) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="font-syne uppercase tracking-[0.03em] leading-[1.3] text-center drop-shadow-lg"
-          style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.75rem)' }}
+          className="font-syne uppercase tracking-[0.03em] leading-none text-center drop-shadow-lg whitespace-normal md:whitespace-nowrap px-4"
+          style={{ fontSize: 'clamp(0.95rem, 1.85vw, 1.6rem)' }}
         >
           <span className="text-slate-300 font-medium">AND </span>
           <span className="text-white font-extrabold">LARGEST SCHOOL ROBOTICS </span>
@@ -92,11 +92,11 @@ export const RefHero: React.FC<RefHeroProps> = ({
         {/* Left Side: Stats Row */}
         <div className="flex flex-wrap items-baseline gap-6 sm:gap-10 md:gap-12">
           {stats.map((item) => (
-            <div key={item.label} className="space-y-0.5 drop-shadow-md">
+            <div key={item.label} className="space-y-0.5">
               <span className="font-syne font-extrabold text-base sm:text-xl text-white block tracking-tight">
                 {item.value}
               </span>
-              <span className="font-mono-code text-[10px] font-semibold text-slate-300 uppercase tracking-widest block">
+              <span className="font-mono-code text-[10px] font-semibold text-slate-400 uppercase tracking-widest block">
                 {item.label}
               </span>
             </div>

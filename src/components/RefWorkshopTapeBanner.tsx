@@ -22,14 +22,11 @@ export const RefWorkshopTapeBanner: React.FC<RefWorkshopTapeBannerProps> = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative rounded-3xl overflow-hidden p-8 sm:p-14 md:p-16 bg-gradient-to-b from-[#14141A] to-[#0A0A0E] border border-white/15 shadow-2xl text-center flex flex-col items-center justify-center space-y-8"
+          className="relative rounded-3xl overflow-hidden p-8 sm:p-14 md:p-16 bg-[#121216] border border-white/15 shadow-2xl text-center flex flex-col items-center justify-center space-y-8"
         >
-          {/* Subtle Ambient Background Radial Glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#22C55E]/10 rounded-full blur-3xl pointer-events-none" />
-
           {/* Top Tag */}
-          <div className="relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-xs font-mono-code text-[#22C55E] uppercase tracking-wider">
-            <Calendar className="w-3.5 h-3.5" />
+          <div className="relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-xs font-mono-code text-slate-300 uppercase tracking-wider">
+            <Calendar className="w-3.5 h-3.5 text-[#22C55E]" />
             <span>SWEDEN NATIONAL CHAMPIONSHIP 2026</span>
           </div>
 
@@ -40,7 +37,7 @@ export const RefWorkshopTapeBanner: React.FC<RefWorkshopTapeBannerProps> = ({
               style={{ fontSize: 'clamp(2.6rem, 5.5vw, 4.8rem)' }}
             >
               READY TO FIELD YOUR<br />
-              <span className="text-[#22C55E]">SCHOOL TEAM?</span>
+              <span className="text-white">SCHOOL TEAM?</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-xl mx-auto pt-2">
               Turnkey 2-hour on-site workshops in February 2026. Certified STEM mentors arrive directly at your school with all physical hardware, sensors, and competition arena mats.
@@ -53,7 +50,7 @@ export const RefWorkshopTapeBanner: React.FC<RefWorkshopTapeBannerProps> = ({
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.98 }}
               onClick={onOpenRegister}
-              className="btn-pill-lime text-xs sm:text-sm font-black py-4 px-8 flex items-center gap-2 shadow-2xl"
+              className="btn-pill-lime text-xs sm:text-sm font-black py-4 px-8 flex items-center gap-2 shadow-xl"
             >
               <span>REGISTER SCHOOL COHORT</span>
               <ArrowRight className="w-4 h-4" />
