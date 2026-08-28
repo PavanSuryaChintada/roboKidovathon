@@ -13,14 +13,14 @@ export const RefSlushCountdown: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-[#070709] py-12 sm:py-16 px-4 sm:px-6 border-t border-white/10 select-none">
+    <section className="w-full bg-[#070709] py-10 sm:py-16 px-4 sm:px-6 select-none">
       <div className="max-w-[960px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="w-full bg-[#0E0E12]/90 border border-white/[0.1] rounded-2xl sm:rounded-3xl py-10 sm:py-12 px-6 sm:px-12 text-center shadow-2xl flex flex-col items-center justify-center space-y-5"
+          className="w-full bg-[#0E0E12]/90 border border-white/[0.08] rounded-2xl sm:rounded-3xl py-10 sm:py-12 px-6 sm:px-12 text-center shadow-2xl flex flex-col items-center justify-center space-y-5"
         >
           {/* Top Label */}
           <span className="text-xs sm:text-sm font-sans font-medium text-slate-400 tracking-wide">
