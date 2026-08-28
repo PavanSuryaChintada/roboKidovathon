@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import heroVideo from '../uhd_25fps.mp4';
 
 interface RefHeroProps {
   onOpenRegister: () => void;
@@ -14,25 +15,22 @@ export const RefHero: React.FC<RefHeroProps> = ({
   return (
     <section className="relative w-full h-screen min-h-[640px] flex items-center justify-center text-center px-6 sm:px-10 overflow-hidden select-none">
       
-      {/* ── FULL VIEWPORT (100VW / 100VH) BACKGROUND VIDEO ── */}
-      <div className="absolute inset-0 w-full h-full -z-10 overflow-hidden">
+      {/* ── FULL VIEWPORT (100VW / 100VH) BACKGROUND VIDEO USING uhd_25fps.mp4 ── */}
+      <div className="absolute inset-0 w-full h-full -z-10 overflow-hidden bg-black">
         <video
           autoPlay
           loop
           muted
           playsInline
-          poster="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1920&q=85"
           className="w-full h-full object-cover scale-105"
         >
-          <source
-            src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
-            type="video/mp4"
-          />
+          <source src={heroVideo} type="video/mp4" />
+          <source src="/uhd_25fps.mp4" type="video/mp4" />
         </video>
 
         {/* Cinematic Dark Gradient Scrim */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-black/60 to-black/75 pointer-events-none" />
-        <div className="absolute inset-0 bg-[#070709]/40 backdrop-blur-[2px] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-black/50 to-black/65 pointer-events-none" />
+        <div className="absolute inset-0 bg-[#070709]/30 backdrop-blur-[1px] pointer-events-none" />
       </div>
 
       {/* ── HERO CONTENT: CLEAN TITLE, 1-LINE SUBTITLE & 2 CTAS ── */}
