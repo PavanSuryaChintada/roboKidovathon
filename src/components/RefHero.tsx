@@ -1,4 +1,5 @@
 import React from 'react';
+import { useCountdown } from '../hooks/useCountdown';
 import { ArrowRight } from 'lucide-react';
 
 interface RefHeroProps {
@@ -10,6 +11,9 @@ export const RefHero: React.FC<RefHeroProps> = ({
   onOpenRegister,
   onNavigate,
 }) => {
+  // Target: Västerås City Finals - March 21, 2026
+  const countdown = useCountdown('2026-03-21T09:00:00Z');
+
   const collageItems = [
     {
       type: 'image',
@@ -63,10 +67,10 @@ export const RefHero: React.FC<RefHeroProps> = ({
   ];
 
   return (
-    <section className="relative w-full min-h-[92vh] flex items-center pt-28 pb-16 px-6 sm:px-10 bg-[#070709] text-white overflow-hidden">
+    <section className="relative w-full min-h-[95vh] flex items-center pt-28 pb-16 px-6 sm:px-10 bg-[#070709] text-white overflow-hidden">
       <div className="max-w-[1440px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         
-        {/* ── LEFT COLUMN: HEADLINE & ACTIONS ── */}
+        {/* ── LEFT COLUMN: HEADLINE, ACTIONS & LIVE COUNTDOWN TIMER ── */}
         <div className="lg:col-span-5 space-y-6">
           
           <h1
@@ -96,6 +100,55 @@ export const RefHero: React.FC<RefHeroProps> = ({
             >
               <span>SCHOOLS & EDUCATORS</span>
             </button>
+          </div>
+
+          {/* ── LIVE TOURNAMENT COUNTDOWN TIMER ── */}
+          <div className="pt-4 max-w-md">
+            <div className="p-4 sm:p-5 rounded-3xl bg-[#121216] border border-white/15 space-y-3 shadow-xl">
+              
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
+                  <span className="text-[10px] font-mono-code font-bold tracking-widest text-slate-300 uppercase">
+                    FINALS COUNTDOWN
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono-code text-[#22C55E] font-bold uppercase">
+                  MARCH 21, 2026
+                </span>
+              </div>
+
+              {/* 4 Digit Boxes */}
+              <div className="grid grid-cols-4 gap-2 pt-1">
+                {[
+                  { value: countdown.days, label: 'DAYS' },
+                  { value: countdown.hours, label: 'HOURS' },
+                  { value: countdown.minutes, label: 'MINUTES' },
+                  { value: countdown.seconds, label: 'SECONDS', highlight: true },
+                ].map((unit, i) => (
+                  <div
+                    key={i}
+                    className="p-2.5 sm:p-3 rounded-2xl bg-[#070709] border border-white/10 text-center space-y-0.5"
+                  >
+                    <span
+                      className={`font-headline font-black text-2xl sm:text-3xl leading-none block ${
+                        unit.highlight ? 'text-[#22C55E]' : 'text-white'
+                      }`}
+                    >
+                      {unit.value}
+                    </span>
+                    <span className="text-[9px] font-mono-code font-bold tracking-wider text-slate-400 block uppercase">
+                      {unit.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="text-[10px] font-mono-code text-slate-400 text-center uppercase tracking-wider pt-1">
+                ABB ARENA · VÄSTERÅS · LIVE MATCH ARENAS
+              </div>
+
+            </div>
           </div>
 
         </div>
