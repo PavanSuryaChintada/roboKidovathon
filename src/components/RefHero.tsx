@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import heroVideo from '../uhd_25fps.mp4';
 
 interface RefHeroProps {
   onOpenRegister: () => void;
@@ -41,12 +40,9 @@ export const RefHero: React.FC<RefHeroProps> = ({
           loop
           muted
           playsInline
-          src={heroVideo}
+          src="/uhd_25fps.mp4"
           className="w-full h-full object-cover"
-        >
-          <source src={heroVideo} type="video/mp4" />
-          <source src="/uhd_25fps.mp4" type="video/mp4" />
-        </video>
+        />
 
         {/* ── BALANCED SLIGHT BACKGROUND OVERLAY (z-[1]) ── */}
         <div className="absolute inset-0 bg-black/35 pointer-events-none z-[1]" />
