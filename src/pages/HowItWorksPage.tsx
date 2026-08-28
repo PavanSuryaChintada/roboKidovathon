@@ -12,59 +12,64 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
   onNavigateHome,
 }) => {
   return (
-    <div className="w-full bg-white text-[#07111F] pt-28 pb-20 select-none">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10">
+    <div className="w-full min-h-screen bg-[#070709] text-white pt-28 pb-24 px-6 sm:px-10 select-none">
+      <div className="max-w-[1440px] mx-auto space-y-16">
         
+        {/* Back Button */}
         <button
           onClick={onNavigateHome}
-          className="inline-flex items-center gap-2 text-xs font-mono-code font-bold tracking-wider text-[#0052FF] uppercase mb-8 hover:underline"
+          className="inline-flex items-center gap-2 text-xs font-mono-code font-bold tracking-wider text-[#22C55E] uppercase hover:underline"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>BACK TO HOME</span>
         </button>
 
-        <div className="border-b border-[#07111F]/10 pb-12">
-          <span className="text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#0052FF] uppercase block mb-3">
+        {/* ── HEADER: HOW IT (Outline) WORKS (Solid) ── */}
+        <div className="border-b border-white/10 pb-12">
+          <span className="text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#22C55E] uppercase block mb-3">
             METHODOLOGY & SYLLABUS // VÄSTERÅS 2026
           </span>
+          
           <h1
-            className="font-display font-black uppercase leading-none tracking-tight text-[#07111F]"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)' }}
+            className="font-headline font-black uppercase tracking-tight leading-[0.88]"
+            style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}
           >
-            How It<br />
-            <span className="text-[#0052FF]">Works.</span>
+            <span className="text-stroke block">HOW IT</span>
+            <span className="text-white block">WORKS</span>
           </h1>
-          <p className="mt-4 text-base text-[#4A5568] font-light max-w-2xl leading-relaxed">
+
+          <p className="mt-4 text-sm sm:text-base text-slate-300 font-light max-w-2xl leading-relaxed">
             Our turnkey 5-stage tournament pipeline designed to take students with zero prior engineering background from complete beginners to confident arena competitors.
           </p>
         </div>
 
-        <div className="mt-16 space-y-12">
+        {/* ── 5 STAGE ROADMAP BENTO CARDS ── */}
+        <div className="space-y-6">
           {ROADMAP_STEPS.map((step) => (
             <div
               key={step.stepNumber}
-              className="p-8 sm:p-12 border border-[#07111F]/15 rounded-[2px] bg-[#F8F9FA] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+              className="p-8 sm:p-12 rounded-3xl border border-white/15 bg-[#121216] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center hover:border-white/25 transition-all"
             >
-              <div className="lg:col-span-3">
-                <span className="font-display font-black text-6xl text-[#0052FF] leading-none block">
+              <div className="lg:col-span-3 space-y-1">
+                <span className="font-headline font-black text-6xl text-[#22C55E] leading-none block">
                   {step.stepNumber}
                 </span>
-                <span className="text-[10px] font-mono-code font-bold tracking-widest text-[#4A5568] uppercase mt-1 block">
+                <span className="text-[10px] font-mono-code font-bold tracking-widest text-slate-400 uppercase block">
                   {step.tag}
                 </span>
               </div>
 
               <div className="lg:col-span-6 space-y-2">
-                <h2 className="font-display font-black uppercase text-2xl sm:text-3xl text-[#07111F]">
+                <h2 className="font-headline font-black uppercase text-2xl sm:text-3xl text-white tracking-wide">
                   {step.title} — {step.subtitle}
                 </h2>
-                <p className="text-sm text-[#4A5568] font-light leading-relaxed">
+                <p className="text-sm text-slate-300 font-light leading-relaxed">
                   {step.description}
                 </p>
               </div>
 
               <div className="lg:col-span-3 flex justify-start lg:justify-end">
-                <span className="text-xs font-mono-code font-bold text-[#07111F] bg-white border border-[#07111F]/15 px-3.5 py-2 rounded-[2px]">
+                <span className="text-xs font-headline font-bold text-black bg-[#FACC15] px-4 py-2 rounded-full uppercase tracking-wider shadow-md">
                   ✓ CERTIFIED PHASE
                 </span>
               </div>
@@ -72,18 +77,22 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
           ))}
         </div>
 
-        <div className="mt-16 p-8 sm:p-12 bg-[#07111F] text-white rounded-[2px] flex flex-col md:flex-row items-center justify-between gap-8">
+        {/* ── GRAPHIC TAPE CALLOUT BANNER ── */}
+        <div className="rounded-3xl p-8 sm:p-12 bg-gradient-to-r from-[#121216] via-[#1A1A22] to-[#121216] border border-white/15 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
-            <h3 className="font-display font-black text-2xl uppercase tracking-tight">
+            <div className="inline-block px-3 py-1 rounded-full bg-[#22C55E] text-black font-headline font-black text-[10px] uppercase tracking-wider mb-2">
+              FEBRUARY 2026 COHORT
+            </div>
+            <h3 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-white">
               Ready to bring this to your students?
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 font-light mt-1 max-w-lg">
-              Workshops take place in February 2026. Register your school or team before January 31, 2026.
+              School registration closes January 31, 2026. Turnkey kit allocation and trainer schedules provided.
             </p>
           </div>
           <button
             onClick={onOpenRegister}
-            className="btn-volt-primary text-xs py-4 px-8 whitespace-nowrap"
+            className="btn-pill-lime text-xs font-black py-4 px-8 whitespace-nowrap flex items-center gap-2"
           >
             <span>REGISTER COHORT NOW</span>
             <ArrowRight className="w-4 h-4" />
