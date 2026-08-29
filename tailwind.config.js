@@ -5,14 +5,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'robo-navy': '#07111F',
-        'robo-navy-light': '#0D1B2E',
-        'robo-blue': '#0052FF',
-        'robo-blue-hover': '#0043D6',
-        'robo-volt': '#E2FF00',
-        'robo-volt-light': '#F0FF66',
-        'robo-gray': '#F5F2EE',
-        'robo-slate': '#4A5568',
+        'robo-navy': '#0A1930',
+        'robo-navy-light': '#0F2A4D',
+        'robo-blue': '#006AA7',
+        'robo-blue-hover': '#013A63',
+        'robo-volt': '#FFCD00',
+        'robo-volt-light': '#FFE066',
+        'robo-gray': '#F2F6FA',
+        'robo-slate': '#55677C',
       },
       fontFamily: {
         display: ['Space Grotesk', 'Outfit', 'Inter', 'sans-serif'],

@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar';
 import { RefHero } from './components/RefHero';
 import { RefSlushCountdown } from './components/RefSlushCountdown';
 import { RefManifesto } from './components/RefManifesto';
+import { RefSpecialAdvisory } from './components/RefSpecialAdvisory';
 import { RefTheExperience } from './components/RefTheExperience';
 import { RefKioskShowcase } from './components/RefKioskShowcase';
 import { RefSkillPills } from './components/RefSkillPills';
@@ -31,7 +32,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070709] text-white font-sans selection:bg-[#22C55E] selection:text-black relative overflow-x-hidden">
+    <div className="min-h-screen bg-white text-[#0A1930] font-sans selection:bg-[#FFCD00] selection:text-[#0A1930] relative overflow-x-hidden">
       
       {/* ── 0. Floating Minimal Header with Neon Pill Button ── */}
       <Navbar
@@ -51,10 +52,13 @@ export function App() {
             />
 
             {/* 01.5 Slush-style Dedicated Full-Width Countdown Banner */}
-            <RefSlushCountdown />
+            <RefSlushCountdown onOpenRegister={() => setIsRegisterOpen(true)} />
 
             {/* 02. Manifesto: MAKE ROBOTICS [avatar] THE EXPERIENCE [avatar] + Logos + Reel */}
             <RefManifesto onNavigate={handleNavigate} />
+
+            {/* 02.5 Special Advisory: Ambassador launch, framework, competition structure, kit list */}
+            <RefSpecialAdvisory />
 
             {/* 03. THE [Outline] EXPERIENCE [Solid] + 3 Angled Poster Cards + Coral Split Banner */}
             <RefTheExperience

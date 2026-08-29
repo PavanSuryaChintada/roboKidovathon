@@ -5,15 +5,16 @@
 @tailwind utilities;
 
 :root {
-  --bg-black: #070709;
-  --bg-card: #121216;
-  --yellow: #FACC15;
-  --yellow-bright: #FDE047;
-  --yellow-deep: #EAB308;
-  --coral: #FF3366;
-  --blue: #0052FF;
-  --cyan: #06B6D4;
-  --purple: #A855F7;
+  --bg-white: #FFFFFF;
+  --bg-soft: #F2F6FA;
+  --bg-card: #F6F9FC;
+  --ink: #0A1930;
+  --muted: #55677C;
+  --line: #E1E7EF;
+  --se-blue: #006AA7;
+  --se-blue-deep: #013A63;
+  --se-yellow: #FFCD00;
+  --se-yellow-deep: #E6B800;
   --white: #FFFFFF;
 }
 
@@ -25,8 +26,8 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #070709;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  color: #0A1930;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -36,13 +37,13 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: #070709;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  color: #0A1930;
 }
 
 ::selection {
-  background: #FACC15;
-  color: #000000;
+  background: #FFCD00;
+  color: #0A1930;
 }
 
 /* Typography Helpers */
@@ -75,29 +76,29 @@ body {
 
 /* Outlined Stroke Text Effect */
 .text-stroke {
-  -webkit-text-stroke: 1.5px #FFFFFF;
+  -webkit-text-stroke: 1.5px #0A1930;
   color: transparent;
 }
 
 .text-stroke-thick {
-  -webkit-text-stroke: 2px #FFFFFF;
+  -webkit-text-stroke: 2px #0A1930;
   color: transparent;
 }
 
 .text-stroke-slate {
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.4);
+  -webkit-text-stroke: 1.5px rgba(10, 25, 48, 0.35);
   color: transparent;
 }
 
-/* Capsule Pill Buttons - Industrial Cyber Yellow Palette */
+/* Capsule Pill Buttons - White + Swedish Flag Palette */
 .btn-pill-lime,
 .btn-pill-yellow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: #FACC15;
-  color: #000000;
+  background-color: #FFCD00;
+  color: #0A1930;
   font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-weight: 800;
   font-size: 0.8125rem;
@@ -105,15 +106,40 @@ body {
   text-transform: uppercase;
   padding: 0.75rem 1.65rem;
   border-radius: 9999px;
-  border: 1px solid #FACC15;
+  border: 1px solid #FFCD00;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 
 .btn-pill-lime:hover,
 .btn-pill-yellow:hover {
-  background-color: #FDE047;
-  border-color: #FDE047;
+  background-color: #E6B800;
+  border-color: #E6B800;
+  transform: translateY(-1px);
+}
+
+.btn-pill-blue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #006AA7;
+  color: #FFFFFF;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.65rem;
+  border-radius: 9999px;
+  border: 1px solid #006AA7;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-pill-blue:hover {
+  background-color: #013A63;
+  border-color: #013A63;
   transform: translateY(-1px);
 }
 
@@ -123,7 +149,7 @@ body {
   justify-content: center;
   gap: 0.5rem;
   background-color: #FFFFFF;
-  color: #000000;
+  color: #0A1930;
   font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-weight: 800;
   font-size: 0.8125rem;
@@ -131,13 +157,13 @@ body {
   text-transform: uppercase;
   padding: 0.75rem 1.65rem;
   border-radius: 9999px;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #E1E7EF;
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .btn-pill-white:hover {
-  background-color: #E2E8F0;
+  background-color: #F2F6FA;
   transform: translateY(-1px);
 }
 
@@ -147,7 +173,7 @@ body {
   justify-content: center;
   gap: 0.5rem;
   background-color: transparent;
-  color: #FFFFFF;
+  color: #0A1930;
   font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-weight: 700;
   font-size: 0.8125rem;
@@ -155,14 +181,36 @@ body {
   text-transform: uppercase;
   padding: 0.75rem 1.65rem;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(10, 25, 48, 0.25);
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .btn-pill-outline:hover {
-  border-color: #FFFFFF;
-  background-color: rgba(255, 255, 255, 0.08);
+  border-color: #0A1930;
+  background-color: rgba(10, 25, 48, 0.05);
+}
+
+/* Flashing urgency CTA — registration deadline nudge */
+@keyframes flash-cta {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 205, 0, 0.6);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(255, 205, 0, 0);
+    transform: scale(1.035);
+  }
+}
+
+.flash-cta {
+  background-color: #FFCD00;
+  color: #0A1930;
+  animation: flash-cta 1.4s ease-in-out infinite;
+}
+
+.flash-cta:hover {
+  animation-play-state: paused;
 }
 
 /* Custom Scrollbar */
@@ -171,14 +219,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #070709;
+  background: #F2F6FA;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(10, 25, 48, 0.2);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FACC15;
+  background: #006AA7;
 }

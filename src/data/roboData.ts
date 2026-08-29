@@ -1,5 +1,5 @@
 export interface CompetitionCategory {
-  id: 'robo-sprint' | 'robo-precision';
+  id: 'robo-sprint-junior' | 'robo-sprint-senior';
   code: 'CAT A' | 'CAT B';
   title: string;
   division: string;
@@ -47,60 +47,122 @@ export interface FAQItem {
   category: 'Eligibility' | 'Hardware & Kits' | 'Schools & Fees' | 'Competition & Arena' | 'Judging & Safety';
 }
 
+export interface PartnerLogo {
+  name: string;
+  file: string;
+  role: string;
+}
+
+export interface KitPiece {
+  label: string;
+  qty: string;
+}
+
 export const STATS_DATA = [
-  { value: '15+', label: 'SCHOOLS', sub: 'VÄSTERÅS CLUSTER', accent: 'text-[#07111F]' },
-  { value: '600+', label: 'STUDENTS', sub: 'JUNIOR & SENIOR', accent: 'text-[#0052FF]' },
-  { value: '45+', label: 'EDUCATORS', sub: 'CERTIFIED MENTORS', accent: 'text-[#07111F]' },
-  { value: '600+', label: 'COMMUNITY', sub: 'ENGAGED STAKEHOLDERS', accent: 'text-[#0052FF]' },
+  { value: '4', label: 'HOST PARTNERS', sub: 'IBK · INIAC · SKILLSKOLAN · BLIX', accent: 'text-[#006AA7]' },
+  { value: '2,000+', label: 'INDIA ALUMNI', sub: 'BLIX-A-THON, TECHFEST IIT BOMBAY', accent: 'text-[#0A1930]' },
+  { value: 'SEK 3,000', label: 'PRIZE POOL', sub: '1,200 JUNIOR + 1,800 SENIOR', accent: 'text-[#006AA7]' },
+  { value: 'NOV 10', label: 'GRAND FINALE', sub: 'VÄSTERÅS, SWEDEN · 2026', accent: 'text-[#0A1930]' },
+];
+
+export const PARTNER_LOGOS: PartnerLogo[] = [
+  { name: 'Indisk BarnKlubb (IBK) Västerås', file: '/ibk logo.png', role: 'Host & Organizer' },
+  { name: 'INIAC', file: '/iniac logo.png', role: 'Innovation Partner' },
+  { name: 'SkillSkolan', file: '/skillskolan logo.png', role: 'Education Partner' },
+  { name: 'Blix-A-Thon', file: '/blix a thon logo.png', role: 'Competition Format Partner' },
+];
+
+export const KIT_PIECES: KitPiece[] = [
+  { label: 'CT2', qty: '112 pcs' },
+  { label: 'CT3', qty: '60 pcs' },
+  { label: 'CH2', qty: '80 pcs' },
+  { label: 'CL2', qty: '72 pcs' },
+  { label: 'TW1', qty: '72 pcs' },
+  { label: 'TW2', qty: '40 pcs' },
+  { label: 'PC3', qty: '16 pcs' },
+  { label: 'P5 Plus', qty: '4 pcs' },
+  { label: 'P3', qty: '32 pcs' },
+  { label: 'P3C2', qty: '20 pcs' },
+  { label: 'P5 Nut', qty: '2 pcs' },
+  { label: 'P5', qty: '40 pcs' },
+  { label: 'P7', qty: '24 pcs' },
+  { label: 'P11', qty: '32 pcs' },
+  { label: 'P7x11', qty: '8 pcs' },
+  { label: 'PU5x7', qty: '16 pcs' },
+  { label: 'PU5x13', qty: '8 pcs' },
+  { label: 'Rack', qty: '12 pcs' },
+  { label: 'Pulley', qty: '4 pcs' },
+  { label: 'CT1x2', qty: '12 pcs' },
+  { label: 'G20 Plus', qty: '8 pcs' },
+  { label: 'G20 Idler', qty: '8 pcs' },
+  { label: 'G60', qty: '8 pcs' },
+  { label: 'Thread', qty: '2 pcs' },
+  { label: 'Power Screw', qty: '2 pcs' },
+  { label: 'SH60', qty: '6 pcs' },
+  { label: 'SH100', qty: '8 pcs' },
+  { label: 'SH170', qty: '6 pcs' },
+  { label: 'Wheels', qty: '8 pcs' },
+  { label: 'Leaflet', qty: '1 pc' },
+  { label: 'Remover Tool', qty: '2 pcs' },
+  { label: 'P21x21', qty: '2 pcs' },
+  { label: 'Ball', qty: '1 pc' },
+  { label: 'MDF Arena Part', qty: '1 pc' },
+  { label: 'Ethernet Cable', qty: '1 pc' },
+  { label: 'Rubber Band', qty: '5 pcs' },
+  { label: 'Transmitter (Wired)', qty: '1 pc' },
+  { label: 'Receiver (Wired)', qty: '1 pc' },
+  { label: 'DC Gearbox', qty: '4 pcs' },
+  { label: '6V Battery Box', qty: '1 pc' },
+  { label: 'Screwdriver', qty: '1 pc' },
 ];
 
 export const COMPETITION_CATEGORIES: CompetitionCategory[] = [
   {
-    id: 'robo-sprint',
+    id: 'robo-sprint-junior',
     code: 'CAT A',
     title: 'ROBO-SPRINT',
-    division: 'JUNIOR DIVISION',
-    ageRange: 'AGES UP TO 15 YEARS',
+    division: 'JUNIOR LEAGUE',
+    ageRange: 'GRADES 2 – 5',
     duration: '3 MINUTES PER MATCH',
-    format: 'Air-Hockey Ball Passing Arena (Fast-Paced Dynamic)',
-    objective: 'Transfer as many balls as possible into the opponent’s court across an active divider within 3 minutes.',
-    dimensions: 'Maximum 1.5 ft × 1.5 ft Chassis Boundary',
-    scoring: 'Fewest remaining balls in own court at final buzzer secures match victory.',
-    keyRule: 'Autonomous or wireless differential controller allowed. Zero human arena interference.',
-    accentColor: '#0052FF',
-    accentBg: 'bg-[#0052FF]',
+    format: 'Air-Hockey Style Ball-Passing Arena Challenge',
+    objective: 'Pass as many balls as possible into the opponent’s court across the divider. The team with the fewest balls remaining in their own court when time runs out wins the round.',
+    dimensions: 'Shared 8 ft × 4 ft divided arena mat',
+    scoring: 'Fewest balls remaining in your own court at the final whistle wins the round.',
+    keyRule: 'Each team starts with 5 balls in their court. Focus is on basic robot movement, simple control, and team coordination.',
+    accentColor: '#006AA7',
+    accentBg: 'bg-[#006AA7]',
     accentText: 'text-white',
     imageUrl: 'https://images.unsplash.com/photo-1551103782-8ab07afd45c1?auto=format&fit=crop&w=900&q=85',
     rulesLink: 'challenges',
     specs: [
-      { label: 'ARENA SIZE', value: '2.4m × 1.2m Divider Court' },
-      { label: 'MATCH LENGTH', value: '3 Minutes (Non-Stop)' },
-      { label: 'MOTOR LIMIT', value: '12V DC Metal Gearmotors' },
-      { label: 'DRIVE TYPE', value: 'Differential 2-Wheel / 4-Wheel' },
+      { label: 'ARENA SIZE', value: '8 ft × 4 ft Divided Court' },
+      { label: 'MATCH LENGTH', value: '3 Minutes' },
+      { label: 'STARTING BALLS', value: '5 Per Team Court' },
+      { label: 'FOCUS', value: 'Movement, Control, Teamwork' },
     ]
   },
   {
-    id: 'robo-precision',
+    id: 'robo-sprint-senior',
     code: 'CAT B',
-    title: 'ROBO-PRECISION',
-    division: 'SENIOR DIVISION',
-    ageRange: 'AGES 15+ / GYMNASIUM LEVEL',
-    duration: '5 MINUTES PER MATCH',
-    format: 'Autonomous 5-Level Cup Tower Precision Assembly',
-    objective: 'Construct the tallest, structurally stable tower from raw arena cups using a robotic grabber mechanism. Zero manual intervention.',
-    dimensions: 'Maximum 2.5 ft × 2.5 ft Chassis & Crane Arm',
-    scoring: 'Tallest erect tower at the buzzer wins. Bonus multipliers awarded for autonomous optical centering.',
-    keyRule: 'Robotic grabber arm must independently grip, lift, translate, and balance cups.',
-    accentColor: '#07111F',
-    accentBg: 'bg-[#07111F]',
-    accentText: 'text-white',
+    title: 'ROBO-SPRINT',
+    division: 'SENIOR LEAGUE',
+    ageRange: 'GRADES 6 – 9',
+    duration: '6 MINUTES PER MATCH',
+    format: 'Air-Hockey Style Ball-Passing Arena Challenge',
+    objective: 'Pass as many balls as possible into the opponent’s court across the divider. The team with the fewest balls remaining in their own court when time runs out wins the round.',
+    dimensions: 'Shared 8 ft × 4 ft divided arena mat',
+    scoring: 'Fewest balls remaining in your own court at the final whistle wins the round.',
+    keyRule: 'Each team starts with 5 balls in their court. Focus is on precision control, strategy, positioning, and faster gameplay under pressure.',
+    accentColor: '#FFCD00',
+    accentBg: 'bg-[#FFCD00]',
+    accentText: 'text-[#0A1930]',
     imageUrl: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=85',
     rulesLink: 'challenges',
     specs: [
-      { label: 'ARENA SIZE', value: '3.0m × 3.0m Precision Mat' },
-      { label: 'MATCH LENGTH', value: '5 Minutes (Strategic)' },
-      { label: 'ACTUATORS', value: 'Servo Gripper + Stepper Elevation' },
-      { label: 'CONTROL CORE', value: 'Microcontroller + Autonomous Script' },
+      { label: 'ARENA SIZE', value: '8 ft × 4 ft Divided Court' },
+      { label: 'MATCH LENGTH', value: '6 Minutes' },
+      { label: 'STARTING BALLS', value: '5 Per Team Court' },
+      { label: 'FOCUS', value: 'Precision, Strategy, Speed' },
     ]
   }
 ];
@@ -108,128 +170,117 @@ export const COMPETITION_CATEGORIES: CompetitionCategory[] = [
 export const ROADMAP_STEPS: RoadmapStep[] = [
   {
     stepNumber: '01',
-    tag: 'STAGE 01 // DISCOVER',
-    title: 'ONBOARD',
-    subtitle: 'Hands-On Workshop',
-    description: 'Attend a certified 2-hour school workshop. Receive full official robotics hardware kits, motors, controllers, and dedicated mentor guidance.',
+    tag: 'STAGE 01 // LEARN',
+    title: 'LEARN',
+    subtitle: 'Robotics Introduction Workshop',
+    description: 'Attend the 120-minute in-school robotics introduction workshop, form your team, and get hands-on with the official Robo-Sprint kit.',
     badge: 'SCHOOL ROUND'
   },
   {
     stepNumber: '02',
-    tag: 'STAGE 02 // ASSEMBLE',
+    tag: 'STAGE 02 // BUILD',
     title: 'BUILD',
-    subtitle: 'Mechanical Hardware',
-    description: 'Assemble physical chassis, gearboxes, drive wheels, sensor mounts, and electronic motor drivers in collaborative student pairs.',
+    subtitle: 'Assemble Your Robot',
+    description: 'Build your Robo-Sprint robot from the competition kit — chassis, gearbox, wheels, and wired transmitter — ready for the arena.',
   },
   {
     stepNumber: '03',
-    tag: 'STAGE 03 // ALGORITHM',
-    title: 'PROGRAMME',
-    subtitle: 'Microcontroller Logic',
-    description: 'Deploy microcontroller code for optical line-tracking, ultrasonic collision avoidance, and arena match offensive/defensive algorithms.',
+    tag: 'STAGE 03 // CHALLENGE',
+    title: 'CHALLENGE',
+    subtitle: 'RoboSkolan Robo League (Qualifiers)',
+    description: 'Compete in RoboSprint matches within your own school in October 2026. One winning Junior team and one winning Senior team qualify per school.',
+    badge: 'OCTOBER 2026'
   },
   {
     stepNumber: '04',
-    tag: 'STAGE 04 // QUALIFY',
-    title: 'COMPETE',
-    subtitle: 'School Heats',
-    description: 'Face peer teams in live arena bracket rounds within your school. Top 1 Junior and Top 1 Senior teams qualify for the City Championship.',
-    badge: 'QUALIFIER'
+    tag: 'STAGE 04 // INNOVATE',
+    title: 'INNOVATE',
+    subtitle: 'Refine Strategy',
+    description: 'Qualifying teams sharpen positioning, speed, and teamwork ahead of the inter-school Grand Finale showcase.',
   },
   {
     stepNumber: '05',
-    tag: 'STAGE 05 // CHAMPIONS',
-    title: 'WIN',
-    subtitle: 'City Finals & National Pass',
-    description: 'Battle live at the central ABB Venue in Västerås before an expert technology panel for the 2,000 SEK Grand Prize and Stockholm National Pass.',
+    tag: 'STAGE 05 // CELEBRATE',
+    title: 'CELEBRATE',
+    subtitle: 'RoboKidovation Västerås Grand Finale',
+    description: 'Qualifying teams face off at the Grand Finale on November 10, 2026 — an inter-school competition and innovation showcase with SEK 3,000 in prizes, trophies, and certificates.',
     isMilestone: true,
-    badge: 'CITY FINALS'
+    badge: 'GRAND FINALE'
   }
 ];
 
 export const CHAMPIONSHIP_STAGES: ChampionshipStage[] = [
   {
     stageNumber: '01',
-    stageCode: 'ROUND 01',
-    title: 'SCHOOL LEVEL QUALIFIERS',
-    subtitle: 'INTRA-SCHOOL TOURNAMENT',
-    date: 'FEBRUARY 2026',
-    location: 'YOUR PARTICIPATING SCHOOL VENUE · VÄSTERÅS',
-    description: 'Student teams build, code, and compete internally. Each participating school advances their #1 Junior and #1 Senior team directly to the City Finals.',
-    advancement: 'TOP 1 JUNIOR & TOP 1 SENIOR TEAM PER SCHOOL QUALIFIES',
+    stageCode: 'STAGE 01',
+    title: 'ROBOSKOLAN ROBO LEAGUE',
+    subtitle: 'QUALIFIERS — WITHIN EACH SCHOOL',
+    date: 'OCTOBER 2026',
+    location: 'PARTICIPATING SCHOOL VENUES · VÄSTERÅS',
+    description: 'A 120-minute robotics introduction workshop, team formation, and RoboSprint matches held inside each participating school.',
+    advancement: '1 WINNING JUNIOR TEAM & 1 WINNING SENIOR TEAM PER SCHOOL QUALIFY',
     active: false
   },
   {
     stageNumber: '02',
-    stageCode: 'ROUND 02',
-    title: 'VÄSTERÅS CITY FINALS',
-    subtitle: 'OFFICIAL MUNICIPAL CHAMPIONSHIP',
-    date: 'SATURDAY, MARCH 21, 2026',
-    location: 'CENTRAL ABB VENUE · VÄSTERÅS, SWEDEN',
-    description: 'The top school champions converge at the central arena. Refereed matches, live telemetry scoreboards, expert judging panel, and major cash prize distribution.',
-    advancement: 'TOP 2 TEAMS SECURE AUTOMATIC STOCKHOLM SHOWDOWN BERTH',
+    stageCode: 'STAGE 02',
+    title: 'ROBOKIDOVATION VÄSTERÅS GRAND FINALE',
+    subtitle: 'INTER-SCHOOL COMPETITION & SHOWCASE',
+    date: 'TUESDAY, NOVEMBER 10, 2026',
+    location: 'VÄSTERÅS, SWEDEN',
+    description: 'Winning school teams compete live in the Robo-Sprint arena for cash prizes, trophies, and certificates, alongside an innovation and robotics showcase.',
+    advancement: 'SEK 3,000 AWARDED — 1,200 JUNIOR + 1,800 SENIOR',
     active: true
-  },
-  {
-    stageNumber: '03',
-    stageCode: 'ROUND 03',
-    title: 'STOCKHOLM GRAND FINALE',
-    subtitle: 'NORDIC CUP EXPANSION',
-    date: 'EXPANSION PHASE 2026',
-    location: 'STOCKHOLM SHOWDOWN · SWEDEN NATIONAL ARENA',
-    description: 'City Finals winners represent Västerås on the national stage, competing against top Nordic cohorts for the prestigious 25,000 SEK Grand Finale Cup.',
-    advancement: 'NATIONAL CHAMPIONSHIP MEDALS & TECH ACCELERATOR PASS',
-    active: false
   }
 ];
 
 export const FAQ_ITEMS: FAQItem[] = [
   {
     id: 'faq-1',
-    question: 'Who can participate in Robo-Kidovation Västerås 2026?',
-    answer: 'All enrolled students in Västerås up to age 18 are eligible. Participants are grouped into two distinct age brackets: Junior Category (up to 15 years old) and Senior Category (15+ years / gymnasium level).',
+    question: 'Who can participate in RoboKidovation Västerås?',
+    answer: 'Students up to 15 years old are eligible, split into two categories: the Junior League (grades 2–5) and the Senior League (grades 6–9).',
     category: 'Eligibility'
   },
   {
     id: 'faq-2',
     question: 'Is prior coding or robotics experience required to join?',
-    answer: 'No prior experience is necessary! Every registered student participates in a dedicated 2-hour hands-on school workshop where certified STEM trainers guide them through mechanical assembly, wiring, and microcontroller logic from scratch.',
+    answer: 'No prior experience is necessary. Every team starts with a 120-minute robotics introduction workshop covering assembly and team formation before matches begin.',
     category: 'Hardware & Kits'
   },
   {
     id: 'faq-3',
-    question: 'Are physical robotics kits and arena equipment provided?',
-    answer: 'Yes! Complete structural chassis parts, gearmotors, wheels, microcontrollers, sensor arrays, battery packs, and official competition arena mats are provided directly on-site at zero extra kit cost.',
+    question: 'What does the competition kit include?',
+    answer: 'Each team builds with the official Robo-Sprint kit — chassis parts, gearboxes, wheels, a wired transmitter and receiver, battery box, arena ball, and assembly tools.',
     category: 'Hardware & Kits'
   },
   {
     id: 'faq-4',
-    question: 'How is the transparent 100 SEK (+VAT) fee structured?',
-    answer: 'The total fee is 100 SEK + VAT (125 SEK total per student). This turnkey entry fee covers the 2-hour certified workshop, full hardware kit allocation, mentor guidance, arena competition access at the ABB Venue, official diplomas, and event media.',
-    category: 'Schools & Fees'
+    question: 'How does the ROBO-SPRINT challenge work?',
+    answer: 'It’s an air-hockey style ball-passing arena challenge. Each team starts with 5 balls in their court and tries to pass as many as possible into the opponent’s court. The team with the fewest balls remaining when time runs out wins the round. Junior matches run 3 minutes, Senior matches run 6 minutes.',
+    category: 'Competition & Arena'
   },
   {
     id: 'faq-5',
-    question: 'What is required from participating schools and teachers?',
-    answer: 'Zero financial burden on school budgets! Schools simply provide an open room/hall for a 2-hour workshop in February 2026 and teacher volunteers (4 for the school round, 1 for the City Finals). All hardware, trainers, and logistics are supplied by Robo-Kidovation.',
+    question: 'What is the competition structure?',
+    answer: 'Stage 1 is RoboSkolan Robo League qualifiers, held within each school in October 2026. One winning Junior team and one winning Senior team from each school advance directly to the RoboKidovation Västerås Grand Finale on November 10, 2026.',
     category: 'Schools & Fees'
   },
   {
     id: 'faq-6',
-    question: 'Where and when do the Västerås City Finals take place?',
-    answer: 'The Västerås City Finals take place on Saturday, March 21, 2026, at the central ABB Venue in Västerås. Top qualifying school teams compete live before a panel of robotics engineers and tech industry leaders.',
+    question: 'What can winning teams take home?',
+    answer: 'A total of SEK 3,000 is awarded to winning teams (SEK 1,200 Junior + SEK 1,800 Senior), along with cash, trophies, and certificates for all finalists.',
     category: 'Competition & Arena'
   },
   {
     id: 'faq-7',
-    question: 'How do winning teams qualify for the Stockholm Grand Finale?',
-    answer: 'The top 2 winning school teams from the Västerås City Finals automatically qualify to represent Västerås at the Stockholm Showdown, competing for the 25,000 SEK Grand Finale Nordic Cup.',
-    category: 'Competition & Arena'
+    question: 'Where does this competition format come from?',
+    answer: 'RoboKidovation Västerås adapts Blix-A-Thon, a robotics competition hosted at Techfest, IIT Bombay — one of India’s largest science and technology festivals, with 2,000+ student participants in recent editions — for the Swedish school environment.',
+    category: 'Eligibility'
   },
   {
     id: 'faq-8',
-    question: 'How are participant safety and GDPR data protection handled?',
-    answer: 'The competition adheres strictly to Swedish school safety protocols, non-toxic hardware components, low-voltage (12V DC) safety limits, and full GDPR compliance for student privacy and media consent.',
+    question: 'How are participant safety and privacy handled?',
+    answer: 'The competition uses low-voltage, school-safe hardware components and follows Swedish school safety protocols and GDPR-compliant handling of student data.',
     category: 'Judging & Safety'
   }
 ];

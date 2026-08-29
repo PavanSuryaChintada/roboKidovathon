@@ -2,8 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useCountdown } from '../hooks/useCountdown';
 
-export const RefSlushCountdown: React.FC = () => {
-  const countdown = useCountdown('2026-03-21T09:00:00Z');
+interface RefSlushCountdownProps {
+  onOpenRegister?: () => void;
+}
+
+export const RefSlushCountdown: React.FC<RefSlushCountdownProps> = ({ onOpenRegister }) => {
+  const countdown = useCountdown('2026-11-11T23:59:59+01:00');
 
   const units = [
     { value: countdown.days, label: 'DAYS' },
@@ -13,33 +17,51 @@ export const RefSlushCountdown: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-[#070709] py-10 sm:py-16 px-4 sm:px-6 select-none">
+    <section className="w-full bg-white py-10 sm:py-16 px-4 sm:px-6 select-none">
       <div className="max-w-[960px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="w-full bg-[#0E0E12]/90 border border-white/[0.08] rounded-2xl sm:rounded-3xl py-10 sm:py-12 px-6 sm:px-12 text-center shadow-2xl flex flex-col items-center justify-center space-y-5"
+          className="w-full bg-[#F2F6FA] border border-slate-200 rounded-2xl sm:rounded-3xl py-10 sm:py-12 px-6 sm:px-12 text-center shadow-sm flex flex-col items-center justify-center space-y-6"
         >
           {/* Top Label */}
-          <span className="text-xs sm:text-sm font-sans font-medium text-slate-400 tracking-wide">
-            Robo-Kido-A-Thon 2026, March 21 · ABB Arena, Västerås
+          <span className="text-xs sm:text-sm font-sans font-medium text-slate-600 tracking-wide">
+            RoboKidovation Västerås · Registration deadline
           </span>
 
-          {/* Slush-style horizontal numbers with side labels */}
+          {/* Horizontal numbers with side labels */}
           <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 md:gap-16 pt-2">
-            {units.map((unit) => (
-              <div key={unit.label} className="flex items-baseline gap-2 sm:gap-2.5">
-                <span className="font-headline font-black text-4xl sm:text-5xl md:text-6xl text-white tracking-tight leading-none">
-                  {unit.value}
-                </span>
-                <span className="text-[10px] sm:text-xs font-mono-code font-bold text-slate-400 uppercase tracking-wider">
-                  {unit.label}
-                </span>
-              </div>
-            ))}
+            {countdown.isExpired ? (
+              <span className="font-headline font-black text-2xl sm:text-4xl text-[#0A1930] tracking-tight leading-none uppercase">
+                Registration closed
+              </span>
+            ) : (
+              units.map((unit) => (
+                <div key={unit.label} className="flex items-baseline gap-2 sm:gap-2.5">
+                  <span className="font-headline font-black text-4xl sm:text-5xl md:text-6xl text-[#0A1930] tracking-tight leading-none">
+                    {unit.value}
+                  </span>
+                  <span className="text-[10px] sm:text-xs font-mono-code font-bold text-slate-500 uppercase tracking-wider">
+                    {unit.label}
+                  </span>
+                </div>
+              ))
+            )}
           </div>
+
+          {/* Flashing urgency CTA */}
+          {!countdown.isExpired && (
+            <motion.button
+              onClick={onOpenRegister}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              className="flash-cta inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-headline font-black text-xs sm:text-sm tracking-wider uppercase shadow-md cursor-pointer"
+            >
+              <span>Registration closing soon</span>
+            </motion.button>
+          )}
         </motion.div>
       </div>
     </section>

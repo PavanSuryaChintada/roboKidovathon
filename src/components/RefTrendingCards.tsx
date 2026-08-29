@@ -14,30 +14,30 @@ export const RefTrendingCards: React.FC<RefTrendingCardsProps> = ({
     {
       image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80',
       category: 'ARENA TECH',
-      date: 'MARCH 2026',
-      title: 'MicroPython vs C++: Analyzing Real-Time PWM Firmware Optimization in Live Duels',
+      date: 'NOV 2026',
+      title: 'Inside The Robo-Sprint Build: Gearboxes, Wired Control & Match Strategy',
       link: 'challenges',
     },
     {
       image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80',
-      category: 'PEDAGOGY',
-      date: 'LGR22 ALIGNED',
-      title: 'How Turnkey Robotics Hardware Fulfills Swedish National Curriculum Standards in 120 Minutes',
-      link: 'for-schools',
+      category: 'ORIGIN STORY',
+      date: 'INDIA → SWEDEN',
+      title: 'How Blix-A-Thon’s Techfest IIT Bombay Format Became RoboKidovation Västerås',
+      link: 'about',
     },
     {
       image: 'https://images.unsplash.com/photo-1551103782-8ab07afd45c1?auto=format&fit=crop&w=600&q=80',
-      category: 'CITY FINALS',
-      date: 'ABB ARENA',
-      title: 'Västerås Regional Championship: 15 Municipal Schools Ready for Mainstage Finals',
+      category: 'GRAND FINALE',
+      date: 'NOV 10, 2026',
+      title: 'RoboKidovation Västerås: Schools Ready For The Inter-School Showcase',
       link: 'about',
     },
   ];
 
   return (
-    <section className="w-full bg-[#070709] text-white py-24 px-6 sm:px-10 border-t border-white/10 overflow-hidden">
+    <section className="w-full bg-white text-[#0A1930] py-24 px-6 sm:px-10 border-t border-slate-200 overflow-hidden">
       <div className="max-w-[1440px] mx-auto space-y-12">
-        
+
         {/* ── SECTION TITLE: WHAT'S (Solid) TRENDING (Outline) ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -49,7 +49,7 @@ export const RefTrendingCards: React.FC<RefTrendingCardsProps> = ({
             className="font-headline font-black uppercase tracking-tight leading-[1.02]"
             style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}
           >
-            <span className="text-white block">WHAT'S</span>
+            <span className="text-[#0A1930] block">WHAT'S</span>
             <span className="text-stroke block">TRENDING</span>
           </h2>
         </motion.div>
@@ -64,34 +64,34 @@ export const RefTrendingCards: React.FC<RefTrendingCardsProps> = ({
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="rounded-3xl p-4 bg-[#121216] border border-white/10 space-y-4 flex flex-col justify-between hover:border-white/25 transition-all group cursor-pointer shadow-xl"
+              className="rounded-3xl p-4 bg-[#F8FAFC] border border-slate-200 space-y-4 flex flex-col justify-between hover:border-[#006AA7]/30 transition-all group cursor-pointer shadow-sm"
             >
               <div className="space-y-4">
-                <div className="relative overflow-hidden rounded-2xl h-56 bg-black">
+                <div className="relative overflow-hidden rounded-2xl h-56 bg-slate-100">
                   <img
                     src={item.image}
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/80 text-[10px] font-mono-code font-bold text-[#FACC15] uppercase tracking-wider">
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded bg-white/90 text-[10px] font-mono-code font-bold text-[#006AA7] uppercase tracking-wider">
                     {item.category}
                   </div>
                 </div>
 
                 <div className="px-2 space-y-2">
-                  <span className="text-[10px] font-mono-code text-slate-400 uppercase">
+                  <span className="text-[10px] font-mono-code text-slate-500 uppercase">
                     {item.date}
                   </span>
-                  <h3 className="font-headline font-bold text-xl uppercase tracking-wide text-white group-hover:text-[#FACC15] transition-colors line-clamp-2">
+                  <h3 className="font-headline font-bold text-xl uppercase tracking-wide text-[#0A1930] group-hover:text-[#006AA7] transition-colors line-clamp-2">
                     {item.title}
                   </h3>
                 </div>
               </div>
 
-              <div className="px-2 pt-4 border-t border-white/10 flex items-center justify-between">
+              <div className="px-2 pt-4 border-t border-slate-200 flex items-center justify-between">
                 <span
                   onClick={() => onNavigate(item.link)}
-                  className="font-headline font-bold text-xs uppercase tracking-wider text-slate-300 group-hover:text-white flex items-center gap-1 transition-colors"
+                  className="font-headline font-bold text-xs uppercase tracking-wider text-slate-600 group-hover:text-[#0A1930] flex items-center gap-1 transition-colors"
                 >
                   <span>READ STORY</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
