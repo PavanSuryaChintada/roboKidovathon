@@ -107,7 +107,7 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
               Enrol your school cohort today.
             </h3>
             <p className="text-xs sm:text-sm text-slate-200 font-light max-w-xl">
-              Registrations close November 11, 2026. Workshop dates and hardware kits are assigned upon enrolment.
+              Registrations close November 10, 2026. Workshop dates and hardware kits are assigned upon enrolment.
             </p>
           </div>
 

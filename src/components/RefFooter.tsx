@@ -73,7 +73,7 @@ export const RefFooter: React.FC<RefFooterProps> = ({
               ENROL COHORT
             </span>
             <p className="text-xs text-slate-300 font-light leading-relaxed">
-              Registration for Västerås schools closes November 11, 2026.
+              Registration for Västerås schools closes November 10, 2026.
             </p>
             <motion.button
               whileHover={{ scale: 1.04, y: -1 }}

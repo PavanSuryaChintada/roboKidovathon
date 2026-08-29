@@ -7,7 +7,7 @@ interface RefSlushCountdownProps {
 }
 
 export const RefSlushCountdown: React.FC<RefSlushCountdownProps> = ({ onOpenRegister }) => {
-  const countdown = useCountdown('2026-11-11T23:59:59+01:00');
+  const countdown = useCountdown('2026-11-10T23:59:59+01:00');
 
   const units = [
     { value: countdown.days, label: 'DAYS' },
@@ -28,14 +28,14 @@ export const RefSlushCountdown: React.FC<RefSlushCountdownProps> = ({ onOpenRegi
         >
           {/* Top Label */}
           <span className="text-xs sm:text-sm font-sans font-medium text-slate-600 tracking-wide">
-            RoboKidovation Västerås · Registration deadline
+            RoboKidovation Västerås · Grand Finale, November 10, 2026
           </span>
 
           {/* Horizontal numbers with side labels */}
           <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 md:gap-16 pt-2">
             {countdown.isExpired ? (
               <span className="font-headline font-black text-2xl sm:text-4xl text-[#0A1930] tracking-tight leading-none uppercase">
-                Registration closed
+                It's Grand Finale day!
               </span>
             ) : (
               units.map((unit) => (

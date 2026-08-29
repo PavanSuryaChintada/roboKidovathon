@@ -220,7 +220,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
 
               <div className="p-3 bg-[#FFCD00]/15 border border-[#FFCD00]/60 rounded-2xl flex items-center justify-between text-xs font-mono-code">
                 <span className="text-[#0A1930] font-semibold">REGISTRATION DEADLINE:</span>
-                <span className="font-bold text-[#0A1930]">NOVEMBER 11, 2026</span>
+                <span className="font-bold text-[#0A1930]">NOVEMBER 10, 2026</span>
               </div>
 
               <button

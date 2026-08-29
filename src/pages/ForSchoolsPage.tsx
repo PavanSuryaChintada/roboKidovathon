@@ -155,7 +155,7 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
               ENROL YOUR SCHOOL COHORT
             </h3>
             <p className="text-xs sm:text-sm text-[#0A1930]/80 font-medium max-w-lg">
-              School intake across the Västerås municipal district is open for the 2026 season. Registrations close November 11, 2026.
+              School intake across the Västerås municipal district is open for the 2026 season. Registrations close November 10, 2026.
             </p>
           </div>
 
