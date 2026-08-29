@@ -27,8 +27,8 @@ export const RefWorkshopTapeBanner: React.FC<RefWorkshopTapeBannerProps> = ({
           {/* Main Headline */}
           <div className="relative space-y-3 max-w-3xl">
             <h2
-              className="font-headline font-black uppercase text-[#0A1930] tracking-tight leading-[1.05]"
-              style={{ fontSize: 'clamp(2.6rem, 5.5vw, 4.8rem)' }}
+              className="font-headline font-black uppercase text-[#0A1930] tracking-tight leading-[1.08]"
+              style={{ fontSize: 'clamp(1.8rem, 5.5vw, 4.8rem)' }}
             >
               READY TO FIELD YOUR<br />
               <span className="text-[#006AA7]">SCHOOL TEAM?</span>

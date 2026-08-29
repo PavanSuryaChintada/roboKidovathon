@@ -38,11 +38,12 @@ export const RefManifesto: React.FC<RefManifestoProps> = ({ onNavigate }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="font-syne font-extrabold uppercase tracking-tight text-[#0A1930] leading-[1.1]"
-            style={{ fontSize: 'clamp(2.4rem, 5vw, 4.4rem)' }}
+            className="font-syne font-extrabold uppercase tracking-tight text-[#0A1930] leading-[1.15] text-center flex flex-col items-center justify-center space-y-1 sm:space-y-1.5"
+            style={{ fontSize: 'clamp(1.4rem, 5vw, 3.8rem)' }}
           >
-            REAL HARDWARE. REAL CODE.<br />
-            <span className="text-[#006AA7]">REAL CHAMPIONS.</span>
+            <span className="whitespace-nowrap">REAL HARDWARE.</span>
+            <span className="whitespace-nowrap">REAL CODE.</span>
+            <span className="whitespace-nowrap text-[#006AA7]">REAL CHAMPIONS.</span>
           </motion.h2>
 
           <motion.p

@@ -32,18 +32,18 @@ export const RefSlushCountdown: React.FC<RefSlushCountdownProps> = ({ onOpenRegi
           </span>
 
           {/* Horizontal numbers with side labels */}
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 md:gap-16 pt-2">
+          <div className="grid grid-cols-4 gap-2 sm:flex sm:items-center sm:justify-center sm:gap-10 md:gap-16 pt-2 w-full max-w-sm sm:max-w-none">
             {countdown.isExpired ? (
-              <span className="font-headline font-black text-2xl sm:text-4xl text-[#0A1930] tracking-tight leading-none uppercase">
+              <span className="col-span-4 font-headline font-black text-2xl sm:text-4xl text-[#0A1930] tracking-tight leading-none uppercase">
                 It's Grand Finale day!
               </span>
             ) : (
               units.map((unit) => (
-                <div key={unit.label} className="flex items-baseline gap-2 sm:gap-2.5">
-                  <span className="font-headline font-black text-4xl sm:text-5xl md:text-6xl text-[#0A1930] tracking-tight leading-none">
+                <div key={unit.label} className="flex flex-col sm:flex-row items-center sm:items-baseline gap-1 sm:gap-2">
+                  <span className="font-headline font-black text-3xl sm:text-5xl md:text-6xl text-[#0A1930] tracking-tight leading-none">
                     {unit.value}
                   </span>
-                  <span className="text-[10px] sm:text-xs font-mono-code font-bold text-slate-500 uppercase tracking-wider">
+                  <span className="text-[9px] sm:text-xs font-mono-code font-bold text-slate-500 uppercase tracking-wider">
                     {unit.label}
                   </span>
                 </div>
