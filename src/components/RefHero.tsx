@@ -30,7 +30,7 @@ export const RefHero: React.FC<RefHeroProps> = ({
   ];
 
   return (
-    <section className="relative w-full h-screen min-h-[640px] flex flex-col justify-between pt-28 pb-10 px-6 sm:px-12 md:px-16 overflow-hidden select-none bg-[#070709]">
+    <section className="relative w-full h-screen min-h-[640px] flex flex-col justify-between pt-28 pb-8 sm:pb-10 px-4 sm:px-8 md:px-12 lg:px-16 overflow-hidden select-none bg-[#070709]">
 
       {/* ── FULL VIEWPORT BACKGROUND VIDEO (z-0) ── */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
@@ -81,40 +81,40 @@ export const RefHero: React.FC<RefHeroProps> = ({
 
       </div>
 
-      {/* ── BOTTOM METRICS BAR & CTA (Dark Cinematic Theme) ── */}
-      <div className="max-w-[1360px] mx-auto w-full flex flex-col md:flex-row md:items-end justify-between gap-8 relative z-10 border-t border-white/10 pt-6">
+      {/* ── BOTTOM METRICS BAR & CTA (Guaranteed Single Unbroken Row) ── */}
+      <div className="max-w-[1440px] mx-auto w-full flex flex-row items-end justify-between gap-4 sm:gap-6 relative z-10 border-t border-white/10 pt-5 sm:pt-6 overflow-x-auto no-scrollbar">
 
-        {/* Left Side: Stats Row */}
-        <div className="flex flex-wrap items-baseline gap-6 sm:gap-10 md:gap-12">
+        {/* Left Side: All 5 Stats in a Strictly Single Horizontal Line */}
+        <div className="flex flex-nowrap items-baseline gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12 shrink-0">
           {stats.map((item) => (
-            <div key={item.label} className="space-y-0.5">
-              <span className="font-syne font-extrabold text-base sm:text-xl text-white block tracking-tight">
+            <div key={item.label} className="space-y-0.5 shrink-0 whitespace-nowrap">
+              <span className="font-syne font-extrabold text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white block tracking-tight">
                 {item.value}
               </span>
-              <span className="font-mono-code text-[10px] font-semibold text-slate-400 uppercase tracking-widest block">
+              <span className="font-mono-code text-[8px] sm:text-[9px] md:text-[10px] font-semibold text-slate-400 uppercase tracking-widest block">
                 {item.label}
               </span>
             </div>
           ))}
         </div>
 
-        {/* Right Side: Action Buttons */}
-        <div className="flex flex-wrap items-center gap-3">
+        {/* Right Side: Action Buttons in a Strictly Single Horizontal Line */}
+        <div className="flex flex-nowrap items-center gap-2.5 sm:gap-3 shrink-0 whitespace-nowrap pl-4">
           <motion.button
             whileHover={{ scale: 1.03, y: -1 }}
             whileTap={{ scale: 0.98 }}
             onClick={onOpenRegister}
-            className="px-6 py-3 rounded-lg bg-[#FFCD00] hover:bg-[#E6B800] text-[#0A1930] font-syne font-black text-xs sm:text-xs tracking-wider uppercase transition-all shadow-xl flex items-center gap-2"
+            className="px-4 sm:px-5 md:px-6 py-2.5 sm:py-3 rounded-lg bg-[#FFCD00] hover:bg-[#E6B800] text-[#0A1930] font-syne font-black text-[11px] sm:text-xs tracking-wider uppercase transition-all shadow-xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0"
           >
             <span>REGISTER COHORT NOW</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
           </motion.button>
 
           <motion.button
             whileHover={{ scale: 1.03, y: -1 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => onNavigate('for-schools')}
-            className="px-5 py-3 rounded-lg bg-white/[0.08] hover:bg-white/[0.15] text-white border border-white/15 font-syne font-semibold text-xs sm:text-xs tracking-wider uppercase transition-all shadow-sm"
+            className="px-3.5 sm:px-4 md:px-5 py-2.5 sm:py-3 rounded-lg bg-white/[0.08] hover:bg-white/[0.15] text-white border border-white/15 font-syne font-semibold text-[11px] sm:text-xs tracking-wider uppercase transition-all shadow-sm whitespace-nowrap shrink-0"
           >
             <span>FOR SCHOOLS</span>
           </motion.button>
