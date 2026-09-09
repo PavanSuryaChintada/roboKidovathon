@@ -34,7 +34,7 @@ export const RefWorkshopTapeBanner: React.FC<RefWorkshopTapeBannerProps> = ({
               <span className="text-[#006AA7]">SCHOOL TEAM?</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed max-w-xl mx-auto pt-2">
-              Turnkey 120-minute on-site workshops ahead of the October 2026 RoboSkolan qualifiers. Mentors arrive directly at your school with the full hardware kit and arena mat.
+              Turnkey 20-hour, in-school STEM projects ahead of the October 2026 RoboSkolan qualifiers. Mentors arrive directly at your school with the full hardware kit and arena mat.
             </p>
           </div>
 
@@ -68,7 +68,7 @@ export const RefWorkshopTapeBanner: React.FC<RefWorkshopTapeBannerProps> = ({
               <span>VÄSTERÅS, SWEDEN</span>
             </span>
             <span>•</span>
-            <span className="text-[#0A1930] font-semibold">GRAND FINALE · NOVEMBER 10, 2026</span>
+            <span className="text-[#0A1930] font-semibold">GRAND FINALE · NOVEMBER 13, 2026</span>
             <span>•</span>
             <span className="flex items-center gap-1.5">
               <Trophy className="w-3.5 h-3.5 text-[#006AA7]" />

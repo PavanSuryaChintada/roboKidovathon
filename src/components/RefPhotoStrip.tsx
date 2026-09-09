@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Sparkles, Trophy, Landmark } from 'lucide-react';
+import { GraduationCap, Sparkles, Trophy, Landmark } from 'lucide-react';
 
 export const RefPhotoStrip: React.FC = () => {
   const highlights = [
@@ -23,7 +23,7 @@ export const RefPhotoStrip: React.FC = () => {
     {
       span: 'lg:col-span-5',
       image: 'https://images.unsplash.com/photo-1551103782-8ab07afd45c1?auto=format&fit=crop&w=800&q=85',
-      tag: 'GRAND FINALE · NOV 10, 2026',
+      tag: 'GRAND FINALE · NOV 13, 2026',
       icon: Landmark,
       title: 'Inter-School Championship Showcase',
       desc: 'Qualifying teams from every participating school converge in Västerås for live refereed matches and an innovation showcase.',
@@ -31,10 +31,10 @@ export const RefPhotoStrip: React.FC = () => {
     {
       span: 'lg:col-span-7',
       image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=85',
-      tag: 'INDIA ORIGIN · TECHFEST IIT BOMBAY',
-      icon: ShieldCheck,
-      title: 'A Format Proven With 2,000+ Students',
-      desc: 'Adapted from Blix-A-Thon, hosted at one of India’s largest science and technology festivals, now brought to Swedish schools.',
+      tag: 'LGR22-LINKED LEARNING',
+      icon: GraduationCap,
+      title: 'STEM Concepts You Can Touch, Test And Understand',
+      desc: 'The 20-hour STEM project connects to central content in Teknik, Matematik and NO/Fysik — practical evidence of learning, not just attendance.',
     },
   ];
 

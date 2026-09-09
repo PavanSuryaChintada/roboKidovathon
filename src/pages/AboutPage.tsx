@@ -46,7 +46,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           </h1>
 
           <p className="mt-4 text-sm sm:text-base text-slate-600 font-light max-w-2xl leading-relaxed">
-            Adapting the Blix-A-Thon robotics competition model — hosted at Techfest, IIT Bombay — into a school-based tournament for young innovators in Västerås.
+            INIAC's hands-on STEM programme and RoboKidovation competition pathway for young innovators in Västerås — turning STEM concepts into something students can build, test, improve and finally compete with.
           </p>
         </motion.div>
 
@@ -62,11 +62,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             className="lg:col-span-7 space-y-6"
           >
             <h2 className="font-headline font-black text-3xl sm:text-4xl text-[#0A1930] uppercase tracking-tight">
-              FROM TECHFEST IIT BOMBAY TO A VÄSTERÅS CLASSROOM
+              FROM STEM CONCEPTS TO A VÄSTERÅS CLASSROOM
             </h2>
 
             <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
-              Techfest, IIT Bombay is one of India's largest science and technology festivals. Blix-A-Thon, the robotics competition hosted there, has run across multiple editions with 2,000+ student participants in recent years. RoboKidovation Västerås adapts that format for Swedish school cohorts.
+              RoboKidovation Västerås is INIAC's own STEM programme and pedagogy, hosted with IBK Västerås and SkillSkolan, and built on Blix's reusable hardware kit as technology partner. The Robo-Sprint arena format is adapted from Blix-A-Thon, hosted at Techfest, IIT Bombay — brought to Swedish schools for the first time.
             </p>
 
             <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
@@ -77,13 +77,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200 flex items-center gap-3">
                 <Award className="w-5 h-5 text-[#006AA7] shrink-0" />
                 <span className="text-xs font-mono-code font-bold text-[#0A1930] uppercase">
-                  Junior & Senior Leagues
+                  Explorer & Advanced Leagues
                 </span>
               </div>
               <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200 flex items-center gap-3">
                 <ShieldCheck className="w-5 h-5 text-[#006AA7] shrink-0" />
                 <span className="text-xs font-mono-code font-bold text-[#0A1930] uppercase">
-                  India-Proven Format
+                  Lgr22-Linked Curriculum
                 </span>
               </div>
             </div>
@@ -119,7 +119,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   ROBOSKOLAN QUALIFIERS · OCTOBER 2026
                 </span>
                 <span className="font-headline font-bold text-lg text-white uppercase">
-                  Junior & Senior Robo-Sprint Leagues
+                  Explorer & Advanced Robo-Sprint Leagues
                 </span>
               </div>
             </div>
@@ -129,7 +129,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 <MapPin className="w-4 h-4 text-[#006AA7]" />
                 <span>VÄSTERÅS, SWEDEN</span>
               </span>
-              <span>GRAND FINALE · NOV 10, 2026</span>
+              <span>GRAND FINALE · NOV 13, 2026</span>
             </div>
           </motion.div>
 

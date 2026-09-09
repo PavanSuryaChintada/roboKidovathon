@@ -17,6 +17,8 @@ import { ChallengesPage } from './pages/ChallengesPage';
 import { HowItWorksPage } from './pages/HowItWorksPage';
 import { ForSchoolsPage } from './pages/ForSchoolsPage';
 import { AboutPage } from './pages/AboutPage';
+import { Lgr22Page } from './pages/Lgr22Page';
+import { EventsPage } from './pages/EventsPage';
 
 import { RegisterModal } from './components/RegisterModal';
 import { EventDeckModal } from './components/EventDeckModal';
@@ -127,6 +129,20 @@ export function App() {
 
         {currentRoute === 'about' && (
           <AboutPage
+            onOpenRegister={() => setIsRegisterOpen(true)}
+            onNavigateHome={() => handleNavigate('home')}
+          />
+        )}
+
+        {currentRoute === 'lgr22' && (
+          <Lgr22Page
+            onOpenRegister={() => setIsRegisterOpen(true)}
+            onNavigateHome={() => handleNavigate('home')}
+          />
+        )}
+
+        {currentRoute === 'events' && (
+          <EventsPage
             onOpenRegister={() => setIsRegisterOpen(true)}
             onNavigateHome={() => handleNavigate('home')}
           />

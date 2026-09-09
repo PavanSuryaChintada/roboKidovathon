@@ -23,10 +23,10 @@ export const RefHero: React.FC<RefHeroProps> = ({
 
   const stats = [
     { value: '4', label: 'HOST PARTNERS' },
-    { value: 'GRADES 2–9', label: 'JUNIOR & SENIOR' },
+    { value: 'GRADES 4–9', label: 'EXPLORER & ADVANCED' },
     { value: 'SEK 3,000', label: 'PRIZE POOL' },
-    { value: '120 MIN', label: 'INTRO WORKSHOP' },
-    { value: 'NOV 10', label: 'GRAND FINALE' },
+    { value: '20H', label: 'STEM PROJECT' },
+    { value: 'NOV 13', label: 'GRAND FINALE' },
   ];
 
   return (

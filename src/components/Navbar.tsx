@@ -26,25 +26,32 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, []);
 
   const navLinks = [
-    { id: 'about', label: 'About' },
-    { id: 'challenges', label: 'Challenges' },
-    { id: 'how-it-works', label: 'How It Works' },
-    { id: 'for-schools', label: 'Schools' },
-    { id: 'advisory', label: 'Advisory' },
+    { id: 'for-schools', label: 'For Schools' },
+    { id: 'how-it-works', label: 'STEM Programme' },
+    { id: 'challenges', label: 'RoboKidovation' },
+    { id: 'lgr22', label: 'Lgr22' },
+    { id: 'events', label: 'Events' },
+    { id: 'about', label: 'About INIAC' },
+    { id: 'contact', label: 'Contact' },
   ];
+
+  const scrollToId = (elementId: string) => {
+    const el = document.getElementById(elementId);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const handleLinkClick = (id: string) => {
     setMobileMenuOpen(false);
-    if (id === 'advisory') {
+    if (id === 'contact') {
+      // Footer renders on every page, so no route change is needed.
+      scrollToId('site-footer');
+    } else if (id === 'advisory') {
+      // Advisory section only exists on the home page.
       if (activeTab !== 'home') {
         onNavigate('home');
-        setTimeout(() => {
-          const el = document.getElementById('advisory-section');
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+        setTimeout(() => scrollToId('advisory-section'), 100);
       } else {
-        const el = document.getElementById('advisory-section');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        scrollToId('advisory-section');
       }
     } else {
       onNavigate(id);

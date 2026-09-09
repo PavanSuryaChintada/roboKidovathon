@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Boxes, Layers, CheckCircle2, ShieldCheck, Download, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Boxes, Layers, GraduationCap, ShieldCheck, Download, ArrowRight, ArrowLeft } from 'lucide-react';
 
 interface ForSchoolsPageProps {
   onNavigateHome: () => void;
@@ -86,14 +86,14 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
               <Layers className="w-6 h-6" />
             </div>
             <h3 className="font-headline font-bold text-2xl text-[#0A1930] uppercase">
-              120-MIN IN-SCHOOL DELIVERY
+              20-HOUR IN-SCHOOL DELIVERY
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-              We bring the kits, gearboxes, and arena mats directly into your classroom ahead of the October 2026 qualifiers. Zero disruption to normal timetables.
+              Ten 2-hour sessions bring the kits, gearboxes, and arena mats directly into your classroom ahead of the October 2026 qualifiers. Schools can also opt into a lighter 10–12 hour version for younger cohorts.
             </p>
           </motion.div>
 
-          {/* Card 3: India-Proven Format */}
+          {/* Card 3: Lgr22-Aligned Learning */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -102,13 +102,13 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
             className="p-8 rounded-3xl bg-[#F8FAFC] border border-slate-200 space-y-4 shadow-sm"
           >
             <div className="w-12 h-12 rounded-2xl bg-[#006AA7]/10 border border-[#006AA7]/20 flex items-center justify-center text-[#006AA7]">
-              <CheckCircle2 className="w-6 h-6" />
+              <GraduationCap className="w-6 h-6" />
             </div>
             <h3 className="font-headline font-bold text-2xl text-[#0A1930] uppercase">
-              INDIA-PROVEN FORMAT
+              LGR22-ALIGNED LEARNING
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-              Adapted from Blix-A-Thon, a competition proven at Techfest, IIT Bombay with 2,000+ student participants in recent editions.
+              Practical learning opportunities connected to central content in Teknik, Matematik and NO/Fysik — with documented student work teachers may use in ordinary assessment.
             </p>
           </motion.div>
 
@@ -155,7 +155,7 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
               ENROL YOUR SCHOOL COHORT
             </h3>
             <p className="text-xs sm:text-sm text-[#0A1930]/80 font-medium max-w-lg">
-              School intake across the Västerås municipal district is open for the 2026 season. Registrations close November 10, 2026.
+              School intake across the Västerås municipal district is open for the 2026 season. Registrations close ahead of the November 13, 2026 Robo-Sprint City Final.
             </p>
           </div>
 

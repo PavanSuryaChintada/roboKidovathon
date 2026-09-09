@@ -11,17 +11,17 @@ export const RefManifesto: React.FC<RefManifestoProps> = ({ onNavigate }) => {
   const pillars = [
     {
       icon: Cpu,
-      title: 'Hands-On Hardware Workshop',
-      desc: 'A 120-minute in-school robotics workshop brings the official Robo-Sprint kit, wiring, and mentor guidance directly to your classroom.',
+      title: '20-Hour STEM Project',
+      desc: 'A ten-session, in-school STEM project brings the official Robo-Sprint kit, mechanisms, and mentor guidance directly to your classroom.',
     },
     {
       icon: ShieldCheck,
-      title: 'India Origin, Nordic Adaptation',
-      desc: 'Adapts Blix-A-Thon — hosted at Techfest, IIT Bombay with 2,000+ student participants — for the Swedish school environment.',
+      title: 'Lgr22-Linked Learning',
+      desc: 'Practical learning opportunities connected to Teknik, Matematik and NO/Fysik in Lgr22 — documented evidence teachers can use in ordinary assessment.',
     },
     {
       icon: Trophy,
-      title: 'Grand Finale, Nov 10 2026',
+      title: 'Grand Finale, Nov 13 2026',
       desc: 'School champions compete live in Västerås for SEK 3,000 in prizes, cash, trophies, and certificates.',
     },
   ];
