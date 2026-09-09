@@ -9,7 +9,7 @@ interface RegisterModalProps {
 
 export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose }) => {
   const [activeTab, setActiveTab] = useState<'student' | 'school'>('student');
-  const [selectedCategory, setSelectedCategory] = useState<string>('robo-sprint-junior');
+  const [selectedCategory, setSelectedCategory] = useState<string>('robo-sprint-explorer');
   const [teamName, setTeamName] = useState('');
   const [schoolName, setSchoolName] = useState('');
   const [contactName, setContactName] = useState('');
@@ -75,7 +75,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
                 Join The Competition.
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 font-light mt-1.5 leading-relaxed">
-                Register a student team or enrol your school cohort for the 120-minute robotics introduction workshop ahead of the RoboSkolan qualifiers.
+                Register a student team or enrol your school cohort for the 20-hour STEM project ahead of the RoboSkolan qualifiers.
               </p>
             </div>
 
@@ -172,7 +172,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
                 <label className="block text-[10px] font-mono-code font-bold tracking-wider text-slate-500 uppercase mb-2">
                   CHOOSE YOUR LEAGUE *
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {COMPETITION_CATEGORIES.map((cat: CompetitionCategory) => (
                     <button
                       key={cat.id}
@@ -220,7 +220,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
 
               <div className="p-3 bg-[#FFCD00]/15 border border-[#FFCD00]/60 rounded-2xl flex items-center justify-between text-xs font-mono-code">
                 <span className="text-[#0A1930] font-semibold">REGISTRATION DEADLINE:</span>
-                <span className="font-bold text-[#0A1930]">NOVEMBER 10, 2026</span>
+                <span className="font-bold text-[#0A1930]">NOVEMBER 13, 2026</span>
               </div>
 
               <button

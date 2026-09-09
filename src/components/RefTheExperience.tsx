@@ -21,14 +21,14 @@ export const RefTheExperience: React.FC<RefTheExperienceProps> = ({
     {
       id: '02',
       title: 'LIVE ARENA MATCHES',
-      desc: 'Air-hockey style Robo-Sprint heats — 3-minute Junior rounds, 6-minute Senior rounds — refereed live on the divided arena mat.',
+      desc: 'Arena ball-transfer Robo-Sprint heats — 3-minute matches for both the Explorer and Advanced leagues — refereed live on the divided arena mat.',
       icon: Trophy,
       span: 'lg:col-span-4',
     },
     {
       id: '03',
       title: 'SCHOOL-FIRST DELIVERY',
-      desc: 'It starts with a 120-minute in-school workshop. Mentors bring the kit, arena mat, and team guidance directly to your classroom.',
+      desc: 'It starts with a 20-hour, ten-session in-school STEM project. Mentors bring the kit, arena mat, and team guidance directly to your classroom.',
       icon: Zap,
       span: 'lg:col-span-4',
     },
@@ -56,7 +56,7 @@ export const RefTheExperience: React.FC<RefTheExperienceProps> = ({
           </motion.div>
 
           <p className="text-sm sm:text-base text-slate-600 font-light max-w-md leading-relaxed pb-2">
-            Adapted from Blix-A-Thon at Techfest, IIT Bombay, for the Swedish school environment — real teamwork, real hardware, real matches.
+            INIAC's STEM programme for the Swedish school environment — real teamwork, real hardware, real matches.
           </p>
         </div>
 

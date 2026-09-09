@@ -45,12 +45,12 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
             className="font-headline font-black uppercase tracking-tight leading-[1.02]"
             style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}
           >
-            <span className="text-stroke block">TOURNAMENT</span>
+            <span className="text-stroke block">ROBO-SPRINT</span>
             <span className="text-[#0A1930] block">RULEBOOK</span>
           </h1>
 
           <p className="mt-4 text-sm sm:text-base text-slate-600 font-light max-w-2xl leading-relaxed">
-            Arena dimensions, ball counts, scoring rules, and referee guidelines for the 2026 RoboKidovation Västerås Championship.
+            Explorer and Advanced share one arena format: 2.44 m × 1.22 m, 1 team vs 1 team, 3-minute matches, 3–4 students per team, moving balls into the opponent's side. Robo-Precision is a separate 5-minute autonomous build challenge for gymnasium teams. Tap a card below to open its full rules.
           </p>
         </motion.div>
 
@@ -113,43 +113,49 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
                 ))}
               </div>
 
-              {/* Mandatory Regulations & Scoring */}
-              <div className="p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-2 gap-10 bg-white">
-                <div className="space-y-4">
-                  <h3 className="font-headline font-black text-lg sm:text-xl uppercase tracking-wider text-[#0A1930] flex items-center gap-2">
-                    <ShieldCheck className="w-5 h-5 text-[#006AA7]" />
-                    <span>MANDATORY REGULATIONS</span>
-                  </h3>
-                  <ul className="space-y-2.5 text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                    <li className="flex items-start gap-2">
-                      <span className="text-[#006AA7] font-bold mt-0.5">•</span>
-                      <span>Each team starts the round with 5 balls in their own court.</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-[#006AA7] font-bold mt-0.5">•</span>
-                      <span>Robots run on safe 6V DC battery power through the wired transmitter/receiver control set.</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-[#006AA7] font-bold mt-0.5">•</span>
-                      <span>{cat.keyRule}</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-[#006AA7] font-bold mt-0.5">•</span>
-                      <span>Referees hold final authority over arena resets and match timing.</span>
-                    </li>
-                  </ul>
-                </div>
+              {/* Toggle Strip */}
+              <button
+                type="button"
+                onClick={() => toggleCat(cat.id)}
+                aria-expanded={openCats.has(cat.id)}
+                className="w-full flex items-center justify-between gap-4 px-8 sm:px-12 py-5 bg-[#F8FAFC] border-t border-slate-200 hover:bg-slate-100 transition-colors"
+              >
+                <span className="font-headline font-bold text-xs sm:text-sm uppercase tracking-wider text-[#0A1930]">
+                  {openCats.has(cat.id) ? 'Hide' : 'View'} Robot Requirements, Scoring &amp; Judging
+                </span>
+                <motion.div animate={{ rotate: openCats.has(cat.id) ? 180 : 0 }} transition={{ duration: 0.25 }}>
+                  <ChevronDown className="w-4 h-4 text-[#006AA7] shrink-0" />
+                </motion.div>
+              </button>
 
-                <div className="space-y-4 flex flex-col justify-between">
-                  <div className="space-y-3">
-                    <h3 className="font-headline font-black text-lg sm:text-xl uppercase tracking-wider text-[#0A1930] flex items-center gap-2">
-                      <Trophy className="w-5 h-5 text-[#006AA7]" />
-                      <span>SCORING</span>
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-500 font-light leading-relaxed">
-                      {cat.scoring}
-                    </p>
-                  </div>
+              <AnimatePresence initial={false}>
+                {openCats.has(cat.id) && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    className="overflow-hidden"
+                  >
+                    {/* Mandatory Regulations & Scoring */}
+                    <div className="p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-2 gap-10 bg-white">
+                      <div className="space-y-4">
+                        <h3 className="font-headline font-black text-lg sm:text-xl uppercase tracking-wider text-[#0A1930] flex items-center gap-2">
+                          <ShieldCheck className="w-5 h-5 text-[#006AA7]" />
+                          <span>ROBOT REQUIREMENTS</span>
+                        </h3>
+                        <ul className="space-y-2.5 text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                          {cat.robotRequirements.map((rule) => (
+                            <li key={rule} className="flex items-start gap-2">
+                              <span className="text-[#006AA7] font-bold mt-0.5">•</span>
+                              <span>{rule}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <p className="text-xs text-slate-500 font-light leading-relaxed pt-1">
+                          {cat.keyRule}
+                        </p>
+                      </div>
 
                   <div className="pt-6 border-t border-slate-200 flex flex-wrap items-center gap-4">
                     <button
@@ -250,6 +256,53 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
               )}
             </motion.div>
           ))}
+        </div>
+
+        {/* ── BASIC MATCH RULES & PENALTIES (SHARED ACROSS BOTH LEAGUES) ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-8 rounded-3xl border border-slate-200 bg-white p-8 sm:p-10 space-y-4"
+          >
+            <h3 className="font-headline font-black text-lg sm:text-xl uppercase tracking-wider text-[#0A1930]">
+              Basic Match Rules
+            </h3>
+            <ol className="space-y-2 text-xs sm:text-sm text-slate-600 font-light leading-relaxed list-decimal list-inside">
+              <li>Both robots must start fully inside their designated starting area.</li>
+              <li>Students may only touch the robot before the referee starts the match.</li>
+              <li>Once the match starts, students may control the robot only through the approved control method.</li>
+              <li>Students may not enter the arena or manually move balls.</li>
+              <li>If a robot becomes stuck, the referee may allow one controlled reset to the team's starting area.</li>
+              <li>A reset does not stop the match clock.</li>
+              <li>Teams may not intentionally damage another robot.</li>
+              <li>A robot may push or redirect balls but may not intentionally trap balls permanently inside the robot.</li>
+              <li>A ball counts only when it has completely crossed into the opponent's half.</li>
+              <li>The referee's decision on ball position and scoring is final.</li>
+              <li>Teams must use the robot that passed the pre-match inspection.</li>
+              <li>Repairs between matches are allowed within the allotted technical period.</li>
+            </ol>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-4 rounded-3xl border border-slate-200 bg-[#013A63] p-8 sm:p-10 space-y-4"
+          >
+            <h3 className="font-headline font-black text-lg sm:text-xl uppercase tracking-wider text-white">
+              Penalties
+            </h3>
+            <ul className="space-y-3 text-xs sm:text-sm text-slate-200 font-light leading-relaxed">
+              <li><span className="font-bold text-[#FFCD00]">Minor infringement</span> — warning</li>
+              <li><span className="font-bold text-[#FFCD00]">Repeated infringement</span> — &minus;5 points</li>
+              <li><span className="font-bold text-[#FFCD00]">Unsafe behaviour / deliberate interference</span> — match loss</li>
+              <li><span className="font-bold text-[#FFCD00]">Deliberate damage or serious misconduct</span> — possible disqualification</li>
+            </ul>
+          </motion.div>
         </div>
 
         {/* Bottom CTA Banner */}

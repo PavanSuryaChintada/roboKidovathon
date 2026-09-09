@@ -33,7 +33,7 @@ export const RefTrendingCards: React.FC<RefTrendingCardsProps> = ({
     {
       image: roboPrecisionFacingDual,
       category: 'GRAND FINALE',
-      date: 'NOV 10, 2026',
+      date: 'NOV 13, 2026',
       title: 'RoboKidovation Västerås: Schools Ready For The Inter-School Showcase',
       link: 'about',
     },

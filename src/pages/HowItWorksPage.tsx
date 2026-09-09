@@ -1,7 +1,17 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Calendar } from 'lucide-react';
-import { ROADMAP_STEPS, RoadmapStep } from '../data/roboData';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ArrowRight, Calendar, CheckCircle2, ChevronDown } from 'lucide-react';
+import {
+  ROADMAP_STEPS,
+  RoadmapStep,
+  LEARNING_BLOCKS,
+  LearningBlock,
+  STEM_PROJECT_SESSIONS,
+  ProjectSession,
+  STEM_PROJECT_DELIVERABLES,
+  ProjectDeliverable,
+  KIT_LEARNING_TAGS,
+} from '../data/roboData';
 
 interface HowItWorksPageProps {
   onNavigateHome: () => void;
@@ -12,6 +22,8 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
   onNavigateHome,
   onOpenRegister,
 }) => {
+  const [openBlock, setOpenBlock] = useState<string | null>(null);
+
   return (
     <div className="w-full min-h-screen bg-white text-[#0A1930] pt-28 pb-24 px-6 sm:px-10 select-none">
       <div className="max-w-[1440px] mx-auto space-y-16">
@@ -27,7 +39,7 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
           <span>BACK TO HOME</span>
         </motion.button>
 
-        {/* ── HEADER: TOURNAMENT (Outline) JOURNEY (Solid) ── */}
+        {/* ── HEADER: STEM (Outline) PROGRAMME (Solid) ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -35,20 +47,109 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
           className="border-b border-slate-200 pb-12"
         >
           <span className="text-[10px] font-mono-code font-medium tracking-[0.2em] text-slate-500 uppercase block mb-3">
-            METHODOLOGY & JOURNEY // VÄSTERÅS 2026
+            A PROJECT, NOT JUST A WORKSHOP // VÄSTERÅS 2026
           </span>
 
           <h1
             className="font-headline font-black uppercase tracking-tight leading-[1.02]"
             style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}
           >
-            <span className="text-stroke block">TOURNAMENT</span>
-            <span className="text-[#0A1930] block">JOURNEY</span>
+            <span className="text-stroke block">STEM</span>
+            <span className="text-[#0A1930] block">PROGRAMME</span>
           </h1>
 
           <p className="mt-4 text-sm sm:text-base text-slate-600 font-light max-w-2xl leading-relaxed">
-            Learn → Build → Challenge → Innovate → Celebrate. Our 5-stage model guides students from zero prior robotics background into confident arena competitors.
+            RoboKidovation begins with a practical STEM programme where students learn how a working robot is built from the ground up — then build, test and improve their own robot for the Robo-Sprint challenge. No previous robotics experience needed.
           </p>
+        </motion.div>
+
+        {/* ── 5 LEARNING BLOCKS ── */}
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4 items-start">
+          {LEARNING_BLOCKS.map((block: LearningBlock, idx: number) => {
+            const isOpen = openBlock === block.tag;
+            return (
+              <motion.button
+                key={block.tag}
+                type="button"
+                onClick={() => setOpenBlock(isOpen ? null : block.tag)}
+                aria-expanded={isOpen}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                className={`text-center rounded-2xl border bg-[#F8FAFC] p-5 space-y-1.5 transition-colors w-full ${
+                  isOpen ? 'border-[#006AA7]/40' : 'border-slate-200 hover:border-[#006AA7]/30'
+                }`}
+              >
+                <span className="font-headline font-black text-sm sm:text-base text-[#006AA7] uppercase tracking-wide block">
+                  {block.tag}
+                </span>
+                <span className="text-[11px] text-slate-500 font-light leading-snug block">
+                  {block.desc}
+                </span>
+                <motion.div
+                  animate={{ rotate: isOpen ? 180 : 0 }}
+                  transition={{ duration: 0.25 }}
+                  className="flex justify-center pt-1"
+                >
+                  <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                </motion.div>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <p className="text-[10px] text-slate-500 font-light leading-relaxed pt-2 border-t border-slate-200">
+                        {block.detail}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.button>
+            );
+          })}
+        </div>
+
+        {/* ── ONE KIT — MANY LEARNING POSSIBILITIES ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="rounded-3xl border border-slate-200 overflow-hidden bg-[#F8FAFC] grid grid-cols-1 lg:grid-cols-12 shadow-sm"
+        >
+          <div className="lg:col-span-5 relative min-h-[280px]">
+            <img
+              src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
+              alt="Blix universal STEM kit components"
+              className="w-full h-full object-cover absolute inset-0"
+            />
+          </div>
+          <div className="lg:col-span-7 p-8 sm:p-12 space-y-5">
+            <span className="text-[10px] font-mono-code font-bold tracking-[0.2em] text-[#006AA7] uppercase block">
+              ONE KIT, MANY LEARNING POSSIBILITIES
+            </span>
+            <h2 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0A1930]">
+              One Reusable STEM Kit. Many Learning Journeys.
+            </h2>
+            <p className="text-sm text-slate-600 font-light leading-relaxed max-w-xl">
+              Students start with simple mechanical construction and gradually progress toward electronics, control systems, programming and robotics. The same physical learning platform can support different ages and skill levels — this isn't only a robotics kit.
+            </p>
+            <div className="flex flex-wrap gap-2 pt-2">
+              {KIT_LEARNING_TAGS.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[10px] font-mono-code font-bold text-[#0A1930] bg-white border border-slate-200 px-3 py-1.5 rounded-full uppercase tracking-wide"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
         </motion.div>
 
         {/* ── 5-STAGE PROCESS CARDS ── */}
@@ -90,6 +191,81 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
           ))}
         </div>
 
+        {/* ── 20-HOUR SESSION BREAKDOWN ── */}
+        <div className="space-y-6">
+          <div className="border-b border-slate-200 pb-6">
+            <span className="text-[10px] font-mono-code font-bold tracking-[0.2em] text-[#006AA7] uppercase block mb-2">
+              20-HOUR STEM PROJECT
+            </span>
+            <h2 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0A1930]">
+              10 Sessions · Build → Test → Improve → Compete
+            </h2>
+            <p className="mt-2 text-sm text-slate-600 font-light max-w-2xl leading-relaxed">
+              Schools can adapt the programme around Teknik, Matematik and NO/Fysik, with student documentation, reflection and project work supporting the learning process. A lighter 10–12 hour version is available for younger cohorts where a full assessed project is too heavy.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto rounded-3xl border border-slate-200">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-[#F8FAFC] border-b border-slate-200">
+                  <th className="px-5 py-3 text-[10px] font-mono-code font-bold text-slate-500 uppercase tracking-wider">Session</th>
+                  <th className="px-5 py-3 text-[10px] font-mono-code font-bold text-slate-500 uppercase tracking-wider">Hours</th>
+                  <th className="px-5 py-3 text-[10px] font-mono-code font-bold text-slate-500 uppercase tracking-wider">Focus</th>
+                </tr>
+              </thead>
+              <tbody>
+                {STEM_PROJECT_SESSIONS.map((s: ProjectSession) => (
+                  <tr key={s.session} className="border-b border-slate-100 last:border-0 hover:bg-[#F8FAFC] transition-colors">
+                    <td className="px-5 py-3.5 text-sm font-headline font-bold text-[#006AA7]">
+                      {String(s.session).padStart(2, '0')}
+                    </td>
+                    <td className="px-5 py-3.5 text-xs font-mono-code text-slate-500">
+                      {s.hours}
+                    </td>
+                    <td className="px-5 py-3.5 text-sm text-[#0A1930] font-light">
+                      {s.focus}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* ── WHAT STUDENTS PRODUCE ── */}
+        <div className="space-y-6">
+          <div className="border-b border-slate-200 pb-6">
+            <h2 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0A1930]">
+              What Students Produce
+            </h2>
+            <p className="mt-2 text-sm text-slate-600 font-light max-w-2xl leading-relaxed">
+              By the end of the 20 hours, every team should have more than just a robot.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {STEM_PROJECT_DELIVERABLES.map((d: ProjectDeliverable, idx: number) => (
+              <motion.div
+                key={d.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                className="p-6 rounded-2xl bg-white border border-slate-200 space-y-2 shadow-sm"
+              >
+                <CheckCircle2 className="w-5 h-5 text-[#006AA7]" />
+                <h3 className="font-headline font-bold text-sm uppercase tracking-wide text-[#0A1930]">
+                  {d.title}
+                </h3>
+                <p className="text-xs text-slate-600 font-light leading-relaxed">
+                  {d.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
         {/* ── CALLOUT BANNER ── */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
@@ -107,7 +283,7 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
               Enrol your school cohort today.
             </h3>
             <p className="text-xs sm:text-sm text-slate-200 font-light max-w-xl">
-              Registrations close November 10, 2026. Workshop dates and hardware kits are assigned upon enrolment.
+              Registrations close ahead of the November 13, 2026 Robo-Sprint City Final. Session dates and hardware kits are assigned upon enrolment.
             </p>
           </div>
 

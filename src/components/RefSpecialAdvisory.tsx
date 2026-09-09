@@ -10,10 +10,12 @@ import {
 } from '../assets/images';
 
 const FRAMEWORK_STEPS = [
-  'Indian Innovation Experience',
-  'Adapted for Swedish Schools',
-  'Local School Challenges',
-  'RoboKidovation Västerås',
+  'Explore Components',
+  'Build The Robot',
+  'Test Movement',
+  'Improve The Design',
+  'School Robo-Sprint',
+  'Represent The School',
 ];
 
 export const RefSpecialAdvisory: React.FC = () => {
@@ -37,7 +39,7 @@ export const RefSpecialAdvisory: React.FC = () => {
             <span className="text-[#0A1930] block">ADVISORY</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed max-w-xl mx-auto">
-            RoboKidovation Västerås is developed by Indisk BarnKlubb (IBK) Västerås alongside INIAC, SkillSkolan, and BLIX — a youth-focused bridge between innovation experiences in India and Sweden.
+            RoboKidovation Västerås is developed by Indisk BarnKlubb (IBK) Västerås alongside INIAC and SkillSkolan, with Blix as technology and kit partner — turning STEM concepts into something students can build, test, improve and finally compete with.
           </p>
         </div>
 
@@ -99,9 +101,9 @@ export const RefSpecialAdvisory: React.FC = () => {
           className="space-y-6"
         >
           <div className="flex items-center gap-2 justify-center text-[#006AA7]">
-            <Globe2 className="w-4 h-4" />
+            <Sparkles className="w-4 h-4" />
             <span className="text-[10px] font-mono-code font-bold tracking-[0.2em] uppercase">
-              India Origin → Nordic Adaptation
+              From Classroom Learning To City Competition
             </span>
           </div>
           <div className="flex flex-col lg:flex-row items-stretch justify-center gap-3 lg:gap-2">
@@ -121,7 +123,7 @@ export const RefSpecialAdvisory: React.FC = () => {
             ))}
           </div>
           <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed max-w-2xl mx-auto text-center">
-            Blix-A-Thon India is a multi-edition robotics competition hosted at Techfest, IIT Bombay — one of India's largest science &amp; technology festivals — with 2,000+ student participants in recent editions. RoboKidovation Västerås is its first expansion beyond India, starting in Sweden.
+            The Robo-Sprint arena format is adapted from Blix-A-Thon, hosted at Techfest, IIT Bombay. In Västerås it is delivered as INIAC's own STEM programme and pedagogy, with Blix supplying the reusable hardware kit as technology partner.
           </p>
         </motion.div>
 
@@ -173,7 +175,7 @@ export const RefSpecialAdvisory: React.FC = () => {
                   SEK 3,000 Prize Pool
                 </h3>
                 <p className="text-xs text-slate-500 font-light">
-                  SEK 1,200 Junior + SEK 1,800 Senior · Cash + Trophy + Certificates
+                  SEK 1,200 Explorer + SEK 1,800 Advanced · Cash + Trophy + Certificates
                 </p>
               </div>
             </div>

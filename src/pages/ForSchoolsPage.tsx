@@ -18,6 +18,9 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
   onOpenRegister,
   onOpenDeckModal,
 }) => {
+  const [openReason, setOpenReason] = useState<string | null>(null);
+  const [openFaqId, setOpenFaqId] = useState<string | null>(null);
+
   return (
     <div className="w-full min-h-screen bg-white text-[#0A1930] pt-28 pb-24 px-6 sm:px-10 select-none">
       <div className="max-w-[1440px] mx-auto space-y-16">
@@ -56,6 +59,64 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
             A turnkey robotics tournament model created to eliminate administrative overhead and bring all physical hardware directly into your classroom.
           </p>
         </motion.div>
+
+        {/* ── WHY SCHOOLS PARTICIPATE ── */}
+        <div className="space-y-6">
+          <h2 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0A1930]">
+            Why Schools Participate
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
+            {WHY_SCHOOLS_PARTICIPATE.map((reason, idx) => {
+              const Icon = WHY_ICONS[idx] ?? Sparkles;
+              const isOpen = openReason === reason.title;
+              return (
+                <motion.button
+                  key={reason.title}
+                  type="button"
+                  onClick={() => setOpenReason(isOpen ? null : reason.title)}
+                  aria-expanded={isOpen}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className={`text-left w-full p-6 rounded-2xl bg-[#F8FAFC] border space-y-3 transition-colors ${
+                    isOpen ? 'border-[#006AA7]/40' : 'border-slate-200 hover:border-[#006AA7]/30'
+                  }`}
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="w-10 h-10 rounded-xl bg-[#006AA7]/10 border border-[#006AA7]/20 flex items-center justify-center text-[#006AA7]">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.25 }}>
+                      <ChevronDown className="w-4 h-4 text-slate-400 shrink-0" />
+                    </motion.div>
+                  </div>
+                  <h3 className="font-headline font-bold text-sm uppercase tracking-wide text-[#0A1930]">
+                    {reason.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 font-light leading-relaxed">
+                    {reason.desc}
+                  </p>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <p className="text-[11px] text-slate-500 font-light leading-relaxed pt-2 border-t border-slate-200">
+                          {reason.detail}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.button>
+              );
+            })}
+          </div>
+        </div>
 
         {/* ── 3 CORE VALUE PROPOSITIONS ── */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -122,7 +183,7 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
             </div>
           </motion.div>
 
-          {/* Card 3: India-Proven Format */}
+          {/* Card 3: Lgr22-Aligned Learning */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -181,6 +242,73 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
           </div>
         </motion.div>
 
+        {/* ── FAQ ── */}
+        <div className="space-y-6">
+          <div className="border-b border-slate-200 pb-6">
+            <h2 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0A1930]">
+              Frequently Asked Questions
+            </h2>
+            <p className="mt-2 text-sm text-slate-600 font-light max-w-2xl leading-relaxed">
+              Tap a question to expand it.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            {FAQ_ITEMS.map((item: FAQItem) => {
+              const isOpen = openFaqId === item.id;
+              return (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className={`rounded-2xl border bg-[#F8FAFC] overflow-hidden transition-colors ${
+                    isOpen ? 'border-[#006AA7]/40' : 'border-slate-200'
+                  }`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaqId(isOpen ? null : item.id)}
+                    aria-expanded={isOpen}
+                    className="w-full flex items-center justify-between gap-4 p-5 text-left hover:bg-slate-100/60 transition-colors"
+                  >
+                    <div className="flex items-start gap-3">
+                      <HelpCircle className="w-4 h-4 text-[#006AA7] shrink-0 mt-0.5" />
+                      <div>
+                        <span className="text-[9px] font-mono-code font-bold tracking-widest text-[#006AA7] uppercase block mb-1">
+                          {item.category}
+                        </span>
+                        <span className="font-headline font-bold text-sm sm:text-base text-[#0A1930]">
+                          {item.question}
+                        </span>
+                      </div>
+                    </div>
+                    <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.25 }}>
+                      <ChevronDown className="w-4 h-4 text-slate-400 shrink-0" />
+                    </motion.div>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <p className="px-5 pb-5 pl-12 text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                          {item.answer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
         {/* ── ENROL COHORT ACTION BANNER ── */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
@@ -197,7 +325,7 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
               ENROL YOUR SCHOOL COHORT
             </h3>
             <p className="text-xs sm:text-sm text-[#0A1930]/80 font-medium max-w-lg">
-              School intake across the Västerås municipal district is open for the 2026 season. Registrations close November 10, 2026.
+              School intake across the Västerås municipal district is open for the 2026 season. Registrations close ahead of the November 13, 2026 Robo-Sprint City Final.
             </p>
           </div>
 

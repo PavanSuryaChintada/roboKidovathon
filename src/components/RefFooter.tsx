@@ -13,7 +13,7 @@ export const RefFooter: React.FC<RefFooterProps> = ({
   onOpenRegister,
 }) => {
   return (
-    <footer className="w-full bg-[#013A63] text-white pt-16 pb-12 px-6 sm:px-10 border-t border-white/10 select-none">
+    <footer id="site-footer" className="w-full bg-[#013A63] text-white pt-16 pb-12 px-6 sm:px-10 border-t border-white/10 select-none scroll-mt-24">
       <div className="max-w-[1440px] mx-auto space-y-12">
 
         {/* Main Footer Row */}
@@ -27,7 +27,7 @@ export const RefFooter: React.FC<RefFooterProps> = ({
               </span>
             </div>
             <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-sm">
-              A youth robotics and innovation initiative bringing schools together through robotics — hosted by IBK Västerås, INIAC, SkillSkolan &amp; BLIX.
+              INIAC's hands-on STEM programme and RoboKidovation competition pathway, bringing schools together through robotics — hosted by IBK Västerås, INIAC and SkillSkolan, with Blix as technology partner.
             </p>
             <div className="flex items-center gap-4 text-xs font-mono-code text-slate-300">
               <span className="flex items-center gap-1">
@@ -36,7 +36,7 @@ export const RefFooter: React.FC<RefFooterProps> = ({
               </span>
               <span className="flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#FFCD00]" />
-                <span>AGES UP TO 15</span>
+                <span>GRADES 4–9</span>
               </span>
             </div>
           </div>
@@ -44,13 +44,13 @@ export const RefFooter: React.FC<RefFooterProps> = ({
           {/* Quick Links */}
           <div className="md:col-span-2 space-y-3">
             <span className="font-headline font-bold text-xs uppercase tracking-widest text-white block">
-              CHAMPIONSHIP
+              ROBOKIDOVATION
             </span>
             <ul className="space-y-2 text-xs text-slate-300 font-light">
-              <li><button onClick={() => onNavigate('challenges')} className="hover:text-[#FFCD00] transition-colors">Robo-Sprint (Junior)</button></li>
-              <li><button onClick={() => onNavigate('challenges')} className="hover:text-[#FFCD00] transition-colors">Robo-Sprint (Senior)</button></li>
+              <li><button onClick={() => onNavigate('challenges')} className="hover:text-[#FFCD00] transition-colors">Robo-Sprint (Explorer)</button></li>
+              <li><button onClick={() => onNavigate('challenges')} className="hover:text-[#FFCD00] transition-colors">Robo-Sprint (Advanced)</button></li>
               <li><button onClick={() => onNavigate('challenges')} className="hover:text-[#FFCD00] transition-colors">Technical Rulebook</button></li>
-              <li><button onClick={() => onNavigate('how-it-works')} className="hover:text-[#FFCD00] transition-colors">The RoboKidovation Journey</button></li>
+              <li><button onClick={() => onNavigate('events')} className="hover:text-[#FFCD00] transition-colors">Upcoming Events</button></li>
             </ul>
           </div>
 
@@ -61,9 +61,9 @@ export const RefFooter: React.FC<RefFooterProps> = ({
             </span>
             <ul className="space-y-2 text-xs text-slate-300 font-light">
               <li><button onClick={() => onNavigate('for-schools')} className="hover:text-[#FFCD00] transition-colors">School Partnership Portal</button></li>
-              <li><button onClick={() => onNavigate('for-schools')} className="hover:text-[#FFCD00] transition-colors">Workshop & Kit Delivery</button></li>
-              <li><button onClick={() => onNavigate('about')} className="hover:text-[#FFCD00] transition-colors">Special Advisory & Origins</button></li>
-              <li><button onClick={() => onNavigate('about')} className="hover:text-[#FFCD00] transition-colors">League Origins & Advisory</button></li>
+              <li><button onClick={() => onNavigate('how-it-works')} className="hover:text-[#FFCD00] transition-colors">20-Hour STEM Programme</button></li>
+              <li><button onClick={() => onNavigate('lgr22')} className="hover:text-[#FFCD00] transition-colors">Lgr22 Curriculum Fit</button></li>
+              <li><button onClick={() => onNavigate('about')} className="hover:text-[#FFCD00] transition-colors">About INIAC</button></li>
             </ul>
           </div>
 
@@ -73,7 +73,7 @@ export const RefFooter: React.FC<RefFooterProps> = ({
               ENROL COHORT
             </span>
             <p className="text-xs text-slate-300 font-light leading-relaxed">
-              Registration for Västerås schools closes November 10, 2026.
+              Registration for Västerås schools closes ahead of the November 13, 2026 Robo-Sprint City Final.
             </p>
             <motion.button
               whileHover={{ scale: 1.04, y: -1 }}
