@@ -50,7 +50,6 @@ export const RefHero: React.FC<RefHeroProps> = ({
           poster={roboPrecisionActionWide}
           className="w-full h-full object-cover scale-[1.36] origin-center"
         >
-          <source src="/blix_hero.webm" type="video/webm" />
           <source src="/uhd_25fps.mp4" type="video/mp4" />
         </video>
 
