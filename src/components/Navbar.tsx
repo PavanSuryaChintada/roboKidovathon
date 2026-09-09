@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
@@ -63,23 +63,35 @@ export const Navbar: React.FC<NavbarProps> = ({
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 select-none ${
         isScrolled
           ? 'bg-white/95 backdrop-blur-md border-b border-slate-200 py-3.5 text-[#0A1930] shadow-sm'
-          : 'bg-transparent py-5 text-[#0A1930]'
+          : 'bg-transparent py-5 text-white'
       }`}
     >
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 flex items-center justify-between gap-6">
 
-        {/* Brand Mark */}
+        {/* Brand Mark - White initially, transitions to dark when scrolled */}
         <button
           onClick={() => handleLinkClick('home')}
           className="text-left group focus:outline-none flex items-center"
         >
-          <span className="font-headline font-bold text-base sm:text-xl tracking-tight text-[#0A1930] uppercase group-hover:text-[#006AA7] transition-colors duration-200">
+          <span
+            className={`font-headline font-bold text-base sm:text-xl tracking-tight uppercase transition-colors duration-300 ${
+              isScrolled
+                ? 'text-[#0A1930] group-hover:text-[#006AA7]'
+                : 'text-white group-hover:text-[#FFCD00]'
+            }`}
+          >
             ROBOKIDOVATION VÄSTERÅS
           </span>
         </button>
 
         {/* Desktop Navigation Links (Center) */}
-        <nav className="hidden md:flex items-center gap-1.5 lg:gap-2 p-1 rounded-full bg-slate-50 border border-slate-200">
+        <nav
+          className={`hidden md:flex items-center gap-1.5 lg:gap-2 p-1 rounded-full transition-all duration-300 ${
+            isScrolled
+              ? 'bg-slate-50 border border-slate-200'
+              : 'bg-black/30 border border-white/15 backdrop-blur-md'
+          }`}
+        >
           {navLinks.map((item) => {
             const isActive = activeTab === item.id;
             return (
@@ -87,9 +99,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                 key={item.id}
                 onClick={() => handleLinkClick(item.id)}
                 className={`relative px-4 py-1.5 rounded-full text-xs font-display font-medium tracking-wide transition-all duration-200 ${
-                  isActive
-                    ? 'text-[#006AA7] bg-white font-semibold border border-slate-200 shadow-sm'
-                    : 'text-slate-500 hover:text-[#0A1930] hover:bg-white'
+                  isScrolled
+                    ? isActive
+                      ? 'text-[#006AA7] bg-white font-semibold border border-slate-200 shadow-sm'
+                      : 'text-slate-600 hover:text-[#0A1930] hover:bg-white'
+                    : isActive
+                    ? 'text-white bg-white/20 font-semibold border border-white/20 shadow-sm'
+                    : 'text-slate-300 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {item.label}
@@ -98,7 +114,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           })}
         </nav>
 
-        {/* Action Button (Right - Swedish Yellow Pill) */}
+        {/* Action Button (Right) */}
         <div className="hidden md:flex items-center gap-4">
           <motion.button
             whileHover={{ scale: 1.03 }}
@@ -111,48 +127,82 @@ export const Navbar: React.FC<NavbarProps> = ({
           </motion.button>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
-        <button
+        {/* Mobile Hamburger Toggle with Icon Rotation Motion */}
+        <motion.button
+          whileTap={{ scale: 0.9 }}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-[#0A1930] hover:text-[#006AA7] focus:outline-none transition-colors"
+          className={`md:hidden p-2 focus:outline-none transition-colors ${
+            isScrolled
+              ? 'text-[#0A1930] hover:text-[#006AA7]'
+              : 'text-white hover:text-slate-300'
+          }`}
           aria-label="Toggle navigation"
         >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6 text-[#0A1930]" />}
-        </button>
+          <motion.div
+            key={mobileMenuOpen ? 'close' : 'open'}
+            initial={{ rotate: -90, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            transition={{ duration: 0.2 }}
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </motion.div>
+        </motion.button>
 
       </div>
 
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4 text-[#0A1930]">
-          <div className="flex flex-col gap-2">
-            {navLinks.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleLinkClick(item.id)}
-                className={`py-2.5 px-3 rounded-lg text-left text-sm font-display font-medium transition-all ${
-                  activeTab === item.id
-                    ? 'text-[#006AA7] bg-slate-50 font-semibold'
-                    : 'text-slate-500 hover:text-[#0A1930] hover:bg-slate-50'
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenRegister();
-            }}
-            className="w-full btn-pill-lime py-3 text-xs flex items-center justify-center gap-2 mt-2"
+      {/* Mobile Drawer with Fluid Dropdown & Stagger Animation */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden md:hidden bg-white/98 backdrop-blur-xl border-b border-slate-200 shadow-xl"
           >
-            <span>JOIN LEAGUE NOW</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
-      )}
+            <div className="px-6 py-6 space-y-4 text-[#0A1930]">
+              <div className="flex flex-col gap-1.5">
+                {navLinks.map((item, idx) => {
+                  const isActive = activeTab === item.id;
+                  return (
+                    <motion.button
+                      key={item.id}
+                      initial={{ opacity: 0, x: -16 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: idx * 0.04, ease: [0.16, 1, 0.3, 1] }}
+                      onClick={() => handleLinkClick(item.id)}
+                      className={`py-3 px-4 rounded-xl text-left text-sm font-display font-medium transition-all ${
+                        isActive
+                          ? 'text-[#006AA7] bg-slate-100 font-bold border border-slate-200'
+                          : 'text-slate-700 hover:text-[#0A1930] hover:bg-slate-50'
+                      }`}
+                    >
+                      {item.label}
+                    </motion.button>
+                  );
+                })}
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35, delay: navLinks.length * 0.04, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenRegister();
+                  }}
+                  className="w-full btn-pill-lime py-3.5 text-xs font-black flex items-center justify-center gap-2 shadow-md"
+                >
+                  <span>JOIN LEAGUE NOW</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

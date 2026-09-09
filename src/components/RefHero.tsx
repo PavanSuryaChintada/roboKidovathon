@@ -30,7 +30,7 @@ export const RefHero: React.FC<RefHeroProps> = ({
   ];
 
   return (
-    <section className="relative w-full h-screen min-h-[640px] flex flex-col justify-between pt-28 pb-10 px-6 sm:px-12 md:px-16 overflow-hidden select-none bg-white">
+    <section className="relative w-full h-screen min-h-[640px] flex flex-col justify-between pt-28 pb-8 sm:pb-10 px-4 sm:px-8 md:px-12 lg:px-16 overflow-hidden select-none bg-[#070709]">
 
       {/* ── FULL VIEWPORT BACKGROUND VIDEO (z-0) ── */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
@@ -44,9 +44,9 @@ export const RefHero: React.FC<RefHeroProps> = ({
           className="w-full h-full object-cover"
         />
 
-        {/* ── LIGHT WASH OVERLAY FOR WHITE THEME LEGIBILITY (z-[1]) ── */}
-        <div className="absolute inset-0 bg-white/20 pointer-events-none z-[1]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/10 to-white/25 pointer-events-none z-[1]" />
+        {/* ── CINEMATIC BALANCED BLACK OVERLAY (z-[1]) ── */}
+        <div className="absolute inset-0 bg-black/40 pointer-events-none z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-transparent to-black/35 pointer-events-none z-[1]" />
       </div>
 
       {/* ── TOP SPACER ── */}
@@ -60,11 +60,11 @@ export const RefHero: React.FC<RefHeroProps> = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="font-syne uppercase tracking-[0.03em] leading-none text-center drop-shadow-sm whitespace-normal md:whitespace-nowrap px-4"
+          className="font-syne uppercase tracking-[0.03em] leading-none text-center drop-shadow-md whitespace-normal md:whitespace-nowrap px-4"
           style={{ fontSize: 'clamp(1rem, 1.95vw, 1.7rem)' }}
         >
-          <span className="text-slate-600 font-medium">SWEDEN’S NEWEST </span>
-          <span className="text-[#0A1930] font-extrabold">SCHOOL ROBOTICS LEAGUE</span>
+          <span className="text-slate-300 font-medium">SWEDEN’S NEWEST </span>
+          <span className="text-white font-extrabold">SCHOOL ROBOTICS LEAGUE</span>
         </motion.h1>
 
         {/* Line 2: BRINGING SCHOOLS TOGETHER [THROUGH ROBOTICS] (Unbroken) */}
@@ -72,49 +72,49 @@ export const RefHero: React.FC<RefHeroProps> = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="font-syne uppercase tracking-[0.03em] leading-none text-center drop-shadow-sm whitespace-normal md:whitespace-nowrap px-4"
+          className="font-syne uppercase tracking-[0.03em] leading-none text-center drop-shadow-md whitespace-normal md:whitespace-nowrap px-4"
           style={{ fontSize: 'clamp(0.95rem, 1.85vw, 1.6rem)' }}
         >
-          <span className="text-slate-600 font-medium">BRINGING SCHOOLS TOGETHER </span>
-          <span className="text-[#0A1930] font-extrabold">THROUGH ROBOTICS</span>
+          <span className="text-slate-300 font-medium">BRINGING SCHOOLS TOGETHER </span>
+          <span className="text-white font-extrabold">THROUGH ROBOTICS</span>
         </motion.div>
 
       </div>
 
-      {/* ── BOTTOM METRICS BAR & CTA (White + Swedish Flag Theme) ── */}
-      <div className="max-w-[1360px] mx-auto w-full flex flex-col md:flex-row md:items-end justify-between gap-8 relative z-10 border-t border-[#0A1930]/10 pt-6">
+      {/* ── BOTTOM METRICS BAR & CTA (Guaranteed Single Unbroken Row) ── */}
+      <div className="max-w-[1440px] mx-auto w-full flex flex-row items-end justify-between gap-4 sm:gap-6 relative z-10 border-t border-white/10 pt-5 sm:pt-6 overflow-x-auto no-scrollbar">
 
-        {/* Left Side: Stats Row */}
-        <div className="flex flex-wrap items-baseline gap-6 sm:gap-10 md:gap-12">
+        {/* Left Side: All 5 Stats in a Strictly Single Horizontal Line */}
+        <div className="flex flex-nowrap items-baseline gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12 shrink-0">
           {stats.map((item) => (
-            <div key={item.label} className="space-y-0.5">
-              <span className="font-syne font-extrabold text-base sm:text-xl text-[#0A1930] block tracking-tight">
+            <div key={item.label} className="space-y-0.5 shrink-0 whitespace-nowrap">
+              <span className="font-syne font-extrabold text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white block tracking-tight">
                 {item.value}
               </span>
-              <span className="font-mono-code text-[10px] font-semibold text-slate-500 uppercase tracking-widest block">
+              <span className="font-mono-code text-[8px] sm:text-[9px] md:text-[10px] font-semibold text-slate-400 uppercase tracking-widest block">
                 {item.label}
               </span>
             </div>
           ))}
         </div>
 
-        {/* Right Side: Action Buttons */}
-        <div className="flex flex-wrap items-center gap-3">
+        {/* Right Side: Action Buttons in a Strictly Single Horizontal Line */}
+        <div className="flex flex-nowrap items-center gap-2.5 sm:gap-3 shrink-0 whitespace-nowrap pl-4">
           <motion.button
             whileHover={{ scale: 1.03, y: -1 }}
             whileTap={{ scale: 0.98 }}
             onClick={onOpenRegister}
-            className="px-6 py-3 rounded-lg bg-[#FFCD00] hover:bg-[#E6B800] text-[#0A1930] font-syne font-black text-xs sm:text-xs tracking-wider uppercase transition-all shadow-md flex items-center gap-2"
+            className="px-4 sm:px-5 md:px-6 py-2.5 sm:py-3 rounded-lg bg-[#FFCD00] hover:bg-[#E6B800] text-[#0A1930] font-syne font-black text-[11px] sm:text-xs tracking-wider uppercase transition-all shadow-xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0"
           >
             <span>REGISTER COHORT NOW</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
           </motion.button>
 
           <motion.button
             whileHover={{ scale: 1.03, y: -1 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => onNavigate('for-schools')}
-            className="px-5 py-3 rounded-lg bg-white hover:bg-slate-50 text-[#0A1930] border border-[#0A1930]/15 font-syne font-semibold text-xs sm:text-xs tracking-wider uppercase transition-all shadow-sm"
+            className="px-3.5 sm:px-4 md:px-5 py-2.5 sm:py-3 rounded-lg bg-white/[0.08] hover:bg-white/[0.15] text-white border border-white/15 font-syne font-semibold text-[11px] sm:text-xs tracking-wider uppercase transition-all shadow-sm whitespace-nowrap shrink-0"
           >
             <span>FOR SCHOOLS</span>
           </motion.button>
