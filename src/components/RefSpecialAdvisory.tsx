@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Award, ArrowRight, Calendar, Trophy, Package, Globe2, Eye, Maximize2, X, Layers } from 'lucide-react';
+import { Award, ArrowRight, Calendar, Trophy, Package, Sparkles, Eye, Maximize2, X, Layers } from 'lucide-react';
 import { PARTNER_LOGOS, KIT_PIECES, CHAMPIONSHIP_STAGES } from '../data/roboData';
 import {
   roboSprintKitPieces,

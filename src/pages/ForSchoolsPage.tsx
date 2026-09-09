@@ -1,11 +1,76 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Boxes, Layers, CheckCircle2, ShieldCheck, Download, ArrowRight, ArrowLeft } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Boxes, Layers, CheckCircle2, ShieldCheck, Download, ArrowRight, ArrowLeft, ChevronDown, HelpCircle, Sparkles, BookOpen, Cpu, Users } from 'lucide-react';
 import {
   roboSprintKitPieces,
   roboSprintMatFocus,
   roboPrecisionActionWide,
 } from '../assets/images';
+
+const WHY_ICONS = [Sparkles, Cpu, Users, BookOpen];
+
+const WHY_SCHOOLS_PARTICIPATE = [
+  {
+    title: 'Zero Procurement',
+    desc: 'All hardware, arena mats, and kits are delivered to your school — no lab budget needed.',
+    detail: 'Schools receive the complete Robo-Sprint or Robo-Precision kit including gearboxes, control boards, and the official 8ft×4ft roll-out arena mat.',
+  },
+  {
+    title: 'STEM Curriculum Fit',
+    desc: 'Directly aligned to design-thinking and computational reasoning competencies.',
+    detail: 'Each challenge requires students to apply engineering design loops: prototype, test, iterate — fitting seamlessly into technology and science classes.',
+  },
+  {
+    title: 'Team Collaboration',
+    desc: 'Students work in pairs to build, program, and compete — building communication skills.',
+    detail: 'Each team of 2 shares the full build-and-compete cycle, reinforcing peer learning and accountability in a structured, fun context.',
+  },
+  {
+    title: 'Competition Pathway',
+    desc: 'School qualifiers feed directly into the November 2026 Västerås City Finals.',
+    detail: 'Top-performing school teams are invited to the Grand Finale at a Västerås event venue on November 13, 2026, with prizes and certificates.',
+  },
+];
+
+export interface FAQItem {
+  id: string;
+  category: string;
+  question: string;
+  answer: string;
+}
+
+const FAQ_ITEMS: FAQItem[] = [
+  {
+    id: 'faq-1',
+    category: 'Logistics',
+    question: 'How does the in-school kit delivery work?',
+    answer: 'Our team delivers all kits, arena mats, and materials directly to your school ahead of the qualifier dates. A trained mentor conducts a 120-minute hands-on session with your student cohort.',
+  },
+  {
+    id: 'faq-2',
+    category: 'Eligibility',
+    question: 'Which grades can participate?',
+    answer: 'Robo-Sprint Explorer is open to students in Grades 4–6. Robo-Sprint Advanced and Robo-Precision are open to students in Grades 7–9.',
+  },
+  {
+    id: 'faq-3',
+    category: 'Cost',
+    question: 'Is there a cost for schools?',
+    answer: 'Participation fees are kept minimal and sponsor-subsidised. Contact us via the registration form for the current fee structure for your district.',
+  },
+  {
+    id: 'faq-4',
+    category: 'Curriculum',
+    question: 'Does participation count toward curriculum hours?',
+    answer: 'Yes. The 20-hour STEM project arc is designed to map to Swedish Lgr22 technology subject goals. Documentation is provided for teacher portfolios.',
+  },
+  {
+    id: 'faq-5',
+    category: 'Data & Safety',
+    question: 'How is student data handled?',
+    answer: 'We collect only first name, age group, and school affiliation. No sensitive personal data is gathered. All handling is GDPR-compliant and data is deleted after the season.',
+  },
+];
 
 interface ForSchoolsPageProps {
   onNavigateHome: () => void;

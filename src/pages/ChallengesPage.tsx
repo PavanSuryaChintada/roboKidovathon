@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ShieldCheck, Trophy, ArrowRight, BookOpen, Layers, Eye, Package, X } from 'lucide-react';
+import { ArrowLeft, ShieldCheck, ArrowRight, BookOpen, Layers, Eye, Package, X, ChevronDown } from 'lucide-react';
 import { COMPETITION_CATEGORIES, CompetitionCategory } from '../data/roboData';
 
 interface ChallengesPageProps {
@@ -15,6 +15,13 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
   onOpenDeckModal,
 }) => {
   const [zoomImage, setZoomImage] = useState<{ src: string; title: string } | null>(null);
+  const [openCats, setOpenCats] = useState<Set<string>>(new Set());
+  const toggleCat = (id: string) =>
+    setOpenCats((prev) => {
+      const next = new Set(prev);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
   return (
     <div className="w-full min-h-screen bg-white text-[#0A1930] pt-28 pb-24 px-6 sm:px-10 select-none">
       <div className="max-w-[1440px] mx-auto space-y-16">
@@ -139,6 +146,7 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
                   >
                     {/* Mandatory Regulations & Scoring */}
                     <div className="p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-2 gap-10 bg-white">
+                      {/* Col 1: Robot Requirements */}
                       <div className="space-y-4">
                         <h3 className="font-headline font-black text-lg sm:text-xl uppercase tracking-wider text-[#0A1930] flex items-center gap-2">
                           <ShieldCheck className="w-5 h-5 text-[#006AA7]" />
@@ -157,23 +165,26 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
                         </p>
                       </div>
 
-                  <div className="pt-6 border-t border-slate-200 flex flex-wrap items-center gap-4">
-                    <button
-                      onClick={onOpenRegister}
-                      className="btn-pill-lime text-xs font-black py-3 px-6 shadow-md"
-                    >
-                      <span>REGISTER FOR {cat.division.toUpperCase()}</span>
-                    </button>
-                    <button
-                      onClick={onOpenDeckModal}
-                      className="btn-pill-outline text-xs font-bold py-3 px-5 flex items-center gap-2"
-                    >
-                      <BookOpen className="w-3.5 h-3.5" />
-                      <span>DOWNLOAD COMPLETE SPECS</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
+                      {/* Col 2: Register & Download CTA */}
+                      <div className="flex flex-col justify-end gap-3 pt-6 lg:pt-0 border-t lg:border-t-0 border-slate-200">
+                        <button
+                          onClick={onOpenRegister}
+                          className="btn-pill-lime text-xs font-black py-3 px-6 shadow-md"
+                        >
+                          <span>REGISTER FOR {cat.division.toUpperCase()}</span>
+                        </button>
+                        <button
+                          onClick={onOpenDeckModal}
+                          className="btn-pill-outline text-xs font-bold py-3 px-5 flex items-center gap-2"
+                        >
+                          <BookOpen className="w-3.5 h-3.5" />
+                          <span>DOWNLOAD COMPLETE SPECS</span>
+                        </button>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               {/* ── OFFICIAL 3D ARENA & KIT SCHEMATICS ROW ── */}
               {cat.arenaMatUrl && cat.kitImageUrl && (
