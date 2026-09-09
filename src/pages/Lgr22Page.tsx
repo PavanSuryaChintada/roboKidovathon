@@ -1,7 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Wrench, Sigma, FlaskConical, Info } from 'lucide-react';
-import { LGR22_SUBJECTS, AGE_PATHWAYS, Lgr22Subject, AgePathway } from '../data/roboData';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ArrowRight, Wrench, Sigma, FlaskConical, Info, GraduationCap, ChevronDown } from 'lucide-react';
+import { LGR22_SUBJECTS, AGE_PATHWAYS, Lgr22Subject, AgePathway, GY25_CONNECTIONS } from '../data/roboData';
 
 interface Lgr22PageProps {
   onNavigateHome: () => void;
@@ -18,6 +18,17 @@ export const Lgr22Page: React.FC<Lgr22PageProps> = ({
   onNavigateHome,
   onOpenRegister,
 }) => {
+  const [openPathways, setOpenPathways] = useState<Set<string>>(new Set());
+
+  const togglePathway = (id: string) => {
+    setOpenPathways((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
   return (
     <div className="w-full min-h-screen bg-white text-[#0A1930] pt-28 pb-24 px-6 sm:px-10 select-none">
       <div className="max-w-[1440px] mx-auto space-y-16">
@@ -48,12 +59,12 @@ export const Lgr22Page: React.FC<Lgr22PageProps> = ({
             className="font-headline font-black uppercase tracking-tight leading-[1.02]"
             style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}
           >
-            <span className="text-stroke block">LEARNING &amp;</span>
-            <span className="text-[#0A1930] block">LGR22</span>
+            <span className="text-stroke block">LEARNING,</span>
+            <span className="text-[#0A1930] block">LGR22 &amp; GY25</span>
           </h1>
 
           <p className="mt-4 text-sm sm:text-base text-slate-600 font-light max-w-2xl leading-relaxed">
-            RoboKidovation and the STEM programme provide practical learning opportunities connected to central content within Teknik, Matematik and NO/Fysik in Lgr22.
+            RoboKidovation and the STEM programme provide practical learning opportunities connected to central content within Teknik, Matematik and NO/Fysik in Lgr22 for grundskolan, and to programming-oriented education within Gy25 for gymnasium students.
           </p>
         </motion.div>
 
@@ -103,50 +114,115 @@ export const Lgr22Page: React.FC<Lgr22PageProps> = ({
           </p>
         </motion.div>
 
-        {/* ── TWO AGE PATHWAYS ── */}
+        {/* ── THREE AGE PATHWAYS ── */}
         <div className="space-y-6">
           <div className="border-b border-slate-200 pb-6">
             <h2 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0A1930]">
-              Two Age Pathways, One Robo-Sprint Game
+              Three Age Pathways, One Family Of Challenges
             </h2>
             <p className="mt-2 text-sm text-slate-600 font-light max-w-2xl leading-relaxed">
-              Both groups play the same exciting Robo-Sprint game, while the learning depth changes with age.
+              Explorer and Advanced play the same Robo-Sprint game at different learning depths; Robo-Precision is the gymnasium-level track for teams ready to go fully autonomous. Tap a card for the full picture.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {AGE_PATHWAYS.map((pathway: AgePathway, idx: number) => (
-              <motion.div
-                key={pathway.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="rounded-3xl border border-slate-200 bg-white p-8 space-y-4 shadow-sm"
-              >
-                <span className="text-[10px] font-mono-code font-bold tracking-widest text-[#006AA7] uppercase block">
-                  {pathway.grades}
-                </span>
-                <h3 className="font-headline font-black text-2xl uppercase tracking-tight text-[#0A1930]">
-                  {pathway.name}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {pathway.focus.map((f) => (
-                    <span
-                      key={f}
-                      className="text-[10px] font-mono-code font-bold text-[#0A1930] bg-[#F8FAFC] border border-slate-200 px-3 py-1.5 rounded-full uppercase tracking-wide"
-                    >
-                      {f}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {AGE_PATHWAYS.map((pathway: AgePathway, idx: number) => {
+              const isOpen = openPathways.has(pathway.id);
+              return (
+                <motion.button
+                  key={pathway.id}
+                  type="button"
+                  onClick={() => togglePathway(pathway.id)}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  aria-expanded={isOpen}
+                  className={`text-left rounded-3xl border bg-white p-8 space-y-4 shadow-sm transition-colors w-full ${
+                    isOpen ? 'border-[#006AA7]/40' : 'border-slate-200 hover:border-[#006AA7]/30'
+                  }`}
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <span className="text-[10px] font-mono-code font-bold tracking-widest text-[#006AA7] uppercase block">
+                      {pathway.grades}
                     </span>
-                  ))}
-                </div>
-                <p className="text-sm text-slate-600 font-light leading-relaxed pt-2 border-t border-slate-100">
-                  {pathway.message}
-                </p>
-              </motion.div>
-            ))}
+                    <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.25 }}>
+                      <ChevronDown className="w-4 h-4 text-slate-400 shrink-0" />
+                    </motion.div>
+                  </div>
+                  <h3 className="font-headline font-black text-2xl uppercase tracking-tight text-[#0A1930]">
+                    {pathway.name}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {pathway.focus.map((f) => (
+                      <span
+                        key={f}
+                        className="text-[10px] font-mono-code font-bold text-[#0A1930] bg-[#F8FAFC] border border-slate-200 px-3 py-1.5 rounded-full uppercase tracking-wide"
+                      >
+                        {f}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-sm text-slate-600 font-light leading-relaxed pt-2 border-t border-slate-100">
+                    {pathway.message}
+                  </p>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <p className="text-xs text-slate-500 font-light leading-relaxed pt-3 border-t border-slate-100">
+                          {pathway.detail}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.button>
+              );
+            })}
           </div>
         </div>
+
+        {/* ── GY25 (GYMNASIUM) ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="rounded-3xl border border-slate-200 bg-[#F8FAFC] p-8 sm:p-12 space-y-5"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-11 h-11 rounded-2xl bg-[#006AA7]/10 border border-[#006AA7]/20 flex items-center justify-center text-[#006AA7]">
+              <GraduationCap className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-[10px] font-mono-code font-bold tracking-[0.2em] text-[#006AA7] uppercase block">
+                {GY25_CONNECTIONS.audience}
+              </span>
+              <h3 className="font-headline font-black text-xl sm:text-2xl uppercase tracking-tight text-[#0A1930]">
+                Gy25 Connection
+              </h3>
+            </div>
+          </div>
+          <p className="text-sm text-slate-600 font-light leading-relaxed max-w-3xl">
+            {GY25_CONNECTIONS.note}
+          </p>
+          <div className="flex flex-wrap gap-2 pt-1">
+            {GY25_CONNECTIONS.connections.map((c) => (
+              <span
+                key={c}
+                className="text-[10px] font-mono-code font-bold text-[#0A1930] bg-white border border-slate-200 px-3 py-1.5 rounded-full uppercase tracking-wide"
+              >
+                {c}
+              </span>
+            ))}
+          </div>
+        </motion.div>
 
         {/* ── GRADING PITCH ── */}
         <motion.div

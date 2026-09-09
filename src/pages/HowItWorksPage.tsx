@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Calendar, CheckCircle2 } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ArrowRight, Calendar, CheckCircle2, ChevronDown } from 'lucide-react';
 import {
   ROADMAP_STEPS,
   RoadmapStep,
@@ -10,6 +10,7 @@ import {
   ProjectSession,
   STEM_PROJECT_DELIVERABLES,
   ProjectDeliverable,
+  KIT_LEARNING_TAGS,
 } from '../data/roboData';
 
 interface HowItWorksPageProps {
@@ -21,6 +22,8 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
   onNavigateHome,
   onOpenRegister,
 }) => {
+  const [openBlock, setOpenBlock] = useState<string | null>(null);
+
   return (
     <div className="w-full min-h-screen bg-white text-[#0A1930] pt-28 pb-24 px-6 sm:px-10 select-none">
       <div className="max-w-[1440px] mx-auto space-y-16">
@@ -61,25 +64,93 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
         </motion.div>
 
         {/* ── 5 LEARNING BLOCKS ── */}
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4">
-          {LEARNING_BLOCKS.map((block: LearningBlock, idx: number) => (
-            <motion.div
-              key={block.tag}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className="p-5 rounded-2xl bg-[#F8FAFC] border border-slate-200 space-y-1.5 text-center"
-            >
-              <span className="font-headline font-black text-sm sm:text-base text-[#006AA7] uppercase tracking-wide block">
-                {block.tag}
-              </span>
-              <span className="text-[11px] text-slate-500 font-light leading-snug block">
-                {block.desc}
-              </span>
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4 items-start">
+          {LEARNING_BLOCKS.map((block: LearningBlock, idx: number) => {
+            const isOpen = openBlock === block.tag;
+            return (
+              <motion.button
+                key={block.tag}
+                type="button"
+                onClick={() => setOpenBlock(isOpen ? null : block.tag)}
+                aria-expanded={isOpen}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                className={`text-center rounded-2xl border bg-[#F8FAFC] p-5 space-y-1.5 transition-colors w-full ${
+                  isOpen ? 'border-[#006AA7]/40' : 'border-slate-200 hover:border-[#006AA7]/30'
+                }`}
+              >
+                <span className="font-headline font-black text-sm sm:text-base text-[#006AA7] uppercase tracking-wide block">
+                  {block.tag}
+                </span>
+                <span className="text-[11px] text-slate-500 font-light leading-snug block">
+                  {block.desc}
+                </span>
+                <motion.div
+                  animate={{ rotate: isOpen ? 180 : 0 }}
+                  transition={{ duration: 0.25 }}
+                  className="flex justify-center pt-1"
+                >
+                  <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                </motion.div>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <p className="text-[10px] text-slate-500 font-light leading-relaxed pt-2 border-t border-slate-200">
+                        {block.detail}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.button>
+            );
+          })}
         </div>
+
+        {/* ── ONE KIT — MANY LEARNING POSSIBILITIES ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="rounded-3xl border border-slate-200 overflow-hidden bg-[#F8FAFC] grid grid-cols-1 lg:grid-cols-12 shadow-sm"
+        >
+          <div className="lg:col-span-5 relative min-h-[280px]">
+            <img
+              src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
+              alt="Blix universal STEM kit components"
+              className="w-full h-full object-cover absolute inset-0"
+            />
+          </div>
+          <div className="lg:col-span-7 p-8 sm:p-12 space-y-5">
+            <span className="text-[10px] font-mono-code font-bold tracking-[0.2em] text-[#006AA7] uppercase block">
+              ONE KIT, MANY LEARNING POSSIBILITIES
+            </span>
+            <h2 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0A1930]">
+              One Reusable STEM Kit. Many Learning Journeys.
+            </h2>
+            <p className="text-sm text-slate-600 font-light leading-relaxed max-w-xl">
+              Students start with simple mechanical construction and gradually progress toward electronics, control systems, programming and robotics. The same physical learning platform can support different ages and skill levels — this isn't only a robotics kit.
+            </p>
+            <div className="flex flex-wrap gap-2 pt-2">
+              {KIT_LEARNING_TAGS.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[10px] font-mono-code font-bold text-[#0A1930] bg-white border border-slate-200 px-3 py-1.5 rounded-full uppercase tracking-wide"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
 
         {/* ── 5-STAGE PROCESS CARDS ── */}
         <div className="space-y-6">

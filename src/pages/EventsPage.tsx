@@ -100,6 +100,15 @@ export const EventsPage: React.FC<EventsPageProps> = ({
                   </div>
                 )}
 
+                {event.curriculumNote && (
+                  <div className="p-4 rounded-2xl bg-white border border-slate-200 text-xs text-slate-500 font-light leading-relaxed">
+                    <span className="font-mono-code font-bold text-[#0A1930] uppercase tracking-wide block mb-1">
+                      Curriculum Fit — Lgr22 &amp; Gy25
+                    </span>
+                    {event.curriculumNote}
+                  </div>
+                )}
+
                 <div className="pt-4">
                   <button
                     onClick={onOpenRegister}

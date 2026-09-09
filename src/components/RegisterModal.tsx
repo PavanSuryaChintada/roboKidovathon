@@ -172,7 +172,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
                 <label className="block text-[10px] font-mono-code font-bold tracking-wider text-slate-500 uppercase mb-2">
                   CHOOSE YOUR LEAGUE *
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {COMPETITION_CATEGORIES.map((cat: CompetitionCategory) => (
                     <button
                       key={cat.id}

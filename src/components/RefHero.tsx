@@ -3,12 +3,10 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 interface RefHeroProps {
-  onOpenRegister: () => void;
   onNavigate: (route: string) => void;
 }
 
 export const RefHero: React.FC<RefHeroProps> = ({
-  onOpenRegister,
   onNavigate,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -103,20 +101,20 @@ export const RefHero: React.FC<RefHeroProps> = ({
           <motion.button
             whileHover={{ scale: 1.03, y: -1 }}
             whileTap={{ scale: 0.98 }}
-            onClick={onOpenRegister}
+            onClick={() => onNavigate('for-schools')}
             className="px-4 sm:px-5 md:px-6 py-2.5 sm:py-3 rounded-lg bg-[#FFCD00] hover:bg-[#E6B800] text-[#0A1930] font-syne font-black text-[11px] sm:text-xs tracking-wider uppercase transition-all shadow-xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0"
           >
-            <span>REGISTER COHORT NOW</span>
+            <span>FOR SCHOOLS</span>
             <ArrowRight className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
           </motion.button>
 
           <motion.button
             whileHover={{ scale: 1.03, y: -1 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => onNavigate('for-schools')}
+            onClick={() => onNavigate('challenges')}
             className="px-3.5 sm:px-4 md:px-5 py-2.5 sm:py-3 rounded-lg bg-white/[0.08] hover:bg-white/[0.15] text-white border border-white/15 font-syne font-semibold text-[11px] sm:text-xs tracking-wider uppercase transition-all shadow-sm whitespace-nowrap shrink-0"
           >
-            <span>FOR SCHOOLS</span>
+            <span>EXPLORE ROBOKIDOVATION</span>
           </motion.button>
         </div>
 

@@ -49,7 +49,6 @@ export function App() {
           <>
             {/* 01. Hero: Split Headline + 3x3 Staggered Pill Bento Gallery */}
             <RefHero
-              onOpenRegister={() => setIsRegisterOpen(true)}
               onNavigate={handleNavigate}
             />
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Trophy, MapPin } from 'lucide-react';
+import { ArrowRight, FileText, Trophy, MapPin } from 'lucide-react';
 
 interface RefWorkshopTapeBannerProps {
   onOpenRegister?: () => void;
@@ -30,11 +30,11 @@ export const RefWorkshopTapeBanner: React.FC<RefWorkshopTapeBannerProps> = ({
               className="font-headline font-black uppercase text-[#0A1930] tracking-tight leading-[1.08]"
               style={{ fontSize: 'clamp(1.8rem, 5.5vw, 4.8rem)' }}
             >
-              READY TO FIELD YOUR<br />
-              <span className="text-[#006AA7]">SCHOOL TEAM?</span>
+              BRING HANDS-ON STEM<br />
+              <span className="text-[#006AA7]">TO YOUR SCHOOL</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed max-w-xl mx-auto pt-2">
-              Turnkey 20-hour, in-school STEM projects ahead of the October 2026 RoboSkolan qualifiers. Mentors arrive directly at your school with the full hardware kit and arena mat.
+              Start with a workshop, run a 20-hour STEM project, or prepare a school team for RoboKidovation.
             </p>
           </div>
 
@@ -46,7 +46,7 @@ export const RefWorkshopTapeBanner: React.FC<RefWorkshopTapeBannerProps> = ({
               onClick={onOpenRegister}
               className="btn-pill-lime text-xs sm:text-sm font-black py-4 px-8 flex items-center gap-2 shadow-md"
             >
-              <span>REGISTER SCHOOL COHORT</span>
+              <span>BOOK A SCHOOL MEETING</span>
               <ArrowRight className="w-4 h-4" />
             </motion.button>
 
@@ -56,8 +56,8 @@ export const RefWorkshopTapeBanner: React.FC<RefWorkshopTapeBannerProps> = ({
               onClick={onOpenDeckModal}
               className="btn-pill-outline text-xs sm:text-sm font-bold py-4 px-7 flex items-center gap-2"
             >
-              <Download className="w-4 h-4 text-slate-500" />
-              <span>DOWNLOAD EVENT PROSPECTUS</span>
+              <FileText className="w-4 h-4 text-slate-500" />
+              <span>REQUEST PROGRAMME DETAILS</span>
             </motion.button>
           </div>
 

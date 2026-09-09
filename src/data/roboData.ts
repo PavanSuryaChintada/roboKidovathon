@@ -1,6 +1,6 @@
 export interface CompetitionCategory {
-  id: 'robo-sprint-explorer' | 'robo-sprint-advanced';
-  code: 'CAT A' | 'CAT B';
+  id: 'robo-sprint-explorer' | 'robo-sprint-advanced' | 'robo-precision';
+  code: 'CAT A' | 'CAT B' | 'CAT C';
   title: string;
   division: string;
   ageRange: string;
@@ -71,6 +71,7 @@ export interface UpcomingEvent {
   location: string;
   description: string;
   categories?: string[];
+  curriculumNote?: string;
   cta: string;
   ctaAction: 'register' | 'external' | 'none';
 }
@@ -86,6 +87,7 @@ export interface AgePathway {
   name: string;
   focus: string[];
   message: string;
+  detail: string;
 }
 
 export interface ProjectSession {
@@ -102,6 +104,7 @@ export interface ProjectDeliverable {
 export interface LearningBlock {
   tag: string;
   desc: string;
+  detail: string;
 }
 
 export const STATS_DATA = [
@@ -249,13 +252,59 @@ export const COMPETITION_CATEGORIES: CompetitionCategory[] = [
     accentColor: '#FFCD00',
     accentBg: 'bg-[#FFCD00]',
     accentText: 'text-[#0A1930]',
-    imageUrl: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=85',
+    imageUrl: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=85',
     rulesLink: 'challenges',
     specs: [
       { label: 'ARENA SIZE', value: '2.44 m × 1.22 m (8 × 4 ft)' },
       { label: 'MATCH LENGTH', value: '3 Minutes' },
       { label: 'SCORING', value: '5 Points Per Ball' },
       { label: 'FOCUS', value: 'Engineering, Precision, Strategy' },
+    ]
+  },
+  {
+    id: 'robo-precision',
+    code: 'CAT C',
+    title: 'ROBO-PRECISION',
+    division: 'PRECISION LEAGUE',
+    ageRange: 'GYMNASIUM · 15+',
+    duration: '5 MINUTES PER MATCH',
+    format: 'Autonomous Tower-Stacking Challenge',
+    objective: 'Assemble the tallest stable 5-level cup pyramid using an articulated crane arm — fully autonomous, with zero human touch once the build begins.',
+    dimensions: '2.5 ft × 2.5 ft chassis & crane-arm boundary',
+    scoring: 'Scored on tower height, tier count and structural stability at the buzzer.',
+    keyRule: 'This mode moves beyond arena speed into autonomous precision engineering — kinematics, balance and control. Teams programme the full build sequence in advance; no manual control is permitted once the match starts.',
+    tieBreak: ['Greater tower height', 'More tiers standing at the buzzer', 'Judges’ technical review of the build'],
+    judgingWeights: [
+      { label: 'Tower height & stability', pct: '60%' },
+      { label: 'Engineering & autonomy design', pct: '30%' },
+      { label: 'Documentation & explanation', pct: '10%' },
+    ],
+    robotRequirements: [
+      'Maximum chassis & crane-arm size: 2.5 ft × 2.5 ft',
+      'Robot must operate fully autonomously during the build phase — no human control once started',
+      'Robot must be designed and built by the student team',
+      'Multiple motors, sensors and articulated arms permitted within the approved kit',
+      'Must not intentionally damage another robot, the cups or the arena',
+    ],
+    demonstrates: [
+      'Autonomous control logic',
+      'Crane & servo kinematics',
+      'Balance and stability engineering',
+      'Precision manipulation',
+      'Sensor-based feedback',
+      'Testing and iteration',
+      'Technical documentation',
+    ],
+    accentColor: '#013A63',
+    accentBg: 'bg-[#013A63]',
+    accentText: 'text-white',
+    imageUrl: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=85',
+    rulesLink: 'challenges',
+    specs: [
+      { label: 'ARENA SIZE', value: '2.5 ft × 2.5 ft Chassis & Arm' },
+      { label: 'MATCH LENGTH', value: '5 Minutes' },
+      { label: 'SCORING', value: 'Height, Tiers & Stability' },
+      { label: 'FOCUS', value: 'Autonomy, Precision, Engineering' },
     ]
   }
 ];
@@ -348,8 +397,42 @@ export const UPCOMING_EVENTS: UpcomingEvent[] = [
     subtitle: 'Proposed at Mälardalen University (MDU), Västerås',
     location: 'Mälardalen University, Västerås',
     description: 'A one-day interdisciplinary innovation challenge where student teams tackle a real-world problem — sustainable cities, climate and environment, future schools, energy, accessibility, health, AI or technology for society — and present a concept, model, prototype or digital solution to a jury. Unlike RoboKidovation, no previous robotics experience is required, so students interested in science, technology, design, creativity or entrepreneurship can take part.',
+    curriculumNote: 'For grundskolan, the hackathon supports the broader intentions of Lgr22 by giving students opportunities to use creativity, curiosity, initiative, problem-solving and collaboration in a practical context, following the technology-development process from identifying a need through construction, testing and evaluation. For gymnasium students, it can complement Gy25 through project-based problem-solving, technical development, programming and interdisciplinary work — fitting well with the Technology Programme, where technical processes and links between technology and societal development are important elements.',
     cta: 'ASK ABOUT THE HACKATHON',
     ctaAction: 'register',
+  },
+];
+
+export const KIT_LEARNING_TAGS = [
+  'Construction', 'Mechanics', 'Electricity', 'Electronics', 'Sensors', 'Coding', 'Robotics',
+];
+
+export interface WhyParticipateReason {
+  title: string;
+  desc: string;
+  detail: string;
+}
+
+export const WHY_SCHOOLS_PARTICIPATE: WhyParticipateReason[] = [
+  {
+    title: 'Practical STEM Learning',
+    desc: 'Students learn by doing.',
+    detail: 'Every team leaves the 20-hour project with a functioning robot, design documentation, test results, an engineering reflection and a team presentation — evidence of learning, not just attendance.',
+  },
+  {
+    title: 'Accessible To Beginners',
+    desc: 'No previous robotics experience required.',
+    detail: 'The programme takes students step by step from understanding components (wheels, axles, gears, motors) to building a working robot — no prior coding or robotics background needed to start.',
+  },
+  {
+    title: 'Teacher-Friendly Structure',
+    desc: 'INIAC provides programme, equipment and guidance.',
+    detail: 'Kits, gearboxes and arena mats are brought directly into the classroom across ten 2-hour sessions (or a lighter 10–12 hour version for younger cohorts) — no lab budget or equipment purchases needed.',
+  },
+  {
+    title: 'School-To-City Pathway',
+    desc: 'Students can represent their school beyond the classroom.',
+    detail: 'Winning Explorer and Advanced teams from each school\'s Robo-Sprint qualifiers advance directly to the RoboKidovation Västerås Robo-Sprint City Final on November 13, 2026.',
   },
 ];
 
@@ -375,6 +458,7 @@ export const AGE_PATHWAYS: AgePathway[] = [
     name: 'Robo-Sprint Explorer',
     focus: ['Basic mechanisms', 'Construction', 'Movement', 'Motor control', 'Teamwork', 'Testing'],
     message: 'Build a robot that moves reliably, solve the challenge and learn through experimentation.',
+    detail: 'The question students ask is simple: "Can we build something that moves reliably and solve the challenge together?" Explorer teams spend the 20-hour STEM project on structure, wheels, axles and motor connection, then apply it in the Robo-Sprint Explorer arena — a 3-minute, ball-transfer match judged 70% on match performance, 20% on robot design & improvement, and 10% on teamwork & explanation.',
   },
   {
     id: 'advanced',
@@ -382,8 +466,29 @@ export const AGE_PATHWAYS: AgePathway[] = [
     name: 'Robo-Sprint Advanced',
     focus: ['Engineering design', 'Control', 'Measurement', 'Optimisation', 'Programming/sensors where relevant', 'Technical documentation'],
     message: 'Design, measure and optimise a technical solution for competition.',
+    detail: 'The question shifts to: "How can we engineer, measure and optimise a better solution?" Advanced teams go deeper into control, sensors and strategy within the same 20-hour project, then compete in the same 3-minute Robo-Sprint arena — judged 60% on match performance, 25% on engineering & technical design, and 15% on testing, documentation & explanation.',
+  },
+  {
+    id: 'precision',
+    grades: 'Gymnasium · 15+',
+    name: 'Robo-Precision',
+    focus: ['Autonomous control', 'Crane & servo kinematics', 'Balance and stability', 'Precision manipulation', 'Sensor feedback', 'Technical documentation'],
+    message: 'Engineer a fully autonomous crane arm that builds the tallest stable tower — zero human touch once the build begins.',
+    detail: 'A gymnasium-level track that pairs naturally with Gy25\'s programming and software-development focus. Robo-Precision teams programme the entire build sequence in advance — no manual control once the 5-minute match starts — and are judged 60% on tower height & stability, 30% on engineering & autonomy design, and 10% on documentation & explanation.',
   },
 ];
+
+export interface Gy25Connection {
+  audience: string;
+  connections: string[];
+  note: string;
+}
+
+export const GY25_CONNECTIONS: Gy25Connection = {
+  audience: 'Gymnasium Students',
+  connections: ['Programming knowledge', 'Methods for software development', 'Solving programming-related problems', 'Analysing and presenting results', 'Individual & collaborative project work'],
+  note: 'For participating gymnasium students, RoboKidovation can complement Gy25, particularly within technology and programming-oriented education. Students practise applying programming to practical problems, developing and testing solutions, analysing results, and working individually and collaboratively in a project environment.',
+};
 
 export const STEM_PROJECT_SESSIONS: ProjectSession[] = [
   { session: 1, hours: '2h', focus: 'STEM challenge, components, mechanisms, safety' },
@@ -408,11 +513,31 @@ export const STEM_PROJECT_DELIVERABLES: ProjectDeliverable[] = [
 ];
 
 export const LEARNING_BLOCKS: LearningBlock[] = [
-  { tag: 'BUILD', desc: 'Structures, wheels, gears, mechanisms and movement' },
-  { tag: 'EXPLORE', desc: 'Electricity, circuits, forces, energy and sensors' },
-  { tag: 'CODE', desc: 'Logic, control, programming and automation' },
-  { tag: 'CREATE', desc: 'Design, test, improve and solve problems' },
-  { tag: 'COMPETE', desc: 'Apply the learning through RoboKidovation' },
+  {
+    tag: 'BUILD',
+    desc: 'Structures, wheels, gears, mechanisms and movement',
+    detail: 'Sessions 1–4 of the 20-hour project: students explore components and safety, then work through structure, wheels, axles, gears and motor connection until they have a first working robot.',
+  },
+  {
+    tag: 'EXPLORE',
+    desc: 'Electricity, circuits, forces, energy and sensors',
+    detail: 'Uses the same reusable Blix kit across construction, mechanics, electricity, electronics and sensors — one physical platform that supports different ages and skill levels rather than a robotics-only toolkit.',
+  },
+  {
+    tag: 'CODE',
+    desc: 'Logic, control, programming and automation',
+    detail: 'Programming and sensor-assisted control come in at the Advanced (Grades 7–9) and Robo-Precision (Gymnasium/Gy25) levels, where teams move from manual control into control logic and autonomy.',
+  },
+  {
+    tag: 'CREATE',
+    desc: 'Design, test, improve and solve problems',
+    detail: 'Sessions 5–8: testing speed, stability, direction and force, then engineering redesigns, measurement and data-driven strategy ahead of the school Robo-Sprint qualifiers.',
+  },
+  {
+    tag: 'COMPETE',
+    desc: 'Apply the learning through RoboKidovation',
+    detail: 'Sessions 9–10 close with documentation and presentation prep, then School Robo-Sprint qualifiers — winning teams represent their school at the Robo-Sprint City Final on November 13, 2026.',
+  },
 ];
 
 export const FAQ_ITEMS: FAQItem[] = [
