@@ -35,32 +35,77 @@ export const EventsPage: React.FC<EventsPageProps> = ({
           className="border-b border-slate-200 pb-12"
         >
           <span className="text-[10px] font-mono-code font-medium tracking-[0.2em] text-slate-500 uppercase block mb-3">
-            VÄSTERÅS FUTURE INNOVATORS // 2026
+            VÄSTERÅS TOURNAMENT CALENDAR // AUTUMN 2026
           </span>
 
           <h1
             className="font-headline font-black uppercase tracking-tight leading-[1.02]"
-            style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}
+            style={{ fontSize: 'clamp(3.2rem, 7.5vw, 6.5rem)' }}
           >
             <span className="text-stroke block">UPCOMING</span>
             <span className="text-[#0A1930] block">EVENTS</span>
           </h1>
 
           <p className="mt-4 text-sm sm:text-base text-slate-600 font-light max-w-2xl leading-relaxed">
-            A hands-on robotics competition on Friday, followed by open-ended innovation and real-world problem-solving on Saturday — two events, one Västerås weekend, each with its own identity.
+            A clear timeline of the autumn season in Västerås: in-school qualifiers in October, the official Robo-Sprint City Final on Friday November 13, and the Saturday innovation hackathon.
           </p>
         </motion.div>
 
-        {/* ── EVENT CARDS ── */}
+        {/* ── CHRONOLOGICAL EVENT CARDS ── */}
         <div className="space-y-8">
+
+          {/* Pre-Event: School Qualifiers */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-3xl border border-slate-200 bg-[#F8FAFC] p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 shadow-sm"
+          >
+            <div className="lg:col-span-3 space-y-2">
+              <span className="inline-block text-[10px] font-mono-code font-bold text-[#006AA7] bg-[#006AA7]/10 px-3 py-1.5 rounded-full uppercase tracking-wide">
+                STAGE 01 QUALIFIERS
+              </span>
+              <div className="flex items-center gap-2 text-[#006AA7] pt-2">
+                <Calendar className="w-4 h-4" />
+                <span className="text-sm font-mono-code font-bold uppercase">OCTOBER 2026</span>
+              </div>
+              <div className="flex items-center gap-2 text-slate-500">
+                <MapPin className="w-4 h-4" />
+                <span className="text-xs font-mono-code uppercase">IN EACH PARTICIPATING SCHOOL</span>
+              </div>
+            </div>
+
+            <div className="lg:col-span-9 space-y-3">
+              <h2 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0A1930]">
+                RoboSkolan In-School Qualifiers
+              </h2>
+              <p className="text-xs font-mono-code font-bold text-[#006AA7] uppercase tracking-wide">
+                10-Session In-School STEM Project Climax
+              </p>
+              <p className="text-sm text-slate-600 font-light leading-relaxed max-w-2xl">
+                Held inside each participating school across the final sessions of the 20-hour STEM project. Student teams test their built robots under official 3-minute referee match conditions. One winning Explorer team (Grades 4–6) and one winning Advanced team (Grades 7–9) qualify to represent their school in the municipal final.
+              </p>
+              <div className="pt-2">
+                <span className="text-xs font-mono-code font-bold text-[#0A1930] bg-[#FFCD00]/30 border border-[#FFCD00]/60 px-3 py-1 rounded-full uppercase">
+                  Advancement: 1 Explorer + 1 Advanced Team per School
+                </span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Event 1: Friday City Final */}
           {UPCOMING_EVENTS.map((event: UpcomingEvent, idx: number) => (
             <motion.div
               key={event.id}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="rounded-3xl border border-slate-200 bg-[#F8FAFC] p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 shadow-sm"
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              className={`rounded-3xl border p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 shadow-sm ${
+                event.id === 'robokidovation-final'
+                  ? 'border-[#006AA7]/40 bg-white'
+                  : 'border-slate-200 bg-[#F8FAFC]'
+              }`}
             >
               <div className="lg:col-span-3 space-y-2">
                 <span className="inline-block text-[10px] font-mono-code font-bold text-[#0A1930] bg-[#FFCD00] px-3 py-1.5 rounded-full uppercase tracking-wide">
@@ -87,32 +132,29 @@ export const EventsPage: React.FC<EventsPageProps> = ({
                   {event.description}
                 </p>
 
-                {event.categories && (
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    {event.categories.map((c) => (
-                      <span
-                        key={c}
-                        className="text-[10px] font-mono-code font-bold text-[#0A1930] bg-white border border-slate-200 px-3 py-1.5 rounded-full uppercase tracking-wide"
-                      >
-                        {c}
-                      </span>
-                    ))}
-                  </div>
-                )}
-
                 {event.curriculumNote && (
-                  <div className="p-4 rounded-2xl bg-white border border-slate-200 text-xs text-slate-500 font-light leading-relaxed">
-                    <span className="font-mono-code font-bold text-[#0A1930] uppercase tracking-wide block mb-1">
-                      Curriculum Fit — Lgr22 &amp; Gy25
-                    </span>
+                  <p className="text-xs text-slate-500 font-light leading-relaxed max-w-2xl pt-2 border-t border-slate-100">
                     {event.curriculumNote}
-                  </div>
+                  </p>
                 )}
 
-                <div className="pt-4">
+                <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-200">
+                  {event.categories && (
+                    <div className="flex flex-wrap gap-2">
+                      {event.categories.map((c) => (
+                        <span
+                          key={c}
+                          className="text-[10px] font-mono-code font-bold text-[#0A1930] bg-[#F8FAFC] border border-slate-200 px-3 py-1.5 rounded-full uppercase tracking-wide"
+                        >
+                          {c}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
                   <button
                     onClick={onOpenRegister}
-                    className="btn-pill-lime text-xs font-black py-3 px-6 flex items-center gap-2 shadow-md"
+                    className="btn-pill-lime text-xs font-black py-3 px-6 shadow-md flex items-center gap-2"
                   >
                     <span>{event.cta}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -123,16 +165,23 @@ export const EventsPage: React.FC<EventsPageProps> = ({
           ))}
         </div>
 
-        {/* ── VENUE NOTE ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="p-6 rounded-2xl bg-[#F2F6FA] border border-slate-200 text-xs sm:text-sm text-slate-600 font-light leading-relaxed"
-        >
-          The Young Innovators Hackathon is proposed at Mälardalen University (MDU), Västerås — creating an inspiring university environment where school students can meet university students, researchers, technology professionals, startups and industry mentors. Details are confirmed closer to the date.
-        </motion.div>
+        {/* ── BOTTOM FAQ BANNER ── */}
+        <div className="p-8 sm:p-12 rounded-3xl bg-[#013A63] text-white text-center space-y-4">
+          <h3 className="font-headline font-black text-2xl uppercase tracking-tight">
+            Questions About Event Attendance &amp; Schedules?
+          </h3>
+          <p className="text-xs sm:text-sm text-slate-200 font-light max-w-lg mx-auto leading-relaxed">
+            School coordinators and parents can register student teams or request spectator passes for the Grand Finale in Västerås.
+          </p>
+          <div className="pt-2">
+            <button
+              onClick={onOpenRegister}
+              className="btn-pill-lime text-xs sm:text-sm font-black py-3.5 px-8"
+            >
+              <span>REGISTER FOR AUTUMN 2026</span>
+            </button>
+          </div>
+        </div>
 
       </div>
     </div>

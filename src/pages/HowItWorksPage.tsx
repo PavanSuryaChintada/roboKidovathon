@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Calendar, CheckCircle2, ChevronDown } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, ChevronDown } from 'lucide-react';
 import {
-  ROADMAP_STEPS,
-  RoadmapStep,
   LEARNING_BLOCKS,
   LearningBlock,
   STEM_PROJECT_SESSIONS,
   ProjectSession,
   STEM_PROJECT_DELIVERABLES,
   ProjectDeliverable,
-  KIT_LEARNING_TAGS,
 } from '../data/roboData';
 
 interface HowItWorksPageProps {
@@ -23,6 +20,53 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
   onOpenRegister,
 }) => {
   const [openBlock, setOpenBlock] = useState<string | null>(null);
+
+  // 6-step verified participant journey
+  const JOURNEY_STEPS = [
+    {
+      num: '01',
+      title: 'REGISTER',
+      subtitle: 'School & Cohort Intake',
+      desc: 'Schools or student teams register online. INIAC coordinates dates, student numbers, and equipment logistics directly with the school coordinator.',
+      badge: 'SPRING / AUTUMN',
+    },
+    {
+      num: '02',
+      title: 'PREPARE',
+      subtitle: 'Kits Delivered to Classroom',
+      desc: 'Mentors deliver official Robo-Sprint hardware kits, 6V powertrains, gearboxes, and the 244 × 122 cm arena mat directly to your school. Zero lab budget required.',
+      badge: 'IN-SCHOOL DELIVERY',
+    },
+    {
+      num: '03',
+      title: 'BUILD & LEARN',
+      subtitle: '20-Hour STEM Project',
+      desc: 'Across 10 structured 2-hour sessions, student pairs learn mechanical fundamentals, assemble working robots, test movement, and iterate their designs.',
+      badge: '10 SESSIONS',
+    },
+    {
+      num: '04',
+      title: 'QUALIFY',
+      subtitle: 'School Robo-Sprint Matches',
+      desc: 'Held inside each participating school during October 2026. Teams compete on the official mat. The top Explorer and Advanced teams qualify for the city final.',
+      badge: 'OCTOBER 2026',
+    },
+    {
+      num: '05',
+      title: 'REFINE',
+      subtitle: 'Team Strategy & Documentation',
+      desc: 'Qualifying teams refine their robot kinematics, defense tactics, and engineering reflection portfolios with mentor feedback.',
+      badge: 'TEAM WORKSHOP',
+    },
+    {
+      num: '06',
+      title: 'GRAND FINALE',
+      subtitle: 'Västerås City Final',
+      desc: 'School champions compete live on Friday, November 13, 2026 in Västerås for SEK 3,000 in prizes, official trophies, and certificates.',
+      badge: 'NOVEMBER 13, 2026',
+      highlight: true,
+    },
+  ];
 
   return (
     <div className="w-full min-h-screen bg-white text-[#0A1930] pt-28 pb-24 px-6 sm:px-10 select-none">
@@ -39,7 +83,7 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
           <span>BACK TO HOME</span>
         </motion.button>
 
-        {/* ── HEADER: STEM (Outline) PROGRAMME (Solid) ── */}
+        {/* ── HEADER ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -47,161 +91,160 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
           className="border-b border-slate-200 pb-12"
         >
           <span className="text-[10px] font-mono-code font-medium tracking-[0.2em] text-slate-500 uppercase block mb-3">
-            A PROJECT, NOT JUST A WORKSHOP // VÄSTERÅS 2026
+            A STRUCTURED PROJECT, NOT JUST A ONE-OFF WORKSHOP // VÄSTERÅS 2026
           </span>
 
           <h1
             className="font-headline font-black uppercase tracking-tight leading-[1.02]"
-            style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}
+            style={{ fontSize: 'clamp(3.2rem, 7.5vw, 6.5rem)' }}
           >
-            <span className="text-stroke block">STEM</span>
-            <span className="text-[#0A1930] block">PROGRAMME</span>
+            <span className="text-stroke block">HOW IT</span>
+            <span className="text-[#0A1930] block">WORKS</span>
           </h1>
 
           <p className="mt-4 text-sm sm:text-base text-slate-600 font-light max-w-2xl leading-relaxed">
-            RoboKidovation begins with a practical STEM programme where students learn how a working robot is built from the ground up — then build, test and improve their own robot for the Robo-Sprint challenge. No previous robotics experience needed.
+            RoboKidovation begins with a practical in-school STEM programme where students understand how a working robot is engineered from the ground up — then build, test, and optimize their own machine for the arena challenge.
           </p>
         </motion.div>
 
-        {/* ── 5 LEARNING BLOCKS ── */}
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4 items-start">
-          {LEARNING_BLOCKS.map((block: LearningBlock, idx: number) => {
-            const isOpen = openBlock === block.tag;
-            return (
-              <motion.button
-                key={block.tag}
-                type="button"
-                onClick={() => setOpenBlock(isOpen ? null : block.tag)}
-                aria-expanded={isOpen}
-                initial={{ opacity: 0, y: 20 }}
+        {/* ── 6-STAGE COMPLETE PARTICIPANT JOURNEY TIMELINE ── */}
+        <div className="space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 pb-4">
+            <div>
+              <span className="text-[10px] font-mono-code font-bold tracking-[0.2em] text-[#006AA7] uppercase block">
+                PARTICIPANT JOURNEY // FROM CLASSROOM TO ARENA
+              </span>
+              <h2 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0A1930] mt-1">
+                The Six Competition Stages
+              </h2>
+            </div>
+            <span className="text-xs font-mono-code text-slate-500 uppercase">
+              Autumn 2026 Season Timeline
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {JOURNEY_STEPS.map((step, idx) => (
+              <motion.div
+                key={step.num}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className={`text-center rounded-2xl border bg-[#F8FAFC] p-5 space-y-1.5 transition-colors w-full ${
-                  isOpen ? 'border-[#006AA7]/40' : 'border-slate-200 hover:border-[#006AA7]/30'
+                transition={{ duration: 0.6, delay: idx * 0.08 }}
+                className={`p-7 rounded-3xl border flex flex-col justify-between space-y-5 transition-all shadow-sm ${
+                  step.highlight
+                    ? 'bg-[#013A63] text-white border-[#013A63]'
+                    : 'bg-[#F8FAFC] text-[#0A1930] border-slate-200 hover:border-[#006AA7]/40'
                 }`}
               >
-                <span className="font-headline font-black text-sm sm:text-base text-[#006AA7] uppercase tracking-wide block">
-                  {block.tag}
-                </span>
-                <span className="text-[11px] text-slate-500 font-light leading-snug block">
-                  {block.desc}
-                </span>
-                <motion.div
-                  animate={{ rotate: isOpen ? 180 : 0 }}
-                  transition={{ duration: 0.25 }}
-                  className="flex justify-center pt-1"
-                >
-                  <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-                </motion.div>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                      className="overflow-hidden"
-                    >
-                      <p className="text-[10px] text-slate-500 font-light leading-relaxed pt-2 border-t border-slate-200">
-                        {block.detail}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.button>
-            );
-          })}
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className={`font-headline font-black text-4xl leading-none ${
+                      step.highlight ? 'text-[#FFCD00]' : 'text-[#006AA7]'
+                    }`}>
+                      {step.num}
+                    </span>
+                    <span className={`text-[9px] font-mono-code font-bold px-2.5 py-1 rounded-full uppercase tracking-wider ${
+                      step.highlight ? 'bg-white/15 text-white' : 'bg-white text-slate-600 border border-slate-200'
+                    }`}>
+                      {step.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="font-headline font-black text-xl uppercase tracking-tight">
+                    {step.title}
+                  </h3>
+
+                  <p className={`text-xs font-mono-code font-bold uppercase ${
+                    step.highlight ? 'text-slate-300' : 'text-[#006AA7]'
+                  }`}>
+                    {step.subtitle}
+                  </p>
+
+                  <p className={`text-xs sm:text-sm font-light leading-relaxed ${
+                    step.highlight ? 'text-slate-200' : 'text-slate-600'
+                  }`}>
+                    {step.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        {/* ── ONE KIT — MANY LEARNING POSSIBILITIES ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="rounded-3xl border border-slate-200 overflow-hidden bg-[#F8FAFC] grid grid-cols-1 lg:grid-cols-12 shadow-sm"
-        >
-          <div className="lg:col-span-5 relative min-h-[280px]">
-            <img
-              src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
-              alt="Blix universal STEM kit components"
-              className="w-full h-full object-cover absolute inset-0"
-            />
-          </div>
-          <div className="lg:col-span-7 p-8 sm:p-12 space-y-5">
+        {/* ── 5 LEARNING BLOCKS ── */}
+        <div className="space-y-4 pt-4">
+          <div className="border-b border-slate-200 pb-4">
             <span className="text-[10px] font-mono-code font-bold tracking-[0.2em] text-[#006AA7] uppercase block">
-              ONE KIT, MANY LEARNING POSSIBILITIES
+              PEDAGOGICAL BUILDING BLOCKS
             </span>
-            <h2 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0A1930]">
-              One Reusable STEM Kit. Many Learning Journeys.
+            <h2 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0A1930] mt-1">
+              Five Core Learning Competencies
             </h2>
-            <p className="text-sm text-slate-600 font-light leading-relaxed max-w-xl">
-              Students start with simple mechanical construction and gradually progress toward electronics, control systems, programming and robotics. The same physical learning platform can support different ages and skill levels — this isn't only a robotics kit.
-            </p>
-            <div className="flex flex-wrap gap-2 pt-2">
-              {KIT_LEARNING_TAGS.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[10px] font-mono-code font-bold text-[#0A1930] bg-white border border-slate-200 px-3 py-1.5 rounded-full uppercase tracking-wide"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
           </div>
-        </motion.div>
 
-        {/* ── 5-STAGE PROCESS CARDS ── */}
-        <div className="space-y-6">
-          {ROADMAP_STEPS.map((step: RoadmapStep, idx: number) => (
-            <motion.div
-              key={step.stepNumber}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -4, borderColor: 'rgba(0, 106, 167, 0.35)' }}
-              className="p-8 sm:p-10 rounded-3xl border border-slate-200 bg-[#F8FAFC] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center transition-all shadow-sm"
-            >
-              <div className="lg:col-span-3 space-y-1">
-                <span className="font-headline font-black text-6xl text-[#006AA7] leading-none block">
-                  {step.stepNumber}
-                </span>
-                <span className="text-[10px] font-mono-code font-bold text-slate-500 uppercase tracking-widest block">
-                  {step.tag}
-                </span>
-              </div>
-
-              <div className="lg:col-span-6 space-y-2">
-                <h2 className="font-headline font-bold text-2xl sm:text-3xl text-[#0A1930] uppercase tracking-wide">
-                  {step.title} — {step.subtitle}
-                </h2>
-                <p className="text-sm text-slate-600 font-light leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-
-              <div className="lg:col-span-3 flex justify-start lg:justify-end">
-                <span className="text-[10px] font-mono-code font-bold text-[#0A1930] bg-[#FFCD00] px-4 py-2 rounded-full font-black">
-                  {step.badge ?? 'VERIFIED STAGE'}
-                </span>
-              </div>
-            </motion.div>
-          ))}
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4 items-start">
+            {LEARNING_BLOCKS.map((block: LearningBlock, idx: number) => {
+              const isOpen = openBlock === block.tag;
+              return (
+                <motion.button
+                  key={block.tag}
+                  type="button"
+                  onClick={() => setOpenBlock(isOpen ? null : block.tag)}
+                  aria-expanded={isOpen}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className={`text-center rounded-2xl border bg-[#F8FAFC] p-5 space-y-1.5 transition-colors w-full ${
+                    isOpen ? 'border-[#006AA7]/40 shadow-sm' : 'border-slate-200 hover:border-[#006AA7]/30'
+                  }`}
+                >
+                  <span className="font-headline font-black text-sm sm:text-base text-[#006AA7] uppercase tracking-wide block">
+                    {block.tag}
+                  </span>
+                  <span className="text-[11px] text-slate-500 font-light leading-snug block">
+                    {block.desc}
+                  </span>
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="flex justify-center pt-1"
+                  >
+                    <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                  </motion.div>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <p className="text-[10px] text-slate-500 font-light leading-relaxed pt-2 border-t border-slate-200">
+                          {block.detail}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.button>
+              );
+            })}
+          </div>
         </div>
 
         {/* ── 20-HOUR SESSION BREAKDOWN ── */}
-        <div className="space-y-6">
+        <div className="space-y-6 pt-4">
           <div className="border-b border-slate-200 pb-6">
             <span className="text-[10px] font-mono-code font-bold tracking-[0.2em] text-[#006AA7] uppercase block mb-2">
-              20-HOUR STEM PROJECT
+              SESSION-BY-SESSION CURRICULUM
             </span>
             <h2 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0A1930]">
-              10 Sessions · Build → Test → Improve → Compete
+              20-Hour STEM Project Structure (10 Sessions × 2h)
             </h2>
             <p className="mt-2 text-sm text-slate-600 font-light max-w-2xl leading-relaxed">
-              Schools can adapt the programme around Teknik, Matematik and NO/Fysik, with student documentation, reflection and project work supporting the learning process. A lighter 10–12 hour version is available for younger cohorts where a full assessed project is too heavy.
+              Designed for Swedish school timetables. Delivered across ten 2-hour sessions (or a lighter 10–12 hour version for younger cohorts) mapping directly to Teknik, Matematik, and NO/Fysik goals.
             </p>
           </div>
 
@@ -211,7 +254,7 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
                 <tr className="bg-[#F8FAFC] border-b border-slate-200">
                   <th className="px-5 py-3 text-[10px] font-mono-code font-bold text-slate-500 uppercase tracking-wider">Session</th>
                   <th className="px-5 py-3 text-[10px] font-mono-code font-bold text-slate-500 uppercase tracking-wider">Hours</th>
-                  <th className="px-5 py-3 text-[10px] font-mono-code font-bold text-slate-500 uppercase tracking-wider">Focus</th>
+                  <th className="px-5 py-3 text-[10px] font-mono-code font-bold text-slate-500 uppercase tracking-wider">Curricular &amp; Practical Focus</th>
                 </tr>
               </thead>
               <tbody>
@@ -234,13 +277,13 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
         </div>
 
         {/* ── WHAT STUDENTS PRODUCE ── */}
-        <div className="space-y-6">
+        <div className="space-y-6 pt-4">
           <div className="border-b border-slate-200 pb-6">
             <h2 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0A1930]">
-              What Students Produce
+              What Students Produce &amp; Take Home
             </h2>
             <p className="mt-2 text-sm text-slate-600 font-light max-w-2xl leading-relaxed">
-              By the end of the 20 hours, every team should have more than just a robot.
+              Documented evidence of learning that teachers can use for subject evaluations under Lgr22.
             </p>
           </div>
 
@@ -251,14 +294,16 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="p-6 rounded-2xl bg-white border border-slate-200 space-y-2 shadow-sm"
+                transition={{ duration: 0.5, delay: idx * 0.06 }}
+                className="p-6 rounded-2xl bg-[#F8FAFC] border border-slate-200 space-y-2 shadow-sm"
               >
-                <CheckCircle2 className="w-5 h-5 text-[#006AA7]" />
-                <h3 className="font-headline font-bold text-sm uppercase tracking-wide text-[#0A1930]">
-                  {d.title}
-                </h3>
-                <p className="text-xs text-slate-600 font-light leading-relaxed">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#006AA7]" />
+                  <h3 className="font-headline font-bold text-sm uppercase text-[#0A1930]">
+                    {d.title}
+                  </h3>
+                </div>
+                <p className="text-xs text-slate-600 font-light leading-relaxed pl-6">
                   {d.desc}
                 </p>
               </motion.div>
@@ -266,35 +311,29 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
           </div>
         </div>
 
-        {/* ── CALLOUT BANNER ── */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="rounded-3xl p-8 sm:p-12 bg-gradient-to-r from-[#006AA7] to-[#013A63] border border-[#013A63] flex flex-col md:flex-row items-center justify-between gap-8 shadow-md"
-        >
-          <div className="space-y-2">
-            <div className="flex items-center gap-2 text-xs font-mono-code text-[#FFCD00]">
-              <Calendar className="w-4 h-4" />
-              <span>QUALIFIERS RUN IN OCTOBER 2026</span>
-            </div>
-            <h3 className="font-headline font-black text-2xl sm:text-3xl text-white uppercase">
-              Enrol your school cohort today.
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-200 font-light max-w-xl">
-              Registrations close ahead of the November 13, 2026 Robo-Sprint City Final. Session dates and hardware kits are assigned upon enrolment.
-            </p>
+        {/* Bottom CTA */}
+        <div className="p-8 sm:p-12 rounded-3xl bg-[#0A1930] text-white text-center space-y-6">
+          <h3 className="font-headline font-black text-2xl sm:text-4xl uppercase tracking-tight">
+            Ready to Plan a STEM Project for Your School?
+          </h3>
+          <p className="text-xs sm:text-sm text-slate-300 font-light max-w-xl mx-auto leading-relaxed">
+            Our delivery partners bring all kits, arena mats, and teacher briefings directly to your school.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <button
+              onClick={onOpenRegister}
+              className="btn-pill-lime text-xs sm:text-sm font-black py-4 px-8"
+            >
+              <span>REGISTER SCHOOL / TEAM</span>
+            </button>
+            <button
+              onClick={onNavigateHome}
+              className="px-6 py-4 rounded-full border border-white/20 hover:border-white text-white text-xs font-bold uppercase tracking-wider transition-all"
+            >
+              <span>BACK TO HOME</span>
+            </button>
           </div>
-
-          <button
-            onClick={onOpenRegister}
-            className="btn-pill-lime py-4 px-8 text-xs font-black shrink-0 flex items-center gap-2"
-          >
-            <span>START REGISTRATION</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </motion.div>
+        </div>
 
       </div>
     </div>

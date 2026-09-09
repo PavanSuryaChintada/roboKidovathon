@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Wrench, Sigma, FlaskConical, Info, GraduationCap, ChevronDown } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Wrench, Sigma, FlaskConical, Info, GraduationCap, ChevronDown, CheckCircle2 } from 'lucide-react';
 import { LGR22_SUBJECTS, AGE_PATHWAYS, Lgr22Subject, AgePathway, GY25_CONNECTIONS } from '../data/roboData';
 
 interface Lgr22PageProps {
@@ -52,103 +52,118 @@ export const Lgr22Page: React.FC<Lgr22PageProps> = ({
           className="border-b border-slate-200 pb-12"
         >
           <span className="text-[10px] font-mono-code font-medium tracking-[0.2em] text-slate-500 uppercase block mb-3">
-            CONNECTED TO SCHOOL LEARNING
+            SWEDISH CURRICULAR TRUST &amp; ALIGNMENT // LÄROPLAN
           </span>
 
           <h1
             className="font-headline font-black uppercase tracking-tight leading-[1.02]"
-            style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}
+            style={{ fontSize: 'clamp(3.2rem, 7.5vw, 6.5rem)' }}
           >
-            <span className="text-stroke block">LEARNING,</span>
-            <span className="text-[#0A1930] block">LGR22 &amp; GY25</span>
+            <span className="text-stroke block">LGR22 &amp;</span>
+            <span className="text-[#0A1930] block">GY25 FIT</span>
           </h1>
 
           <p className="mt-4 text-sm sm:text-base text-slate-600 font-light max-w-2xl leading-relaxed">
-            RoboKidovation and the STEM programme provide practical learning opportunities connected to central content within Teknik, Matematik and NO/Fysik in Lgr22 for grundskolan, and to programming-oriented education within Gy25 for gymnasium students.
+            RoboKidovation and the 20-hour STEM programme provide concrete learning opportunities connected to core syllabus requirements within Teknik, Matematik, and NO/Fysik in Lgr22 for grundskolan, and to programming and engineering tracks within Gy25 for gymnasium students.
           </p>
+
+          <div className="pt-6 flex flex-wrap items-center gap-4">
+            <button
+              onClick={onOpenRegister}
+              className="btn-pill-lime text-xs font-black py-3.5 px-7 shadow-md flex items-center gap-2"
+            >
+              <span>REQUEST CURRICULUM GUIDE</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+            <div className="text-xs font-mono-code text-slate-500 flex items-center gap-2">
+              <Info className="w-4 h-4 text-[#006AA7]" />
+              <span>Assessment documentation prepared for teachers</span>
+            </div>
+          </div>
         </motion.div>
 
         {/* ── THREE SUBJECT COLUMNS ── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {LGR22_SUBJECTS.map((subject: Lgr22Subject, idx: number) => {
-            const Icon = SUBJECT_ICONS[subject.subject] ?? Wrench;
-            return (
-              <motion.div
-                key={subject.subject}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="p-8 rounded-3xl bg-[#F8FAFC] border border-slate-200 space-y-4 shadow-sm"
-              >
-                <div className="w-12 h-12 rounded-2xl bg-[#006AA7]/10 border border-[#006AA7]/20 flex items-center justify-center text-[#006AA7]">
-                  <Icon className="w-6 h-6" />
-                </div>
-                <h3 className="font-headline font-bold text-xl text-[#0A1930] uppercase">
-                  {subject.subject}
-                </h3>
-                <ul className="space-y-1.5">
-                  {subject.connections.map((c) => (
-                    <li key={c} className="flex items-start gap-2 text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                      <span className="text-[#006AA7] font-bold mt-0.5">•</span>
-                      <span>{c}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* ── DISCLAIMER ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex items-start gap-3 p-5 rounded-2xl bg-[#F2F6FA] border border-slate-200"
-        >
-          <Info className="w-4 h-4 text-[#006AA7] shrink-0 mt-0.5" />
-          <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-            Curriculum connections depend on age, activity and the school's own planning. Advanced content may be offered as enrichment.
-          </p>
-        </motion.div>
-
-        {/* ── THREE AGE PATHWAYS ── */}
         <div className="space-y-6">
-          <div className="border-b border-slate-200 pb-6">
+          <div className="border-b border-slate-200 pb-4">
             <h2 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0A1930]">
-              Three Age Pathways, One Family Of Challenges
+              Lgr22 Subject Connections (Grundskolan)
             </h2>
-            <p className="mt-2 text-sm text-slate-600 font-light max-w-2xl leading-relaxed">
-              Explorer and Advanced play the same Robo-Sprint game at different learning depths; Robo-Precision is the gymnasium-level track for teams ready to go fully autonomous. Tap a card for the full picture.
+            <p className="text-xs sm:text-sm text-slate-500 font-light mt-1">
+              Direct practical alignment across central content areas in Swedish compulsory school.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {AGE_PATHWAYS.map((pathway: AgePathway, idx: number) => {
-              const isOpen = openPathways.has(pathway.id);
+            {LGR22_SUBJECTS.map((subject: Lgr22Subject, idx: number) => {
+              const Icon = SUBJECT_ICONS[subject.subject] ?? Wrench;
               return (
-                <motion.button
-                  key={pathway.id}
-                  type="button"
-                  onClick={() => togglePathway(pathway.id)}
+                <motion.div
+                  key={subject.subject}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  aria-expanded={isOpen}
-                  className={`text-left rounded-3xl border bg-white p-8 space-y-4 shadow-sm transition-colors w-full ${
-                    isOpen ? 'border-[#006AA7]/40' : 'border-slate-200 hover:border-[#006AA7]/30'
+                  className="p-8 rounded-3xl bg-[#F8FAFC] border border-slate-200 space-y-4 shadow-sm flex flex-col justify-between"
+                >
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 rounded-2xl bg-[#006AA7]/10 border border-[#006AA7]/20 flex items-center justify-center text-[#006AA7]">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="font-headline font-bold text-xl text-[#0A1930] uppercase">
+                      {subject.subject}
+                    </h3>
+                    <ul className="space-y-2">
+                      {subject.connections.map((c) => (
+                        <li key={c} className="flex items-start gap-2 text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#006AA7] shrink-0 mt-0.5" />
+                          <span>{c}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="pt-4 border-t border-slate-200 text-[10px] font-mono-code font-bold text-[#006AA7] uppercase">
+                    Documented Evidence For Evaluation
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ── THREE AGE PATHWAYS ── */}
+        <div className="space-y-6">
+          <div className="border-b border-slate-200 pb-4">
+            <h2 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0A1930]">
+              Three Age Pathways, One Family Of Challenges
+            </h2>
+            <p className="mt-2 text-sm text-slate-600 font-light max-w-2xl leading-relaxed">
+              Explorer and Advanced play the same Robo-Sprint arena at different pedagogical depths; Robo-Precision is the autonomous track for gymnasium cohorts.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {AGE_PATHWAYS.map((pathway: AgePathway) => {
+              const isOpen = openPathways.has(pathway.id);
+              return (
+                <div
+                  key={pathway.id}
+                  className={`rounded-3xl border bg-white p-8 space-y-4 shadow-sm transition-colors ${
+                    isOpen ? 'border-[#006AA7]/40 shadow-md' : 'border-slate-200 hover:border-[#006AA7]/30'
                   }`}
                 >
                   <div className="flex items-start justify-between gap-3">
                     <span className="text-[10px] font-mono-code font-bold tracking-widest text-[#006AA7] uppercase block">
                       {pathway.grades}
                     </span>
-                    <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.25 }}>
-                      <ChevronDown className="w-4 h-4 text-slate-400 shrink-0" />
-                    </motion.div>
+                    <button
+                      onClick={() => togglePathway(pathway.id)}
+                      className="p-1 rounded-full text-slate-400 hover:text-[#0A1930]"
+                    >
+                      <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.25 }}>
+                        <ChevronDown className="w-4 h-4" />
+                      </motion.div>
+                    </button>
                   </div>
                   <h3 className="font-headline font-black text-2xl uppercase tracking-tight text-[#0A1930]">
                     {pathway.name}
@@ -182,7 +197,7 @@ export const Lgr22Page: React.FC<Lgr22PageProps> = ({
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </motion.button>
+                </div>
               );
             })}
           </div>
@@ -205,7 +220,7 @@ export const Lgr22Page: React.FC<Lgr22PageProps> = ({
                 {GY25_CONNECTIONS.audience}
               </span>
               <h3 className="font-headline font-black text-xl sm:text-2xl uppercase tracking-tight text-[#0A1930]">
-                Gy25 Connection
+                Gy25 Curriculum Connection
               </h3>
             </div>
           </div>
@@ -224,30 +239,30 @@ export const Lgr22Page: React.FC<Lgr22PageProps> = ({
           </div>
         </motion.div>
 
-        {/* ── GRADING PITCH ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="rounded-3xl p-8 sm:p-12 bg-[#013A63] border border-[#013A63] space-y-4 shadow-md"
-        >
-          <h3 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-white">
-            Evidence Of Learning, Not Just Attendance
+        {/* ── EVIDENCE & PORTFOLIO BANNER ── */}
+        <div className="rounded-3xl p-8 sm:p-12 bg-[#013A63] text-white space-y-4 shadow-md">
+          <h3 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight">
+            Evidence Of Learning For Classroom Assessment
           </h3>
           <p className="text-sm sm:text-base text-slate-200 font-light leading-relaxed max-w-3xl">
-            The 20-hour project can be planned together with the school so that students produce documented evidence of practical work, technical problem-solving, testing, collaboration and reflection that teachers may use within their ordinary assessment where relevant to the subject and local planning.
+            The 20-hour project is structured so that students produce documented design sketches, component rationales, test results, and self-reflections. Teachers can incorporate this directly into subject grades in ordinary course planning.
           </p>
-          <div className="pt-4">
+          <div className="pt-4 flex flex-wrap items-center gap-4">
             <button
               onClick={onOpenRegister}
               className="btn-pill-lime text-xs sm:text-sm font-black py-3.5 px-8 flex items-center gap-2"
             >
-              <span>PLAN A PROGRAMME WITH US</span>
+              <span>PLAN A SCHOOL PROGRAMME</span>
               <ArrowRight className="w-4 h-4" />
             </button>
+            <button
+              onClick={onNavigateHome}
+              className="px-6 py-3.5 rounded-full border border-white/20 hover:border-white text-white text-xs font-bold uppercase tracking-wider transition-all"
+            >
+              <span>RETURN TO HOME</span>
+            </button>
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </div>

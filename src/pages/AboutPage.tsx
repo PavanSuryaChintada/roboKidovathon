@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ShieldCheck, Award, MapPin } from 'lucide-react';
 import { roboPrecisionActionWide } from '../assets/images';
+import { PARTNER_LOGOS } from '../data/roboData';
 
 interface AboutPageProps {
   onOpenRegister: () => void;
@@ -27,7 +28,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           <span>BACK TO HOME</span>
         </motion.button>
 
-        {/* ── HEADER: ABOUT (Outline) THE LEAGUE (Solid) ── */}
+        {/* ── HEADER ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -35,19 +36,19 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           className="border-b border-slate-200 pb-12"
         >
           <span className="text-[10px] font-mono-code font-medium tracking-[0.2em] text-slate-500 uppercase block mb-3">
-            LEAGUE ORIGINS & MISSION // 2026
+            LEAGUE ORIGINS, PARTNERS &amp; MISSION // VÄSTERÅS 2026
           </span>
 
           <h1
             className="font-headline font-black uppercase tracking-tight leading-[1.02]"
-            style={{ fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}
+            style={{ fontSize: 'clamp(3.2rem, 7.5vw, 6.5rem)' }}
           >
             <span className="text-stroke block">ABOUT</span>
             <span className="text-[#0A1930] block">THE LEAGUE</span>
           </h1>
 
           <p className="mt-4 text-sm sm:text-base text-slate-600 font-light max-w-2xl leading-relaxed">
-            INIAC's hands-on STEM programme and RoboKidovation competition pathway for young innovators in Västerås — turning STEM concepts into something students can build, test, improve and finally compete with.
+            INIAC's hands-on STEM programme and RoboKidovation competition pathway for students in Västerås — turning STEM concepts into something students can build, test, improve, and compete with.
           </p>
         </motion.div>
 
@@ -62,39 +63,43 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             transition={{ duration: 0.8 }}
             className="lg:col-span-7 space-y-6"
           >
-            <h2 className="font-headline font-black text-3xl sm:text-4xl text-[#0A1930] uppercase tracking-tight">
-              FROM STEM CONCEPTS TO A VÄSTERÅS CLASSROOM
+            <h2 className="font-headline font-black text-2xl sm:text-3xl text-[#0A1930] uppercase tracking-tight">
+              From Abstract Screen Exercises to Real Classroom Engineering
             </h2>
 
             <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
-              RoboKidovation Västerås is INIAC's own STEM programme and pedagogy, hosted with IBK Västerås and SkillSkolan, and built on Blix's reusable hardware kit as technology partner. The Robo-Sprint arena format is adapted from Blix-A-Thon, hosted at Techfest, IIT Bombay — brought to Swedish schools for the first time.
+              RoboKidovation Västerås is organized by Indisk BarnKlubb (IBK) Västerås alongside INIAC as programme and pedagogy partner, and SkillSkolan as education delivery partner, with Blix supplying the reusable hardware kit as technology partner.
             </p>
 
             <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
-              Instead of theoretical classroom exercises on screens, we put real gearmotors, wired transmitters, and chassis fasteners in students' hands. They build, wire, test, and compete in live tournament arenas.
+              The Robo-Sprint arena format is adapted from Blix-A-Thon, hosted at Techfest, IIT Bombay — engaging 2,000+ students in recent editions. In Västerås, it has been structured specifically for Swedish school curriculum standards (Lgr22 and Gy25).
+            </p>
+
+            <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
+              Rather than screen simulators, students receive physical gearmotors, remote controllers, chassis beams, axles, and roll-out arenas. They build, wire, test, measure, and compete under fair-play referee rules.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200 flex items-center gap-3">
                 <Award className="w-5 h-5 text-[#006AA7] shrink-0" />
                 <span className="text-xs font-mono-code font-bold text-[#0A1930] uppercase">
-                  Explorer & Advanced Leagues
+                  Explorer &amp; Advanced Leagues
                 </span>
               </div>
               <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-slate-200 flex items-center gap-3">
                 <ShieldCheck className="w-5 h-5 text-[#006AA7] shrink-0" />
                 <span className="text-xs font-mono-code font-bold text-[#0A1930] uppercase">
-                  Lgr22-Linked Curriculum
+                  Lgr22 &amp; Gy25 Alignment
                 </span>
               </div>
             </div>
 
-            <div className="pt-4">
+            <div className="pt-4 flex flex-wrap items-center gap-4">
               <button
                 onClick={onOpenRegister}
                 className="btn-pill-lime text-xs font-black py-3.5 px-8 flex items-center gap-2 shadow-md"
               >
-                <span>JOIN AS A SCHOOL OR STUDENT</span>
+                <span>REGISTER SCHOOL / TEAM</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -111,8 +116,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-[#0A1930] aspect-[4/3] shadow-md group">
               <img
                 src={roboPrecisionActionWide}
-                alt="Students collaborating on robotics at Blix-A-Thon"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                alt="Students collaborating on robotics"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
@@ -120,7 +125,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   ROBOKIDOVATION VÄSTERÅS · 2026 EDITION
                 </span>
                 <span className="font-headline font-bold text-lg text-white uppercase">
-                  Junior &amp; Senior Championship Leagues
+                  Bringing Schools Together Through Robotics
                 </span>
               </div>
             </div>
@@ -134,6 +139,43 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             </div>
           </motion.div>
 
+        </div>
+
+        {/* ── ORGANIZING PARTNERS ── */}
+        <div className="space-y-8 pt-8 border-t border-slate-200">
+          <div className="text-center max-w-xl mx-auto space-y-2">
+            <span className="text-[10px] font-mono-code font-bold tracking-[0.2em] text-[#006AA7] uppercase block">
+              COLLABORATIVE ECOSYSTEM
+            </span>
+            <h2 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0A1930]">
+              The Four Organizing Partners
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {PARTNER_LOGOS.map((partner) => (
+              <div
+                key={partner.name}
+                className="p-6 rounded-3xl bg-[#F8FAFC] border border-slate-200 text-center space-y-4 shadow-sm flex flex-col items-center justify-between"
+              >
+                <div className="h-16 flex items-center justify-center p-2">
+                  <img
+                    src={partner.file}
+                    alt={partner.name}
+                    className="max-h-12 w-auto object-contain"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-headline font-bold text-sm text-[#0A1930] uppercase">
+                    {partner.name}
+                  </h3>
+                  <span className="text-[11px] font-mono-code font-bold text-[#006AA7] block uppercase">
+                    {partner.role}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>

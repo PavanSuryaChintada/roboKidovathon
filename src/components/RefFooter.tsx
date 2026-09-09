@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, MapPin, ShieldCheck } from 'lucide-react';
+import { ArrowRight, MapPin, ShieldCheck, Mail } from 'lucide-react';
 import { PARTNER_LOGOS } from '../data/roboData';
 
 interface RefFooterProps {
@@ -27,43 +27,51 @@ export const RefFooter: React.FC<RefFooterProps> = ({
               </span>
             </div>
             <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-sm">
-              INIAC's hands-on STEM programme and RoboKidovation competition pathway, bringing schools together through robotics — hosted by IBK Västerås, INIAC and SkillSkolan, with Blix as technology partner.
+              Hands-on STEM programme and school robotics competition pathway bringing schools together through robotics. Hosted by Indisk BarnKlubb (IBK) Västerås, INIAC, and SkillSkolan, with Blix as technology and kit partner.
             </p>
-            <div className="flex items-center gap-4 text-xs font-mono-code text-slate-300">
-              <span className="flex items-center gap-1">
+            <div className="flex flex-wrap items-center gap-4 text-xs font-mono-code text-slate-300 pt-1">
+              <span className="flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-[#FFCD00]" />
                 <span>VÄSTERÅS, SWEDEN</span>
               </span>
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#FFCD00]" />
-                <span>GRADES 4–9</span>
+                <span>GRADES 4–9 &amp; GYMNASIUM</span>
               </span>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Programme Navigation */}
           <div className="md:col-span-2 space-y-3">
             <span className="font-headline font-bold text-xs uppercase tracking-widest text-white block">
-              ROBOKIDOVATION
+              PROGRAMME
             </span>
             <ul className="space-y-2 text-xs text-slate-300 font-light">
-              <li><button onClick={() => onNavigate('challenges')} className="hover:text-[#FFCD00] transition-colors">Robo-Sprint (Explorer)</button></li>
-              <li><button onClick={() => onNavigate('challenges')} className="hover:text-[#FFCD00] transition-colors">Robo-Sprint (Advanced)</button></li>
-              <li><button onClick={() => onNavigate('challenges')} className="hover:text-[#FFCD00] transition-colors">Technical Rulebook</button></li>
-              <li><button onClick={() => onNavigate('events')} className="hover:text-[#FFCD00] transition-colors">Upcoming Events</button></li>
+              <li><button onClick={() => onNavigate('for-schools')} className="hover:text-[#FFCD00] transition-colors">For Schools</button></li>
+              <li><button onClick={() => onNavigate('challenges')} className="hover:text-[#FFCD00] transition-colors">Competition Tracks</button></li>
+              <li><button onClick={() => onNavigate('how-it-works')} className="hover:text-[#FFCD00] transition-colors">How It Works</button></li>
+              <li><button onClick={() => onNavigate('lgr22')} className="hover:text-[#FFCD00] transition-colors">Lgr22 Curriculum</button></li>
+              <li><button onClick={() => onNavigate('events')} className="hover:text-[#FFCD00] transition-colors">Events &amp; Final</button></li>
             </ul>
           </div>
 
-          {/* For Schools */}
+          {/* Organization & Trust */}
           <div className="md:col-span-3 space-y-3">
             <span className="font-headline font-bold text-xs uppercase tracking-widest text-white block">
-              FOR EDUCATORS
+              ORGANIZATION &amp; CONTACT
             </span>
             <ul className="space-y-2 text-xs text-slate-300 font-light">
-              <li><button onClick={() => onNavigate('for-schools')} className="hover:text-[#FFCD00] transition-colors">School Partnership Portal</button></li>
-              <li><button onClick={() => onNavigate('how-it-works')} className="hover:text-[#FFCD00] transition-colors">20-Hour STEM Programme</button></li>
-              <li><button onClick={() => onNavigate('lgr22')} className="hover:text-[#FFCD00] transition-colors">Lgr22 Curriculum Fit</button></li>
-              <li><button onClick={() => onNavigate('about')} className="hover:text-[#FFCD00] transition-colors">About INIAC</button></li>
+              <li><button onClick={() => onNavigate('about')} className="hover:text-[#FFCD00] transition-colors">About the League</button></li>
+              <li className="text-slate-300 flex items-center gap-1.5 pt-1">
+                <Mail className="w-3.5 h-3.5 text-[#FFCD00]" />
+                <span>contact@robokidovation.se</span>
+              </li>
+              <li className="text-slate-400 text-[11px] font-mono-code pt-1">
+                Indisk BarnKlubb (IBK) Västerås &amp; INIAC
+              </li>
+              <li className="text-slate-400 text-[11px] font-mono-code">
+                Västerås, Sweden
+              </li>
             </ul>
           </div>
 
@@ -73,15 +81,15 @@ export const RefFooter: React.FC<RefFooterProps> = ({
               ENROL COHORT
             </span>
             <p className="text-xs text-slate-300 font-light leading-relaxed">
-              Registration for Västerås schools closes ahead of the November 13, 2026 Robo-Sprint City Final.
+              Registrations for Västerås schools and student cohorts are open ahead of the October qualifiers and November 13, 2026 Grand Finale.
             </p>
             <motion.button
-              whileHover={{ scale: 1.04, y: -1 }}
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               onClick={onOpenRegister}
-              className="btn-pill-lime text-xs font-black py-2.5 px-6 flex items-center gap-2"
+              className="btn-pill-lime text-xs font-black py-3 px-6 flex items-center gap-2 shadow-md"
             >
-              <span>REGISTER NOW</span>
+              <span>REGISTER SCHOOL / TEAM</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </motion.button>
           </div>
@@ -104,10 +112,10 @@ export const RefFooter: React.FC<RefFooterProps> = ({
           ))}
         </div>
 
-        {/* Bottom copyright */}
+        {/* Bottom copyright & compliance */}
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] font-mono-code text-slate-400">
           <span>© 2026 ROBOKIDOVATION VÄSTERÅS · ALL RIGHTS RESERVED</span>
-          <span>LOW-VOLTAGE SAFE HARDWARE · GDPR-COMPLIANT STUDENT PRIVACY</span>
+          <span>LOW-VOLTAGE 6V HARDWARE · GDPR-COMPLIANT STUDENT PRIVACY</span>
         </div>
 
       </div>

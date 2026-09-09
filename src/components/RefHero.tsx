@@ -1,17 +1,18 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Volume2, VolumeX } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import { roboPrecisionActionWide } from '../assets/images';
 
 interface RefHeroProps {
   onNavigate: (route: string) => void;
+  onOpenRegister: () => void;
 }
 
 export const RefHero: React.FC<RefHeroProps> = ({
   onNavigate,
+  onOpenRegister,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -21,137 +22,129 @@ export const RefHero: React.FC<RefHeroProps> = ({
     }
   }, []);
 
-  const toggleSound = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
-
-  const stats = [
-    { value: '4', label: 'HOST PARTNERS' },
-    { value: 'GRADES 4–9', label: 'EXPLORER & ADVANCED' },
-    { value: 'SEK 3,000', label: 'PRIZE POOL' },
-    { value: '20H', label: 'STEM PROJECT' },
-    { value: 'NOV 13', label: 'GRAND FINALE' },
-  ];
-
   return (
-    <section className="relative w-full h-screen min-h-[640px] flex flex-col justify-between pt-28 pb-8 sm:pb-10 px-4 sm:px-8 md:px-12 lg:px-16 overflow-hidden select-none bg-[#070709]">
+    <section className="relative w-full h-screen min-h-[640px] flex flex-col justify-end overflow-hidden select-none bg-[#070709]">
 
-      {/* ── FULL VIEWPORT BACKGROUND VIDEO (z-0) ── */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted={isMuted}
-          playsInline
-          poster={roboPrecisionActionWide}
-          className="w-full h-full object-cover scale-[1.36] origin-center"
-        >
-          <source src="/blix_hero.webm" type="video/webm" />
-          <source src="/uhd_25fps.mp4" type="video/mp4" />
-        </video>
+      {/* ── FULL-SCREEN BACKGROUND VIDEO ── */}
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster={roboPrecisionActionWide}
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/uhd_25fps.mp4" type="video/mp4" />
+        <source src="/blix_hero.webm" type="video/webm" />
+      </video>
 
-        {/* ── CINEMATIC BALANCED OVERLAYS (z-[1]) ── */}
-        <div className="absolute inset-0 bg-black/35 pointer-events-none z-[1]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/60 pointer-events-none z-[1]" />
+      {/* ── GRADIENT SCRIM: light vignette so text reads cleanly ── */}
+      <div className="absolute inset-0 z-[1] pointer-events-none">
+        {/* Bottom-up dark fade for the text block */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20" />
+        {/* Subtle left edge darkening */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
+      </div>
 
-        {/* ── AMBIENT LIVE AUDIO TOGGLE (z-[2]) ── */}
-        <div className="absolute top-28 right-4 sm:right-8 z-[2]">
-          <button
-            onClick={toggleSound}
-            aria-label={isMuted ? 'Enable video audio' : 'Mute video audio'}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/15 text-white text-[11px] font-mono-code transition-all"
+      {/* ── CONTENT: pinned to bottom of screen ── */}
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pb-16 sm:pb-20 pt-28">
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-end">
+
+          {/* LEFT: headline block */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 space-y-6"
           >
-            {isMuted ? (
-              <>
-                <VolumeX className="w-3.5 h-3.5 text-slate-400" />
-                <span className="hidden sm:inline text-slate-300">SOUND OFF</span>
-              </>
-            ) : (
-              <>
-                <Volume2 className="w-3.5 h-3.5 text-[#FFCD00]" />
-                <span className="hidden sm:inline text-[#FFCD00] font-bold">ARENA AUDIO ON</span>
-              </>
-            )}
-          </button>
-        </div>
-      </div>
+            {/* Eyebrow */}
+            <span className="font-mono-code font-bold text-xs sm:text-sm text-[#FFCD00] tracking-[0.25em] uppercase">
+              13–14 NOVEMBER 2026 · VÄSTERÅS, SWEDEN
+            </span>
 
-      {/* ── TOP SPACER ── */}
-      <div className="relative z-10" />
+            {/* Main headline */}
+            <h1
+              className="font-headline font-black uppercase text-white tracking-tight leading-[0.95]"
+              style={{ fontSize: 'clamp(2.8rem, 7vw, 6.5rem)' }}
+            >
+              Build ideas.<br />
+              Test them.<br />
+              <span className="text-[#FFCD00]">Take them further.</span>
+            </h1>
 
-      {/* ── CENTER SLUSH-STYLE UNBROKEN EDITORIAL TYPOGRAPHY (z-10) ── */}
-      <div className="w-full text-center relative z-10 py-6 flex flex-col items-center justify-center space-y-2.5">
+            {/* Sub-copy */}
+            <p className="text-sm sm:text-base md:text-lg text-white/70 font-light leading-relaxed max-w-xl">
+              Västerås Future Innovators — hands-on STEM robotics and the Young Innovators Hackathon,
+              built for Swedish schools, grades 4–9 and Gymnasium.
+            </p>
 
-        {/* Line 1: SWEDEN'S NEWEST [SCHOOL ROBOTICS LEAGUE] (Unbroken) */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="font-syne uppercase tracking-[0.03em] leading-none text-center drop-shadow-md whitespace-normal md:whitespace-nowrap px-4"
-          style={{ fontSize: 'clamp(1rem, 1.95vw, 1.7rem)' }}
-        >
-          <span className="text-slate-300 font-medium">SWEDEN’S NEWEST </span>
-          <span className="text-white font-extrabold">SCHOOL ROBOTICS LEAGUE</span>
-        </motion.h1>
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 pt-2">
+              <button
+                onClick={onOpenRegister}
+                className="px-7 py-4 rounded-full bg-[#FFCD00] hover:bg-[#E6B800] text-[#0A1930] font-syne font-black text-xs sm:text-sm tracking-wider uppercase transition-all shadow-xl flex items-center justify-center gap-2"
+              >
+                <span>REGISTER SCHOOL / TEAM</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
 
-        {/* Line 2: BRINGING SCHOOLS TOGETHER [THROUGH ROBOTICS] (Unbroken) */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="font-syne uppercase tracking-[0.03em] leading-none text-center drop-shadow-md whitespace-normal md:whitespace-nowrap px-4"
-          style={{ fontSize: 'clamp(0.95rem, 1.85vw, 1.6rem)' }}
-        >
-          <span className="text-slate-300 font-medium">BRINGING SCHOOLS TOGETHER </span>
-          <span className="text-white font-extrabold">THROUGH ROBOTICS</span>
-        </motion.div>
-
-      </div>
-
-      {/* ── BOTTOM METRICS BAR & CTA (Guaranteed Single Unbroken Row) ── */}
-      <div className="max-w-[1440px] mx-auto w-full flex flex-row items-end justify-between gap-4 sm:gap-6 relative z-10 border-t border-white/10 pt-5 sm:pt-6 overflow-x-auto no-scrollbar">
-
-        {/* Left Side: All 5 Stats in a Strictly Single Horizontal Line */}
-        <div className="flex flex-nowrap items-baseline gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12 shrink-0">
-          {stats.map((item) => (
-            <div key={item.label} className="space-y-0.5 shrink-0 whitespace-nowrap">
-              <span className="font-syne font-extrabold text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white block tracking-tight">
-                {item.value}
-              </span>
-              <span className="font-mono-code text-[8px] sm:text-[9px] md:text-[10px] font-semibold text-slate-400 uppercase tracking-widest block">
-                {item.label}
-              </span>
+              <button
+                onClick={() => onNavigate('events')}
+                className="px-7 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 font-syne font-bold text-xs sm:text-sm tracking-wider uppercase transition-all backdrop-blur-sm flex items-center justify-center gap-2"
+              >
+                <span>EXPLORE EVENTS</span>
+              </button>
             </div>
-          ))}
-        </div>
+          </motion.div>
 
-        {/* Right Side: Action Buttons in a Strictly Single Horizontal Line */}
-        <div className="flex flex-nowrap items-center gap-2.5 sm:gap-3 shrink-0 whitespace-nowrap pl-4">
-          <motion.button
-            whileHover={{ scale: 1.03, y: -1 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => onNavigate('for-schools')}
-            className="px-4 sm:px-5 md:px-6 py-2.5 sm:py-3 rounded-lg bg-[#FFCD00] hover:bg-[#E6B800] text-[#0A1930] font-syne font-black text-[11px] sm:text-xs tracking-wider uppercase transition-all shadow-xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0"
+          {/* RIGHT: quick-fact pills, bottom-aligned */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 flex flex-wrap gap-2.5 items-end justify-start lg:justify-end"
           >
-            <span>FOR SCHOOLS</span>
-            <ArrowRight className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
-          </motion.button>
+            {[
+              { label: 'GRADES', value: '4–9 + GYM' },
+              { label: 'PRIZE POOL', value: 'SEK 3,000' },
+              { label: 'PROGRAMME', value: '20H STEM' },
+              { label: 'LGR22', value: 'CURRICULUM FIT' },
+              { label: 'ARENA', value: '244 × 122 CM' },
+              { label: 'FINAL DATE', value: 'NOV 13, 2026' },
+            ].map((fact) => (
+              <div
+                key={fact.label}
+                className="flex flex-col gap-0.5 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-white"
+              >
+                <span className="font-mono-code font-bold text-[9px] sm:text-[10px] text-white/50 uppercase tracking-widest">
+                  {fact.label}
+                </span>
+                <span className="font-headline font-black text-sm sm:text-base tracking-wide uppercase">
+                  {fact.value}
+                </span>
+              </div>
+            ))}
+          </motion.div>
 
-          <motion.button
-            whileHover={{ scale: 1.03, y: -1 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => onNavigate('challenges')}
-            className="px-3.5 sm:px-4 md:px-5 py-2.5 sm:py-3 rounded-lg bg-white/[0.08] hover:bg-white/[0.15] text-white border border-white/15 font-syne font-semibold text-[11px] sm:text-xs tracking-wider uppercase transition-all shadow-sm whitespace-nowrap shrink-0"
-          >
-            <span>EXPLORE ROBOKIDOVATION</span>
-          </motion.button>
         </div>
-
       </div>
+
+      {/* ── SCROLL CUE ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.8 }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/40"
+      >
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
+        >
+          <ChevronDown className="w-5 h-5" />
+        </motion.div>
+      </motion.div>
 
     </section>
   );
