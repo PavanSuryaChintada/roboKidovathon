@@ -1,3 +1,14 @@
+import {
+  roboSprintActionWide,
+  roboPrecisionFacingDual,
+  roboSprintArenaMat,
+  roboPrecisionArenaMat,
+  roboSprintMatFocus,
+  roboPrecisionMatFocus,
+  roboSprintKitPieces,
+  roboPrecisionKitPieces,
+} from '../assets/images';
+
 export interface CompetitionCategory {
   id: 'robo-sprint-junior' | 'robo-sprint-senior';
   code: 'CAT A' | 'CAT B';
@@ -14,6 +25,9 @@ export interface CompetitionCategory {
   accentBg: string;
   accentText: string;
   imageUrl: string;
+  arenaMatUrl?: string;
+  arenaMatFocusUrl?: string;
+  kitImageUrl?: string;
   rulesLink: string;
   specs: { label: string; value: string }[];
 }
@@ -132,7 +146,10 @@ export const COMPETITION_CATEGORIES: CompetitionCategory[] = [
     accentColor: '#006AA7',
     accentBg: 'bg-[#006AA7]',
     accentText: 'text-white',
-    imageUrl: 'https://images.unsplash.com/photo-1551103782-8ab07afd45c1?auto=format&fit=crop&w=900&q=85',
+    imageUrl: roboSprintActionWide,
+    arenaMatUrl: roboSprintArenaMat,
+    arenaMatFocusUrl: roboSprintMatFocus,
+    kitImageUrl: roboSprintKitPieces,
     rulesLink: 'challenges',
     specs: [
       { label: 'ARENA SIZE', value: '8 ft × 4 ft Divided Court' },
@@ -144,25 +161,28 @@ export const COMPETITION_CATEGORIES: CompetitionCategory[] = [
   {
     id: 'robo-sprint-senior',
     code: 'CAT B',
-    title: 'ROBO-SPRINT',
+    title: 'ROBO-PRECISION & SPRINT',
     division: 'SENIOR LEAGUE',
     ageRange: 'GRADES 6 – 9',
     duration: '6 MINUTES PER MATCH',
-    format: 'Air-Hockey Style Ball-Passing Arena Challenge',
-    objective: 'Pass as many balls as possible into the opponent’s court across the divider. The team with the fewest balls remaining in their own court when time runs out wins the round.',
+    format: 'Multi-Phase Arena Challenge: Agility & Cup Stacking',
+    objective: 'Deploy gear-driven robotic arms and high-torque drivetrains to maneuver arena barriers, capture scoring cups, and stack them onto platform targets.',
     dimensions: 'Shared 8 ft × 4 ft divided arena mat',
-    scoring: 'Fewest balls remaining in your own court at the final whistle wins the round.',
-    keyRule: 'Each team starts with 5 balls in their court. Focus is on precision control, strategy, positioning, and faster gameplay under pressure.',
+    scoring: 'Scored cups on designated podiums + fewest penalty balls at final whistle.',
+    keyRule: 'Each team starts with 5 balls in their court. Focus is on precision control, robotic arm kinematics, gear ratios, and strategic placement under pressure.',
     accentColor: '#FFCD00',
     accentBg: 'bg-[#FFCD00]',
     accentText: 'text-[#0A1930]',
-    imageUrl: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=85',
+    imageUrl: roboPrecisionFacingDual,
+    arenaMatUrl: roboPrecisionArenaMat,
+    arenaMatFocusUrl: roboPrecisionMatFocus,
+    kitImageUrl: roboPrecisionKitPieces,
     rulesLink: 'challenges',
     specs: [
       { label: 'ARENA SIZE', value: '8 ft × 4 ft Divided Court' },
       { label: 'MATCH LENGTH', value: '6 Minutes' },
       { label: 'STARTING BALLS', value: '5 Per Team Court' },
-      { label: 'FOCUS', value: 'Precision, Strategy, Speed' },
+      { label: 'FOCUS', value: 'Arm Kinematics, Gearing, Speed' },
     ]
   }
 ];

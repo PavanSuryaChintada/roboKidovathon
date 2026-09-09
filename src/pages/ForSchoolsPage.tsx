@@ -1,6 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Boxes, Layers, CheckCircle2, ShieldCheck, Download, ArrowRight, ArrowLeft } from 'lucide-react';
+import {
+  roboSprintKitPieces,
+  roboSprintMatFocus,
+  roboPrecisionActionWide,
+} from '../assets/images';
 
 interface ForSchoolsPageProps {
   onNavigateHome: () => void;
@@ -61,17 +66,29 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="p-8 rounded-3xl bg-[#F8FAFC] border border-slate-200 space-y-4 shadow-sm"
+            className="p-8 rounded-3xl bg-[#F8FAFC] border border-slate-200 space-y-5 shadow-sm flex flex-col justify-between group hover:border-[#006AA7]/40 transition-all"
           >
-            <div className="w-12 h-12 rounded-2xl bg-[#006AA7]/10 border border-[#006AA7]/20 flex items-center justify-center text-[#006AA7]">
-              <Boxes className="w-6 h-6" />
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-[#006AA7]/10 border border-[#006AA7]/20 flex items-center justify-center text-[#006AA7]">
+                <Boxes className="w-6 h-6" />
+              </div>
+              <h3 className="font-headline font-bold text-2xl text-[#0A1930] uppercase">
+                ALL-INCLUSIVE KIT DELIVERY
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                No lab budget or equipment purchases needed. The official Robo-Sprint kit, arena mat, and mentor-led workshop are brought directly to your school.
+              </p>
             </div>
-            <h3 className="font-headline font-bold text-2xl text-[#0A1930] uppercase">
-              ALL-INCLUSIVE KIT DELIVERY
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-              No lab budget or equipment purchases needed. The official Robo-Sprint kit, arena mat, and mentor-led workshop are brought directly to your school.
-            </p>
+            <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white p-2">
+              <img
+                src={roboSprintKitPieces}
+                alt="Robo-Sprint Official Kit Pieces"
+                className="w-full h-36 object-contain group-hover:scale-105 transition-transform duration-500"
+              />
+              <span className="block text-[9px] font-mono-code text-center text-slate-400 mt-1 uppercase">
+                Official Kit Bill of Materials Included
+              </span>
+            </div>
           </motion.div>
 
           {/* Card 2: 2-Hour On-Site Workshop */}
@@ -80,17 +97,29 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="p-8 rounded-3xl bg-[#F8FAFC] border border-slate-200 space-y-4 shadow-sm"
+            className="p-8 rounded-3xl bg-[#F8FAFC] border border-slate-200 space-y-5 shadow-sm flex flex-col justify-between group hover:border-[#006AA7]/40 transition-all"
           >
-            <div className="w-12 h-12 rounded-2xl bg-[#006AA7]/10 border border-[#006AA7]/20 flex items-center justify-center text-[#006AA7]">
-              <Layers className="w-6 h-6" />
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-[#006AA7]/10 border border-[#006AA7]/20 flex items-center justify-center text-[#006AA7]">
+                <Layers className="w-6 h-6" />
+              </div>
+              <h3 className="font-headline font-bold text-2xl text-[#0A1930] uppercase">
+                120-MIN IN-SCHOOL DELIVERY
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                We bring the kits, gearboxes, and arena mats directly into your classroom ahead of the October 2026 qualifiers. Zero disruption to normal timetables.
+              </p>
             </div>
-            <h3 className="font-headline font-bold text-2xl text-[#0A1930] uppercase">
-              120-MIN IN-SCHOOL DELIVERY
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-              We bring the kits, gearboxes, and arena mats directly into your classroom ahead of the October 2026 qualifiers. Zero disruption to normal timetables.
-            </p>
+            <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white p-2">
+              <img
+                src={roboSprintMatFocus}
+                alt="8ft x 4ft Portable Arena Mat"
+                className="w-full h-36 object-contain group-hover:scale-105 transition-transform duration-500"
+              />
+              <span className="block text-[9px] font-mono-code text-center text-slate-400 mt-1 uppercase">
+                8 ft × 4 ft Roll-Out Classroom Arena
+              </span>
+            </div>
           </motion.div>
 
           {/* Card 3: India-Proven Format */}
@@ -99,17 +128,30 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="p-8 rounded-3xl bg-[#F8FAFC] border border-slate-200 space-y-4 shadow-sm"
+            className="p-8 rounded-3xl bg-[#F8FAFC] border border-slate-200 space-y-5 shadow-sm flex flex-col justify-between group hover:border-[#006AA7]/40 transition-all"
           >
-            <div className="w-12 h-12 rounded-2xl bg-[#006AA7]/10 border border-[#006AA7]/20 flex items-center justify-center text-[#006AA7]">
-              <CheckCircle2 className="w-6 h-6" />
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-[#006AA7]/10 border border-[#006AA7]/20 flex items-center justify-center text-[#006AA7]">
+                <CheckCircle2 className="w-6 h-6" />
+              </div>
+              <h3 className="font-headline font-bold text-2xl text-[#0A1930] uppercase">
+                INDIA-PROVEN FORMAT
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                Adapted from Blix-A-Thon, a competition proven at Techfest, IIT Bombay with 2,000+ student participants in recent editions.
+              </p>
             </div>
-            <h3 className="font-headline font-bold text-2xl text-[#0A1930] uppercase">
-              INDIA-PROVEN FORMAT
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-              Adapted from Blix-A-Thon, a competition proven at Techfest, IIT Bombay with 2,000+ student participants in recent editions.
-            </p>
+            <div className="rounded-2xl overflow-hidden border border-slate-200 bg-[#0A1930] relative h-36">
+              <img
+                src={roboPrecisionActionWide}
+                alt="Techfest IIT Bombay Competition Heats"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <span className="absolute bottom-2 left-3 right-3 text-[9px] font-mono-code text-white uppercase truncate">
+                2,000+ Students · Techfest IIT Bombay
+              </span>
+            </div>
           </motion.div>
 
         </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { roboSprintKitPieces } from '../assets/images';
 
 export const RoboHardwareArchitecture: React.FC = () => {
   const annotations = [
@@ -46,11 +47,11 @@ export const RoboHardwareArchitecture: React.FC = () => {
         {/* Annotated Visual Diagram Display */}
         <div className="relative w-full rounded-[2px] overflow-hidden border border-white/[0.12] bg-[#040912]" style={{ aspectRatio: '16/7', minHeight: '340px' }}>
           <img
-            src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1600&q=85"
-            alt="Robotics engineering hardware schematic"
-            className="w-full h-full object-cover opacity-65"
+            src={roboSprintKitPieces}
+            alt="Robotics engineering hardware piece list"
+            className="w-full h-full object-contain p-4 opacity-85"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#07111F]/80 via-transparent to-[#07111F]/80 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#07111F]/60 via-transparent to-[#07111F]/60 pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#07111F]/40 via-transparent to-[#07111F]/70 pointer-events-none" />
 
           {/* Floating Callout Annotations */}

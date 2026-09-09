@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { roboSprintMatFocus } from '../assets/images';
 
 interface RefKioskShowcaseProps {
   onNavigate: (route: string) => void;
@@ -22,9 +23,18 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-6 space-y-6"
         >
+          <div className="space-y-2">
+            <span className="text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#006AA7] uppercase block">
+              SCHOOL ROBOTICS ECOSYSTEM
+            </span>
+            <span className="text-xs font-mono-code text-slate-500 uppercase tracking-widest block">
+              01 // THE HARDWARE
+            </span>
+          </div>
+
           <h2
-            className="font-headline font-black uppercase text-[#0A1930] leading-[1.12] tracking-tight"
-            style={{ fontSize: 'clamp(3rem, 6.5vw, 5.8rem)' }}
+            className="font-headline font-black uppercase tracking-tight leading-[0.95] text-[#0A1930]"
+            style={{ fontSize: 'clamp(2.5rem, 5.5vw, 5rem)' }}
           >
             DESIGN<br />
             BUILD &<br />
@@ -59,40 +69,54 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-6 flex justify-center lg:justify-end"
         >
-          <div className="relative w-full max-w-[380px] rounded-3xl p-6 bg-[#F2F6FA] border border-slate-200 shadow-sm text-center space-y-6">
-            <div className="py-4 space-y-2">
-              <span className="block text-xs font-mono-code font-bold tracking-widest text-slate-500 uppercase">
-                ROBOKIDOVATION VÄSTERÅS 2026
+          <div className="relative w-full max-w-[420px] rounded-3xl p-6 bg-[#0A1930] text-white border border-slate-200 shadow-xl space-y-6 overflow-hidden">
+            {/* Ambient Backlight */}
+            <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#006AA7]/30 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="space-y-1">
+              <span className="block text-[10px] font-mono-code font-bold tracking-widest text-[#FFCD00] uppercase">
+                ARENA SPECIFICATION // MODEL 2026.1
               </span>
-              <h3
-                className="font-headline font-black uppercase text-[#0A1930] leading-[1.12] tracking-tight"
-                style={{ fontSize: 'clamp(2.5rem, 5vw, 3.8rem)' }}
-              >
-                CUSTOM<br />
-                ROBOT<br />
-                STATION
+              <h3 className="font-syne font-extrabold text-2xl uppercase text-white tracking-tight">
+                Robo-Sprint Dual Arena
               </h3>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white border border-slate-200 text-xs text-slate-600 space-y-1.5 text-left">
-              <div className="flex justify-between font-mono-code text-[11px]">
-                <span className="text-slate-500">STATUS:</span>
-                <span className="text-[#0A1930] font-bold">READY TO DEPLOY</span>
-              </div>
-              <div className="flex justify-between font-mono-code text-[11px]">
-                <span className="text-slate-500">VENUE:</span>
-                <span className="text-[#0A1930]">VÄSTERÅS, SWEDEN</span>
+            {/* 3D CAD Arena Mat Render Frame */}
+            <div className="relative rounded-2xl overflow-hidden bg-white border border-white/20 p-3 shadow-inner group flex items-center justify-center">
+              <img
+                src={roboSprintMatFocus}
+                alt="Robo-Sprint Arena Mat 3D Specification"
+                className="w-full h-auto max-h-[220px] object-contain mx-auto group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute top-3 left-3 bg-[#0A1930]/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-mono-code font-bold text-[#FFCD00] uppercase border border-white/10 shadow">
+                8 ft × 4 ft Official Court
               </div>
             </div>
 
-            {/* Tap To Begin Button */}
+            <div className="p-4 rounded-2xl bg-white/[0.05] border border-white/10 text-xs text-slate-300 space-y-2">
+              <div className="flex justify-between font-mono-code text-[11px]">
+                <span className="text-slate-400">STATUS:</span>
+                <span className="text-[#FFCD00] font-bold">READY TO DEPLOY IN SCHOOLS</span>
+              </div>
+              <div className="flex justify-between font-mono-code text-[11px]">
+                <span className="text-slate-400">ARENA ARCHITECTURE:</span>
+                <span className="text-white">ZIGZAG BARRIER WITH ARCHES</span>
+              </div>
+              <div className="flex justify-between font-mono-code text-[11px]">
+                <span className="text-slate-400">VENUE:</span>
+                <span className="text-white">VÄSTERÅS MUNICIPAL DISTRICT</span>
+              </div>
+            </div>
+
+            {/* Action Button */}
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               onClick={onOpenRegister}
-              className="w-full py-3.5 rounded-full bg-[#006AA7] hover:bg-[#013A63] text-white font-headline font-black text-sm tracking-wider uppercase transition-all shadow-md"
+              className="w-full py-3.5 rounded-full bg-[#FFCD00] hover:bg-[#E6B800] text-[#0A1930] font-syne font-black text-xs tracking-wider uppercase transition-all shadow-md"
             >
-              REGISTER COHORT
+              REGISTER SCHOOL COHORT
             </motion.button>
           </div>
         </motion.div>

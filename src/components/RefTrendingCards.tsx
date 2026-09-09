@@ -1,6 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import {
+  roboSprintObstacleClose,
+  roboPrecisionActionWide,
+  roboPrecisionFacingDual,
+} from '../assets/images';
 
 interface RefTrendingCardsProps {
   onNavigate: (route: string) => void;
@@ -12,21 +17,21 @@ export const RefTrendingCards: React.FC<RefTrendingCardsProps> = ({
 }) => {
   const articles = [
     {
-      image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80',
+      image: roboSprintObstacleClose,
       category: 'ARENA TECH',
-      date: 'NOV 2026',
+      date: 'OCT 2026',
       title: 'Inside The Robo-Sprint Build: Gearboxes, Wired Control & Match Strategy',
       link: 'challenges',
     },
     {
-      image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80',
+      image: roboPrecisionActionWide,
       category: 'ORIGIN STORY',
       date: 'INDIA → SWEDEN',
       title: 'How Blix-A-Thon’s Techfest IIT Bombay Format Became RoboKidovation Västerås',
       link: 'about',
     },
     {
-      image: 'https://images.unsplash.com/photo-1551103782-8ab07afd45c1?auto=format&fit=crop&w=600&q=80',
+      image: roboPrecisionFacingDual,
       category: 'GRAND FINALE',
       date: 'NOV 10, 2026',
       title: 'RoboKidovation Västerås: Schools Ready For The Inter-School Showcase',

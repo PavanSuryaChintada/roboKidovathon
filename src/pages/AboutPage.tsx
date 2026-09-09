@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ShieldCheck, Award, MapPin } from 'lucide-react';
+import { roboPrecisionActionWide } from '../assets/images';
 
 interface AboutPageProps {
   onOpenRegister: () => void;
@@ -107,19 +108,19 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             transition={{ duration: 0.8 }}
             className="lg:col-span-5 space-y-4"
           >
-            <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-[#0A1930] aspect-[4/3] shadow-md">
+            <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-[#0A1930] aspect-[4/3] shadow-md group">
               <img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80"
-                alt="Students collaborating on robotics"
-                className="w-full h-full object-cover"
+                src={roboPrecisionActionWide}
+                alt="Students collaborating on robotics at Blix-A-Thon"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <span className="text-[10px] font-mono-code font-bold text-[#FFCD00] uppercase block mb-1">
-                  ROBOSKOLAN QUALIFIERS · OCTOBER 2026
+                  ROBOKIDOVATION VÄSTERÅS · 2026 EDITION
                 </span>
                 <span className="font-headline font-bold text-lg text-white uppercase">
-                  Junior & Senior Robo-Sprint Leagues
+                  Junior &amp; Senior Championship Leagues
                 </span>
               </div>
             </div>

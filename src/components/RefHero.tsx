@@ -1,6 +1,7 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Volume2, VolumeX } from 'lucide-react';
+import { roboPrecisionActionWide } from '../assets/images';
 
 interface RefHeroProps {
   onOpenRegister: () => void;
@@ -12,6 +13,7 @@ export const RefHero: React.FC<RefHeroProps> = ({
   onNavigate,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -20,6 +22,13 @@ export const RefHero: React.FC<RefHeroProps> = ({
       });
     }
   }, []);
+
+  const toggleSound = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
 
   const stats = [
     { value: '4', label: 'HOST PARTNERS' },
@@ -38,15 +47,39 @@ export const RefHero: React.FC<RefHeroProps> = ({
           ref={videoRef}
           autoPlay
           loop
-          muted
+          muted={isMuted}
           playsInline
-          src="/uhd_25fps.mp4"
-          className="w-full h-full object-cover"
-        />
+          poster={roboPrecisionActionWide}
+          className="w-full h-full object-cover scale-[1.36] origin-center"
+        >
+          <source src="/blix_hero.webm" type="video/webm" />
+          <source src="/uhd_25fps.mp4" type="video/mp4" />
+        </video>
 
-        {/* ── CINEMATIC BALANCED BLACK OVERLAY (z-[1]) ── */}
-        <div className="absolute inset-0 bg-black/40 pointer-events-none z-[1]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-transparent to-black/35 pointer-events-none z-[1]" />
+        {/* ── CINEMATIC BALANCED OVERLAYS (z-[1]) ── */}
+        <div className="absolute inset-0 bg-black/35 pointer-events-none z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/60 pointer-events-none z-[1]" />
+
+        {/* ── AMBIENT LIVE AUDIO TOGGLE (z-[2]) ── */}
+        <div className="absolute top-28 right-4 sm:right-8 z-[2]">
+          <button
+            onClick={toggleSound}
+            aria-label={isMuted ? 'Enable video audio' : 'Mute video audio'}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/15 text-white text-[11px] font-mono-code transition-all"
+          >
+            {isMuted ? (
+              <>
+                <VolumeX className="w-3.5 h-3.5 text-slate-400" />
+                <span className="hidden sm:inline text-slate-300">SOUND OFF</span>
+              </>
+            ) : (
+              <>
+                <Volume2 className="w-3.5 h-3.5 text-[#FFCD00]" />
+                <span className="hidden sm:inline text-[#FFCD00] font-bold">ARENA AUDIO ON</span>
+              </>
+            )}
+          </button>
+        </div>
       </div>
 
       {/* ── TOP SPACER ── */}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Download, FileText, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { roboSprintArenaMat, roboSprintKitPieces } from '../assets/images';
 
 interface EventDeckModalProps {
   isOpen: boolean;
@@ -35,16 +36,44 @@ export const EventDeckModal: React.FC<EventDeckModalProps> = ({ isOpen, onClose 
           <div>
             <div className="inline-flex items-center gap-2 text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#006AA7] uppercase mb-2">
               <FileText className="w-3.5 h-3.5" />
-              <span>OFFICIAL PROSPECTUS & GUIDE</span>
+              <span>OFFICIAL PROSPECTUS &amp; GUIDE</span>
             </div>
             <h2 className="font-headline font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#0A1930]">
               Download Event Deck.
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 font-light mt-2 leading-relaxed">
-              Complete tournament prospectus for school principals, educators, and team mentors. Includes the Robo-Sprint rulebook, competition kit guide, and schedule.
+              Complete tournament prospectus for school principals, educators, and team mentors. Includes the Robo-Sprint &amp; Robo-Precision rulebooks, official kit inventories, and competition schedules.
             </p>
 
-            <form onSubmit={handleDownload} className="mt-6 space-y-4">
+            {/* Visual Document Previews */}
+            <div className="my-4 grid grid-cols-2 gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-200">
+              <div className="space-y-1">
+                <div className="h-20 rounded-xl overflow-hidden bg-[#070709] border border-slate-200 p-1">
+                  <img
+                    src={roboSprintArenaMat}
+                    alt="3D Arena Spec"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <span className="block text-[9px] font-mono-code text-center text-slate-500 uppercase">
+                  3D Arena Blueprints
+                </span>
+              </div>
+              <div className="space-y-1">
+                <div className="h-20 rounded-xl overflow-hidden bg-white border border-slate-200 p-1">
+                  <img
+                    src={roboSprintKitPieces}
+                    alt="Kit Piece List"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <span className="block text-[9px] font-mono-code text-center text-slate-500 uppercase">
+                  Hardware Piece Lists
+                </span>
+              </div>
+            </div>
+
+            <form onSubmit={handleDownload} className="mt-4 space-y-4">
               <div>
                 <label className="block text-[10px] font-mono-code font-bold tracking-wider text-slate-500 uppercase mb-1">
                   WORK / INSTITUTIONAL EMAIL *
@@ -65,7 +94,7 @@ export const EventDeckModal: React.FC<EventDeckModalProps> = ({ isOpen, onClose 
                   <span>DOCUMENT DETAILS</span>
                 </div>
                 <div>Format: PDF · Version: 2026.1 Official</div>
-                <div>Includes: Competition Structure & Robo-Sprint Rulebook</div>
+                <div>Includes: Competition Structure, Kit Lists &amp; Arena Rules</div>
               </div>
 
               <button

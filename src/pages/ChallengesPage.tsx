@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowLeft, ShieldCheck, Trophy, ArrowRight, BookOpen } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ShieldCheck, Trophy, ArrowRight, BookOpen, Layers, Eye, Package, X } from 'lucide-react';
 import { COMPETITION_CATEGORIES, CompetitionCategory } from '../data/roboData';
 
 interface ChallengesPageProps {
@@ -14,6 +14,7 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
   onOpenRegister,
   onOpenDeckModal,
 }) => {
+  const [zoomImage, setZoomImage] = useState<{ src: string; title: string } | null>(null);
   return (
     <div className="w-full min-h-screen bg-white text-[#0A1930] pt-28 pb-24 px-6 sm:px-10 select-none">
       <div className="max-w-[1440px] mx-auto space-y-16">
@@ -167,6 +168,86 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
                   </div>
                 </div>
               </div>
+
+              {/* ── OFFICIAL 3D ARENA & KIT SCHEMATICS ROW ── */}
+              {cat.arenaMatUrl && cat.kitImageUrl && (
+                <div className="p-6 sm:p-10 bg-[#F8FAFC] border-t border-slate-200">
+                  <div className="flex items-center gap-2 mb-6">
+                    <Layers className="w-4 h-4 text-[#006AA7]" />
+                    <span className="text-[10px] font-mono-code font-bold text-[#006AA7] uppercase tracking-widest">
+                      OFFICIAL ENGINEERING BLUEPRINTS FOR {cat.division}
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Arena Mat 3D Spec */}
+                    <div
+                      onClick={() =>
+                        setZoomImage({
+                          src: cat.arenaMatFocusUrl || cat.arenaMatUrl!,
+                          title: `${cat.title} - Official 3D Arena Mat Blueprint`,
+                        })
+                      }
+                      className="p-5 rounded-2xl bg-white border border-slate-200 group cursor-pointer space-y-3 shadow-sm hover:border-[#006AA7]/40 transition-all flex flex-col justify-between"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-mono-code font-bold text-[#006AA7] uppercase tracking-wider flex items-center gap-1.5">
+                          <Layers className="w-3.5 h-3.5" />
+                          <span>3D ARENA MAT SCHEMATIC</span>
+                        </span>
+                        <span className="text-[9px] font-mono-code text-[#006AA7] flex items-center gap-1">
+                          <Eye className="w-3 h-3" />
+                          <span>EXPAND</span>
+                        </span>
+                      </div>
+                      <div className="relative rounded-xl overflow-hidden bg-white p-2 border border-slate-200 flex items-center justify-center flex-1 min-h-[190px]">
+                        <img
+                          src={cat.arenaMatFocusUrl || cat.arenaMatUrl}
+                          alt={`${cat.title} Arena Mat`}
+                          className="w-full h-44 sm:h-52 object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      <div className="text-[11px] font-mono-code text-slate-500 flex justify-between">
+                        <span>DIMENSIONS: 8 ft × 4 ft</span>
+                        <span className="text-[#006AA7] font-bold">OFFICIAL REGULATION</span>
+                      </div>
+                    </div>
+
+                    {/* Kit Piece List Spec */}
+                    <div
+                      onClick={() =>
+                        setZoomImage({
+                          src: cat.kitImageUrl!,
+                          title: `${cat.title} - Official Kit Piece List`,
+                        })
+                      }
+                      className="p-5 rounded-2xl bg-white border border-slate-200 group cursor-pointer space-y-3 shadow-sm hover:border-[#006AA7]/40 transition-all flex flex-col justify-between"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-mono-code font-bold text-[#006AA7] uppercase tracking-wider flex items-center gap-1.5">
+                          <Package className="w-3.5 h-3.5" />
+                          <span>OFFICIAL KIT PIECE LIST</span>
+                        </span>
+                        <span className="text-[9px] font-mono-code text-[#006AA7] flex items-center gap-1">
+                          <Eye className="w-3 h-3" />
+                          <span>EXPAND</span>
+                        </span>
+                      </div>
+                      <div className="relative rounded-xl overflow-hidden bg-white p-2 border border-slate-200 flex items-center justify-center flex-1 min-h-[190px]">
+                        <img
+                          src={cat.kitImageUrl}
+                          alt={`${cat.title} Kit Piece List`}
+                          className="w-full h-44 sm:h-52 object-contain mx-auto group-hover:scale-[1.02] transition-transform duration-300"
+                        />
+                      </div>
+                      <div className="text-[11px] font-mono-code text-slate-500 flex justify-between">
+                        <span>FULL BILL OF MATERIALS</span>
+                        <span className="text-[#0A1930] font-bold">CLICK TO INSPECT</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
@@ -202,6 +283,55 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
         </motion.div>
 
       </div>
+
+      {/* ── HIGH RES SCHEMATIC LIGHTBOX MODAL ── */}
+      <AnimatePresence>
+        {zoomImage && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 select-none">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setZoomImage(null)}
+              className="fixed inset-0 bg-black/80 backdrop-blur-md"
+            />
+
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="relative max-w-4xl w-full max-h-[90vh] bg-white rounded-3xl overflow-hidden shadow-2xl z-10 flex flex-col"
+            >
+              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-slate-200 bg-slate-50">
+                <h3 className="font-syne font-bold text-base sm:text-lg text-[#0A1930] uppercase">
+                  {zoomImage.title}
+                </h3>
+                <button
+                  onClick={() => setZoomImage(null)}
+                  className="p-2 rounded-full text-slate-500 hover:text-[#0A1930] hover:bg-slate-200 transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="p-4 flex-1 overflow-auto flex items-center justify-center bg-white max-h-[70vh]">
+                <img
+                  src={zoomImage.src}
+                  alt={zoomImage.title}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+              <div className="p-4 border-t border-slate-200 text-right bg-slate-50">
+                <button
+                  onClick={() => setZoomImage(null)}
+                  className="px-5 py-2 rounded-full bg-[#0A1930] text-white font-mono-code text-xs uppercase"
+                >
+                  CLOSE WINDOW
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
