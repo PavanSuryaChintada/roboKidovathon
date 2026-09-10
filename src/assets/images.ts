@@ -23,8 +23,26 @@ import roboPrecisionActionWide from './WhatsApp Image 2026-09-09 at 15.11.09.jpe
 import roboPrecisionFacingDual from './WhatsApp Image 2026-09-09 at 15.11.14.jpeg';
 import roboPrecisionTowerBot from './WhatsApp Image 2026-09-09 at 15.11.12 (2).jpeg';
 import roboPrecisionArenaEmpty from './WhatsApp Image 2026-09-09 at 15.11.08.jpeg';
+import mascotRobotHeader from './mascot_robot_header.jpg';
+import bannerRoboSprint from './banner_robo_sprint.jpg';
+import bannerRoboSprintAdvanced from './banner_robo_sprint_advanced.jpg';
+import bannerRoboQuiz from './banner_robo_quiz.jpg';
+import cardRoverSprint from './card_rover_sprint.jpg';
+import cardRoverAdvanced from './card_rover_advanced.jpg';
+import cardRobotQuiz from './card_robot_quiz.jpg';
 
 export {
+  // Card Banners (User Provided)
+  bannerRoboSprint,
+  bannerRoboSprintAdvanced,
+  bannerRoboQuiz,
+
+  // 3D Illustration Mascot & Rover Assets
+  mascotRobotHeader,
+  cardRoverSprint,
+  cardRoverAdvanced,
+  cardRobotQuiz,
+
   // Kit piece lists
   roboSprintKitPieces,
   roboPrecisionKitPieces,

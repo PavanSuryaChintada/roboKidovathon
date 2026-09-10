@@ -18,6 +18,7 @@ const config: Config = {
         display: ['Space Grotesk', 'Outfit', 'Inter', 'sans-serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
+        handwriting: ['Caveat', 'Kalam', 'cursive'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
