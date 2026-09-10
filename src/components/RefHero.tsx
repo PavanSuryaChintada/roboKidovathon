@@ -71,7 +71,7 @@ export const RefHero: React.FC<RefHeroProps> = ({
           >
             {/* Eyebrow */}
             <span className="font-mono-code font-bold text-xs sm:text-sm text-[#FFCD00] tracking-[0.25em] uppercase">
-              13–14 NOVEMBER 2026 · VÄSTERÅS, SWEDEN
+              4–5 DECEMBER 2026 · VÄSTERÅS, SWEDEN
             </span>
 
             {/* Main headline */}
@@ -87,7 +87,7 @@ export const RefHero: React.FC<RefHeroProps> = ({
             {/* Sub-copy */}
             <p className="text-sm sm:text-base md:text-lg text-white/70 font-light leading-relaxed max-w-xl">
               Västerås Future Innovators — hands-on STEM robotics and the Young Innovators Hackathon,
-              built for Swedish schools, grades 4–9 and Gymnasium.
+              built for Swedish schools, grades 3–9 and Gymnasium.
             </p>
 
             {/* CTAs */}
@@ -117,12 +117,12 @@ export const RefHero: React.FC<RefHeroProps> = ({
             className="lg:col-span-5 flex flex-wrap gap-2.5 items-end justify-start lg:justify-end"
           >
             {[
-              { label: 'GRADES', value: '4–9 + GYM' },
+              { label: 'GRADES', value: '3–9 + GYM' },
               { label: 'PRIZE POOL', value: 'SEK 3,000' },
               { label: 'PROGRAMME', value: '20H STEM' },
               { label: 'LGR22', value: 'CURRICULUM FIT' },
               { label: 'ARENA', value: '244 × 122 CM' },
-              { label: 'FINAL DATE', value: 'NOV 13, 2026' },
+              { label: 'FINAL DATE', value: 'DEC 4 & 5, 2026' },
             ].map((fact) => (
               <div
                 key={fact.label}

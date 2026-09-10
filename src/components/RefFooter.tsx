@@ -36,7 +36,7 @@ export const RefFooter: React.FC<RefFooterProps> = ({
               </span>
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#FFCD00]" />
-                <span>GRADES 4–9 &amp; GYMNASIUM</span>
+                <span>GRADES 3–9 &amp; GYMNASIUM</span>
               </span>
             </div>
           </div>
@@ -81,7 +81,7 @@ export const RefFooter: React.FC<RefFooterProps> = ({
               ENROL COHORT
             </span>
             <p className="text-xs text-slate-300 font-light leading-relaxed">
-              Registrations for Västerås schools and student cohorts are open ahead of the October qualifiers and November 13, 2026 Grand Finale.
+              Registrations for Västerås schools and student cohorts are open ahead of the October qualifiers and December 4 & 5, 2026 Grand Finale.
             </p>
             <motion.button
               whileHover={{ scale: 1.03 }}

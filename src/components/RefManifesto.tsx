@@ -12,7 +12,7 @@ export const RefManifesto: React.FC<RefManifestoProps> = ({ onNavigate }) => {
     {
       icon: Cpu,
       title: '20-Hour STEM Project',
-      badge: 'GRADES 4–6 & 7–9',
+      badge: 'GRADES 3–6 & 7–9',
       desc: 'A structured ten-session project delivered directly in your classroom. Mentors bring the official Robo-Sprint kits, gearboxes, and test mats so every student builds a functioning robot.',
       action: 'STEM Programme',
       route: 'how-it-works',
@@ -27,7 +27,7 @@ export const RefManifesto: React.FC<RefManifestoProps> = ({ onNavigate }) => {
     },
     {
       icon: Trophy,
-      title: 'Grand Finale, Nov 13',
+      title: 'Grand Finale, Dec 4 & 5',
       badge: 'CITY FINAL · SEK 3,000',
       desc: 'School qualifier champions advance to compete live in Västerås for SEK 3,000 in prizes, official trophies, and certificates before an audience of peers, teachers, and partners.',
       action: 'Event Details',
@@ -36,7 +36,7 @@ export const RefManifesto: React.FC<RefManifestoProps> = ({ onNavigate }) => {
   ];
 
   return (
-    <section className="w-full bg-white text-[#0A1930] py-24 sm:py-28 px-6 sm:px-10 border-t border-slate-200 overflow-hidden">
+    <section className="w-full bg-white text-[#0A1930] py-14 sm:py-18 px-6 sm:px-10 border-t border-slate-200 overflow-hidden">
       <div className="max-w-[1280px] mx-auto space-y-16">
 
         {/* ── MANIFESTO HEADLINE & INTRO ── */}

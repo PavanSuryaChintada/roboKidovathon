@@ -68,7 +68,7 @@ export const RefWorkshopTapeBanner: React.FC<RefWorkshopTapeBannerProps> = ({
               <span>VÄSTERÅS, SWEDEN</span>
             </span>
             <span>•</span>
-            <span className="text-[#0A1930] font-semibold">GRAND FINALE · NOVEMBER 13, 2026</span>
+            <span className="text-[#0A1930] font-semibold">GRAND FINALE · DECEMBER 4 & 5, 2026</span>
             <span>•</span>
             <span className="flex items-center gap-1.5">
               <Trophy className="w-3.5 h-3.5 text-[#006AA7]" />

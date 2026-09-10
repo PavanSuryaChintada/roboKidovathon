@@ -62,8 +62,8 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
       num: '06',
       title: 'GRAND FINALE',
       subtitle: 'Västerås City Final',
-      desc: 'School champions compete live on Friday, November 13, 2026 in Västerås for SEK 3,000 in prizes, official trophies, and certificates.',
-      badge: 'NOVEMBER 13, 2026',
+      desc: 'School champions compete live on Friday & Saturday, December 4 & 5, 2026 in Västerås for SEK 3,000 in prizes, official trophies, and certificates.',
+      badge: 'DECEMBER 4 & 5, 2026',
       highlight: true,
     },
   ];

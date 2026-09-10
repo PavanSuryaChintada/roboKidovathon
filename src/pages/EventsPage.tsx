@@ -47,7 +47,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({
           </h1>
 
           <p className="mt-4 text-sm sm:text-base text-slate-600 font-light max-w-2xl leading-relaxed">
-            A clear timeline of the autumn season in Västerås: in-school qualifiers in October, the official Robo-Sprint City Final on Friday November 13, and the Saturday innovation hackathon.
+            A clear timeline of the autumn season in Västerås: in-school qualifiers in October, the official Robo-Sprint City Final on December 4 &amp; 5, and the Saturday innovation hackathon.
           </p>
         </motion.div>
 
@@ -83,7 +83,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({
                 10-Session In-School STEM Project Climax
               </p>
               <p className="text-sm text-slate-600 font-light leading-relaxed max-w-2xl">
-                Held inside each participating school across the final sessions of the 20-hour STEM project. Student teams test their built robots under official 3-minute referee match conditions. One winning Explorer team (Grades 4–6) and one winning Advanced team (Grades 7–9) qualify to represent their school in the municipal final.
+                Held inside each participating school across the final sessions of the 20-hour STEM project. Student teams test their built robots under official 3-minute referee match conditions. One winning Explorer team (Grades 3–6) and one winning Advanced team (Grades 7–9) qualify to represent their school in the municipal final.
               </p>
               <div className="pt-2">
                 <span className="text-xs font-mono-code font-bold text-[#0A1930] bg-[#FFCD00]/30 border border-[#FFCD00]/60 px-3 py-1 rounded-full uppercase">

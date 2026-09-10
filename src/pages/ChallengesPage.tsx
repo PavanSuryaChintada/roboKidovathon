@@ -28,7 +28,7 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
     {
       id: 'robo-sprint-explorer',
       title: 'Robo-Sprint Explorer',
-      grades: 'Grades 4–6',
+      grades: 'Grades 3–6',
       format: '3 Min · Ball-Transfer',
       control: 'Wired Dual-Switch Remote',
       arena: '244 × 122 cm Divided Mat',

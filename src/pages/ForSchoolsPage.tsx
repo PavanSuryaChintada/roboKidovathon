@@ -22,8 +22,8 @@ const WHY_SCHOOLS_PARTICIPATE = [
   },
   {
     title: 'School-to-City Pathway',
-    desc: 'School qualifiers feed directly into the Västerås City Final on November 13, 2026.',
-    detail: 'Winning Explorer (Grades 4–6) and Advanced (Grades 7–9) teams represent their school in a high-stakes municipal showdown with SEK 3,000 in prizes and certificates.',
+    desc: 'School qualifiers feed directly into the Västerås City Final on December 4 & 5, 2026.',
+    detail: 'Winning Explorer (Grades 3–6) and Advanced (Grades 7–9) teams represent their school in a high-stakes municipal showdown with SEK 3,000 in prizes and certificates.',
   },
 ];
 
@@ -45,7 +45,7 @@ const FAQ_ITEMS: FAQItem[] = [
     id: 'faq-2',
     category: 'Eligibility & Grades',
     question: 'Which grades can participate in Västerås Future Innovators 2026?',
-    answer: 'Robo-Sprint Explorer is designed for Grades 4–6 (Grundskola). Robo-Sprint Advanced is for Grades 7–9. The Robo-Precision autonomous challenge is structured for Gymnasium and upper-level students.',
+    answer: 'Robo-Sprint Explorer is designed for Grades 3–6 (Grundskola). Robo-Sprint Advanced is for Grades 7–9. The Robo-Precision autonomous challenge is structured for Gymnasium and upper-level students.',
   },
   {
     id: 'faq-3',
@@ -95,7 +95,7 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
     {
       num: '03',
       title: 'RUN PROJECT & QUALIFY',
-      desc: 'Students complete the 10-session project, run in-school qualifiers in October, and top teams advance to the November 13 Final.',
+      desc: 'Students complete the 10-session project, run in-school qualifiers in October, and top teams advance to the December 4 & 5 Final.',
     },
   ];
 
@@ -371,7 +371,7 @@ export const ForSchoolsPage: React.FC<ForSchoolsPageProps> = ({
               REGISTER YOUR SCHOOL COHORT
             </h3>
             <p className="text-xs sm:text-sm text-[#0A1930]/80 font-medium max-w-lg">
-              Intake for schools in Västerås is open for the 2026 season ahead of the October in-school qualifiers and November 13 City Final.
+              Intake for schools in Västerås is open for the 2026 season ahead of the October in-school qualifiers and December 4 & 5 City Final.
             </p>
           </div>
 
