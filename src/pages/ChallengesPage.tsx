@@ -15,7 +15,9 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
   onOpenDeckModal,
 }) => {
   const [zoomImage, setZoomImage] = useState<{ src: string; title: string } | null>(null);
-  const [openCats, setOpenCats] = useState<Set<string>>(new Set(['robo-sprint-explorer']));
+  const [openCats, setOpenCats] = useState<Set<string>>(
+    new Set(['robo-sprint-explorer', 'robo-sprint-advanced'])
+  );
 
   const toggleCat = (id: string) =>
     setOpenCats((prev) => {
@@ -140,8 +142,8 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
           </div>
         </div>
 
-        {/* ── DETAILED CHALLENGE CATEGORY CARDS ── */}
-        <div className="space-y-12 pt-4">
+        {/* ── DETAILED CHALLENGE CATEGORY CARDS (SIDE-BY-SIDE HORIZONTAL LAYOUT) ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-4 items-stretch">
           {COMPETITION_CATEGORIES.map((cat: CompetitionCategory, idx: number) => (
             <motion.div
               key={cat.id}
@@ -149,105 +151,105 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="rounded-3xl border border-slate-200 overflow-hidden bg-white shadow-sm"
+              className="rounded-[32px] border border-slate-200 overflow-hidden bg-white shadow-md flex flex-col justify-between"
             >
-              {/* Category Banner */}
-              <div className="relative h-60 sm:h-72 overflow-hidden bg-[#0A1930]">
-                <img
-                  src={cat.imageUrl}
-                  alt={cat.title}
-                  className="w-full h-full object-cover opacity-80"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1930] via-[#0A1930]/60 to-transparent" />
+              <div>
+                {/* Category Banner */}
+                <div className="relative h-56 sm:h-64 overflow-hidden bg-[#0A1930]">
+                  <img
+                    src={cat.imageUrl}
+                    alt={cat.title}
+                    className="w-full h-full object-cover opacity-80"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1930] via-[#0A1930]/60 to-transparent" />
 
-                <div className="absolute bottom-6 left-6 sm:left-10 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[10px] font-mono-code font-bold tracking-[0.2em] bg-[#006AA7] px-3 py-1 rounded-full uppercase text-white">
-                        {cat.ageRange}
+                  <div className="absolute bottom-5 left-5 sm:left-6 right-5 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <span className="text-[10px] font-mono-code font-bold tracking-[0.2em] bg-[#006AA7] px-2.5 py-0.5 rounded-full uppercase text-white">
+                          {cat.ageRange}
+                        </span>
+                        <span className="text-[11px] font-mono-code font-bold bg-white/20 backdrop-blur-md px-2.5 py-0.5 rounded-full text-white">
+                          {cat.division}
+                        </span>
+                      </div>
+                      <h2 className="font-headline font-black text-xl sm:text-2xl lg:text-3xl uppercase tracking-tight text-white">
+                        {cat.title}
+                      </h2>
+                    </div>
+
+                    <span className="font-mono-code font-bold text-xs uppercase tracking-widest text-[#FFCD00] shrink-0">
+                      {cat.specs[0].value}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Technical Specifications Strip */}
+                <div className="p-4 sm:p-6 border-t border-b border-slate-200 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-3 bg-[#F8FAFC]">
+                  {cat.specs.map((s: { label: string; value: string }) => (
+                    <div
+                      key={s.label}
+                      className="p-3 rounded-2xl bg-white border border-slate-200 space-y-0.5"
+                    >
+                      <span className="block text-[9px] font-mono-code font-bold text-[#006AA7] uppercase">
+                        {s.label}
                       </span>
-                      <span className="text-xs font-mono-code font-bold bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-white">
-                        {cat.division}
+                      <span className="block text-xs font-headline font-bold text-[#0A1930] uppercase tracking-wider">
+                        {s.value}
                       </span>
                     </div>
-                    <h2 className="font-headline font-black text-2xl sm:text-4xl uppercase tracking-tight text-white">
-                      {cat.title}
-                    </h2>
-                  </div>
-
-                  <span className="font-mono-code font-bold text-xs uppercase tracking-widest text-[#FFCD00]">
-                    {cat.specs[0].value}
-                  </span>
+                  ))}
                 </div>
-              </div>
 
-              {/* Technical Specifications Strip */}
-              <div className="p-6 sm:p-8 border-t border-b border-slate-200 grid grid-cols-2 md:grid-cols-4 gap-4 bg-[#F8FAFC]">
-                {cat.specs.map((s: { label: string; value: string }) => (
-                  <div
-                    key={s.label}
-                    className="p-4 rounded-2xl bg-white border border-slate-200 space-y-1"
-                  >
-                    <span className="block text-[9px] font-mono-code font-bold text-[#006AA7] uppercase">
-                      {s.label}
-                    </span>
-                    <span className="block text-xs font-headline font-bold text-[#0A1930] uppercase tracking-wider">
-                      {s.value}
-                    </span>
-                  </div>
-                ))}
-              </div>
+                {/* Toggle Strip */}
+                <button
+                  type="button"
+                  onClick={() => toggleCat(cat.id)}
+                  aria-expanded={openCats.has(cat.id)}
+                  className="w-full flex items-center justify-between gap-4 px-5 sm:px-6 py-3.5 bg-[#F8FAFC] border-t border-slate-200 hover:bg-slate-100 transition-colors"
+                >
+                  <span className="font-headline font-bold text-xs uppercase tracking-wider text-[#0A1930]">
+                    {openCats.has(cat.id) ? 'Hide' : 'Inspect'} Specifications &amp; Rules
+                  </span>
+                  <motion.div animate={{ rotate: openCats.has(cat.id) ? 180 : 0 }} transition={{ duration: 0.25 }}>
+                    <ChevronDown className="w-4 h-4 text-[#006AA7] shrink-0" />
+                  </motion.div>
+                </button>
 
-              {/* Toggle Strip */}
-              <button
-                type="button"
-                onClick={() => toggleCat(cat.id)}
-                aria-expanded={openCats.has(cat.id)}
-                className="w-full flex items-center justify-between gap-4 px-6 sm:px-10 py-4 bg-[#F8FAFC] border-t border-slate-200 hover:bg-slate-100 transition-colors"
-              >
-                <span className="font-headline font-bold text-xs sm:text-sm uppercase tracking-wider text-[#0A1930]">
-                  {openCats.has(cat.id) ? 'Collapse' : 'Inspect'} Robot Requirements, Scoring &amp; Judging Breakdown
-                </span>
-                <motion.div animate={{ rotate: openCats.has(cat.id) ? 180 : 0 }} transition={{ duration: 0.25 }}>
-                  <ChevronDown className="w-4 h-4 text-[#006AA7] shrink-0" />
-                </motion.div>
-              </button>
-
-              <AnimatePresence initial={false}>
-                {openCats.has(cat.id) && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                    className="overflow-hidden"
-                  >
-                    <div className="p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white border-t border-slate-200">
-                      {/* Requirements */}
-                      <div className="space-y-4">
-                        <h3 className="font-headline font-black text-base sm:text-lg uppercase tracking-wider text-[#0A1930] flex items-center gap-2">
-                          <ShieldCheck className="w-4 h-4 text-[#006AA7]" />
-                          <span>ROBOT SPECIFICATIONS &amp; RULES</span>
-                        </h3>
-                        <ul className="space-y-2 text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                          {cat.robotRequirements.map((rule) => (
-                            <li key={rule} className="flex items-start gap-2">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-[#006AA7] shrink-0 mt-0.5" />
-                              <span>{rule}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Judging & CTAs */}
-                      <div className="space-y-4 flex flex-col justify-between">
+                <AnimatePresence initial={false}>
+                  {openCats.has(cat.id) && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="p-5 sm:p-6 space-y-6 bg-white border-t border-slate-200">
+                        {/* Requirements */}
                         <div className="space-y-3">
-                          <h3 className="font-headline font-black text-base sm:text-lg uppercase tracking-wider text-[#0A1930]">
+                          <h3 className="font-headline font-black text-sm uppercase tracking-wider text-[#0A1930] flex items-center gap-2">
+                            <ShieldCheck className="w-4 h-4 text-[#006AA7]" />
+                            <span>ROBOT SPECIFICATIONS &amp; RULES</span>
+                          </h3>
+                          <ul className="space-y-2 text-xs text-slate-600 font-light leading-relaxed">
+                            {cat.robotRequirements.map((rule) => (
+                              <li key={rule} className="flex items-start gap-2">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-[#006AA7] shrink-0 mt-0.5" />
+                                <span>{rule}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Judging Weights */}
+                        <div className="space-y-3 pt-4 border-t border-slate-100">
+                          <h3 className="font-headline font-black text-sm uppercase tracking-wider text-[#0A1930]">
                             JUDGING WEIGHTS
                           </h3>
-                          <div className="space-y-2">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {cat.judgingWeights.map((j) => (
-                              <div key={j.label} className="flex items-center justify-between text-xs font-mono-code p-2 rounded-xl bg-[#F8FAFC] border border-slate-200">
+                              <div key={j.label} className="flex items-center justify-between text-xs font-mono-code p-2.5 rounded-xl bg-[#F8FAFC] border border-slate-200">
                                 <span className="text-slate-600">{j.label}</span>
                                 <span className="font-bold text-[#006AA7]">{j.pct}</span>
                               </div>
@@ -255,38 +257,39 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
                           </div>
                         </div>
 
-                        <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-slate-100">
+                        {/* Card CTAs */}
+                        <div className="flex flex-col sm:flex-row gap-2.5 pt-4 border-t border-slate-100">
                           <button
                             onClick={onOpenRegister}
-                            className="btn-pill-lime text-xs font-black py-3 px-6 shadow-md"
+                            className="btn-pill-lime text-xs font-black py-3 px-6 shadow-md flex-1 text-center"
                           >
                             <span>REGISTER COHORT</span>
                           </button>
                           <button
                             onClick={onOpenDeckModal}
-                            className="btn-pill-outline text-xs font-bold py-3 px-5 flex items-center justify-center gap-2"
+                            className="btn-pill-outline text-xs font-bold py-3 px-5 flex items-center justify-center gap-2 flex-1"
                           >
                             <BookOpen className="w-3.5 h-3.5" />
-                            <span>DOWNLOAD COMPLETE SPECS</span>
+                            <span>DOWNLOAD SPECS</span>
                           </button>
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
               {/* Blueprint & Schematic Row */}
               {cat.arenaMatUrl && cat.kitImageUrl && (
-                <div className="p-6 sm:p-10 bg-[#F8FAFC] border-t border-slate-200">
-                  <div className="flex items-center gap-2 mb-4">
+                <div className="p-5 sm:p-6 bg-[#F8FAFC] border-t border-slate-200">
+                  <div className="flex items-center gap-2 mb-3">
                     <Layers className="w-4 h-4 text-[#006AA7]" />
                     <span className="text-[10px] font-mono-code font-bold text-[#006AA7] uppercase tracking-widest">
-                      SCHEMATIC BLUEPRINTS &amp; INVENTORY PREVIEW
+                      SCHEMATIC BLUEPRINTS &amp; INVENTORY
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                     {/* Arena Mat Preview */}
                     <div
                       onClick={() =>
@@ -295,7 +298,7 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
                           title: `${cat.title} - Official 244 × 122 cm Arena Blueprint`,
                         })
                       }
-                      className="p-4 rounded-2xl bg-white border border-slate-200 group cursor-pointer space-y-3 shadow-sm hover:border-[#006AA7]/40 transition-all flex flex-col justify-between"
+                      className="p-3.5 rounded-2xl bg-white border border-slate-200 group cursor-pointer space-y-2.5 shadow-xs hover:border-[#006AA7]/40 transition-all flex flex-col justify-between"
                     >
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-mono-code font-bold text-[#006AA7] uppercase">
@@ -306,15 +309,15 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
                           <span>EXPAND</span>
                         </span>
                       </div>
-                      <div className="relative rounded-xl overflow-hidden bg-white p-2 border border-slate-200 flex items-center justify-center min-h-[160px]">
+                      <div className="relative rounded-xl overflow-hidden bg-white p-2 border border-slate-100 flex items-center justify-center min-h-[120px]">
                         <img
                           src={cat.arenaMatFocusUrl || cat.arenaMatUrl}
                           alt={`${cat.title} Arena Mat`}
-                          className="w-full h-40 object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-28 sm:h-32 object-contain mx-auto group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
-                      <div className="text-[11px] font-mono-code text-slate-500 flex justify-between">
-                        <span>METRIC DIMENSIONS: 2.44 m × 1.22 m</span>
+                      <div className="text-[10px] font-mono-code text-slate-500 flex justify-between">
+                        <span>2.44 m × 1.22 m</span>
                         <span className="text-[#006AA7] font-bold">OFFICIAL SPEC</span>
                       </div>
                     </div>
@@ -327,7 +330,7 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
                           title: `${cat.title} - Official Hardware Kit Inventory`,
                         })
                       }
-                      className="p-4 rounded-2xl bg-white border border-slate-200 group cursor-pointer space-y-3 shadow-sm hover:border-[#006AA7]/40 transition-all flex flex-col justify-between"
+                      className="p-3.5 rounded-2xl bg-white border border-slate-200 group cursor-pointer space-y-2.5 shadow-xs hover:border-[#006AA7]/40 transition-all flex flex-col justify-between"
                     >
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-mono-code font-bold text-[#006AA7] uppercase">
@@ -338,15 +341,15 @@ export const ChallengesPage: React.FC<ChallengesPageProps> = ({
                           <span>EXPAND</span>
                         </span>
                       </div>
-                      <div className="relative rounded-xl overflow-hidden bg-white p-2 border border-slate-200 flex items-center justify-center min-h-[160px]">
+                      <div className="relative rounded-xl overflow-hidden bg-white p-2 border border-slate-100 flex items-center justify-center min-h-[120px]">
                         <img
                           src={cat.kitImageUrl}
                           alt={`${cat.title} Kit Pieces`}
-                          className="w-full h-40 object-contain mx-auto group-hover:scale-[1.02] transition-transform duration-300"
+                          className="w-full h-28 sm:h-32 object-contain mx-auto group-hover:scale-[1.02] transition-transform duration-300"
                         />
                       </div>
-                      <div className="text-[11px] font-mono-code text-slate-500 flex justify-between">
-                        <span>41+ COMPONENT TYPES</span>
+                      <div className="text-[10px] font-mono-code text-slate-500 flex justify-between">
+                        <span>41+ COMPONENTS</span>
                         <span className="text-[#0A1930] font-bold">CLICK TO ZOOM</span>
                       </div>
                     </div>

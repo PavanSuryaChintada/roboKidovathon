@@ -58,7 +58,7 @@ export const RefHero: React.FC<RefHeroProps> = ({
       </div>
 
       {/* ── CONTENT: pinned to bottom of screen ── */}
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pb-16 sm:pb-20 pt-28">
+      <div className="relative z-10 w-full max-w-[1600px] mx-auto pl-4 sm:pl-8 lg:pl-10 pr-6 sm:pr-10 lg:pr-12 pb-16 sm:pb-20 pt-28">
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-end">
 
@@ -67,25 +67,25 @@ export const RefHero: React.FC<RefHeroProps> = ({
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 space-y-6"
+            className="lg:col-span-7 space-y-5"
           >
             {/* Eyebrow */}
-            <span className="font-mono-code font-bold text-xs sm:text-sm text-[#FFCD00] tracking-[0.25em] uppercase">
+            <span className="font-mono-code font-bold text-[11px] sm:text-xs text-[#FFCD00] tracking-[0.25em] uppercase">
               4–5 DECEMBER 2026 · VÄSTERÅS, SWEDEN
             </span>
 
-            {/* Main headline */}
+            {/* Main headline - decreased by 10% */}
             <h1
               className="font-headline font-black uppercase text-white tracking-tight leading-[0.95]"
-              style={{ fontSize: 'clamp(2.8rem, 7vw, 6.5rem)' }}
+              style={{ fontSize: 'clamp(2.5rem, 6.3vw, 5.85rem)' }}
             >
               Build ideas.<br />
               Test them.<br />
               <span className="text-[#FFCD00]">Take them further.</span>
             </h1>
 
-            {/* Sub-copy */}
-            <p className="text-sm sm:text-base md:text-lg text-white/70 font-light leading-relaxed max-w-xl">
+            {/* Sub-copy - decreased by 10% */}
+            <p className="text-xs sm:text-sm md:text-base text-white/70 font-light leading-relaxed max-w-lg">
               Västerås Future Innovators — hands-on STEM robotics and the Young Innovators Hackathon,
               built for Swedish schools, grades 3–9 and Gymnasium.
             </p>

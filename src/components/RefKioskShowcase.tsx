@@ -1,7 +1,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { roboSprintMatFocus } from '../assets/images';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import {
+  ArrowRight,
+  GraduationCap,
+  Package,
+  Zap,
+  ShieldCheck,
+  Layers,
+  Ruler,
+  Trophy,
+  Download,
+} from 'lucide-react';
+import {
+  kitRoverOfficial,
+  arenaCourtReference,
+  cadBlueprintReference,
+} from '../assets/images';
 
 interface RefKioskShowcaseProps {
   onNavigate: (route: string) => void;
@@ -13,174 +27,365 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
   onOpenRegister,
 }) => {
   return (
-    <section id="design-build-compete" className="w-full bg-white text-[#0A1930] py-14 sm:py-18 px-6 sm:px-10 border-t border-slate-200 overflow-hidden select-none">
-      <div className="max-w-[1440px] mx-auto space-y-8">
+    <section
+      id="design-build-compete"
+      className="w-full bg-[#F4F8FB] relative py-16 sm:py-20 px-4 sm:px-8 lg:px-12 border-t border-slate-200 overflow-hidden select-none"
+    >
+      {/* ── TECHNICAL BACKGROUND GRID SYSTEM & AMBIENT ACCENTS ── */}
+      <div className="absolute inset-0 pointer-events-none opacity-40">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage:
+              'linear-gradient(to right, #006AA712 1px, transparent 1px), linear-gradient(to bottom, #006AA712 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
+          }}
+        />
+      </div>
 
-        {/* ── SECTION HEADER ── */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b border-slate-200">
-          <div className="space-y-1.5">
-            <span className="text-[10px] font-mono-code font-bold tracking-[0.25em] text-[#006AA7] uppercase block">
-              SCHOOL ROBOTICS ECOSYSTEM // PORTABLE SETUP
-            </span>
-            <h2 className="font-headline font-black text-2xl sm:text-3xl md:text-4xl text-[#0A1930] uppercase tracking-tight">
-              DESIGN, BUILD <span className="text-[#006AA7]">&amp; COMPETE</span>
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-600 font-light max-w-xl">
-              Turnkey classroom delivery and tournament equipment. Reusable hardware kits paired with the official roll-out competition arena.
-            </p>
-          </div>
+      {/* Decorative Technical Crosshairs & Matrix Dots */}
+      <div className="absolute top-10 left-6 text-sky-400/40 font-mono-code text-xs tracking-widest hidden md:block select-none pointer-events-none">
+        ::: 59.6099° N, 16.5448° E // VÄSTERÅS TECH CAMPUS
+      </div>
 
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-mono-code text-slate-500 font-bold uppercase tracking-wider">
-              2-CARD ECOSYSTEM
-            </span>
+      <div className="max-w-[1400px] mx-auto space-y-10 relative z-10">
+
+        {/* ── SECTION HERO HEADER ── */}
+        <div className="relative pb-4">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+            
+            {/* Left Column: Heading & Description */}
+            <div className="space-y-3 max-w-2xl relative z-10">
+              <span className="text-[11px] sm:text-xs font-mono-code font-bold tracking-[0.25em] text-[#006AA7] uppercase block">
+                SCHOOL ROBOTICS ECOSYSTEM // PORTABLE SETUP
+              </span>
+
+              <div className="relative inline-block">
+                <h2 className="font-headline font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#0A1930] uppercase tracking-tight leading-[0.95]">
+                  DESIGN, BUILD &amp; <span className="text-[#006AA7]">COMPETE</span>
+                </h2>
+                {/* Yellow hand-drawn sparkle */}
+                <span className="absolute -top-3 -right-6 text-[#FFCD00] text-2xl font-black">✦</span>
+              </div>
+
+              <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed max-w-xl">
+                Turnkey classroom delivery and tournament equipment. Reusable hardware kits paired with the official roll-out competition arena.
+              </p>
+            </div>
+
+            {/* Right Handwritten Annotation */}
+            <div className="hidden sm:flex items-center pb-2">
+              <span className="font-handwriting text-xl sm:text-2xl font-bold text-sky-600 -rotate-3 whitespace-nowrap">
+                Same Classrooms.
+                <br />
+                <span className="text-[#006AA7]">Bigger Innovators.</span>
+              </span>
+            </div>
+
           </div>
         </div>
 
-        {/* ── COHESIVE TWO-CARD GROUPED LAYOUT ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+        {/* ── COHESIVE TWO-CARD GROUPED LAYOUT (50% / 50% CLOSE GAP) ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 items-stretch">
 
-          {/* ── CARD 1: ROBO SPRINT (BUILD & HARDWARE) ── */}
+          {/* ════════════════════════════════════════════════════════════════
+              CARD 01: ROBO-SPRINT HARDWARE KIT (LIGHT / BLUE THEME)
+             ════════════════════════════════════════════════════════════════ */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="rounded-3xl p-6 sm:p-8 bg-[#F8FAFC] border border-slate-200 shadow-sm flex flex-col justify-between space-y-6 hover:shadow-md transition-shadow relative overflow-hidden"
+            className="rounded-[32px] p-6 sm:p-8 bg-white border border-slate-200/90 shadow-xl hover:shadow-2xl flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1.5 relative overflow-hidden group"
           >
-            <div className="space-y-4">
+            {/* Subtle card blueprint corner texture */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-radial from-sky-100/60 to-transparent pointer-events-none" />
+
+            <div className="space-y-6 relative z-10">
+              
+              {/* Header: Pill Tag + Card Number */}
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono-code font-bold px-2.5 py-1 rounded-full bg-[#006AA7]/10 text-[#006AA7] border border-[#006AA7]/20 uppercase tracking-wider">
+                <span className="text-[10px] sm:text-[11px] font-mono-code font-bold px-3 py-1 rounded-full bg-[#E0F2FE] text-[#006AA7] border border-[#BAE6FD] uppercase tracking-wider">
                   ROBO SPRINT // CLASSROOM BUILD
                 </span>
-                <span className="text-xs font-mono-code text-slate-400 font-bold">CARD 01</span>
+                <span className="text-xs font-mono-code text-slate-400 font-bold tracking-wider">
+                  CARD 01
+                </span>
               </div>
 
+              {/* Title & Technical Subtitle */}
               <div>
                 <h3 className="font-headline font-black text-2xl sm:text-3xl text-[#0A1930] uppercase tracking-tight">
-                  Robo-Sprint Hardware Kit
+                  ROBO-SPRINT HARDWARE KIT
                 </h3>
-                <p className="text-xs font-mono-code text-[#006AA7] font-bold mt-1 uppercase">
-                  Turnkey Classroom Delivery · Safe 6V DC
+                <p className="text-xs font-mono-code text-[#006AA7] font-bold mt-1 uppercase tracking-wider">
+                  TURNKEY CLASSROOM DELIVERY • SAFE 6V DC
                 </p>
               </div>
 
+              {/* Description */}
               <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
                 Mentors arrive directly at your school with official mechanical kits, gearboxes, wired controllers, and battery packs. Every student cohort builds, tests, and refines a working competition robot.
               </p>
 
-              {/* Requirement Checklist */}
-              <div className="p-4 rounded-2xl bg-white border border-slate-200 space-y-2.5 text-xs text-slate-700">
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#006AA7] shrink-0 mt-0.5" />
-                  <span><strong>Classroom Footprint:</strong> Fits standard school tables or a small floor area.</span>
+              {/* 2-Column Inside Layout: Feature Chips (Left) + High-End Rover (Right) */}
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-5 items-center pt-1">
+                
+                {/* Left: 3 Feature Chips */}
+                <div className="sm:col-span-7 space-y-3.5">
+                  
+                  {/* Feature 1 */}
+                  <div className="flex items-start gap-3 p-2.5 rounded-2xl bg-[#F8FAFC] border border-slate-100 transition-colors group-hover:border-sky-200">
+                    <div className="w-8 h-8 rounded-xl bg-[#006AA7]/10 text-[#006AA7] flex items-center justify-center shrink-0 mt-0.5">
+                      <GraduationCap className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-[#0A1930]">Classroom Footprint</h4>
+                      <p className="text-[11px] text-slate-500 leading-snug">Fits standard school tables or a small floor area.</p>
+                    </div>
+                  </div>
+
+                  {/* Feature 2 */}
+                  <div className="flex items-start gap-3 p-2.5 rounded-2xl bg-[#F8FAFC] border border-slate-100 transition-colors group-hover:border-sky-200">
+                    <div className="w-8 h-8 rounded-xl bg-[#006AA7]/10 text-[#006AA7] flex items-center justify-center shrink-0 mt-0.5">
+                      <Package className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-[#0A1930]">Zero Lab Budget</h4>
+                      <p className="text-[11px] text-slate-500 leading-snug">All motors, chassis, controllers &amp; batteries provided.</p>
+                    </div>
+                  </div>
+
+                  {/* Feature 3 */}
+                  <div className="flex items-start gap-3 p-2.5 rounded-2xl bg-[#F8FAFC] border border-slate-100 transition-colors group-hover:border-sky-200">
+                    <div className="w-8 h-8 rounded-xl bg-[#006AA7]/10 text-[#006AA7] flex items-center justify-center shrink-0 mt-0.5">
+                      <Zap className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-[#0A1930]">Low-Voltage Safe</h4>
+                      <p className="text-[11px] text-slate-500 leading-snug">Operates entirely on safe 6V DC power — zero soldering.</p>
+                    </div>
+                  </div>
+
                 </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#006AA7] shrink-0 mt-0.5" />
-                  <span><strong>Zero Lab Budget:</strong> All motors, chassis, controllers &amp; batteries provided.</span>
+
+                {/* Right: Rover Hardware Composition */}
+                <div className="sm:col-span-5 relative flex flex-col items-center justify-center">
+                  
+                  {/* Handwritten Annotation */}
+                  <div className="absolute -top-5 right-2 text-right">
+                    <span className="font-handwriting text-sm sm:text-base font-bold text-[#006AA7] -rotate-6 inline-block leading-tight">
+                      From Parts to
+                      <br />
+                      Possibilities
+                    </span>
+                    <svg className="w-8 h-4 text-[#006AA7] ml-auto mt-0.5" viewBox="0 0 30 15" fill="none">
+                      <path d="M5 2 C 15 1, 22 8, 25 12 M 25 12 L 20 12 M 25 12 L 24 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+
+                  {/* Robot Hero on Circular Blue Glow */}
+                  <div className="relative w-full max-w-[210px] aspect-square flex items-center justify-center pt-3">
+                    <div className="absolute inset-2 rounded-full bg-sky-100/70 blur-md pointer-events-none" />
+                    <img
+                      src={kitRoverOfficial}
+                      alt="Official Robo-Sprint Hardware Competition Rover"
+                      className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-105 drop-shadow-md"
+                    />
+                  </div>
+
                 </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#006AA7] shrink-0 mt-0.5" />
-                  <span><strong>Low-Voltage Safe:</strong> Operates entirely on safe 6V DC power — zero soldering.</span>
-                </div>
+
               </div>
+
             </div>
 
-            <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center gap-3">
-              <button
-                onClick={() => onNavigate('for-schools')}
-                className="btn-pill-lime text-xs font-bold py-3 px-6 shadow-xs flex items-center gap-2"
+            {/* Footer Action Row */}
+            <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 relative z-10">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <button
+                  onClick={() => onNavigate('for-schools')}
+                  className="bg-[#FFCD00] hover:bg-[#FACC15] text-[#0A1930] font-black text-xs sm:text-sm py-3 px-5 sm:px-6 rounded-full shadow-xs flex items-center gap-2 transition-transform hover:scale-105"
+                >
+                  <span>FOR SCHOOLS GUIDE</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={onOpenRegister}
+                  className="bg-white hover:bg-slate-50 text-[#0A1930] border border-slate-300 font-bold text-xs sm:text-sm py-3 px-4 sm:px-5 rounded-full shadow-2xs transition-transform hover:scale-105"
+                >
+                  <span>REQUEST KITS</span>
+                </button>
+              </div>
+
+              {/* Download Specs Link */}
+              <a
+                href="#specs"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('challenges');
+                }}
+                className="text-slate-500 hover:text-[#006AA7] text-xs font-mono-code font-bold uppercase tracking-wider flex items-center gap-1.5 transition-colors"
               >
-                <span>FOR SCHOOLS GUIDE</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-              <button
-                onClick={onOpenRegister}
-                className="btn-pill-outline text-xs font-bold py-3 px-5"
-              >
-                <span>REQUEST KITS</span>
-              </button>
+                <Download className="w-3.5 h-3.5" />
+                <span>DOWNLOAD KIT SPECS</span>
+              </a>
             </div>
           </motion.div>
 
-          {/* ── CARD 2: ARENA MATCH (ARENA SPECIFICATION) ── */}
+          {/* ════════════════════════════════════════════════════════════════
+              CARD 02: ARENA MATCH DUAL COURT (DARK NAVY / CYAN THEME)
+             ════════════════════════════════════════════════════════════════ */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="rounded-3xl p-6 sm:p-8 bg-[#0A1930] text-white border border-[#0A1930] shadow-md flex flex-col justify-between space-y-6 relative overflow-hidden"
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="rounded-[32px] p-6 sm:p-8 bg-[#0A1930] text-white border border-slate-800 shadow-2xl flex flex-col justify-between space-y-6 transition-all duration-300 hover:-translate-y-1.5 relative overflow-hidden group"
           >
-            {/* Ambient Glow */}
-            <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#006AA7]/30 rounded-full blur-3xl pointer-events-none" />
+            {/* Ambient Cyan Radial Lighting */}
+            <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#006AA7]/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#38BDF8]/15 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="relative space-y-4">
+            <div className="space-y-5 relative z-10">
+              
+              {/* Header: Eyebrow + Card Number */}
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono-code font-bold tracking-widest text-[#FFCD00] uppercase">
+                <span className="text-[10px] sm:text-[11px] font-mono-code font-bold tracking-widest text-[#FFCD00] uppercase">
                   ARENA SPECIFICATION // MODEL 2026.1
                 </span>
-                <span className="text-xs font-mono-code text-slate-400 font-bold">CARD 02</span>
+                <span className="text-xs font-mono-code text-slate-400 font-bold tracking-wider">
+                  CARD 02
+                </span>
               </div>
 
-              <div>
-                <h3 className="font-headline font-black text-2xl sm:text-3xl text-white uppercase tracking-tight">
-                  Arena Match Dual Court
-                </h3>
-                <p className="text-xs font-mono-code text-[#FFCD00] font-bold mt-1 uppercase">
-                  244 cm × 122 cm Roll-Out Metric Mat
-                </p>
+              {/* Title & Dimensions Subtitle + Handwritten Annotation */}
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="font-headline font-black text-2xl sm:text-3xl text-white uppercase tracking-tight">
+                    ARENA MATCH DUAL COURT
+                  </h3>
+                  <p className="text-xs font-mono-code text-[#FFCD00] font-bold mt-1 uppercase tracking-wider">
+                    244 CM × 122 CM ROLL-OUT METRIC MAT
+                  </p>
+                </div>
+
+                {/* Handwritten Annotation */}
+                <div className="hidden sm:block text-right shrink-0">
+                  <span className="font-handwriting text-base font-bold text-sky-400 -rotate-6 inline-block leading-tight">
+                    Real Challenges.
+                    <br />
+                    Real Skills.
+                  </span>
+                  <svg className="w-8 h-4 text-sky-400 ml-auto mt-0.5" viewBox="0 0 30 15" fill="none">
+                    <path d="M5 2 C 15 1, 22 8, 25 12 M 25 12 L 20 12 M 25 12 L 24 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
               </div>
 
-              {/* 3D CAD Mat Spec Render Frame */}
-              <div className="relative rounded-2xl overflow-hidden bg-white/10 border border-white/15 p-2.5 group flex items-center justify-center">
-                <img
-                  src={roboSprintMatFocus}
-                  alt="Robo-Sprint Arena Mat 3D Specification"
-                  className="w-full h-auto max-h-[140px] sm:max-h-[160px] object-contain mx-auto group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-2.5 left-2.5 bg-[#0A1930]/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-mono-code font-bold text-[#FFCD00] uppercase border border-white/10 shadow">
-                  Official Tournament Arena
+              {/* Main Centerpiece: 3D Arena Court + Right Feature Badges */}
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+                
+                {/* 3D Isometric CAD Arena Model */}
+                <div className="sm:col-span-8 relative rounded-2xl overflow-hidden bg-white/5 border border-white/10 p-2 group-hover:border-sky-500/40 transition-colors">
+                  <img
+                    src={arenaCourtReference}
+                    alt="Official 244cm x 122cm Dual-Court Competition Arena"
+                    className="w-full h-auto max-h-[175px] object-contain mx-auto transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute top-2.5 left-2.5 bg-[#0A1930]/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-mono-code font-bold text-[#FFCD00] uppercase border border-white/10 shadow">
+                    Official Roll-Out Metric Mat
+                  </div>
+                </div>
+
+                {/* Right: 4 High-Tech Spec Badges */}
+                <div className="sm:col-span-4 space-y-2">
+                  <div className="flex items-center gap-2 p-2 rounded-xl bg-white/5 border border-white/10 text-[11px] font-medium text-slate-200">
+                    <ShieldCheck className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+                    <span className="leading-tight">Official Tournament Arena</span>
+                  </div>
+                  <div className="flex items-center gap-2 p-2 rounded-xl bg-white/5 border border-white/10 text-[11px] font-medium text-slate-200">
+                    <Layers className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+                    <span className="leading-tight">Modular &amp; Portable</span>
+                  </div>
+                  <div className="flex items-center gap-2 p-2 rounded-xl bg-white/5 border border-white/10 text-[11px] font-medium text-slate-200">
+                    <Ruler className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+                    <span className="leading-tight">Standardized Dimensions</span>
+                  </div>
+                  <div className="flex items-center gap-2 p-2 rounded-xl bg-white/5 border border-white/10 text-[11px] font-medium text-slate-200">
+                    <Trophy className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+                    <span className="leading-tight">School &amp; Final Rounds</span>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Bottom Technical Readout Box */}
+              <div className="p-3.5 rounded-2xl bg-[#061224] border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono-code text-xs">
+                <div className="space-y-1 text-[11px]">
+                  <div className="flex items-center gap-2">
+                    <span className="text-slate-400">STATUS:</span>
+                    <span className="text-[#FFCD00] font-bold">DEPLOYED IN SCHOOLS</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-slate-400">FOOTPRINT:</span>
+                    <span className="text-white font-bold">2.44 m × 1.22 m ROLL-OUT</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-slate-400">ARCHITECTURE:</span>
+                    <span className="text-white">ZIGZAG CENTRAL BARRIER</span>
+                  </div>
+                </div>
+
+                {/* High-Tech CAD Blueprint Diagram Frame */}
+                <div className="border border-white/15 rounded-lg p-1 bg-white/5 flex items-center justify-center self-end sm:self-center">
+                  <img
+                    src={cadBlueprintReference}
+                    alt="Arena Technical Blueprint Floorplan"
+                    className="h-10 w-auto object-contain opacity-80"
+                  />
                 </div>
               </div>
 
-              {/* Specs Grid */}
-              <div className="p-3.5 rounded-2xl bg-white/[0.06] border border-white/10 text-xs text-slate-300 space-y-1.5 font-mono-code">
-                <div className="flex justify-between text-[11px]">
-                  <span className="text-slate-400">STATUS:</span>
-                  <span className="text-[#FFCD00] font-bold">DEPLOYED IN SCHOOLS</span>
-                </div>
-                <div className="flex justify-between text-[11px]">
-                  <span className="text-slate-400">FOOTPRINT:</span>
-                  <span className="text-white font-bold">2.44 m × 1.22 m ROLL-OUT</span>
-                </div>
-                <div className="flex justify-between text-[11px]">
-                  <span className="text-slate-400">ARCHITECTURE:</span>
-                  <span className="text-white">ZIGZAG CENTRAL BARRIER</span>
-                </div>
+            </div>
+
+            {/* Footer Action Row */}
+            <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 relative z-10">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <button
+                  onClick={onOpenRegister}
+                  className="bg-[#FFCD00] hover:bg-[#FACC15] text-[#0A1930] font-black text-xs sm:text-sm py-3 px-5 sm:px-6 rounded-full shadow-xs flex items-center gap-2 transition-transform hover:scale-105"
+                >
+                  <span>REGISTER COHORT</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={() => onNavigate('challenges')}
+                  className="px-5 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-mono-code font-bold uppercase transition-transform hover:scale-105"
+                >
+                  <span>ARENA RULES</span>
+                </button>
+              </div>
+
+              {/* Handwritten Annotation on Bottom-Right */}
+              <div className="hidden sm:block">
+                <span className="font-handwriting text-sm font-bold text-sky-400 tracking-wide">
+                  SAME ARENA. BIGGER DREAMS.
+                </span>
               </div>
             </div>
 
-            <div className="relative pt-4 border-t border-white/10 flex flex-wrap items-center gap-3">
-              <button
-                onClick={onOpenRegister}
-                className="btn-pill-lime text-xs font-bold py-3 px-6 shadow-xs flex items-center gap-2"
-              >
-                <span>REGISTER COHORT</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-              <button
-                onClick={() => onNavigate('challenges')}
-                className="px-5 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-mono-code font-bold uppercase transition-all"
-              >
-                <span>ARENA RULES</span>
-              </button>
-            </div>
           </motion.div>
 
+        </div>
+
+        {/* ── SECTION FOOTER STRIP ── */}
+        <div className="pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-400 text-xs font-mono-code uppercase font-semibold">
+          <span>COMPETITION CATEGORIES // 2026 EDITION</span>
+          <span>STUDENTS × ROBOTS × BRIGHTER TOMORROWS</span>
         </div>
 
       </div>
     </section>
   );
 };
-

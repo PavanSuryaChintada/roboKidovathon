@@ -235,7 +235,7 @@ export const COMPETITION_CATEGORIES: CompetitionCategory[] = [
     code: 'CAT B',
     title: 'ROBO-PRECISION & SPRINT',
     division: 'SENIOR LEAGUE',
-    ageRange: 'GRADES 6 – 9',
+    ageRange: 'GRADES 7 – 9',
     duration: '6 MINUTES PER MATCH',
     format: 'Multi-Phase Arena Challenge: Agility & Cup Stacking',
     objective: 'Deploy gear-driven robotic arms and high-torque drivetrains to maneuver arena barriers, capture scoring cups, and stack them onto platform targets.',

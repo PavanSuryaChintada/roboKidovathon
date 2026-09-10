@@ -30,8 +30,18 @@ import bannerRoboQuiz from './banner_robo_quiz.jpg';
 import cardRoverSprint from './card_rover_sprint.jpg';
 import cardRoverAdvanced from './card_rover_advanced.jpg';
 import cardRobotQuiz from './card_robot_quiz.jpg';
+import kitRoverOfficial from './kit_rover_official.jpg';
+import arenaCourtReference from './arena_court_reference.png';
+import cadBlueprintReference from './cad_blueprint_reference.png';
+import ecosystemRobotTop from './ecosystem_robot_top.png';
 
 export {
+  // Ecosystem Assets (Design, Build & Compete)
+  kitRoverOfficial,
+  arenaCourtReference,
+  cadBlueprintReference,
+  ecosystemRobotTop,
+
   // Card Banners (User Provided)
   bannerRoboSprint,
   bannerRoboSprintAdvanced,
