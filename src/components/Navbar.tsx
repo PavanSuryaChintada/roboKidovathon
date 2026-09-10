@@ -39,7 +39,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { id: 'competition-flow', label: 'Competition Flow', isAnchor: true },
     { id: 'challenges', label: 'Competition' },
     { id: 'events', label: 'Events' },
     { id: 'about', label: 'About' },
@@ -50,17 +49,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     setMobileMenuOpen(false);
     if (id === 'contact') {
       setContactModalOpen(true);
-    } else if (id === 'competition-flow') {
-      if (activeTab !== 'home') {
-        onNavigate('home');
-        setTimeout(() => {
-          const el = document.getElementById('competition-flow');
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 150);
-      } else {
-        const el = document.getElementById('competition-flow');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }
     } else {
       onNavigate(id);
     }

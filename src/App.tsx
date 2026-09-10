@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { Navbar } from './components/Navbar';
-import { RefHeroMarquee } from './components/RefHeroMarquee';
-import { RefCompetitionFlow } from './components/RefCompetitionFlow';
 import { RefHero } from './components/RefHero';
+import { RefHeroMarquee } from './components/RefHeroMarquee';
 import { RefTrackComparison } from './components/RefTrackComparison';
 import { RefKioskShowcase } from './components/RefKioskShowcase';
 import { RefCompetitionInfo } from './components/RefCompetitionInfo';
-import { RefSlushCountdown } from './components/RefSlushCountdown';
 import { RefPhotoStrip } from './components/RefPhotoStrip';
 import { RefWorkshopTapeBanner } from './components/RefWorkshopTapeBanner';
 import { RefFooter } from './components/RefFooter';
@@ -45,50 +43,37 @@ export function App() {
       <main className="w-full">
         {currentRoute === 'home' && (
           <>
-            {/* 01. Trusted Partners Marquee / Ticker */}
-            <div className="pt-20">
-              <RefHeroMarquee />
-            </div>
-
-            {/* 02. Competition Flow: Workshop -> Inter-School Competition -> Inter-School Finals */}
-            <RefCompetitionFlow
-              onOpenRegister={() => setIsRegisterOpen(true)}
-              onNavigate={handleNavigate}
-            />
-
-            {/* 03. Main Hero / Video & Design Section */}
+            {/* 01. Main Hero / Video & Design Section */}
             <RefHero
               onNavigate={handleNavigate}
               onOpenRegister={() => setIsRegisterOpen(true)}
             />
 
-            {/* 04. Top Three Cards: Robo Sprint / Robo Sprint Advanced / Robo Quiz */}
+            {/* 02. Trusted Partners Marquee / Ticker (directly below Hero) */}
+            <RefHeroMarquee />
+
+            {/* 03. Top Three Cards: Robo Sprint / Robo Sprint Advanced / Robo Quiz */}
             <RefTrackComparison
               onNavigate={handleNavigate}
               onOpenRegister={() => setIsRegisterOpen(true)}
             />
 
-            {/* 05. Design, Build & Compete: Robo Sprint + Arena Match (Cohesive 2-Card Layout) */}
+            {/* 04. Design, Build & Compete: Robo Sprint + Arena Match (Cohesive 2-Card Layout) */}
             <RefKioskShowcase
               onNavigate={handleNavigate}
               onOpenRegister={() => setIsRegisterOpen(true)}
             />
 
-            {/* 06. Competition Information: Robo Sprint + Robo Quiz (Side-by-Side) */}
+            {/* 05. Competition Information: Robo Sprint + Robo Quiz (Side-by-Side) */}
             <RefCompetitionInfo
               onOpenRegister={() => setIsRegisterOpen(true)}
               onNavigate={handleNavigate}
             />
 
-            {/* 07. Event Information: December 4 & 5 Grand Finale Countdown */}
-            <div className="py-10 bg-white border-t border-slate-200">
-              <RefSlushCountdown onOpenRegister={() => setIsRegisterOpen(true)} />
-            </div>
-
-            {/* 08. Tournament Highlights Photo Reel */}
+            {/* 06. Tournament Highlights Photo Reel */}
             <RefPhotoStrip />
 
-            {/* 09. Main Conversion Anchor: Bring Hands-On STEM to Your School */}
+            {/* 07. Main Conversion Anchor: Bring Hands-On STEM to Your School */}
             <RefWorkshopTapeBanner
               onOpenRegister={() => setIsRegisterOpen(true)}
               onOpenDeckModal={() => setIsDeckOpen(true)}
