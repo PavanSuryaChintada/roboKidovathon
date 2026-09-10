@@ -23,28 +23,46 @@ export const RefHero: React.FC<RefHeroProps> = ({
   }, []);
 
   return (
-    <section className="relative w-full h-screen min-h-[640px] flex flex-col justify-end overflow-hidden select-none bg-[#070709]">
+    <section className="relative w-full h-screen min-h-[640px] flex flex-col justify-between pt-28 pb-8 sm:pb-10 px-4 sm:px-8 md:px-12 lg:px-16 overflow-hidden select-none bg-[#070709]">
 
-      {/* ── FULL-SCREEN BACKGROUND VIDEO ── */}
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster={roboPrecisionActionWide}
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      >
-        <source src="/uhd_25fps.mp4" type="video/mp4" />
-        <source src="/blix_hero.webm" type="video/webm" />
-      </video>
+      {/* ── FULL VIEWPORT BACKGROUND VIDEO (z-0) ── */}
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted={isMuted}
+          playsInline
+          poster={roboPrecisionActionWide}
+          className="w-full h-full object-cover scale-[1.36] origin-center"
+        >
+          <source src="/blix_hero.mp4" type="video/mp4" />
+        </video>
 
-      {/* ── GRADIENT SCRIM: light vignette so text reads cleanly ── */}
-      <div className="absolute inset-0 z-[1] pointer-events-none">
-        {/* Bottom-up dark fade for the text block */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20" />
-        {/* Subtle left edge darkening */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
+        {/* ── CINEMATIC BALANCED OVERLAYS (z-[1]) ── */}
+        <div className="absolute inset-0 bg-black/35 pointer-events-none z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/60 pointer-events-none z-[1]" />
+
+        {/* ── AMBIENT LIVE AUDIO TOGGLE (z-[2]) ── */}
+        <div className="absolute top-28 right-4 sm:right-8 z-[2]">
+          <button
+            onClick={toggleSound}
+            aria-label={isMuted ? 'Enable video audio' : 'Mute video audio'}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/15 text-white text-[11px] font-mono-code transition-all"
+          >
+            {isMuted ? (
+              <>
+                <VolumeX className="w-3.5 h-3.5 text-slate-400" />
+                <span className="hidden sm:inline text-slate-300">SOUND OFF</span>
+              </>
+            ) : (
+              <>
+                <Volume2 className="w-3.5 h-3.5 text-[#FFCD00]" />
+                <span className="hidden sm:inline text-[#FFCD00] font-bold">ARENA AUDIO ON</span>
+              </>
+            )}
+          </button>
+        </div>
       </div>
 
       {/* ── CONTENT: pinned to bottom of screen ── */}
