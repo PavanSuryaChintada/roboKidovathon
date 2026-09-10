@@ -2,7 +2,8 @@ import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { roboPrecisionActionWide } from '../assets/images';
-import blixHeroVideo from '../assets/Blix-A-Thon 2nd Edition IIT Bombay Techfest _ Blix Robotix(1080P_60FPS).mp4';
+
+const HERO_VIDEO_URL = 'https://res.cloudinary.com/joeek52k/video/upload/v1789013088/Blix-A-Thon_2nd_Edition_IIT_Bombay_Techfest___Blix_Robotix_1080P_60FPS.mp4';
 
 interface RefHeroProps {
   onNavigate: (route: string) => void;
@@ -35,16 +36,19 @@ export const RefHero: React.FC<RefHeroProps> = ({
         playsInline
         poster={roboPrecisionActionWide}
         className="absolute inset-0 w-full h-full object-cover z-0"
+        style={{ objectPosition: '70% center' }}
       >
-        <source src={blixHeroVideo} type="video/mp4" />
+        <source src={HERO_VIDEO_URL} type="video/mp4" />
       </video>
 
-      {/* ── GRADIENT SCRIM: light vignette so text reads cleanly ── */}
+      {/* ── GRADIENT SCRIM ── */}
       <div className="absolute inset-0 z-[1] pointer-events-none">
-        {/* Bottom-up dark fade for the text block */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20" />
-        {/* Subtle left edge darkening */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
+        {/* Strong left fade — keeps headline readable over any video content */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/10" />
+        {/* Bottom-up fade — grounds the content block */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+        {/* Top vignette — softens the navbar edge */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent" />
       </div>
 
       {/* ── CONTENT: pinned to bottom of screen ── */}
