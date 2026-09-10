@@ -26,3 +26,5 @@ dist-ssr
 # Large media files (exceed GitHub 100MB limit - keep local only)
 *.webm
 src/assets/*.webm
+src/assets/*.mp4
+public/uhd_25fps.mp4

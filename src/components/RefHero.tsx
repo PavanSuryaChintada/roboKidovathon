@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { roboPrecisionActionWide } from '../assets/images';
+import blixHeroVideo from '../assets/Blix-A-Thon 2nd Edition IIT Bombay Techfest _ Blix Robotix(1080P_60FPS).mp4';
 
 interface RefHeroProps {
   onNavigate: (route: string) => void;
@@ -35,8 +36,7 @@ export const RefHero: React.FC<RefHeroProps> = ({
         poster={roboPrecisionActionWide}
         className="absolute inset-0 w-full h-full object-cover z-0"
       >
-        <source src="/uhd_25fps.mp4" type="video/mp4" />
-        <source src="/blix_hero.webm" type="video/webm" />
+        <source src={blixHeroVideo} type="video/mp4" />
       </video>
 
       {/* ── GRADIENT SCRIM: light vignette so text reads cleanly ── */}
