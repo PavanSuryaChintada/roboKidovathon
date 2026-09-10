@@ -48,6 +48,7 @@ export const RefFooter: React.FC<RefFooterProps> = ({
             </span>
             <ul className="space-y-2 text-xs text-slate-300 font-light">
               <li><button onClick={() => onNavigate('for-schools')} className="hover:text-[#FFCD00] transition-colors">For Schools</button></li>
+              <li><button onClick={() => onNavigate('workflow')} className="hover:text-[#FFCD00] transition-colors">STEM Workflow</button></li>
               <li><button onClick={() => onNavigate('challenges')} className="hover:text-[#FFCD00] transition-colors">Competition Tracks</button></li>
               <li><button onClick={() => onNavigate('how-it-works')} className="hover:text-[#FFCD00] transition-colors">How It Works</button></li>
               <li><button onClick={() => onNavigate('lgr22')} className="hover:text-[#FFCD00] transition-colors">Lgr22 Curriculum</button></li>

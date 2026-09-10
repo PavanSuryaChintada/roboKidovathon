@@ -4,13 +4,14 @@ import { RefHero } from './components/RefHero';
 import { RefHeroMarquee } from './components/RefHeroMarquee';
 import { RefTrackComparison } from './components/RefTrackComparison';
 import { RefKioskShowcase } from './components/RefKioskShowcase';
-import { RefCompetitionInfo } from './components/RefCompetitionInfo';
+import { RefCompetitionFlow } from './components/RefCompetitionFlow';
 import { RefPhotoStrip } from './components/RefPhotoStrip';
 import { RefWorkshopTapeBanner } from './components/RefWorkshopTapeBanner';
 import { RefFooter } from './components/RefFooter';
 
 import { ChallengesPage } from './pages/ChallengesPage';
 import { HowItWorksPage } from './pages/HowItWorksPage';
+import { WorkflowPage } from './pages/WorkflowPage';
 import { ForSchoolsPage } from './pages/ForSchoolsPage';
 import { AboutPage } from './pages/AboutPage';
 import { Lgr22Page } from './pages/Lgr22Page';
@@ -64,8 +65,8 @@ export function App() {
               onOpenRegister={() => setIsRegisterOpen(true)}
             />
 
-            {/* 05. Competition Information: Robo Sprint + Robo Quiz (Side-by-Side) */}
-            <RefCompetitionInfo
+            {/* 05. Competition Pathway: Real 3-Stage Milestone Journey */}
+            <RefCompetitionFlow
               onOpenRegister={() => setIsRegisterOpen(true)}
               onNavigate={handleNavigate}
             />
@@ -93,6 +94,14 @@ export function App() {
         {currentRoute === 'how-it-works' && (
           <HowItWorksPage
             onOpenRegister={() => setIsRegisterOpen(true)}
+            onNavigateHome={() => handleNavigate('home')}
+          />
+        )}
+
+        {currentRoute === 'workflow' && (
+          <WorkflowPage
+            onOpenRegister={() => setIsRegisterOpen(true)}
+            onOpenDeckModal={() => setIsDeckOpen(true)}
             onNavigateHome={() => handleNavigate('home')}
           />
         )}

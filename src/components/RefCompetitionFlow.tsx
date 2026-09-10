@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Wrench, Trophy, ArrowRight, ArrowDown, Calendar, Target } from 'lucide-react';
+import { ArrowRight, Wrench, Target, Trophy, Calendar } from 'lucide-react';
 
 interface RefCompetitionFlowProps {
   onOpenRegister?: () => void;
@@ -11,201 +11,235 @@ export const RefCompetitionFlow: React.FC<RefCompetitionFlowProps> = ({
   onOpenRegister,
   onNavigate,
 }) => {
-  const steps = [
+  const stages = [
     {
-      stepNumber: '01',
-      badge: 'STAGE 01',
-      title: 'Workshop',
-      subtitle: 'In-School STEM & Robotics Build',
+      num: '01',
+      badge: 'STAGE 01 · IN-SCHOOL',
+      title: 'WORKSHOP',
+      tagline: 'Build the foundation.',
+      timing: 'OCTOBER · 20H STEM',
       icon: Wrench,
-      accentColor: '#006AA7',
-      accentBg: 'bg-[#006AA7]/10 text-[#006AA7] border-[#006AA7]/30',
-      timing: 'OCTOBER · IN-SCHOOL',
-      features: [
-        '10 sessions (20h) in classroom',
-        'Hardware kits & test mats provided',
-        'Every student builds a working robot',
+      description:
+        'Hands-on robotics curriculum delivered directly to school classrooms. Every student builds, wires, and drives a working competition rover from turnkey mechanical kits.',
+      specs: [
+        { label: 'DELIVERY', value: 'Turnkey 6V DC Kits' },
+        { label: 'COHORTS', value: 'Grades 3–6 & 7–9' },
+        { label: 'DURATION', value: '10 Sessions (20h)' },
       ],
-      description: 'Hands-on curriculum delivered directly into school classrooms. Students master gear ratios, chassis stability, motor circuits, and driving teamwork.',
+      isDark: false,
     },
     {
-      stepNumber: '02',
-      badge: 'STAGE 02',
-      title: 'Inter-School Competition',
-      subtitle: 'School Qualifiers & Arena Heats',
+      num: '02',
+      badge: 'STAGE 02 · QUALIFIERS',
+      title: 'INTER-SCHOOL HEATS',
+      tagline: 'Put the skills to the test.',
+      timing: 'NOVEMBER · SCHOOL ARENA',
       icon: Target,
-      accentColor: '#E65100',
-      accentBg: 'bg-[#E65100]/10 text-[#E65100] border-[#E65100]/30',
-      timing: 'OCTOBER / NOVEMBER · QUALIFIERS',
-      features: [
-        'Official 244 × 122 cm arena matches',
-        '3-minute head-to-head match heats',
-        'Top school teams qualify for Finals',
+      description:
+        'Fast-paced 1 vs 1 match heats on the standardized 2.44 × 1.22 m Dual Court. Students navigate obstacles, clear ball transfer hurdles, and battle for the school slot.',
+      specs: [
+        { label: 'ARENA', value: '2.44 × 1.22 m Mat' },
+        { label: 'MATCH DURATION', value: '03:00 (1 vs 1)' },
+        { label: 'ADVANCEMENT', value: 'Top Team to Finals' },
       ],
-      description: 'Student teams put their built machines to the test in fast-paced arena matches. Winning teams advance directly to represent their school in the Grand Finale.',
+      isDark: false,
     },
     {
-      stepNumber: '03',
+      num: '03',
       badge: 'STAGE 03 · FINALS',
-      title: 'Inter-School Competition Finals',
-      subtitle: 'Grand Finale Championship Showcase',
-      icon: Trophy,
-      accentColor: '#FFCD00',
-      accentBg: 'bg-[#FFCD00]/20 text-[#0A1930] border-[#FFCD00]/50 font-bold',
+      title: 'GRAND FINALE',
+      tagline: 'Compete at the highest level.',
       timing: 'DECEMBER 4 & 5, 2026',
-      features: [
-        'Live municipal championship arena',
-        'SEK 3,000 prize pool, trophies & medals',
-        'Community, educator & peer showcase',
+      icon: Trophy,
+      description:
+        'The championship showdown in Västerås. Qualifying school cohorts battle live before teachers, parents, and industry judges for medals, trophies, and the grand title.',
+      specs: [
+        { label: 'VENUE', value: 'Västerås Arena' },
+        { label: 'PRIZE POOL', value: 'SEK 3,000' },
+        { label: 'SHOWCASE', value: 'Live Audience Heats' },
       ],
-      description: 'The premier championship stage. Qualifying school finalists compete live for the city title, awards, and technical excellence before a live audience.',
+      isDark: true,
     },
   ];
 
   return (
-    <section id="competition-flow" className="w-full bg-[#F8FAFC] text-[#0A1930] py-12 sm:py-16 px-6 sm:px-10 border-b border-slate-200 scroll-mt-24 select-none">
-      <div className="max-w-[1440px] mx-auto space-y-10">
+    <section
+      id="competition-flow"
+      className="w-full bg-[#F4F8FB] text-[#0A1930] py-16 sm:py-20 px-4 sm:px-8 lg:px-12 border-t border-slate-200 select-none relative overflow-hidden"
+    >
+      <div className="max-w-[1400px] mx-auto space-y-12 relative z-10">
 
-        {/* Header Block */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-slate-200">
-          <div className="space-y-1.5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#006AA7]/10 text-[#006AA7] text-[10px] font-mono-code font-bold uppercase tracking-widest">
-              <span>PATHWAY // CLASSROOM TO ARENA</span>
-            </div>
-            <h2 className="font-headline font-black text-2xl sm:text-3xl md:text-4xl text-[#0A1930] uppercase tracking-tight">
-              COMPETITION <span className="text-[#006AA7]">FLOW</span>
+        {/* ── SECTION HEADER ── */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-4">
+          <div className="space-y-3 max-w-2xl">
+            <span className="text-xs font-mono-code font-bold tracking-[0.25em] text-[#006AA7] uppercase block">
+              COMPETITION JOURNEY // VÄSTERÅS 2026
+            </span>
+
+            <h2
+              className="font-headline font-black uppercase tracking-tight text-[#0A1930] leading-[1.02]"
+              style={{ fontSize: 'clamp(2.2rem, 4.8vw, 3.8rem)' }}
+            >
+              FROM CLASSROOM BUILD<br />
+              <span className="text-[#006AA7]">TO THE ARENA FINALS</span>
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 font-light max-w-xl">
-              From hands-on classroom building to school qualifiers and the live December 4 &amp; 5 championship finals.
+
+            <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed max-w-xl pt-1">
+              A structured three-phase competition journey designed for Swedish schools. Students engineer rovers in the classroom, qualify locally, and compete on the championship stage.
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-3">
             {onOpenRegister && (
               <button
                 onClick={onOpenRegister}
-                className="btn-pill-lime text-[11px] font-bold py-2 px-4 shadow-xs"
+                className="bg-[#FFCD00] hover:bg-[#FACC15] text-[#0A1930] font-black text-xs sm:text-sm py-3 px-6 rounded-full shadow-xs flex items-center gap-2 transition-transform hover:scale-105 uppercase tracking-wider"
               >
-                JOIN THE LEAGUE
+                <span>REGISTER SCHOOL</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </button>
             )}
             {onNavigate && (
               <button
                 onClick={() => onNavigate('how-it-works')}
-                className="btn-pill-outline text-[11px] font-bold py-2 px-3 hidden sm:inline-flex items-center gap-1.5"
+                className="bg-white hover:bg-slate-50 text-[#0A1930] border border-slate-300 font-bold text-xs sm:text-sm py-3 px-5 rounded-full shadow-2xs transition-transform hover:scale-105 uppercase tracking-wider"
               >
-                <span>HOW IT WORKS</span>
-                <ArrowRight className="w-3 h-3" />
+                <span>PROGRAMME DETAILS</span>
               </button>
             )}
           </div>
         </div>
 
-        {/* Flowchart Progression Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-4 relative items-stretch">
-          {steps.map((step, idx) => {
-            const Icon = step.icon;
-            const isLast = idx === steps.length - 1;
+        {/* ── 3-STAGE PROGRESSION TIMELINE ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch relative">
+          {stages.map((stage, idx) => {
+            const Icon = stage.icon;
 
             return (
-              <React.Fragment key={step.stepNumber}>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.12 }}
-                  className={`relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between space-y-6 transition-all duration-300 border shadow-sm hover:shadow-md ${
-                    isLast
-                      ? 'bg-gradient-to-b from-[#0A1930] to-[#012544] text-white border-[#0A1930]'
-                      : 'bg-white text-[#0A1930] border-slate-200 hover:border-slate-300'
-                  }`}
-                >
-                  {/* Top Step Header */}
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-2.5">
-                        <div
-                          className={`w-10 h-10 rounded-2xl flex items-center justify-center ${
-                            isLast ? 'bg-[#FFCD00] text-[#0A1930]' : 'bg-[#F1F5F9] text-[#006AA7]'
-                          }`}
-                        >
-                          <Icon className="w-5 h-5" />
-                        </div>
-                        <span className={`text-[10px] font-mono-code font-bold px-2.5 py-1 rounded-full border uppercase tracking-wider ${
-                          isLast ? 'bg-white/10 text-[#FFCD00] border-[#FFCD00]/40' : step.accentBg
-                        }`}>
-                          {step.badge}
-                        </span>
-                      </div>
-
-                      <span className={`font-mono-code font-extrabold text-2xl tracking-tight opacity-30 ${
-                        isLast ? 'text-white' : 'text-[#0A1930]'
-                      }`}>
-                        {step.stepNumber}
+              <motion.div
+                key={stage.num}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.12 }}
+                className={`rounded-[28px] p-6 sm:p-8 flex flex-col justify-between space-y-6 transition-all duration-300 relative ${
+                  stage.isDark
+                    ? 'bg-[#0A1930] text-white border border-slate-800 shadow-xl'
+                    : 'bg-white text-[#0A1930] border border-slate-200/90 shadow-md hover:shadow-xl'
+                }`}
+              >
+                <div className="space-y-5">
+                  {/* Top Bar: Stage Number + Badge */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <span
+                        className={`font-mono-code font-black text-2xl sm:text-3xl ${
+                          stage.isDark ? 'text-[#FFCD00]' : 'text-[#006AA7]'
+                        }`}
+                      >
+                        {stage.num}
+                      </span>
+                      <span
+                        className={`text-[10px] font-mono-code font-bold px-2.5 py-1 rounded-full uppercase tracking-wider ${
+                          stage.isDark
+                            ? 'bg-white/10 text-[#FFCD00] border border-[#FFCD00]/30'
+                            : 'bg-sky-50 text-[#006AA7] border border-sky-200'
+                        }`}
+                      >
+                        {stage.badge}
                       </span>
                     </div>
 
-                    <div>
-                      <h3 className={`font-headline font-black text-xl sm:text-2xl uppercase tracking-tight leading-tight ${
-                        isLast ? 'text-white' : 'text-[#0A1930]'
-                      }`}>
-                        {step.title}
-                      </h3>
-                      <p className={`text-xs font-mono-code font-medium mt-1 tracking-wide ${
-                        isLast ? 'text-[#FFCD00]' : 'text-[#006AA7]'
-                      }`}>
-                        {step.subtitle}
-                      </p>
+                    <div
+                      className={`w-9 h-9 rounded-full flex items-center justify-center ${
+                        stage.isDark ? 'bg-white/10 text-[#FFCD00]' : 'bg-slate-100 text-[#006AA7]'
+                      }`}
+                    >
+                      <Icon className="w-4 h-4" />
                     </div>
+                  </div>
 
-                    <p className={`text-xs sm:text-sm font-light leading-relaxed ${
-                      isLast ? 'text-slate-300' : 'text-slate-600'
-                    }`}>
-                      {step.description}
+                  {/* Stage Title & Tagline */}
+                  <div>
+                    <h3
+                      className={`font-headline font-black text-xl sm:text-2xl uppercase tracking-tight ${
+                        stage.isDark ? 'text-white' : 'text-[#0A1930]'
+                      }`}
+                    >
+                      {stage.title}
+                    </h3>
+                    <p
+                      className={`text-xs font-mono-code font-bold mt-1 uppercase tracking-wider ${
+                        stage.isDark ? 'text-[#FFCD00]' : 'text-[#006AA7]'
+                      }`}
+                    >
+                      {stage.tagline}
                     </p>
                   </div>
 
-                  {/* Features List */}
-                  <div className={`p-4 rounded-2xl space-y-2 border text-xs font-mono-code ${
-                    isLast ? 'bg-white/5 border-white/10 text-slate-200' : 'bg-slate-50 border-slate-200 text-slate-700'
-                  }`}>
-                    {step.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-start gap-2">
-                        <span className={`text-xs mt-0.5 ${isLast ? 'text-[#FFCD00]' : 'text-[#006AA7]'}`}>▸</span>
-                        <span className="leading-snug">{feat}</span>
+                  {/* Stage Narrative Description */}
+                  <p
+                    className={`text-xs sm:text-sm font-light leading-relaxed ${
+                      stage.isDark ? 'text-slate-300' : 'text-slate-600'
+                    }`}
+                  >
+                    {stage.description}
+                  </p>
+                </div>
+
+                {/* Technical Metric Modules (Real Info as Design) */}
+                <div className="space-y-4 pt-2">
+                  <div
+                    className={`grid grid-cols-3 gap-2 p-3 rounded-2xl border font-mono-code ${
+                      stage.isDark
+                        ? 'bg-[#061224] border-white/10 text-white'
+                        : 'bg-[#F8FAFC] border-slate-100 text-[#0A1930]'
+                    }`}
+                  >
+                    {stage.specs.map((spec) => (
+                      <div key={spec.label} className="space-y-0.5">
+                        <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider block">
+                          {spec.label}
+                        </span>
+                        <span className="text-[11px] font-bold block truncate">
+                          {spec.value}
+                        </span>
                       </div>
                     ))}
                   </div>
 
-                  {/* Timing & Connector */}
-                  <div className={`pt-3 border-t flex items-center justify-between text-xs font-mono-code font-bold ${
-                    isLast ? 'border-white/10 text-[#FFCD00]' : 'border-slate-100 text-slate-500'
-                  }`}>
+                  {/* Timing Footer Ribbon */}
+                  <div
+                    className={`pt-3 border-t flex items-center justify-between text-xs font-mono-code font-bold ${
+                      stage.isDark ? 'border-white/10 text-[#FFCD00]' : 'border-slate-100 text-slate-500'
+                    }`}
+                  >
                     <div className="flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5 opacity-80" />
-                      <span className="text-[11px] tracking-wide">{step.timing}</span>
+                      <span className="text-[11px] uppercase tracking-wider">{stage.timing}</span>
                     </div>
 
-                    {!isLast && (
-                      <span className="hidden lg:inline-flex items-center text-[#006AA7] text-[11px] gap-1 font-bold">
-                        <span>NEXT</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
+                    {idx < stages.length - 1 && (
+                      <span className="hidden lg:inline text-[10px] text-slate-400 uppercase tracking-widest font-normal">
+                        STEP {idx + 1} OF 3
+                      </span>
+                    )}
+                    {stage.isDark && (
+                      <span className="text-[10px] text-[#FFCD00] uppercase tracking-widest font-bold">
+                        GRAND FINALE
                       </span>
                     )}
                   </div>
-                </motion.div>
-
-                {/* Mobile/Tablet Down Indicator */}
-                {!isLast && (
-                  <div className="lg:hidden flex items-center justify-center -my-2 text-slate-400">
-                    <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-xs">
-                      <ArrowDown className="w-4 h-4 text-[#006AA7]" />
-                    </div>
-                  </div>
-                )}
-              </React.Fragment>
+                </div>
+              </motion.div>
             );
           })}
+        </div>
+
+        {/* ── SECTION FOOTER ── */}
+        <div className="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-xs font-mono-code uppercase font-semibold">
+          <span>PATHWAY: CLASSROOM (20H) ⟶ LOCAL QUALIFIER ⟶ VÄSTERÅS FINALS</span>
+          <span>DECEMBER 4 & 5, 2026 · LIVE AUDIENCE EVENT</span>
         </div>
 
       </div>

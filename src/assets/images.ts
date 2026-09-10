@@ -31,7 +31,7 @@ import cardRoverSprint from './card_rover_sprint.jpg';
 import cardRoverAdvanced from './card_rover_advanced.jpg';
 import cardRobotQuiz from './card_robot_quiz.jpg';
 import kitRoverOfficial from './kit_rover_official.jpg';
-import arenaCourtReference from './arena_court_reference.png';
+import arenaCourtReference from './arena_court_hd.jpg';
 import cadBlueprintReference from './cad_blueprint_reference.png';
 import ecosystemRobotTop from './ecosystem_robot_top.png';
 

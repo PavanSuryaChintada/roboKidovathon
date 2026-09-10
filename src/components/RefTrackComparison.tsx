@@ -108,27 +108,15 @@ export const RefTrackComparison: React.FC<RefTrackComparisonProps> = ({
     <section id="competition-tracks" className="w-full bg-[#F4F8FB] text-[#0A1930] py-16 sm:py-20 px-4 sm:px-8 lg:px-12 select-none relative overflow-hidden">
       
       {/* ── TECHNICAL BLUEPRINT GRID BACKGROUND ── */}
-      <div className="absolute inset-0 pointer-events-none opacity-40">
+      <div className="absolute inset-0 pointer-events-none opacity-30">
         <div
           className="w-full h-full"
           style={{
             backgroundImage:
-              'linear-gradient(to right, #006AA710 1px, transparent 1px), linear-gradient(to bottom, #006AA710 1px, transparent 1px)',
+              'linear-gradient(to right, #006AA70F 1px, transparent 1px), linear-gradient(to bottom, #006AA70F 1px, transparent 1px)',
             backgroundSize: '48px 48px',
           }}
         />
-      </div>
-
-      {/* Atmospheric Radial Glow behind Cards */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-sky-100/50 rounded-full blur-3xl pointer-events-none" />
-
-      {/* Background Dot Matrix Accent */}
-      <div className="absolute top-12 left-6 pointer-events-none opacity-30 hidden sm:block">
-        <div className="grid grid-cols-3 gap-2">
-          {Array.from({ length: 15 }).map((_, i) => (
-            <span key={i} className="w-1.5 h-1.5 rounded-full bg-[#006AA7]" />
-          ))}
-        </div>
       </div>
 
       <div className="max-w-[1440px] mx-auto space-y-10 relative z-10">
@@ -331,8 +319,8 @@ export const RefTrackComparison: React.FC<RefTrackComparisonProps> = ({
 
         {/* ── SECTION FOOTER RIBBON ── */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-200 text-[11px] font-mono-code text-slate-500 font-bold uppercase tracking-widest">
-          <span>VÄSTERÅS FUTURE INNOVATORS 2026</span>
-          <span className="hidden sm:inline">STUDENTS  ×  ROBOTS  ×  BRIGHTER TOMORROWS</span>
+          <span>VÄSTERÅS FUTURE INNOVATORS 2026 · OFFICIAL COMPETITION LEAGUE</span>
+          <span className="hidden sm:inline">DECEMBER 4 & 5, 2026 · STANDARDIZED LGR22 FORMAT</span>
         </div>
 
       </div>

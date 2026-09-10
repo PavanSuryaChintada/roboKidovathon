@@ -40,6 +40,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navLinks = [
     { id: 'challenges', label: 'Competition' },
+    { id: 'workflow', label: 'Workflow' },
     { id: 'events', label: 'Events' },
     { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' },

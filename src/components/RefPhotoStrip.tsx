@@ -97,11 +97,11 @@ export const RefPhotoStrip: React.FC = () => {
     : additionalPhotos.filter((p) => p.cat === activeCategory);
 
   return (
-    <section className="w-full bg-white text-[#0A1930] py-28 px-6 sm:px-10 border-t border-slate-200 overflow-hidden">
-      <div className="max-w-[1440px] mx-auto space-y-12">
+    <section className="w-full bg-white text-[#0A1930] py-16 sm:py-20 px-4 sm:px-8 lg:px-12 border-t border-slate-200 overflow-hidden select-none">
+      <div className="max-w-[1440px] mx-auto space-y-10">
 
         {/* ── SECTION HEADER ── */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-2">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -116,11 +116,10 @@ export const RefPhotoStrip: React.FC = () => {
               </span>
             </div>
             <h2
-              className="font-headline font-black uppercase tracking-tight leading-[1.02]"
-              style={{ fontSize: 'clamp(3.2rem, 7vw, 6.5rem)' }}
+              className="font-headline font-black uppercase tracking-tight text-[#0A1930] leading-[1.02]"
+              style={{ fontSize: 'clamp(2.4rem, 5.2vw, 4.2rem)' }}
             >
-              <span className="text-stroke block">TOURNAMENT</span>
-              <span className="text-[#0A1930] block">HIGHLIGHTS</span>
+              TOURNAMENT <span className="text-[#006AA7]">HIGHLIGHTS</span>
             </h2>
           </motion.div>
 

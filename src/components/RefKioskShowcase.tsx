@@ -43,11 +43,6 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
         />
       </div>
 
-      {/* Decorative Technical Crosshairs & Matrix Dots */}
-      <div className="absolute top-10 left-6 text-sky-400/40 font-mono-code text-xs tracking-widest hidden md:block select-none pointer-events-none">
-        ::: 59.6099° N, 16.5448° E // VÄSTERÅS TECH CAMPUS
-      </div>
-
       <div className="max-w-[1400px] mx-auto space-y-10 relative z-10">
 
         {/* ── SECTION HERO HEADER ── */}
@@ -57,7 +52,7 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
             {/* Left Column: Heading & Description */}
             <div className="space-y-3 max-w-2xl relative z-10">
               <span className="text-[11px] sm:text-xs font-mono-code font-bold tracking-[0.25em] text-[#006AA7] uppercase block">
-                SCHOOL ROBOTICS ECOSYSTEM // PORTABLE SETUP
+                ROBOTICS ECOSYSTEM // FROM CLASSROOM TO ARENA
               </span>
 
               <div className="relative inline-block">
@@ -73,13 +68,13 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
               </p>
             </div>
 
-            {/* Right Handwritten Annotation */}
-            <div className="hidden sm:flex items-center pb-2">
-              <span className="font-handwriting text-xl sm:text-2xl font-bold text-sky-600 -rotate-3 whitespace-nowrap">
-                Same Classrooms.
-                <br />
-                <span className="text-[#006AA7]">Bigger Innovators.</span>
-              </span>
+            {/* Right: Ecosystem 3-Step Progression Strip */}
+            <div className="hidden sm:flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-mono-code shadow-xs self-start lg:self-end">
+              <span className="text-[#006AA7] font-bold">01 BUILD</span>
+              <span className="text-slate-300 font-bold">⟶</span>
+              <span className="text-slate-600 font-bold">02 TEST</span>
+              <span className="text-slate-300 font-bold">⟶</span>
+              <span className="text-[#0A1930] font-black">03 COMPETE</span>
             </div>
 
           </div>
@@ -106,21 +101,35 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
               {/* Header: Pill Tag + Card Number */}
               <div className="flex items-center justify-between">
                 <span className="text-[10px] sm:text-[11px] font-mono-code font-bold px-3 py-1 rounded-full bg-[#E0F2FE] text-[#006AA7] border border-[#BAE6FD] uppercase tracking-wider">
-                  ROBO SPRINT // CLASSROOM BUILD
+                  PHASE 01: BUILD // CLASSROOM HARDWARE KIT
                 </span>
                 <span className="text-xs font-mono-code text-slate-400 font-bold tracking-wider">
                   CARD 01
                 </span>
               </div>
 
-              {/* Title & Technical Subtitle */}
-              <div>
-                <h3 className="font-headline font-black text-2xl sm:text-3xl text-[#0A1930] uppercase tracking-tight">
-                  ROBO-SPRINT HARDWARE KIT
-                </h3>
-                <p className="text-xs font-mono-code text-[#006AA7] font-bold mt-1 uppercase tracking-wider">
-                  TURNKEY CLASSROOM DELIVERY • SAFE 6V DC
-                </p>
+              {/* Title & Technical Subtitle + Handwritten Annotation */}
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="font-headline font-black text-2xl sm:text-3xl text-[#0A1930] uppercase tracking-tight">
+                    ROBO-SPRINT HARDWARE KIT
+                  </h3>
+                  <p className="text-xs font-mono-code text-[#006AA7] font-bold mt-1 uppercase tracking-wider">
+                    TURNKEY CLASSROOM DELIVERY • SAFE 6V DC
+                  </p>
+                </div>
+
+                {/* Handwritten Annotation - Positioned cleanly in header, completely away from image */}
+                <div className="hidden sm:block text-right shrink-0">
+                  <span className="font-handwriting text-base font-bold text-[#006AA7] -rotate-6 inline-block leading-tight">
+                    From Parts to
+                    <br />
+                    Possibilities
+                  </span>
+                  <svg className="w-8 h-4 text-[#006AA7] ml-auto mt-0.5" viewBox="0 0 30 15" fill="none">
+                    <path d="M5 2 C 15 1, 22 8, 25 12 M 25 12 L 20 12 M 25 12 L 24 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
               </div>
 
               {/* Description */}
@@ -169,31 +178,15 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
 
                 </div>
 
-                {/* Right: Rover Hardware Composition */}
-                <div className="sm:col-span-5 relative flex flex-col items-center justify-center">
-                  
-                  {/* Handwritten Annotation */}
-                  <div className="absolute -top-5 right-2 text-right">
-                    <span className="font-handwriting text-sm sm:text-base font-bold text-[#006AA7] -rotate-6 inline-block leading-tight">
-                      From Parts to
-                      <br />
-                      Possibilities
-                    </span>
-                    <svg className="w-8 h-4 text-[#006AA7] ml-auto mt-0.5" viewBox="0 0 30 15" fill="none">
-                      <path d="M5 2 C 15 1, 22 8, 25 12 M 25 12 L 20 12 M 25 12 L 24 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
-
-                  {/* Robot Hero on Circular Blue Glow */}
-                  <div className="relative w-full max-w-[210px] aspect-square flex items-center justify-center pt-3">
-                    <div className="absolute inset-2 rounded-full bg-sky-100/70 blur-md pointer-events-none" />
+                {/* Right: Clean Rover Visual Area with NO overlapping text */}
+                <div className="sm:col-span-5 relative flex items-center justify-center">
+                  <div className="relative w-full max-w-[240px] aspect-square flex items-center justify-center">
                     <img
                       src={kitRoverOfficial}
                       alt="Official Robo-Sprint Hardware Competition Rover"
-                      className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-105 drop-shadow-md"
+                      className="w-full h-full object-contain mix-blend-multiply drop-shadow-md transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-
                 </div>
 
               </div>
@@ -252,7 +245,7 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
               {/* Header: Eyebrow + Card Number */}
               <div className="flex items-center justify-between">
                 <span className="text-[10px] sm:text-[11px] font-mono-code font-bold tracking-widest text-[#FFCD00] uppercase">
-                  ARENA SPECIFICATION // MODEL 2026.1
+                  PHASE 02: COMPETE // OFFICIAL TOURNAMENT ARENA
                 </span>
                 <span className="text-xs font-mono-code text-slate-400 font-bold tracking-wider">
                   CARD 02
@@ -270,7 +263,7 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
                   </p>
                 </div>
 
-                {/* Handwritten Annotation */}
+                {/* Handwritten Annotation - In header area, pointing down to arena */}
                 <div className="hidden sm:block text-right shrink-0">
                   <span className="font-handwriting text-base font-bold text-sky-400 -rotate-6 inline-block leading-tight">
                     Real Challenges.
@@ -286,16 +279,13 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
               {/* Main Centerpiece: 3D Arena Court + Right Feature Badges */}
               <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
                 
-                {/* 3D Isometric CAD Arena Model */}
-                <div className="sm:col-span-8 relative rounded-2xl overflow-hidden bg-white/5 border border-white/10 p-2 group-hover:border-sky-500/40 transition-colors">
+                {/* 3D Isometric CAD Arena Model - Clean, HD, No overlapping badges */}
+                <div className="sm:col-span-8 relative rounded-2xl overflow-hidden bg-[#0A1930] border border-white/10 p-1 group-hover:border-sky-500/40 transition-colors">
                   <img
                     src={arenaCourtReference}
                     alt="Official 244cm x 122cm Dual-Court Competition Arena"
-                    className="w-full h-auto max-h-[175px] object-contain mx-auto transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-auto max-h-[190px] object-contain mx-auto transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute top-2.5 left-2.5 bg-[#0A1930]/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-mono-code font-bold text-[#FFCD00] uppercase border border-white/10 shadow">
-                    Official Roll-Out Metric Mat
-                  </div>
                 </div>
 
                 {/* Right: 4 High-Tech Spec Badges */}
@@ -367,7 +357,7 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
                 </button>
               </div>
 
-              {/* Handwritten Annotation on Bottom-Right */}
+              {/* Handwritten note matching reference */}
               <div className="hidden sm:block">
                 <span className="font-handwriting text-sm font-bold text-sky-400 tracking-wide">
                   SAME ARENA. BIGGER DREAMS.
@@ -380,9 +370,9 @@ export const RefKioskShowcase: React.FC<RefKioskShowcaseProps> = ({
         </div>
 
         {/* ── SECTION FOOTER STRIP ── */}
-        <div className="pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-400 text-xs font-mono-code uppercase font-semibold">
-          <span>COMPETITION CATEGORIES // 2026 EDITION</span>
-          <span>STUDENTS × ROBOTS × BRIGHTER TOMORROWS</span>
+        <div className="pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-xs font-mono-code uppercase font-semibold">
+          <span>STANDARDIZED LGR22 EQUIPMENT</span>
+          <span>ZERO SCHOOL LAB PREREQUISITES · ALL HARDWARE SUPPLIED</span>
         </div>
 
       </div>
