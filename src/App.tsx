@@ -1,14 +1,10 @@
 import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { RefHero } from './components/RefHero';
-import { RefSlushCountdown } from './components/RefSlushCountdown';
-import { RefManifesto } from './components/RefManifesto';
-import { RefSpecialAdvisory } from './components/RefSpecialAdvisory';
-import { RefTheExperience } from './components/RefTheExperience';
+import { RefHeroMarquee } from './components/RefHeroMarquee';
+import { RefTrackComparison } from './components/RefTrackComparison';
 import { RefKioskShowcase } from './components/RefKioskShowcase';
-import { RefSkillPills } from './components/RefSkillPills';
 import { RefPhotoStrip } from './components/RefPhotoStrip';
-import { RefTapeBanner } from './components/RefTapeBanner';
 import { RefTrendingCards } from './components/RefTrendingCards';
 import { RefWorkshopTapeBanner } from './components/RefWorkshopTapeBanner';
 import { RefFooter } from './components/RefFooter';
@@ -36,7 +32,7 @@ export function App() {
   return (
     <div className="min-h-screen bg-white text-[#0A1930] font-sans selection:bg-[#FFCD00] selection:text-[#0A1930] relative overflow-x-hidden">
       
-      {/* ── 0. Floating Minimal Header with Neon Pill Button ── */}
+      {/* ── 0. Floating Responsive Header ── */}
       <Navbar
         activeTab={currentRoute}
         onNavigate={handleNavigate}
@@ -47,54 +43,37 @@ export function App() {
       <main className="w-full">
         {currentRoute === 'home' && (
           <>
-            {/* 01. Hero: Split Headline + 3x3 Staggered Pill Bento Gallery */}
+            {/* 01. Hero: Editorial Headline + Subtext + Primary/Secondary CTAs */}
             <RefHero
-              onNavigate={handleNavigate}
-            />
-
-            {/* 01.5 Slush-style Dedicated Full-Width Countdown Banner */}
-            <RefSlushCountdown onOpenRegister={() => setIsRegisterOpen(true)} />
-
-            {/* 02. Manifesto: MAKE ROBOTICS [avatar] THE EXPERIENCE [avatar] + Logos + Reel */}
-            <RefManifesto onNavigate={handleNavigate} />
-
-            {/* 02.5 Special Advisory: Ambassador launch, framework, competition structure, kit list */}
-            <RefSpecialAdvisory />
-
-            {/* 03. THE [Outline] EXPERIENCE [Solid] + 3 Angled Poster Cards + Coral Split Banner */}
-            <RefTheExperience
               onNavigate={handleNavigate}
               onOpenRegister={() => setIsRegisterOpen(true)}
             />
 
-            {/* 04. DESIGN, CREATE & CONNECT + Vertical Kiosk Screen Mockup */}
+            {/* 02. Trusted Partners Marquee */}
+            <RefHeroMarquee />
+
+            {/* 03. Competition Track Comparison: Explorer vs Advanced vs Precision */}
+            <RefTrackComparison
+              onNavigate={handleNavigate}
+              onOpenRegister={() => setIsRegisterOpen(true)}
+            />
+
+            {/* 04. Arena & Build Setup: Metric Measurements (244 x 122 cm) */}
             <RefKioskShowcase
               onNavigate={handleNavigate}
               onOpenRegister={() => setIsRegisterOpen(true)}
             />
 
-            {/* 05. CHAMPIONSHIP SKILLS + Colorful Neon Pill Cloud */}
-            <RefSkillPills
-              onNavigate={handleNavigate}
-              onOpenRegister={() => setIsRegisterOpen(true)}
-            />
-
-            {/* 06. TOURNAMENT [Outline] HIGHLIGHTS [Solid] + 7-Column Tall Vertical Photo Ribbon */}
+            {/* 05. Tournament Highlights & Real Action Photo Reel */}
             <RefPhotoStrip />
 
-            {/* 07. SCANDINAVIAN ON-SITE ROBOTICS LEAGUE Graphic Tape Banner */}
-            <RefTapeBanner
-              onOpenRegister={() => setIsRegisterOpen(true)}
-              onNavigate={handleNavigate}
-            />
-
-            {/* 08. WHAT'S [Solid] TRENDING [Outline] + 3-Column News/Insights Cards */}
+            {/* 06. Useful Educator & Competitor Resources */}
             <RefTrendingCards
               onNavigate={handleNavigate}
               onOpenRegister={() => setIsRegisterOpen(true)}
             />
 
-            {/* 09. Clean, High-Impact Pre-Footer CTA Banner */}
+            {/* 10. Main Conversion Anchor: Bring Hands-On STEM to Your School */}
             <RefWorkshopTapeBanner
               onOpenRegister={() => setIsRegisterOpen(true)}
               onOpenDeckModal={() => setIsDeckOpen(true)}
@@ -148,7 +127,7 @@ export function App() {
         )}
       </main>
 
-      {/* ── Master Dark Footer ── */}
+      {/* ── Master Dark Footer with Verified Contacts ── */}
       <RefFooter
         onNavigate={handleNavigate}
         onOpenRegister={() => setIsRegisterOpen(true)}

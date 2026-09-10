@@ -1,13 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useCountdown } from '../hooks/useCountdown';
+import { Calendar, Trophy, ArrowRight } from 'lucide-react';
 
 interface RefSlushCountdownProps {
   onOpenRegister?: () => void;
 }
 
 export const RefSlushCountdown: React.FC<RefSlushCountdownProps> = ({ onOpenRegister }) => {
-  const countdown = useCountdown('2026-11-13T23:59:59+01:00');
+  // Verifiable Grand Finale Date: Friday, November 13, 2026
+  const countdown = useCountdown('2026-11-13T09:00:00+01:00');
 
   const units = [
     { value: countdown.days, label: 'DAYS' },
@@ -17,25 +19,28 @@ export const RefSlushCountdown: React.FC<RefSlushCountdownProps> = ({ onOpenRegi
   ];
 
   return (
-    <section className="w-full bg-white py-10 sm:py-16 px-4 sm:px-6 select-none">
-      <div className="max-w-[960px] mx-auto">
+    <section className="w-full bg-white py-12 sm:py-16 px-4 sm:px-6 select-none">
+      <div className="max-w-[980px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="w-full bg-[#F2F6FA] border border-slate-200 rounded-2xl sm:rounded-3xl py-10 sm:py-12 px-6 sm:px-12 text-center shadow-sm flex flex-col items-center justify-center space-y-6"
+          className="w-full bg-[#F8FAFC] border border-slate-200 rounded-3xl py-10 sm:py-12 px-6 sm:px-12 text-center shadow-sm flex flex-col items-center justify-center space-y-6"
         >
           {/* Top Label */}
-          <span className="text-xs sm:text-sm font-sans font-medium text-slate-600 tracking-wide">
-            RoboKidovation Västerås · Robo-Sprint City Final, November 13, 2026
-          </span>
+          <div className="flex items-center gap-2 text-slate-600">
+            <Calendar className="w-4 h-4 text-[#006AA7]" />
+            <span className="text-xs sm:text-sm font-sans font-medium tracking-wide">
+              RoboKidovation Västerås · Grand Finale · Friday, November 13, 2026
+            </span>
+          </div>
 
           {/* Horizontal numbers with side labels */}
-          <div className="grid grid-cols-4 gap-2 sm:flex sm:items-center sm:justify-center sm:gap-10 md:gap-16 pt-2 w-full max-w-sm sm:max-w-none">
+          <div className="grid grid-cols-4 gap-3 sm:flex sm:items-center sm:justify-center sm:gap-10 md:gap-14 pt-1 w-full max-w-sm sm:max-w-none">
             {countdown.isExpired ? (
               <span className="col-span-4 font-headline font-black text-2xl sm:text-4xl text-[#0A1930] tracking-tight leading-none uppercase">
-                It's Grand Finale day!
+                Grand Finale is underway!
               </span>
             ) : (
               units.map((unit) => (
@@ -51,17 +56,23 @@ export const RefSlushCountdown: React.FC<RefSlushCountdownProps> = ({ onOpenRegi
             )}
           </div>
 
-          {/* Flashing urgency CTA */}
-          {!countdown.isExpired && (
-            <motion.button
+          {/* Milestone context & real action CTA */}
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-md">
+            <div className="text-[11px] font-mono-code text-slate-500 flex items-center gap-1.5">
+              <Trophy className="w-3.5 h-3.5 text-[#006AA7]" />
+              <span>School Qualifiers: October 2026</span>
+            </div>
+
+            <span className="hidden sm:inline text-slate-300">•</span>
+
+            <button
               onClick={onOpenRegister}
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-              className="flash-cta inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-headline font-black text-xs sm:text-sm tracking-wider uppercase shadow-md cursor-pointer"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-syne font-black text-xs sm:text-sm uppercase tracking-wider bg-[#FFCD00] hover:bg-[#E6B800] text-[#0A1930] transition-all shadow-md cursor-pointer"
             >
-              <span>Registration closing soon</span>
-            </motion.button>
-          )}
+              <span>REGISTER SCHOOL / TEAM</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>
