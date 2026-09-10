@@ -31,18 +31,21 @@ export const RefHero: React.FC<RefHeroProps> = ({
     <section className="relative w-full h-screen min-h-[640px] flex flex-col justify-end overflow-hidden select-none bg-[#070709]">
 
       {/* ── FULL-SCREEN BACKGROUND VIDEO ── */}
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster={roboPrecisionActionWide}
-        className="absolute inset-0 w-full h-full object-cover z-0"
-        style={{ objectPosition: 'center 30%' }}
-      >
-        <source src={HERO_VIDEO_URL} type="video/mp4" />
-      </video>
+      {/* Wrapper clips letterbox bars; scale(1.38) pushes baked-in 132px black bars out of view */}
+      <div className="absolute inset-0 z-0 overflow-hidden bg-black">
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={roboPrecisionActionWide}
+          className="w-full h-full object-cover scale-[1.38] origin-center"
+          style={{ transform: 'scale(1.38)', transformOrigin: 'center center' }}
+        >
+          <source src={HERO_VIDEO_URL} type="video/mp4" />
+        </video>
+      </div>
 
       {/* ── GRADIENT SCRIM ── */}
       <div className="absolute inset-0 z-[1] pointer-events-none">
