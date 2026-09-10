@@ -3,8 +3,25 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY — check your .env file.');
+export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
+
+if (!isSupabaseConfigured) {
+  console.warn(
+    '[Supabase] Missing VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY. Running with safe mock client for preview.'
+  );
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+const mockClient = {
+  from: (_table: string) => ({
+    insert: async (_data: any) => {
+      console.log(`[Supabase Mock] Insert into ${_table}:`, _data);
+      return { data: null, error: null };
+    },
+    select: async () => ({ data: [], error: null }),
+  }),
+};
+
+export const supabase: any = isSupabaseConfigured
+  ? createClient(supabaseUrl!, supabaseAnonKey!)
+  : mockClient;
+
