@@ -32,7 +32,7 @@ export const RefSlushCountdown: React.FC<RefSlushCountdownProps> = ({ onOpenRegi
           <div className="flex items-center gap-2 text-slate-600">
             <Calendar className="w-4 h-4 text-[#006AA7]" />
             <span className="text-xs sm:text-sm font-sans font-medium tracking-wide">
-              RoboKidovation Västerås · Grand Finale · Friday, November 13, 2026
+              Västerås Future Innovators 2026 · Grand Finale · Friday, November 13, 2026
             </span>
           </div>
 

@@ -77,7 +77,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   : 'text-white group-hover:text-[#FFCD00]'
               }`}
             >
-              ROBOKIDOVATION <span className="font-light text-xs text-slate-400">VÄSTERÅS</span>
+              VÄSTERÅS FUTURE INNOVATORS <span className="font-light text-xs text-slate-400">2026</span>
             </span>
           </button>
 

@@ -103,7 +103,7 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({
           </h1>
 
           <p className="mt-4 text-sm sm:text-base text-slate-600 font-light max-w-2xl leading-relaxed">
-            RoboKidovation begins with a practical in-school STEM programme where students understand how a working robot is engineered from the ground up — then build, test, and optimize their own machine for the arena challenge.
+            Västerås Future Innovators begins with a practical in-school STEM programme where students understand how a working robot is engineered from the ground up — then build, test, and optimize their own machine for the arena challenge.
           </p>
         </motion.div>
 

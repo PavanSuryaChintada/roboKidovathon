@@ -44,7 +44,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     id: 'faq-2',
     category: 'Eligibility & Grades',
-    question: 'Which grades can participate in RoboKidovation?',
+    question: 'Which grades can participate in Västerås Future Innovators 2026?',
     answer: 'Robo-Sprint Explorer is designed for Grades 4–6 (Grundskola). Robo-Sprint Advanced is for Grades 7–9. The Robo-Precision autonomous challenge is structured for Gymnasium and upper-level students.',
   },
   {

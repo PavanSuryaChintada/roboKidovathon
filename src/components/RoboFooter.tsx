@@ -121,7 +121,7 @@ export const RoboFooter: React.FC<RoboFooterProps> = ({ onNavigate, onOpenFaq })
         {/* Bottom Legal / Compliance */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono-code text-slate-500">
           <div>
-            © 2026 ROBO-KIDO-A-THON / ROBO-KIDOVATION LEAGUE. ALL RIGHTS RESERVED.
+            © 2026 VÄSTERÅS FUTURE INNOVATORS. ALL RIGHTS RESERVED.
           </div>
           <div className="flex items-center gap-4">
             <span>SWEDISH CURRICULUM ALIGNED</span>

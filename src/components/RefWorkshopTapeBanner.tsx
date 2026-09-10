@@ -34,7 +34,7 @@ export const RefWorkshopTapeBanner: React.FC<RefWorkshopTapeBannerProps> = ({
               <span className="text-[#006AA7]">TO YOUR SCHOOL</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed max-w-xl mx-auto pt-2">
-              Start with a workshop, run a 20-hour STEM project, or prepare a school team for RoboKidovation.
+              Start with a workshop, run a 20-hour STEM project, or prepare a school team for Västerås Future Innovators 2026.
             </p>
           </div>
 
