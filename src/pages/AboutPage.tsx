@@ -48,7 +48,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           </h1>
 
           <p className="mt-4 text-sm sm:text-base text-slate-600 font-light max-w-2xl leading-relaxed">
-            INIAC's hands-on STEM programme and RoboKidovation competition pathway for students in Västerås — turning STEM concepts into something students can build, test, improve, and compete with.
+            INIAC's hands-on STEM programme and Västerås Future Innovators competition pathway for students in Västerås — turning STEM concepts into something students can build, test, improve, and compete with.
           </p>
         </motion.div>
 
@@ -68,7 +68,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             </h2>
 
             <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
-              RoboKidovation Västerås is organized by Indisk BarnKlubb (IBK) Västerås alongside INIAC as programme and pedagogy partner, and SkillSkolan as education delivery partner, with Blix supplying the reusable hardware kit as technology partner.
+              Västerås Future Innovators 2026 is organized by Indisk BarnKlubb (IBK) Västerås alongside INIAC as programme and pedagogy partner, and SkillSkolan as education delivery partner, with Blix supplying the reusable hardware kit as technology partner.
             </p>
 
             <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
@@ -122,7 +122,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <span className="text-[10px] font-mono-code font-bold text-[#FFCD00] uppercase block mb-1">
-                  ROBOKIDOVATION VÄSTERÅS · 2026 EDITION
+                  VÄSTERÅS FUTURE INNOVATORS · 2026 EDITION
                 </span>
                 <span className="font-headline font-bold text-lg text-white uppercase">
                   Bringing Schools Together Through Robotics

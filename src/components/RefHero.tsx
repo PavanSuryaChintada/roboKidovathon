@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { roboPrecisionActionWide } from '../assets/images';
 
+const HERO_VIDEO_URL = 'https://res.cloudinary.com/joeek52k/video/upload/v1789013088/Blix-A-Thon_2nd_Edition_IIT_Bombay_Techfest___Blix_Robotix_1080P_60FPS.mp4';
+
 interface RefHeroProps {
   onNavigate: (route: string) => void;
   onOpenRegister: () => void;
@@ -15,54 +17,44 @@ export const RefHero: React.FC<RefHeroProps> = ({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch((err) => {
-        console.log('Video autoplay error:', err);
-      });
-    }
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Skip to competition/arena footage — avoids the opening person close-up
+    video.currentTime = 90;
+    video.play().catch((err) => {
+      console.log('Video autoplay error:', err);
+    });
   }, []);
 
   return (
-    <section className="relative w-full h-screen min-h-[640px] flex flex-col justify-between pt-28 pb-8 sm:pb-10 px-4 sm:px-8 md:px-12 lg:px-16 overflow-hidden select-none bg-[#070709]">
+    <section className="relative w-full h-screen min-h-[640px] flex flex-col justify-end overflow-hidden select-none bg-[#070709]">
 
-      {/* ── FULL VIEWPORT BACKGROUND VIDEO (z-0) ── */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+      {/* ── FULL-SCREEN BACKGROUND VIDEO ── */}
+      {/* Wrapper clips letterbox bars; scale(1.38) pushes baked-in 132px black bars out of view */}
+      <div className="absolute inset-0 z-0 overflow-hidden bg-black">
         <video
           ref={videoRef}
           autoPlay
           loop
-          muted={isMuted}
+          muted
           playsInline
           poster={roboPrecisionActionWide}
-          className="w-full h-full object-cover scale-[1.36] origin-center"
+          className="w-full h-full object-cover scale-[1.38] origin-center"
+          style={{ transform: 'scale(1.38)', transformOrigin: 'center center' }}
         >
-          <source src="/blix_hero.mp4" type="video/mp4" />
+          <source src={HERO_VIDEO_URL} type="video/mp4" />
         </video>
+      </div>
 
-        {/* ── CINEMATIC BALANCED OVERLAYS (z-[1]) ── */}
-        <div className="absolute inset-0 bg-black/35 pointer-events-none z-[1]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/60 pointer-events-none z-[1]" />
-
-        {/* ── AMBIENT LIVE AUDIO TOGGLE (z-[2]) ── */}
-        <div className="absolute top-28 right-4 sm:right-8 z-[2]">
-          <button
-            onClick={toggleSound}
-            aria-label={isMuted ? 'Enable video audio' : 'Mute video audio'}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/15 text-white text-[11px] font-mono-code transition-all"
-          >
-            {isMuted ? (
-              <>
-                <VolumeX className="w-3.5 h-3.5 text-slate-400" />
-                <span className="hidden sm:inline text-slate-300">SOUND OFF</span>
-              </>
-            ) : (
-              <>
-                <Volume2 className="w-3.5 h-3.5 text-[#FFCD00]" />
-                <span className="hidden sm:inline text-[#FFCD00] font-bold">ARENA AUDIO ON</span>
-              </>
-            )}
-          </button>
-        </div>
+      {/* ── GRADIENT SCRIM ── */}
+      <div className="absolute inset-0 z-[1] pointer-events-none">
+        {/* Strong left fade — keeps headline readable over any video content */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/10" />
+        {/* Bottom-up fade — grounds the content block */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+        {/* Top vignette — softens the navbar edge */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/40 to-transparent" />
       </div>
 
       {/* ── CONTENT: pinned to bottom of screen ── */}

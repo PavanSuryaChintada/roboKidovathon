@@ -317,7 +317,7 @@ export const ROADMAP_STEPS: RoadmapStep[] = [
     stepNumber: '05',
     tag: 'STAGE 05 // CELEBRATE',
     title: 'CELEBRATE',
-    subtitle: 'RoboKidovation Västerås Robo-Sprint City Final',
+    subtitle: 'Västerås Future Innovators — Robo-Sprint City Final',
     description: 'Qualifying teams face off at the Robo-Sprint City Final on November 13, 2026 — an inter-school competition and innovation showcase with SEK 3,000 in prizes, trophies, and certificates.',
     isMilestone: true,
     badge: 'GRAND FINALE'
@@ -339,7 +339,7 @@ export const CHAMPIONSHIP_STAGES: ChampionshipStage[] = [
   {
     stageNumber: '02',
     stageCode: 'STAGE 02',
-    title: 'ROBOKIDOVATION VÄSTERÅS ROBO-SPRINT CITY FINAL',
+    title: 'VÄSTERÅS FUTURE INNOVATORS ROBO-SPRINT CITY FINAL',
     subtitle: 'INTER-SCHOOL COMPETITION & SHOWCASE',
     date: 'FRIDAY, NOVEMBER 13, 2026',
     location: 'VÄSTERÅS, SWEDEN',
@@ -354,7 +354,7 @@ export const UPCOMING_EVENTS: UpcomingEvent[] = [
     id: 'robokidovation-final',
     date: 'NOVEMBER 13, 2026',
     day: 'FRIDAY',
-    title: 'RoboKidovation Västerås — Robo-Sprint City Final',
+    title: 'Västerås Future Innovators — Robo-Sprint City Final',
     subtitle: 'Explorer (Grades 4–6) & Advanced (Grades 7–9) Championships',
     location: 'Västerås, Sweden',
     description: 'School champions from the autumn STEM project compete live in the Robo-Sprint arena, judged across match performance, engineering design, teamwork and technical explanation.',
@@ -369,7 +369,7 @@ export const UPCOMING_EVENTS: UpcomingEvent[] = [
     title: 'Young Innovators Hackathon',
     subtitle: 'Proposed at Mälardalen University (MDU), Västerås',
     location: 'Mälardalen University, Västerås',
-    description: 'A one-day interdisciplinary innovation challenge where student teams tackle a real-world problem — sustainable cities, climate and environment, future schools, energy, accessibility, health, AI or technology for society — and present a concept, model, prototype or digital solution to a jury. Unlike RoboKidovation, no previous robotics experience is required, so students interested in science, technology, design, creativity or entrepreneurship can take part.',
+    description: 'A one-day interdisciplinary innovation challenge where student teams tackle a real-world problem — sustainable cities, climate and environment, future schools, energy, accessibility, health, AI or technology for society — and present a concept, model, prototype or digital solution to a jury. Unlike the robotics track, no previous robotics experience is required, so students interested in science, technology, design, creativity or entrepreneurship can take part.',
     curriculumNote: 'For grundskolan, the hackathon supports the broader intentions of Lgr22 by giving students opportunities to use creativity, curiosity, initiative, problem-solving and collaboration in a practical context, following the technology-development process from identifying a need through construction, testing and evaluation. For gymnasium students, it can complement Gy25 through project-based problem-solving, technical development, programming and interdisciplinary work — fitting well with the Technology Programme, where technical processes and links between technology and societal development are important elements.',
     cta: 'ASK ABOUT THE HACKATHON',
     ctaAction: 'register',
@@ -405,7 +405,7 @@ export const WHY_SCHOOLS_PARTICIPATE: WhyParticipateReason[] = [
   {
     title: 'School-To-City Pathway',
     desc: 'Students can represent their school beyond the classroom.',
-    detail: 'Winning Explorer and Advanced teams from each school\'s Robo-Sprint qualifiers advance directly to the RoboKidovation Västerås Robo-Sprint City Final on November 13, 2026.',
+    detail: 'Winning Explorer and Advanced teams from each school\'s Robo-Sprint qualifiers advance directly to the Västerås Future Innovators Robo-Sprint City Final on November 13, 2026.',
   },
 ];
 
@@ -460,7 +460,7 @@ export interface Gy25Connection {
 export const GY25_CONNECTIONS: Gy25Connection = {
   audience: 'Gymnasium Students',
   connections: ['Programming knowledge', 'Methods for software development', 'Solving programming-related problems', 'Analysing and presenting results', 'Individual & collaborative project work'],
-  note: 'For participating gymnasium students, RoboKidovation can complement Gy25, particularly within technology and programming-oriented education. Students practise applying programming to practical problems, developing and testing solutions, analysing results, and working individually and collaboratively in a project environment.',
+  note: 'For participating gymnasium students, Västerås Future Innovators can complement Gy25, particularly within technology and programming-oriented education. Students practise applying programming to practical problems, developing and testing solutions, analysing results, and working individually and collaboratively in a project environment.',
 };
 
 export const STEM_PROJECT_SESSIONS: ProjectSession[] = [
@@ -508,7 +508,7 @@ export const LEARNING_BLOCKS: LearningBlock[] = [
   },
   {
     tag: 'COMPETE',
-    desc: 'Apply the learning through RoboKidovation',
+    desc: 'Apply the learning through Västerås Future Innovators',
     detail: 'Sessions 9–10 close with documentation and presentation prep, then School Robo-Sprint qualifiers — winning teams represent their school at the Robo-Sprint City Final on November 13, 2026.',
   },
 ];
@@ -516,7 +516,7 @@ export const LEARNING_BLOCKS: LearningBlock[] = [
 export const FAQ_ITEMS: FAQItem[] = [
   {
     id: 'faq-1',
-    question: 'Who can participate in RoboKidovation Västerås?',
+    question: 'Who can participate in Västerås Future Innovators 2026?',
     answer: 'Students up to Grade 9 are eligible, split into two categories: the Robo-Sprint Explorer league (Grades 4–6) and the Robo-Sprint Advanced league (Grades 7–9).',
     category: 'Eligibility'
   },
@@ -541,7 +541,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     id: 'faq-5',
     question: 'What is the competition structure?',
-    answer: 'Stage 1 is the RoboSkolan Robo League qualifiers, held within each school across the 20-hour STEM project in October 2026. One winning Explorer team and one winning Advanced team from each school advance directly to the RoboKidovation Västerås Robo-Sprint City Final on Friday, November 13, 2026.',
+    answer: 'Stage 1 is the RoboSkolan Robo League qualifiers, held within each school across the 20-hour STEM project in October 2026. One winning Explorer team and one winning Advanced team from each school advance directly to the Västerås Future Innovators Robo-Sprint City Final on Friday, November 13, 2026.',
     category: 'Schools & Fees'
   },
   {

@@ -16,7 +16,7 @@ export const RefHeroMarquee: React.FC = () => {
             <img
               src={logo.file}
               alt={logo.name}
-              className="h-9 sm:h-11 w-auto object-contain grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
+              className="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
             <span className="text-[9px] sm:text-[10px] font-mono-code font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">
               {logo.role}

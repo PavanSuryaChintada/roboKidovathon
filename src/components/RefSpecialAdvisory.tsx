@@ -38,7 +38,7 @@ export const RefSpecialAdvisory: React.FC<RefSpecialAdvisoryProps> = ({
             <span className="text-[#0A1930] block">ADVISORY</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed max-w-xl mx-auto">
-            RoboKidovation Västerås is organized by Indisk BarnKlubb (IBK) Västerås alongside INIAC and SkillSkolan, with Blix as technology and kit partner — turning STEM concepts into something students build, test, improve, and compete with.
+            Västerås Future Innovators 2026 is organized by Indisk BarnKlubb (IBK) Västerås alongside INIAC and SkillSkolan, with Blix as technology and kit partner — turning STEM concepts into something students build, test, improve, and compete with.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export const RefSpecialAdvisory: React.FC<RefSpecialAdvisoryProps> = ({
               H.E. Ambassador Anurag Bhushan
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-              Ambassador of India to Sweden &amp; Latvia — formally launching RoboKidovation Västerås and addressing participating students, educators, and community representatives.
+              Ambassador of India to Sweden &amp; Latvia — formally launching Västerås Future Innovators 2026 and addressing participating students, educators, and community representatives.
             </p>
             <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-2">
               <span className="text-[11px] font-mono-code font-bold text-[#0A1930] bg-[#FFCD00]/30 border border-[#FFCD00]/60 px-3 py-1 rounded-full uppercase tracking-wide">

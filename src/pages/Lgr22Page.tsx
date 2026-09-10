@@ -64,7 +64,7 @@ export const Lgr22Page: React.FC<Lgr22PageProps> = ({
           </h1>
 
           <p className="mt-4 text-sm sm:text-base text-slate-600 font-light max-w-2xl leading-relaxed">
-            RoboKidovation and the 20-hour STEM programme provide concrete learning opportunities connected to core syllabus requirements within Teknik, Matematik, and NO/Fysik in Lgr22 for grundskolan, and to programming and engineering tracks within Gy25 for gymnasium students.
+            Västerås Future Innovators and the 20-hour STEM programme provide concrete learning opportunities connected to core syllabus requirements within Teknik, Matematik, and NO/Fysik in Lgr22 for grundskolan, and to programming and engineering tracks within Gy25 for gymnasium students.
           </p>
 
           <div className="pt-6 flex flex-wrap items-center gap-4">

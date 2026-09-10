@@ -23,7 +23,7 @@ export const RefFooter: React.FC<RefFooterProps> = ({
           <div className="md:col-span-4 space-y-4">
             <div className="flex items-center gap-2">
               <span className="font-headline font-bold text-xl sm:text-2xl tracking-tight text-white uppercase">
-                ROBOKIDOVATION VÄSTERÅS
+                VÄSTERÅS FUTURE INNOVATORS 2026
               </span>
             </div>
             <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-sm">
@@ -114,7 +114,7 @@ export const RefFooter: React.FC<RefFooterProps> = ({
 
         {/* Bottom copyright & compliance */}
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] font-mono-code text-slate-400">
-          <span>© 2026 ROBOKIDOVATION VÄSTERÅS · ALL RIGHTS RESERVED</span>
+          <span>© 2026 VÄSTERÅS FUTURE INNOVATORS · ALL RIGHTS RESERVED</span>
           <span>LOW-VOLTAGE 6V HARDWARE · GDPR-COMPLIANT STUDENT PRIVACY</span>
         </div>
 

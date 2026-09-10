@@ -44,7 +44,7 @@ export const RefManifesto: React.FC<RefManifestoProps> = ({ onNavigate }) => {
 
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#006AA7]/10 text-[#006AA7] text-[10px] font-mono-code font-bold uppercase tracking-widest mx-auto">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>THE ROBOKIDOVATION PHILOSOPHY</span>
+            <span>THE VÄSTERÅS FUTURE INNOVATORS PHILOSOPHY</span>
           </div>
 
           <motion.h2
@@ -67,7 +67,7 @@ export const RefManifesto: React.FC<RefManifestoProps> = ({ onNavigate }) => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-sm sm:text-base text-slate-600 font-light leading-relaxed max-w-2xl mx-auto"
           >
-            RoboKidovation Västerås turns abstract STEM concepts into real, team-built machines. Students learn mechanical problem-solving with genuine motors, gearboxes, and chassis components — developing engineering intuition and collaborative confidence.
+            Västerås Future Innovators 2026 turns abstract STEM concepts into real, team-built machines. Students learn mechanical problem-solving with genuine motors, gearboxes, and chassis components — developing engineering intuition and collaborative confidence.
           </motion.p>
 
           <motion.div
