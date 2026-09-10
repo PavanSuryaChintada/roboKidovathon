@@ -17,35 +17,32 @@ export const RefHero: React.FC<RefHeroProps> = ({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch((err) => {
-        console.log('Video autoplay error:', err);
-      });
-    }
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Skip to competition/arena footage — avoids the opening person close-up
+    video.currentTime = 90;
+    video.play().catch((err) => {
+      console.log('Video autoplay error:', err);
+    });
   }, []);
 
   return (
     <section className="relative w-full h-screen min-h-[640px] flex flex-col justify-end overflow-hidden select-none bg-[#070709]">
 
       {/* ── FULL-SCREEN BACKGROUND VIDEO ── */}
-      {/* Wrapper clips overflow; transform pans to show arena/event action */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster={roboPrecisionActionWide}
-          className="w-full h-full object-cover"
-          style={{
-            transform: 'scale(1.25) translateX(15%) translateY(-5%)',
-            transformOrigin: 'center center',
-          }}
-        >
-          <source src={HERO_VIDEO_URL} type="video/mp4" />
-        </video>
-      </div>
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster={roboPrecisionActionWide}
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        style={{ objectPosition: 'center 30%' }}
+      >
+        <source src={HERO_VIDEO_URL} type="video/mp4" />
+      </video>
 
       {/* ── GRADIENT SCRIM ── */}
       <div className="absolute inset-0 z-[1] pointer-events-none">
