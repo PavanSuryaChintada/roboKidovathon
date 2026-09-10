@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { X, Download, FileText, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { X, Download, FileText, CheckCircle2, ShieldCheck, AlertCircle } from 'lucide-react';
 import { roboSprintArenaMat, roboSprintKitPieces } from '../assets/images';
+import { supabase } from '../lib/supabase';
 
 interface EventDeckModalProps {
   isOpen: boolean;
@@ -10,12 +11,26 @@ interface EventDeckModalProps {
 export const EventDeckModal: React.FC<EventDeckModalProps> = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState('');
   const [downloaded, setDownloaded] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   if (!isOpen) return null;
 
-  const handleDownload = (e: React.FormEvent) => {
+  const handleDownload = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
+    setSubmitError('');
+    setIsSubmitting(true);
+
+    const { error } = await supabase.from('prospectus_downloads').insert({ email });
+
+    setIsSubmitting(false);
+
+    if (error) {
+      setSubmitError('Something went wrong. Please try again.');
+      return;
+    }
+
     setDownloaded(true);
   };
 
@@ -97,12 +112,20 @@ export const EventDeckModal: React.FC<EventDeckModalProps> = ({ isOpen, onClose 
                 <div>Includes: Competition Structure, Kit Lists &amp; Arena Rules</div>
               </div>
 
+              {submitError && (
+                <div className="p-3 bg-red-50 border border-red-200 rounded-2xl flex items-center gap-2 text-xs font-mono-code text-red-600">
+                  <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                  <span>{submitError}</span>
+                </div>
+              )}
+
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="w-full btn-pill-lime py-4 text-xs font-headline font-black tracking-[0.14em] flex items-center justify-center gap-2 shadow-xl"
               >
                 <Download className="w-4 h-4" />
-                <span>ACCESS OFFICIAL PROSPECTUS</span>
+                <span>{isSubmitting ? 'SENDING...' : 'ACCESS OFFICIAL PROSPECTUS'}</span>
               </button>
             </form>
           </div>

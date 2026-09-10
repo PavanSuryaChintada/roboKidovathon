@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { X, Sparkles, User, Building, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { X, Sparkles, User, Building, ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
 import { COMPETITION_CATEGORIES, CompetitionCategory } from '../data/roboData';
+import { supabase } from '../lib/supabase';
 
 interface RegisterModalProps {
   isOpen: boolean;
@@ -19,19 +20,38 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [confirmationCode, setConfirmationCode] = useState('');
+  const [submitError, setSubmitError] = useState('');
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError('');
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      const code = `RKV-2026-${Math.floor(1000 + Math.random() * 9000)}-${activeTab === 'student' ? 'ST' : 'SC'}`;
-      setConfirmationCode(code);
-    }, 1000);
+    const code = `RKV-2026-${Math.floor(1000 + Math.random() * 9000)}-${activeTab === 'student' ? 'ST' : 'SC'}`;
+
+    const { error } = await supabase.from('registrations').insert({
+      registration_type: activeTab,
+      team_name: activeTab === 'student' ? teamName : null,
+      school_name: activeTab === 'school' ? schoolName : null,
+      contact_name: contactName,
+      email,
+      phone,
+      category_id: selectedCategory,
+      student_count: studentCount,
+      confirmation_code: code,
+    });
+
+    setIsSubmitting(false);
+
+    if (error) {
+      setSubmitError('Something went wrong sending your registration. Please try again.');
+      return;
+    }
+
+    setIsSubmitted(true);
+    setConfirmationCode(code);
   };
 
   const handleReset = () => {
@@ -42,6 +62,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
     setEmail('');
     setPhone('');
     setStudentCount('3');
+    setSubmitError('');
     onClose();
   };
 
@@ -222,6 +243,13 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
                 <span className="text-[#0A1930] font-semibold">REGISTRATION DEADLINE:</span>
                 <span className="font-bold text-[#0A1930]">NOVEMBER 13, 2026</span>
               </div>
+
+              {submitError && (
+                <div className="p-3 bg-red-50 border border-red-200 rounded-2xl flex items-center gap-2 text-xs font-mono-code text-red-600">
+                  <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                  <span>{submitError}</span>
+                </div>
+              )}
 
               <button
                 type="submit"
